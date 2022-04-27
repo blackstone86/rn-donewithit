@@ -2,6 +2,8 @@
   "name": "donewithit",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "description": "A marketplace for selling the stuff you don't need anymore.",
+  "author": "Junwen Huang",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
