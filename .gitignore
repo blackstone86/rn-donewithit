@@ -2,6 +2,8 @@ node_modules/
 .expo/
 dist/
 npm-debug.*
+.pnpm-debug.*
+package-lock.json
 *.jks
 *.p8
 *.p12
