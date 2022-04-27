@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  Button,
   Platform,
   SafeAreaView,
   TouchableWithoutFeedback,
@@ -20,12 +21,19 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight
 export default function App() {
   const handleTextPress = () => console.log('Text tapped')
   const handleImagePress = () => console.log('Image tapped')
+  const handleButtonPress = () => console.log('Button tapped')
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Text numberOfLines={1} onPress={handleTextPress}>
         Hello React Native
       </Text>
+      {/* color：安卓是背景色，字体颜色固定白色，ios是字体颜色，且没背景色 */}
+      <Button
+        color="orange"
+        title="Click Me"
+        onPress={handleButtonPress}
+      />
       {/* 点击没有视觉反馈效果 */}
       <TouchableNativeFeedback
         onPress={handleImagePress}
