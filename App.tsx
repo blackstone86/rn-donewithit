@@ -1,5 +1,13 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, Image, Platform, SafeAreaView, ActivityIndicator } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Platform,
+  SafeAreaView,
+  ActivityIndicator
+} from 'react-native'
 import Constants from 'expo-constants'
 const STATUSBAR_HEIGHT = Constants.statusBarHeight
 
@@ -10,12 +18,11 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Text numberOfLines={1} onPress={handlePress}>
-        Hello React Native Hello React Native Hello React Native Hello React Native Hello React Native Hello React Native Hello React Native Hello React Native Hello React Native
+        Hello React Native Hello React Native Hello React Native Hello React
+        Native Hello React Native Hello React Native Hello React Native Hello
+        React Native Hello React Native
       </Text>
-      <Image
-        style={styles.icon}
-        source={require('./assets/icon.png')}
-      />
+      <Image style={styles.icon} source={require('./assets/icon.png')} />
       <Image
         blurRadius={10}
         fadeDuration={1000}
@@ -41,6 +48,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 200,
-    height: 200,
+    height: 200
   }
 })
