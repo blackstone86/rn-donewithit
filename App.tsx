@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar'
 import {
   StyleSheet,
-  Button,
+  Image,
   Platform,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native'
 import React, { useState } from 'react'
 import Constants from 'expo-constants'
@@ -11,15 +11,19 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight
 
 // IOS：View -> UIView 原生对象
 export default function App() {
-  const handleButtonPress = () => console.log('Button tapped')
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      {/* color：安卓是背景色，字体颜色固定白色，ios是字体颜色，且没背景色 */}
-      <Button
-        color="orange"
-        title="Click Me"
-        onPress={handleButtonPress}
+      <Image style={styles.icon} source={require('./assets/icon.png')} />
+      <Image
+        blurRadius={10}
+        fadeDuration={1000}
+        loadingIndicatorSource={require('./assets/preview.gif')}
+        style={styles.icon}
+        resizeMode="contain"
+        source={{
+          uri: 'https://picsum.photos/200/200'
+        }}
       />
     </SafeAreaView>
   )
@@ -33,5 +37,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  icon: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'dodgerblue'
   },
 })
