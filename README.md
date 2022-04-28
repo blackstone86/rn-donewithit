@@ -9,9 +9,9 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - fc-Button
 - fc-TouchableOpacity
 - fc-TouchableHighlight
-- fc-TouchableNativeFeedback
+- fc-TouchableWithoutFeedback
+- android-TouchableNativeFeedback
 - ios-SafeAreaView
-- android-TouchableWithoutFeedback
 
 ## How to use
 
