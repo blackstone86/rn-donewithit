@@ -5,7 +5,6 @@ It create by expo-cli, and use different branches to introduce foundation compon
 ## branchs
 
 - fc-Text
-- fc-text
 - fc-Image
 - fc-Button
 - fc-TouchableOpacity
