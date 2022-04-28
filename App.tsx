@@ -4,7 +4,7 @@ import {
   Image,
   Platform,
   SafeAreaView,
-  TouchableOpacity,
+  TouchableHighlight,
 } from 'react-native'
 import React, { useState } from 'react'
 import Constants from 'expo-constants'
@@ -16,10 +16,10 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      {/* 点击有渐变效果 */}
-      <TouchableOpacity onPress={handleImagePress}>
+      {/* 点击背景有蒙层效果 */}
+      <TouchableHighlight onPress={handleImagePress}>
         <Image style={styles.icon} source={require('./assets/icon.png')} />
-      </TouchableOpacity>
+      </TouchableHighlight>
     </SafeAreaView>
   )
 }
