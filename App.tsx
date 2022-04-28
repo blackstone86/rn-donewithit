@@ -1,13 +1,11 @@
-import { StatusBar } from 'expo-status-bar'
 import {
   StyleSheet,
   Button,
   Platform,
   SafeAreaView,
+  StatusBar
 } from 'react-native'
 import React, { useState } from 'react'
-import Constants from 'expo-constants'
-const STATUSBAR_HEIGHT = Constants.statusBarHeight
 
 export default function App() {
   const handleButtonPress = () => console.log('Button tapped')
@@ -15,7 +13,6 @@ export default function App() {
     // <SafeAreaView style={container}> not recommend
     // <SafeAreaView style={{backgroundColor: '#fff'}}> not recommend, the project without typescript configuration, vscode does not show wrong infomation with attribute name's spelling
     <SafeAreaView style={[styles.container, styles.containerOverride]}>
-      <StatusBar style="auto" />
       {/*
         1.Color of the text (iOS), or background color of the button (Android).
         2.button component has not 'style' atrribute
@@ -36,7 +33,7 @@ export default function App() {
  */
 
 const container = { // not recommend
-  paddingTop: Platform.OS === 'android' ? STATUSBAR_HEIGHT : 0,
+  paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   flex: 1,
   backgroundColor: 'orange',
   flexDirection: 'column',
@@ -46,7 +43,7 @@ const container = { // not recommend
 
 const styles = StyleSheet.create({ // recommend
   container: {
-    paddingTop: Platform.OS === 'android' ? STATUSBAR_HEIGHT : 0,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     flex: 1,
     backgroundColor: '#fff',
     flexDirection: 'column',
