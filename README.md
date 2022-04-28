@@ -12,6 +12,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - fc-TouchableWithoutFeedback
 - android-TouchableNativeFeedback
 - ios-SafeAreaView
+- api-Alert
 
 ## How to use
 
