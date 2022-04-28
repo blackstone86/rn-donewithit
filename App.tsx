@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
 import {
   StyleSheet,
-  Image,
+  View,
   Platform,
   SafeAreaView,
-  TouchableWithoutFeedback,
+  TouchableNativeFeedback,
 } from 'react-native'
 import React, { useState } from 'react'
 import Constants from 'expo-constants'
@@ -12,23 +12,20 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight
 
 // IOS：View -> UIView 原生对象
 export default function App() {
-  const handleImagePress = () => console.log('Image tapped')
+  const handleImagePress = () => console.log('View tapped')
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       {/* 点击没有视觉反馈效果 */}
-      <TouchableWithoutFeedback onPress={handleImagePress}>
-        <Image
-          blurRadius={10}
-          fadeDuration={1000}
-          loadingIndicatorSource={require('./assets/preview.gif')}
-          style={styles.icon}
-          resizeMode="contain"
-          source={{
-            uri: 'https://picsum.photos/200/200'
-          }}
-        />
-      </TouchableWithoutFeedback>
+      <TouchableNativeFeedback
+        onPress={handleImagePress}
+        background={TouchableNativeFeedback.Ripple(
+          'rgba(255, 255, 255, 0.2)',
+          false
+        )}
+      >
+        <View style={styles.view}></View>
+      </TouchableNativeFeedback>
     </SafeAreaView>
   )
 }
@@ -42,9 +39,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  icon: {
+  view: {
     width: 100,
-    height: 100,
+    height: 80,
     backgroundColor: 'dodgerblue'
-  },
+  }
 })
