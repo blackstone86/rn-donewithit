@@ -2,7 +2,7 @@ This repo is an app build from react native and published to expo go application
 
 It create by expo-cli, and use different branches to introduce foundation components and how to visit with your phone or virtual device. you can use `Expo Go app` open url `exp://exp.host/@junwenhuang/DoneWithIt?release-channel=default`.
 
-## branchs
+## Branches
 
 - fc-Text
 - fc-Image
@@ -12,6 +12,9 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - fc-TouchableWithoutFeedback
 - android-TouchableNativeFeedback
 - ios-SafeAreaView
+- api-Alert
+- api-StyleSheet
+- api-Platform
 
 ## How to use
 
@@ -60,6 +63,15 @@ Step08, Install the dependencies.
 ```bash
 $ npm install
 ```
+
+> Some command-line options you should know.
+
+- `?` – show all commands
+- `a` – open Android (android virtual device and android phone will open expo app automatically)
+- `r` – reload app (virtual device and phone will reload automatically)
+- `m` – toggle menu (as hot key Ctrl+M -windows or Command+M -ios, you don't have to shake the phone to show the menu)
+- `d` – show developer tools (open http://localhost:19002/ in broswer automatically)
+- `w` – open web (open http://localhost:19006/ in broswer automatically)
 
 Step09, start the project.
 
