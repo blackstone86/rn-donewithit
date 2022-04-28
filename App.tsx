@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
 import {
   StyleSheet,
-  Text,
+  Image,
   Platform,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native'
 import React, { useState } from 'react'
 import Constants from 'expo-constants'
@@ -11,16 +12,14 @@ const STATUSBAR_HEIGHT = Constants.statusBarHeight
 
 // IOS：View -> UIView 原生对象
 export default function App() {
-  const handleTextPress = () => console.log('Text tapped')
+  const handleImagePress = () => console.log('Image tapped')
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <Text numberOfLines={1} onPress={handleTextPress}>
-        Hello React Native
-      </Text>
-      <Text numberOfLines={1} onPress={handleTextPress}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </Text>
+      {/* 点击有渐变效果 */}
+      <TouchableOpacity onPress={handleImagePress}>
+        <Image style={styles.icon} source={require('./assets/icon.png')} />
+      </TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -33,5 +32,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  icon: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'dodgerblue'
   },
 })
