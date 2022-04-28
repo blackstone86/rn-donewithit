@@ -13,6 +13,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - android-TouchableNativeFeedback
 - ios-SafeAreaView
 - api-Alert
+- api-StyleSheet
 
 ## How to use
 
