@@ -1,6 +1,18 @@
 This repo is an app build from react native and published to expo go application.
 
-It create by expo-cli, and introduce foundation components and how to visit with your phone or virtual device. you can use `Expo Go app` open url `exp://exp.host/@junwenhuang/DoneWithIt?release-channel=default`
+It create by expo-cli, and use different branches to introduce foundation components and how to visit with your phone or virtual device. you can use `Expo Go app` open url `exp://exp.host/@junwenhuang/DoneWithIt?release-channel=default`.
+
+## branchs
+
+- fc-Text
+- fc-text
+- fc-Image
+- fc-Button
+- fc-TouchableOpacity
+- fc-TouchableHighlight
+- fc-TouchableNativeFeedback
+- ios-SafeAreaView
+- android-TouchableWithoutFeedback
 
 ## How to use
 
@@ -71,9 +83,17 @@ Step11, publish application to Expo Go app for Development
 
 now, you will find your published app in your Profile in `Expo Go app`.
 
+## recommend vscode plugins
+
+- React Native Tools
+- ES7+ React/Redux/React-Native snippets
+- Expo Tools
+
 ## Useful links
 
 - [React Native Tutorial for Beginners](https://www.youtube.com/watch?v=0-S5a0eXPoc)
+- [React Native Docs](https://reactnative.dev/docs/)
+- [Expo Docs](https://docs.expo.dev/get-started/installation/)
 
 ## License
 
