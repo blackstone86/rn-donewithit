@@ -66,11 +66,12 @@ $ npm install
 
 > Some command-line options you should know.
 
-- `?` - show all commands
+- `?` – show all commands
 - `a` – open Android (android virtual device and android phone will open expo app automatically)
 - `r` – reload app (virtual device and phone will reload automatically)
 - `m` – toggle menu (as hot key Ctrl+M -windows or Command+M -ios, you don't have to shake the phone to show the menu)
 - `d` – show developer tools (open http://localhost:19002/ in broswer automatically)
+- `w` – open web (open http://localhost:19006/ in broswer automatically)
 
 Step09, start the project.
 
