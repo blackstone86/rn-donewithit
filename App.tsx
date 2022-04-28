@@ -4,7 +4,7 @@ import {
   Image,
   Platform,
   SafeAreaView,
-  TouchableHighlight,
+  TouchableWithoutFeedback,
 } from 'react-native'
 import React, { useState } from 'react'
 import Constants from 'expo-constants'
@@ -16,10 +16,19 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      {/* 点击背景有蒙层效果 */}
-      <TouchableHighlight onPress={handleImagePress}>
-        <Image style={styles.icon} source={require('./assets/icon.png')} />
-      </TouchableHighlight>
+      {/* 点击没有视觉反馈效果 */}
+      <TouchableWithoutFeedback onPress={handleImagePress}>
+        <Image
+          blurRadius={10}
+          fadeDuration={1000}
+          loadingIndicatorSource={require('./assets/preview.gif')}
+          style={styles.icon}
+          resizeMode="contain"
+          source={{
+            uri: 'https://picsum.photos/200/200'
+          }}
+        />
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   )
 }
