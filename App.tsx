@@ -1,56 +1,10 @@
-import {
-  StyleSheet,
-  Button,
-  Platform,
-  SafeAreaView,
-  StatusBar
-} from 'react-native'
-import React, { useState } from 'react'
-
-export default function App() {
-  const handleButtonPress = () => console.log('Button tapped')
-  return (
-    // <SafeAreaView style={container}> not recommend
-    // <SafeAreaView style={{backgroundColor: '#fff'}}> not recommend, the project without typescript configuration, vscode does not show wrong infomation with attribute name's spelling
-    <SafeAreaView style={[styles.container, styles.containerOverride]}>
-      {/*
-        1.Color of the text (iOS), or background color of the button (Android).
-        2.button component has not 'style' atrribute
-      */}
-      <Button
-        color="dodgerblue"
-        title="Click Me"
-        onPress={handleButtonPress}
-      />
-    </SafeAreaView>
-  )
-}
+// import App from './demos/BestPractice'
+import App from './demos/useDimensions'
+// import App from './demos/useDeviceOrientation'
 
 /**
- * why not recommend to use object as style, because 2 reasons:
- * 1.StyleSheet.create will verify the stylesheet, eg. spelling of attribute name
- * 2.React Native team optimize the stylesheet api, and will use in the future version.
+ * notice
+ * 1.BestPractices 代码推荐写法
+ * 2.Dimensions 尺寸
  */
-
-const container = { // not recommend
-  paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  flex: 1,
-  backgroundColor: 'orange',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center'
-}
-
-const styles = StyleSheet.create({ // recommend
-  container: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    flex: 1,
-    backgroundColor: '#fff',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  containerOverride: {
-    backgroundColor: 'orange',
-  }
-})
+export default App;
