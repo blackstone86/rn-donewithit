@@ -4,7 +4,8 @@
 // import App from './demos/Flexbox'
 // import App from './demos/FlexDirection'
 // import App from './demos/FlexAlign'
-import App from './demos/FlexWrap'
+// import App from './demos/FlexWrap'
+import App from './demos/FlexBasisGrowShrink'
 
 /**
  * notice
@@ -14,5 +15,6 @@ import App from './demos/FlexWrap'
  * 4.Flexbox 布局
  * 5.FlexDirection 布局主轴方向
  * 6.FlexAlign 对齐方式
+ * 7.FlexBasisGrowShrink 自动占满主轴或在主轴按比例收缩显示
  */
 export default App;
