@@ -1,30 +1,10 @@
-import React, { useState } from 'react'
-import {
-  StyleSheet,
-  Button,
-  Platform,
-  SafeAreaView,
-  StatusBar
-} from 'react-native'
+import React from 'react'
+import ViewImageScreen from './app/screens/ViewImageScreen'
+import WelcomeScreen from './app/screens/WelcomeScreen'
 
 export default function App() {
-  const handleButtonPress = () => console.log('Button tapped')
   return (
-    <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Click Me"
-        onPress={handleButtonPress}
-      />
-    </SafeAreaView>
+    <ViewImageScreen />
+    // <WelcomeScreen />
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    flex: 1,
-    backgroundColor: '#fff',
-    flexDirection: 'column',
-  }
-})
