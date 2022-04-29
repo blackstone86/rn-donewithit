@@ -7,7 +7,8 @@
 // import App from './demos/FlexWrap'
 // import App from './demos/FlexBasisGrowShrink'
 // import App from './demos/Absolute&Relative'
-import App from './demos/Exercises'
+// import App from './demos/Exercises01'
+import App from './demos/Exercises02'
 
 /**
  * notice
@@ -19,6 +20,6 @@ import App from './demos/Exercises'
  * 6.FlexAlign 对齐方式
  * 7.FlexBasisGrowShrink 自动占满主轴或在主轴按比例收缩显示
  * 8.Absolute&Relative 相对定位，绝对定位
- * 9.Exercises 练习
+ * 9.Exercises01 练习启动页
  */
 export default App;
