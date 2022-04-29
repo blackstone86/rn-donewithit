@@ -7,7 +7,6 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import colors from '../config/colors';
 
 function ViewImageScreen(props: any) {
