@@ -8,7 +8,8 @@
 // import App from './demos/FlexBasisGrowShrink'
 // import App from './demos/Absolute&Relative'
 // import App from './demos/Exercises01'
-import App from './demos/Exercises02'
+// import App from './demos/Exercises02'
+import App from './demos/Borders'
 
 /**
  * notice
