@@ -30,6 +30,6 @@ import App from './demos/StylingText'
  * 12.Borders 边框
  * 13.Shadows 阴影
  * 14.Padding&Margins 内边距，外边距差异
- * 14.StylingText 内边距，外边距差异
+ * 14.StylingText 文本样式
  */
 export default App;
