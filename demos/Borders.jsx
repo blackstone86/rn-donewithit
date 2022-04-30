@@ -33,10 +33,10 @@ export default function App() {
         borderBottomWidth: 7,
         borderLeftWidth: 8,
         // border radius
-        borderTopLeftRadius: 2,
-        borderTopRightRadius: 3,
-        borderBottomRightRadius: 4,
-        borderBottomLeftRadius: 5,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        borderBottomRightRadius: 50,
+        borderBottomLeftRadius: 50,
         // border color
         borderTopColor: 'tomato',
         borderRightColor: 'yellow',
