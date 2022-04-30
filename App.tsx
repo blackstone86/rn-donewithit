@@ -11,7 +11,8 @@
 // import App from './demos/Exercises02'
 // import App from './demos/Borders'
 // import App from './demos/Shadows'
-import App from './demos/Paddings&Margins'
+// import App from './demos/Paddings&Margins'
+import App from './demos/StylingText'
 
 /**
  * notice
@@ -29,5 +30,6 @@ import App from './demos/Paddings&Margins'
  * 12.Borders 边框
  * 13.Shadows 阴影
  * 14.Padding&Margins 内边距，外边距差异
+ * 14.StylingText 内边距，外边距差异
  */
 export default App;
