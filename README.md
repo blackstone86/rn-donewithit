@@ -105,6 +105,7 @@ now, you will find your published app in your Profile in `Expo Go app`.
 - [React Native Tutorial for Beginners](https://www.youtube.com/watch?v=0-S5a0eXPoc)
 - [React Native Docs](https://reactnative.dev/docs/)
 - [Expo Docs](https://docs.expo.dev/get-started/installation/)
+- [System Fonts On IOS And Android](https://github.com/react-native-training/react-native-fonts)
 
 ## License
 
