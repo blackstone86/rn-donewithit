@@ -23,12 +23,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.junwenhuang.DoneWithIt"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "platforms": ["android", "ios", "web"],
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ],
     "description": "A marketplace for selling the stuff you don't need anymore.",
     "githubUrl": "https://github.com/blackstone86/rn-donewithit.git"
   }
