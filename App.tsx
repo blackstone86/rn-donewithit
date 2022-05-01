@@ -16,6 +16,7 @@
 // import App from './demos/EncapsulatingStyles'
 // import App from './demos/Icons'
 import App from './demos/PlatformSpecific'
+// import App from './demos/OrganizingStyles'
 
 /**
  * notice
@@ -37,5 +38,6 @@ import App from './demos/PlatformSpecific'
  * 16.EncapsulatingStyles 封装样式到组件
  * 17.Icons 图标
  * 18.PlatformSpecific 指定平台代码
+ * 19.OrganizingStyles 组织平台样式代码
  */
 export default App;
