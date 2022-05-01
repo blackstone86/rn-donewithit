@@ -9,6 +9,11 @@ import React from 'react'
 import AppButton from '../../components/AppButton'
 import COLORS from '../../config/colors'
 
+const MARGIN = 20;
+const BACKGROUND_BLUR_RADIUS = 6;
+const backgroundSource = require('../../assets/materials/background.jpg')
+const logoSource = require('../../assets/materials/logo-red.png')
+
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
@@ -23,14 +28,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 80,
   },
   logo: {
     width: 100,
     height: 100,
   },
+  text: {
+    fontSize: 22,
+    marginTop: MARGIN,
+    fontWeight: 'bold'
+  },
   button: {
-    marginTop: 20,
+    marginHorizontal: MARGIN,
+    marginTop: MARGIN,
   },
 })
 
@@ -38,23 +49,24 @@ export default function App() {
   return (
     <ImageBackground
       style={styles.backgroundImage}
-      source={require('../../assets/materials/background.jpg')} >
+      blurRadius={BACKGROUND_BLUR_RADIUS}
+      source={backgroundSource} >
       <View style={styles.infoBox}>
         <View style={styles.logoBox}>
           <Image
             style={styles.logo}
-            source={require('../../assets/materials/logo-red.png')} />
-          <Text>Sell What You Don't Need</Text>
+            source={logoSource} />
+          <Text style={styles.text}>Sell What You Don't Need</Text>
         </View>
         <AppButton
           style={styles.button}
           title="LOGIN"
-          onPress={() => console.log('tapped AppButton')} />
+          onPress={() => console.log('tapped login button')} />
         <AppButton
           style={styles.button}
           title="REGISTER"
           backgroundColor={COLORS.SECONDARY}
-          onPress={() => console.log('tapped AppButton')} />
+          onPress={() => console.log('tapped register button')} />
       </View>
     </ImageBackground>
   )
