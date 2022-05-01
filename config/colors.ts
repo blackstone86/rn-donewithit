@@ -1,6 +1,7 @@
-const colors = {
-  primary: 'tomato',
-  white: '#fff',
+const COLORS = {
+  PRIMARY: 'tomato',
+  SECONDARY: 'turquoise',
+  WHITE: '#fff',
 }
 
-export default colors
+export default COLORS
