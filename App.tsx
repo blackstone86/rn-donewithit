@@ -15,8 +15,9 @@
 // import App from './demos/StylingText'
 // import App from './demos/EncapsulatingStyles'
 // import App from './demos/Icons'
-import App from './demos/PlatformSpecific'
+// import App from './demos/PlatformSpecific'
 // import App from './demos/OrganizingStyles'
+import App from './demos/Exercise03'
 
 /**
  * notice
@@ -39,5 +40,6 @@ import App from './demos/PlatformSpecific'
  * 17.Icons 图标
  * 18.PlatformSpecific 指定平台代码
  * 19.OrganizingStyles 组织平台样式代码
+ * 20.Exercise03 按钮
  */
 export default App;
