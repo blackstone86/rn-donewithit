@@ -1,6 +1,4 @@
-import React, {
-  useCallback,
-} from 'react';
+import React, { useCallback } from 'react'
 import {
   View,
   Text,
@@ -9,17 +7,17 @@ import {
   Platform,
   GestureResponderEvent,
   ViewStyle,
-  StyleProp,
-} from 'react-native';
+  StyleProp
+} from 'react-native'
 import useStyles from './useStyles'
 
 type AppButtonProps = {
-  title: string,
-  fontSize?: number,
-  height?: number,
-  backgroundColor?: string,
-  borderRadius?: number,
-  style?: StyleProp<ViewStyle>,
+  title: string
+  fontSize?: number
+  height?: number
+  backgroundColor?: string
+  borderRadius?: number
+  style?: StyleProp<ViewStyle>
   onPress?: (e?: GestureResponderEvent) => void
 }
 
@@ -30,22 +28,31 @@ function AppButton({
   backgroundColor,
   borderRadius,
   style,
-  onPress,
+  onPress
 }: AppButtonProps) {
   const handlePress = useCallback((e: GestureResponderEvent) => {
-    typeof onPress === 'function' && onPress(e);
+    typeof onPress === 'function' && onPress(e)
   }, [])
   const styles = useStyles({ fontSize, height, backgroundColor, borderRadius })
-  const button = (<View style={styles.button}>
-    <Text style={styles.text}>{title}</Text>
-  </View>);
-  const isAndroid = Platform.OS === 'android';
+  const button = (
+    <View style={styles.button}>
+      <Text style={styles.text}>{title}</Text>
+    </View>
+  )
+  const isAndroid = Platform.OS === 'android'
   return (
     <View style={[styles.buttonBox, style]}>
-      {isAndroid ? (<TouchableNativeFeedback onPress={handlePress}>{button}</TouchableNativeFeedback>) :
-        (<TouchableWithoutFeedback onPress={handlePress}>{button}</TouchableWithoutFeedback>)}
+      {isAndroid ? (
+        <TouchableNativeFeedback onPress={handlePress}>
+          {button}
+        </TouchableNativeFeedback>
+      ) : (
+        <TouchableWithoutFeedback onPress={handlePress}>
+          {button}
+        </TouchableWithoutFeedback>
+      )}
     </View>
   )
 }
 
-export default AppButton;
+export default AppButton

@@ -13,30 +13,39 @@ export default function App() {
    * 1.StyleSheet.create will verify the stylesheet, eg. spelling of attribute name
    * 2.React Native team optimize the stylesheet api, and will use in the future version.
    */
-  const container = useMemo(() => ({ // not recommend
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    flex: 1,
-    backgroundColor: 'orange',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }), []);
-
-  const styles = useMemo(() => StyleSheet.create({ // recommend
-    container: {
+  const container = useMemo(
+    () => ({
+      // not recommend
       paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'orange',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center'
-    },
-    containerOverride: {
-      backgroundColor: 'orange',
-    }
-  }), [])
+    }),
+    []
+  )
 
-  const handleButtonPress = useCallback(() => console.log('Button tapped'), []);
+  const styles = useMemo(
+    () =>
+      StyleSheet.create({
+        // recommend
+        container: {
+          paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+          flex: 1,
+          backgroundColor: '#fff',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        },
+        containerOverride: {
+          backgroundColor: 'orange'
+        }
+      }),
+    []
+  )
+
+  const handleButtonPress = useCallback(() => console.log('Button tapped'), [])
 
   return (
     // <SafeAreaView style={container}> not recommend
@@ -46,11 +55,7 @@ export default function App() {
         1.Color of the text (iOS), or background color of the button (Android).
         2.button component has not 'style' atrribute
       */}
-      <Button
-        color="dodgerblue"
-        title="Click Me"
-        onPress={handleButtonPress}
-      />
+      <Button color="dodgerblue" title="Click Me" onPress={handleButtonPress} />
     </SafeAreaView>
   )
 }

@@ -1,10 +1,7 @@
-import {
-  View
-} from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 export default function App() {
-
   /**
    * flexBasis
    * 1.set main axis length and priority heigher than width
@@ -17,29 +14,37 @@ export default function App() {
    * 2.secondary, flexShrink boxes's main axis length Proportional in the remain length of the screen.
    */
   return (
-    <View style={{
-      backgroundColor: '#fff',
-      flex: 1,
-      flexDirection: 'column', // default: column
-      justifyContent: 'center', // main axis
-      alignItems: 'center', // secondary axis , control items within each line.
-    }}>
-      <View style={{
-        backgroundColor: 'dodgerblue',
-        width: 100,
-        flexGrow: 1,
-        height: 100,
-      }} />
-      <View style={{
-        backgroundColor: 'gold',
-        width: 100,
-        height: 100,
-      }} />
-      <View style={{
-        backgroundColor: 'tomato',
-        width: 100,
-        height: 100,
-      }} />
+    <View
+      style={{
+        backgroundColor: '#fff',
+        flex: 1,
+        flexDirection: 'column', // default: column
+        justifyContent: 'center', // main axis
+        alignItems: 'center' // secondary axis , control items within each line.
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: 'dodgerblue',
+          width: 100,
+          flexGrow: 1,
+          height: 100
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: 'gold',
+          width: 100,
+          height: 100
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: 'tomato',
+          width: 100,
+          height: 100
+        }}
+      />
     </View>
   )
 }

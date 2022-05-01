@@ -1,7 +1,7 @@
 const COLORS = {
   PRIMARY: 'tomato',
   SECONDARY: 'turquoise',
-  WHITE: '#fff',
+  WHITE: '#fff'
 }
 
 export default COLORS

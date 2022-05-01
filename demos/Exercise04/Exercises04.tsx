@@ -1,38 +1,32 @@
-import {
-  Image,
-  Text,
-  View,
-  StyleSheet,
-  ImageBackground,
-} from 'react-native'
+import { Image, Text, View, StyleSheet, ImageBackground } from 'react-native'
 import React from 'react'
 import AppButton from '../../components/AppButton'
 import COLORS from '../../config/colors'
 
-const MARGIN = 20;
-const BACKGROUND_BLUR_RADIUS = 6;
+const MARGIN = 20
+const BACKGROUND_BLUR_RADIUS = 6
 const backgroundSource = require('../../assets/materials/background.jpg')
 const logoSource = require('../../assets/materials/logo-red.png')
 
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    paddingBottom: 30,
+    paddingBottom: 30
   },
   infoBox: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   logoBox: {
     flexGrow: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: 80,
+    marginTop: 80
   },
   logo: {
     width: 100,
-    height: 100,
+    height: 100
   },
   text: {
     fontSize: 22,
@@ -41,8 +35,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginHorizontal: MARGIN,
-    marginTop: MARGIN,
-  },
+    marginTop: MARGIN
+  }
 })
 
 export default function App() {
@@ -50,23 +44,24 @@ export default function App() {
     <ImageBackground
       style={styles.backgroundImage}
       blurRadius={BACKGROUND_BLUR_RADIUS}
-      source={backgroundSource} >
+      source={backgroundSource}
+    >
       <View style={styles.infoBox}>
         <View style={styles.logoBox}>
-          <Image
-            style={styles.logo}
-            source={logoSource} />
+          <Image style={styles.logo} source={logoSource} />
           <Text style={styles.text}>Sell What You Don't Need</Text>
         </View>
         <AppButton
           style={styles.button}
           title="LOGIN"
-          onPress={() => console.log('tapped login button')} />
+          onPress={() => console.log('tapped login button')}
+        />
         <AppButton
           style={styles.button}
           title="REGISTER"
           backgroundColor={COLORS.SECONDARY}
-          onPress={() => console.log('tapped register button')} />
+          onPress={() => console.log('tapped register button')}
+        />
       </View>
     </ImageBackground>
   )

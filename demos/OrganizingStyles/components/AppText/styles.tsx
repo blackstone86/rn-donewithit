@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native'
 
 const styles = StyleSheet.create({
   text: {
@@ -6,12 +6,12 @@ const styles = StyleSheet.create({
       android: {
         fontSize: 20,
         fontFamily: 'Roboto',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
       },
       ios: {
         fontSize: 18,
         fontFamily: 'Courier',
-        fontWeight: '100',
+        fontWeight: '100'
       }
     }),
     // ==============================
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     textDecorationLine: 'underline',
     textAlign: 'center',
-    lineHeight: 36,
+    lineHeight: 36
   }
 })
 

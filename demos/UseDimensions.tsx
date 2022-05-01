@@ -26,12 +26,11 @@ import { useDimensions } from '@react-native-community/hooks'
  */
 
 export default function App() {
-
   // portrait mode or landscape mode will return updated dimensions
   // Useful for when you need support multiple orientations
   // window size is little smaller than screen size
   const screen = useDimensions().screen
-  console.log(screen);
+  console.log(screen)
   /**
     xiaomi 11 Ultras
     Object {
@@ -41,21 +40,27 @@ export default function App() {
       "width": 411.42857142857144,
     }
    */
-  const styles = useMemo(() => StyleSheet.create({
-    container: {
-      paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-      backgroundColor: '#fff',
-      flex: 1,
-    }
-  }), [])
+  const styles = useMemo(
+    () =>
+      StyleSheet.create({
+        container: {
+          paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+          backgroundColor: '#fff',
+          flex: 1
+        }
+      }),
+    []
+  )
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: 'dodgerblue',
-        width: 393, // 这里是指Dip(Density-indepent Pixels)，可以理解为逻辑像素
-        height: '30%'
-      }} />
+      <View
+        style={{
+          backgroundColor: 'dodgerblue',
+          width: 393, // 这里是指Dip(Density-indepent Pixels)，可以理解为逻辑像素
+          height: '30%'
+        }}
+      />
     </SafeAreaView>
   )
 }

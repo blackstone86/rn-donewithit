@@ -44,4 +44,4 @@ import App from './demos/Exercise04'
  * 20.Exercise03 按钮
  * 21.Exercise04 启动页
  */
-export default App;
+export default App
