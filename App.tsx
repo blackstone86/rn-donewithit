@@ -14,7 +14,8 @@
 // import App from './demos/Paddings&Margins'
 // import App from './demos/StylingText'
 // import App from './demos/EncapsulatingStyles'
-import App from './demos/Icons'
+// import App from './demos/Icons'
+import App from './demos/PlatformSpecific'
 
 /**
  * notice
@@ -35,5 +36,6 @@ import App from './demos/Icons'
  * 15.StylingText 文本样式
  * 16.EncapsulatingStyles 封装样式到组件
  * 17.Icons 图标
+ * 18.PlatformSpecific 指定平台代码
  */
 export default App;
