@@ -12,7 +12,8 @@
 // import App from './demos/Borders'
 // import App from './demos/Shadows'
 // import App from './demos/Paddings&Margins'
-import App from './demos/StylingText'
+// import App from './demos/StylingText'
+import App from './demos/EncapsulatingStyles'
 
 /**
  * notice
@@ -31,5 +32,6 @@ import App from './demos/StylingText'
  * 13.Shadows 阴影
  * 14.Padding&Margins 内边距，外边距差异
  * 14.StylingText 文本样式
+ * 15.EncapsulatingStyles 封装样式到组件
  */
 export default App;
