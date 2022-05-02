@@ -1,13 +1,8 @@
 import React from 'react'
-import {
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  ImageSourcePropType
-} from 'react-native'
+import { View, Image, StyleSheet, ImageSourcePropType } from 'react-native'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
+import AppText from '../AppText'
 
 type AppCardProps = {
   title: string
@@ -20,9 +15,9 @@ function AppCard({ title, subTitle, image }: AppCardProps) {
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
       <View style={styles.infoBox}>
-        <Text style={[styles.text, styles.title]}>{title}</Text>
+        <AppText style={[styles.text, styles.title]}>{title}</AppText>
         {subTitle && (
-          <Text style={[styles.text, styles.subTitle]}>{subTitle}</Text>
+          <AppText style={[styles.text, styles.subTitle]}>{subTitle}</AppText>
         )}
       </View>
     </View>
