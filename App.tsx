@@ -22,7 +22,8 @@
 // import App from './demos/Exercise05'
 // import App from './demos/Exercise06'
 // import App from './demos/Exercise07'
-import App from './demos/FlatList'
+// import App from './demos/FlatList'
+import App from './demos/Separators'
 
 /**
  * notice
