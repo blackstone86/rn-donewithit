@@ -1,13 +1,14 @@
-import {
-  FlatList,
-  SafeAreaView,
-  StyleSheet,
-  Platform,
-  StatusBar
-} from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, Platform } from 'react-native'
 
 import React from 'react'
 import AppListItem from '../components/AppListItem'
+import Constants from 'expo-constants'
+
+/**
+ * Constants.statusBarHeight
+ * sdk_gphone64_x86_64: 24
+ * M2102K1C: 39
+ */
 
 const messages = [
   {
@@ -26,9 +27,10 @@ const messages = [
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+    paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0
   }
 })
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
