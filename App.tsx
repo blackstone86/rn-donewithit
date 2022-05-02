@@ -20,7 +20,8 @@
 // import App from './demos/Exercise03'
 // import App from './demos/Exercise04'
 // import App from './demos/Exercise05'
-import App from './demos/Exercise06'
+// import App from './demos/Exercise06'
+import App from './demos/Exercise07'
 
 /**
  * notice
@@ -47,5 +48,6 @@ import App from './demos/Exercise06'
  * 21.Exercise04 启动页
  * 22.Exercise05 卡片组件
  * 23.Exercise06 商品详情页
+ * 24.Exercise07 商品图片大图页
  */
 export default App
