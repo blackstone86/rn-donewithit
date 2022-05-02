@@ -94,11 +94,17 @@ Step11, publish application to Expo Go app for Development
 
 now, you will find your published app in your Profile in `Expo Go app`.
 
-## recommend vscode plugins
+## Recommend vscode plugins
 
 - React Native Tools
 - ES7+ React/Redux/React-Native snippets
 - Expo Tools
+
+## Recommend ui libraries
+
+- [React Native Elements](https://react-native-elements.github.io/react-native-elements/)
+- [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [Native Base](https://nativebase.io/)
 
 ## Useful links
 
