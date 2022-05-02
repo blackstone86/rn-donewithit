@@ -47,7 +47,7 @@ export default function App() {
       <Image
         style={styles.image}
         resizeMode="contain"
-        source={require('../assets/materials/chair.jpg')}
+        source={require('../../assets/materials/chair.jpg')}
       />
     </SafeAreaView>
   )

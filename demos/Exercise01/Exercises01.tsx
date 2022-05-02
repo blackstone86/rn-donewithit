@@ -51,13 +51,13 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Image
         style={styles.backgroundImage}
-        source={require('../assets/materials/background.jpg')}
+        source={require('../../assets/materials/background.jpg')}
       />
       <View style={styles.infoBox}>
         <View style={styles.logoBox}>
           <Image
             style={styles.logo}
-            source={require('../assets/materials/logo-red.png')}
+            source={require('../../assets/materials/logo-red.png')}
           />
           <Text>Sell What You Don't Need</Text>
         </View>
