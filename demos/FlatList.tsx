@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, StyleSheet, Platform } from 'react-native'
+import { FlatList } from 'react-native'
 
 import React from 'react'
 import AppListItem from '../components/AppListItem'
