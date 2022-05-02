@@ -1,4 +1,4 @@
-import { Image, Text, View, StyleSheet, ImageBackground } from 'react-native'
+import { View, StyleSheet, ImageBackground } from 'react-native'
 import React from 'react'
 import COLORS from '../../config/colors'
 import AppCard from '../../components/AppCard'
