@@ -7,9 +7,9 @@ import {
   Platform
 } from 'react-native'
 import React from 'react'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import COLORS from '../../config/colors';
-import CONSTS from './consts';
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import COLORS from '../../config/colors'
+import CONSTS from './consts'
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: CONSTS.ICON_SIZE,
-    height: CONSTS.ICON_SIZE,
+    height: CONSTS.ICON_SIZE
   },
   image: {
     width: '100%',
@@ -33,20 +33,26 @@ const styles = StyleSheet.create({
   }
 })
 
-const chairImage = require('../../assets/materials/chair.jpg');
+const chairImage = require('../../assets/materials/chair.jpg')
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoBox}>
-        <MaterialCommunityIcons style={styles.icon} name="close" size={CONSTS.ICON_SIZE} color="white" />
-        <MaterialCommunityIcons style={styles.icon} name="trash-can-outline" size={CONSTS.ICON_SIZE} color="white" />
+        <MaterialCommunityIcons
+          style={styles.icon}
+          name="close"
+          size={CONSTS.ICON_SIZE}
+          color="white"
+        />
+        <MaterialCommunityIcons
+          style={styles.icon}
+          name="trash-can-outline"
+          size={CONSTS.ICON_SIZE}
+          color="white"
+        />
       </View>
-      <Image
-        style={styles.image}
-        resizeMode="contain"
-        source={chairImage}
-      />
+      <Image style={styles.image} resizeMode="contain" source={chairImage} />
     </SafeAreaView>
   )
 }
