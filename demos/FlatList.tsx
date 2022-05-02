@@ -1,4 +1,10 @@
-import { FlatList } from 'react-native'
+import {
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Platform,
+  StatusBar
+} from 'react-native'
 
 import React from 'react'
 import AppListItem from '../components/AppListItem'
@@ -18,17 +24,24 @@ const messages = [
   }
 ]
 
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+  }
+})
 export default function App() {
   return (
-    <FlatList
-      data={messages}
-      keyExtractor={(message) => message.id.toString()}
-      renderItem={({ item, index, separators }) => {
-        const { title, description, image } = item
-        return (
-          <AppListItem title={title} subTitle={description} image={image} />
-        )
-      }}
-    ></FlatList>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={messages}
+        keyExtractor={(message) => message.id.toString()}
+        renderItem={({ item, index, separators }) => {
+          const { title, description, image } = item
+          return (
+            <AppListItem title={title} subTitle={description} image={image} />
+          )
+        }}
+      ></FlatList>
+    </SafeAreaView>
   )
 }

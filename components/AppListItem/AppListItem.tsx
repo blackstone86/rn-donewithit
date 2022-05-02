@@ -28,14 +28,13 @@ function AppListItem(props: AppListItemProps) {
 const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    paddingHorizontal: CONSTS.PADDING_HORIZONTAL
+    alignItems: 'flex-start'
   },
   avatar: {
     width: CONSTS.AVATAR_SIZE,
     height: CONSTS.AVATAR_SIZE,
     borderRadius: CONSTS.AVATAR_SIZE / 2,
-    marginRight: CONSTS.PADDING_HORIZONTAL / 2
+    marginRight: CONSTS.MARGIN_RIGHT
   },
   title: {
     fontSize: CONSTS.SUBTITLE_FONT_SIZE
