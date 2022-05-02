@@ -46,6 +46,6 @@ import App from './demos/Exercise06'
  * 20.Exercise03 按钮组件
  * 21.Exercise04 启动页
  * 22.Exercise05 卡片组件
- * 23.Exercise06 列表页
+ * 23.Exercise06 商品详情页
  */
 export default App

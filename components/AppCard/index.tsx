@@ -1,3 +1,3 @@
-import AppCard from "./AppCard";
+import AppCard from './AppCard'
 
-export default AppCard;
+export default AppCard
