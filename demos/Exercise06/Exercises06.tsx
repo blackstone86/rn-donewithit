@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     paddingVertical: CONSTS.PADDING_VERTICAL
   },
   text: {
-    lineHeight: CONSTS.LINE_HEIGHT
+    lineHeight: CONSTS.LINE_HEIGHT,
+    fontWeight: 'bold'
   },
   title: {
     fontSize: CONSTS.TITLE_FONT_SIZE

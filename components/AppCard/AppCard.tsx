@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: CONSTS.FONT_SIZE,
-    lineHeight: CONSTS.LINE_HEIGHT
+    lineHeight: CONSTS.LINE_HEIGHT,
+    fontWeight: 'bold'
   },
   title: {
     color: COLORS.BLACK
