@@ -37,7 +37,8 @@ function useStyles({
         text: {
           fontSize,
           fontWeight: 'bold',
-          color: COLORS.WHITE
+          color: COLORS.WHITE,
+          textTransform: 'uppercase'
         }
       }),
     []

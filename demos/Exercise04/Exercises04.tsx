@@ -53,12 +53,12 @@ export default function App() {
         </View>
         <AppButton
           style={styles.button}
-          title="LOGIN"
+          title="login"
           onPress={() => console.log('tapped login button')}
         />
         <AppButton
           style={styles.button}
-          title="REGISTER"
+          title="register"
           backgroundColor={COLORS.SECONDARY}
           onPress={() => console.log('tapped register button')}
         />
