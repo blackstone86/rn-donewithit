@@ -1,5 +1,12 @@
 import React from 'react'
-import { View, Image, StyleSheet, ImageSourcePropType } from 'react-native'
+import {
+  View,
+  Image,
+  StyleSheet,
+  ImageSourcePropType,
+  StyleProp,
+  ViewStyle
+} from 'react-native'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import COLORS from '../../config/colors'
@@ -8,12 +15,13 @@ type AppListItemProps = {
   title: string
   subTitle?: string
   image: ImageSourcePropType
+  style?: StyleProp<ViewStyle>
 }
 
 function AppListItem(props: AppListItemProps) {
-  const { title, subTitle, image } = props
+  const { title, subTitle, image, style } = props
   return (
-    <View style={styles.listItem}>
+    <View style={[style, styles.listItem]}>
       <Image style={styles.avatar} source={image} />
       <View>
         <AppText style={styles.title}>{title}</AppText>

@@ -10,11 +10,15 @@ const styles = StyleSheet.create({
   }
 })
 
+function FlatListItemSeparator() {
+  return <View style={styles.separator} />
+}
+
 function AppFlatList(props: FlatListProps<any>) {
   return (
     <FlatList
       {...props}
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
+      ItemSeparatorComponent={FlatListItemSeparator}
     ></FlatList>
   )
 }

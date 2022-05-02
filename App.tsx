@@ -52,5 +52,6 @@ import App from './demos/Separators'
  * 23.Exercise06 商品详情页
  * 24.Exercise07 商品图片大图页
  * 25.FlatList 平面列表
+ * 26.Separators 平面列表内置分割器组件，二次封装
  */
 export default App

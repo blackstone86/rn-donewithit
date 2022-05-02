@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyleSheet } from 'react-native'
 import AppListItem from '../components/AppListItem'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppFlatList from '../components/AppFlatList'
@@ -18,6 +19,11 @@ const messages = [
   }
 ]
 
+const styles = StyleSheet.create({
+  item: {
+    padding: 20
+  }
+})
 export default function App() {
   return (
     <AppSafeAreaView>
@@ -27,7 +33,12 @@ export default function App() {
         renderItem={({ item, index, separators }) => {
           const { title, description, image } = item
           return (
-            <AppListItem title={title} subTitle={description} image={image} />
+            <AppListItem
+              style={styles.item}
+              title={title}
+              subTitle={description}
+              image={image}
+            />
           )
         }}
       />
