@@ -19,7 +19,8 @@
 // import App from './demos/OrganizingStyles'
 // import App from './demos/Exercise03'
 // import App from './demos/Exercise04'
-import App from './demos/Exercise05'
+// import App from './demos/Exercise05'
+import App from './demos/Exercise06'
 
 /**
  * notice
@@ -45,5 +46,6 @@ import App from './demos/Exercise05'
  * 20.Exercise03 按钮组件
  * 21.Exercise04 启动页
  * 22.Exercise05 卡片组件
+ * 23.Exercise06 列表页
  */
 export default App
