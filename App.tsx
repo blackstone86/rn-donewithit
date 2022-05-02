@@ -19,8 +19,8 @@
 // import App from './demos/OrganizingStyles'
 // import App from './demos/Exercise03'
 // import App from './demos/Exercise04'
-import App from './demos/Exercise05'
-// import App from './demos/Exercise06'
+// import App from './demos/Exercise05'
+import App from './demos/Exercise06'
 // import App from './demos/Exercise07'
 
 /**

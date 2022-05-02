@@ -1,6 +1,7 @@
-import { Image, Text, View, StyleSheet } from 'react-native'
+import { Image, View, StyleSheet } from 'react-native'
 import React, { useMemo } from 'react'
 import COLORS from '../../config/colors'
+import AppText from '../../components/AppText'
 import CONSTS from './consts'
 
 const styles = StyleSheet.create({
@@ -20,8 +21,7 @@ const styles = StyleSheet.create({
     lineHeight: CONSTS.LINE_HEIGHT
   },
   title: {
-    fontSize: CONSTS.TITLE_FONT_SIZE,
-    color: COLORS.BLACK
+    fontSize: CONSTS.TITLE_FONT_SIZE
   },
   subTitle: {
     fontSize: CONSTS.SUBTITLE_FONT_SIZE,
@@ -65,18 +65,18 @@ export default function App() {
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
       <View style={styles.infoBox}>
-        <Text style={[styles.text, styles.title]}>{title}</Text>
+        <AppText style={[styles.text, styles.title]}>{title}</AppText>
         {subTitle && (
-          <Text style={[styles.text, styles.subTitle]}>{subTitle}</Text>
+          <AppText style={[styles.text, styles.subTitle]}>{subTitle}</AppText>
         )}
       </View>
       <View style={styles.sellerBox}>
         <Image style={styles.avatar} source={avatarImage} />
         <View>
-          <Text style={styles.sellerText}>{name}</Text>
-          <Text
+          <AppText style={styles.sellerText}>{name}</AppText>
+          <AppText
             style={[styles.sellerText, styles.total]}
-          >{`${listings} Listings`}</Text>
+          >{`${listings} Listings`}</AppText>
         </View>
       </View>
     </View>
