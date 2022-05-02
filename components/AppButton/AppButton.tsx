@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 import {
   View,
-  Text,
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
   Platform,
@@ -9,6 +8,7 @@ import {
   ViewStyle,
   StyleProp
 } from 'react-native'
+import AppText from '../AppText'
 import useStyles from './useStyles'
 
 type AppButtonProps = {
@@ -36,7 +36,7 @@ function AppButton({
   const styles = useStyles({ fontSize, height, backgroundColor, borderRadius })
   const button = (
     <View style={styles.button}>
-      <Text style={styles.text}>{title}</Text>
+      <AppText style={styles.text}>{title}</AppText>
     </View>
   )
   const isAndroid = Platform.OS === 'android'
