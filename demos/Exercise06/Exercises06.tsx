@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     fontSize: CONSTS.SUBTITLE_FONT_SIZE
   },
   total: {
-    color: COLORS.SILVER,
+    color: COLORS.GRAY,
     lineHeight: CONSTS.TOTAL_LINE_HEIGHT
   }
 })
