@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginTop: 36,
     paddingHorizontal: CONSTS.PADDING_HORIZONTAL
   },
   avatar: {
