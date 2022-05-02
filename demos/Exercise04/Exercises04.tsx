@@ -1,6 +1,7 @@
-import { Image, Text, View, StyleSheet, ImageBackground } from 'react-native'
+import { Image, View, StyleSheet, ImageBackground } from 'react-native'
 import React from 'react'
 import AppButton from '../../components/AppButton'
+import AppText from '../../components/AppText'
 import COLORS from '../../config/colors'
 
 const MARGIN = 20
@@ -49,7 +50,7 @@ export default function App() {
       <View style={styles.infoBox}>
         <View style={styles.logoBox}>
           <Image style={styles.logo} source={logoSource} />
-          <Text style={styles.text}>Sell What You Don't Need</Text>
+          <AppText style={styles.text}>Sell What You Don't Need</AppText>
         </View>
         <AppButton
           style={styles.button}
