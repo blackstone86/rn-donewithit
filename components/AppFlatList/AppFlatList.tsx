@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   separator: {
     width: '100%',
     height: 1,
-    backgroundColor: COLORS.GRAY
+    backgroundColor: COLORS.LIGHT_GRAY
   }
 })
 
