@@ -1,12 +1,12 @@
 import {
   Image,
-  Text,
   View,
   SafeAreaView,
   StyleSheet,
   StatusBar,
   Platform
 } from 'react-native'
+import AppText from '../../components/AppText'
 import React from 'react'
 
 const styles = StyleSheet.create({
@@ -59,7 +59,7 @@ export default function App() {
             style={styles.logo}
             source={require('../../assets/materials/logo-red.png')}
           />
-          <Text>Sell What You Don't Need</Text>
+          <AppText>Sell What You Don't Need</AppText>
         </View>
         <View style={styles.tomatoBar} />
         <View style={styles.turquoiseBar} />

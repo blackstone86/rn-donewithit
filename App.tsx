@@ -7,7 +7,7 @@
 // import App from './demos/FlexWrap'
 // import App from './demos/FlexBasisGrowShrink'
 // import App from './demos/Absolute&Relative'
-// import App from './demos/Exercise01'
+import App from './demos/Exercise01'
 // import App from './demos/Exercise02'
 // import App from './demos/Borders'
 // import App from './demos/Shadows'
@@ -20,7 +20,7 @@
 // import App from './demos/Exercise03'
 // import App from './demos/Exercise04'
 // import App from './demos/Exercise05'
-import App from './demos/Exercise06'
+// import App from './demos/Exercise06'
 // import App from './demos/Exercise07'
 
 /**
