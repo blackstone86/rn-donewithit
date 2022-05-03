@@ -3,8 +3,8 @@ import {
   View,
   Image,
   StyleSheet,
-  TouchableOpacity,
-  GestureResponderEvent
+  GestureResponderEvent,
+  TouchableHighlight
 } from 'react-native'
 import AppText from '../AppText'
 import CONSTS from './consts'
@@ -31,7 +31,9 @@ function AppListItem(props: AppListItemProps) {
   )
 
   return (
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor={COLORS.LIGHT_GRAY}
+      activeOpacity={0.85}
       onPress={(e: GestureResponderEvent) => {
         handlePress(e, data)
       }}
@@ -47,7 +49,7 @@ function AppListItem(props: AppListItemProps) {
           )}
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   )
 }
 
