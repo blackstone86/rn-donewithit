@@ -3,12 +3,12 @@ import {
   Animated,
   GestureResponderEvent,
   ImageSourcePropType,
-  StyleSheet,
-  View
+  StyleSheet
 } from 'react-native'
 import AppListItem from '../components/AppListItem'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppFlatList from '../components/AppFlatList'
+import AppListItemDeleteAction from '../components/AppListItemDeleteAction'
 
 type Message = {
   id: number
@@ -40,20 +40,12 @@ const styles = StyleSheet.create({
 
 const handlePress = (e?: GestureResponderEvent, data?: Message) => {}
 
-const handleRenderRightActions = (
-  progressAnimatedValue: Animated.AnimatedInterpolation,
-  dragAnimatedValue: Animated.AnimatedInterpolation
-): ReactNode => {
-  // console.log(progressAnimatedValue, dragAnimatedValue)
-  return (
-    <View
-      style={{
-        backgroundColor: 'red',
-        width: 70
-      }}
-    ></View>
-  )
-}
+// const handleRenderRightActions = (
+//   progressAnimatedValue: Animated.AnimatedInterpolation,
+//   dragAnimatedValue: Animated.AnimatedInterpolation
+// ): ReactNode => {
+//   return <AppListItemDeleteAction />
+// }
 
 export default function App() {
   return (
@@ -72,7 +64,7 @@ export default function App() {
               onPress={(e) => {
                 handlePress(e, item)
               }}
-              renderRightActions={handleRenderRightActions}
+              renderRightActions={AppListItemDeleteAction}
             />
           )
         }}
