@@ -1,14 +1,9 @@
 import React from 'react'
-import { View, Image, StyleSheet, ImageSourcePropType } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppText from '../AppText'
-
-type AppCardProps = {
-  title: string
-  subTitle?: string
-  image: ImageSourcePropType
-}
+import { AppCardProps } from './types'
 
 function AppCard({ title, subTitle, image }: AppCardProps) {
   return (

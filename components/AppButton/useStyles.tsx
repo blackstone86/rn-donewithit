@@ -2,13 +2,7 @@ import React, { useMemo } from 'react'
 import { StyleSheet, Platform } from 'react-native'
 import CONSTS from './consts'
 import COLORS from '../../config/colors'
-
-type useStylesProps = {
-  fontSize?: number
-  height?: number
-  backgroundColor?: string
-  borderRadius?: number
-}
+import { useStylesProps } from './types'
 
 function useStyles({
   height = CONSTS.BUTTON_HEIGHT,

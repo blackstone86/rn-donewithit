@@ -4,22 +4,11 @@ import {
   TouchableWithoutFeedback,
   TouchableNativeFeedback,
   Platform,
-  GestureResponderEvent,
-  ViewStyle,
-  StyleProp
+  GestureResponderEvent
 } from 'react-native'
 import AppText from '../AppText'
 import useStyles from './useStyles'
-
-type AppButtonProps = {
-  title: string
-  fontSize?: number
-  height?: number
-  backgroundColor?: string
-  borderRadius?: number
-  style?: StyleProp<ViewStyle>
-  onPress?: (e?: GestureResponderEvent) => void
-}
+import { AppButtonProps } from './types'
 
 function AppButton({
   title,
