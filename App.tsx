@@ -25,7 +25,8 @@
 // import App from './demos/FlatList'
 // import App from './demos/Separators'
 // import App from './demos/HandlingSelections'
-import App from './demos/HandlingSwipes'
+// import App from './demos/HandlingSwipes'
+import App from './demos/DeletingItems'
 
 /**
  * notice
@@ -56,6 +57,7 @@ import App from './demos/HandlingSwipes'
  * 25.FlatList 平面列表
  * 26.Separators 平面列表内置分割器组件，二次封装
  * 27.HandlingSelections 平面列表增加响应事件
- * 28.HandlingSwipes
+ * 28.HandlingSwipes 水平方向刷卡手势
+ * 29.DeletingItems 刷卡手势后点击删除操作
  */
 export default App
