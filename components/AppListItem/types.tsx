@@ -10,11 +10,5 @@ export type AppListItemProps = {
   subTitle?: string
   image: ImageSourcePropType
   style?: StyleProp<ViewStyle>
-  onPress?: (e?: GestureResponderEvent, data?: AppListItemData) => void
-}
-
-export type AppListItemData = {
-  title: string
-  subTitle?: string
-  image: ImageSourcePropType
+  onPress?: (e?: GestureResponderEvent) => void
 }

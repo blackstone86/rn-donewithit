@@ -9,33 +9,21 @@ import {
 import AppText from '../AppText'
 import CONSTS from './consts'
 import COLORS from '../../config/colors'
-import { AppListItemProps, AppListItemData } from './types'
+import { AppListItemProps } from './types'
 
 function AppListItem(props: AppListItemProps) {
   const { title, subTitle, image, style, onPress } = props
 
-  const handlePress = useCallback(
-    (e: GestureResponderEvent, data: AppListItemData) => {
-      typeof onPress === 'function' && onPress(e, data)
-    },
-    []
-  )
-
-  const data: AppListItemData = useMemo(
-    () => ({
-      title,
-      subTitle,
-      image
-    }),
-    []
-  )
+  const handlePress = useCallback((e?: GestureResponderEvent) => {
+    typeof onPress === 'function' && onPress(e)
+  }, [])
 
   return (
     <TouchableHighlight
       underlayColor={COLORS.LIGHT_GRAY}
       activeOpacity={0.85}
-      onPress={(e: GestureResponderEvent) => {
-        handlePress(e, data)
+      onPress={(e?: GestureResponderEvent) => {
+        handlePress(e)
       }}
     >
       <View style={[style, styles.listItem]}>

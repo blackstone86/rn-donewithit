@@ -1,11 +1,21 @@
 import React from 'react'
-import { GestureResponderEvent, StyleSheet } from 'react-native'
+import {
+  GestureResponderEvent,
+  ImageSourcePropType,
+  StyleSheet
+} from 'react-native'
 import AppListItem from '../components/AppListItem'
-import { AppListItemData } from '../components/AppListItem/types'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppFlatList from '../components/AppFlatList'
 
-const messages = [
+type Message = {
+  id: number
+  title: string
+  description: string
+  image: ImageSourcePropType
+}
+
+const messages: Message[] = [
   {
     id: 1,
     title: 'T1',
@@ -26,7 +36,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const handlePress = (e?: GestureResponderEvent, data?: AppListItemData) => {
+const handlePress = (e?: GestureResponderEvent, data?: Message) => {
   console.log(data)
 }
 
@@ -37,14 +47,16 @@ export default function App() {
         data={messages}
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item, index, separators }) => {
-          const { title, description, image } = item
+          const { title, description, image }: Message = item
           return (
             <AppListItem
               style={styles.item}
               title={title}
               subTitle={description}
               image={image}
-              onPress={handlePress}
+              onPress={(e) => {
+                handlePress(e, item)
+              }}
             />
           )
         }}
