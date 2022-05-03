@@ -1,35 +1,53 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import {
   View,
   Image,
   StyleSheet,
-  ImageSourcePropType,
-  StyleProp,
-  ViewStyle
+  TouchableOpacity,
+  GestureResponderEvent
 } from 'react-native'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import COLORS from '../../config/colors'
-
-type AppListItemProps = {
-  title: string
-  subTitle?: string
-  image: ImageSourcePropType
-  style?: StyleProp<ViewStyle>
-}
+import { AppListItemProps, AppListItemData } from './types'
 
 function AppListItem(props: AppListItemProps) {
-  const { title, subTitle, image, style } = props
+  const { title, subTitle, image, style, onPress } = props
+
+  const handlePress = useCallback(
+    (e: GestureResponderEvent, data: AppListItemData) => {
+      typeof onPress === 'function' && onPress(e, data)
+    },
+    []
+  )
+
+  const data: AppListItemData = useMemo(
+    () => ({
+      title,
+      subTitle,
+      image
+    }),
+    []
+  )
+
   return (
-    <View style={[style, styles.listItem]}>
-      <Image style={styles.avatar} source={image} />
-      <View>
-        <AppText style={styles.title}>{title}</AppText>
-        {subTitle && (
-          <AppText style={[styles.title, styles.subTitle]}>{subTitle}</AppText>
-        )}
+    <TouchableOpacity
+      onPress={(e: GestureResponderEvent) => {
+        handlePress(e, data)
+      }}
+    >
+      <View style={[style, styles.listItem]}>
+        <Image style={styles.avatar} source={image} />
+        <View>
+          <AppText style={styles.title}>{title}</AppText>
+          {subTitle && (
+            <AppText style={[styles.title, styles.subTitle]}>
+              {subTitle}
+            </AppText>
+          )}
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
