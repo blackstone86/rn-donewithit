@@ -1,4 +1,5 @@
 import {
+  Animated,
   GestureResponderEvent,
   ImageSourcePropType,
   StyleProp,
@@ -11,4 +12,8 @@ export type AppListItemProps = {
   image: ImageSourcePropType
   style?: StyleProp<ViewStyle>
   onPress?: (e?: GestureResponderEvent) => void
+  renderRightActions?: (
+    progressAnimatedValue: Animated.AnimatedInterpolation,
+    dragAnimatedValue: Animated.AnimatedInterpolation
+  ) => React.ReactNode
 }
