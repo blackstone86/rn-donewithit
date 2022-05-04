@@ -1,21 +1,36 @@
-import React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import React, { useCallback } from 'react'
+import {
+  View,
+  Image,
+  StyleSheet,
+  GestureResponderEvent,
+  TouchableHighlight
+} from 'react-native'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppText from '../AppText'
 import { AppCardProps } from './types'
 
-function AppCard({ title, subTitle, image, style }: AppCardProps) {
+function AppCard({ title, subTitle, image, style, onPress }: AppCardProps) {
+  const handlePress = useCallback((e?: GestureResponderEvent) => {
+    typeof onPress === 'function' && onPress(e)
+  }, [])
   return (
-    <View style={[style, styles.container]}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.infoBox}>
-        <AppText style={[styles.text, styles.title]}>{title}</AppText>
-        {subTitle && (
-          <AppText style={[styles.text, styles.subTitle]}>{subTitle}</AppText>
-        )}
+    <TouchableHighlight
+      underlayColor={COLORS.LIGHT_GRAY}
+      activeOpacity={0.85}
+      onPress={handlePress}
+    >
+      <View style={[style, styles.container]}>
+        <Image style={styles.image} source={image} />
+        <View style={styles.infoBox}>
+          <AppText style={[styles.text, styles.title]}>{title}</AppText>
+          {subTitle && (
+            <AppText style={[styles.text, styles.subTitle]}>{subTitle}</AppText>
+          )}
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   )
 }
 

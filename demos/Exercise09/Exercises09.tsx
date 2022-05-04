@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
@@ -27,9 +27,9 @@ export default function App() {
     }),
     []
   )
-  // const handlePress = useCallback((item: menuType) => {
-  //   console.log(item)
-  // }, [])
+  const handlePress = useCallback((item: cardType) => {
+    console.log(item)
+  }, [])
   return (
     <AppSafeAreaView style={styles.container}>
       <AppFlatList
@@ -43,6 +43,9 @@ export default function App() {
               title={title}
               subTitle={subTitle}
               image={image}
+              onPress={(e) => {
+                handlePress(item)
+              }}
             />
           )
         }}
