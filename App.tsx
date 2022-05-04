@@ -26,7 +26,8 @@
 // import App from './demos/Separators'
 // import App from './demos/HandlingSelections'
 // import App from './demos/HandlingSwipes'
-import App from './demos/DeletingItems'
+// import App from './demos/DeletingItems'
+import App from './demos/PullToRefresh'
 
 /**
  * notice
@@ -59,5 +60,6 @@ import App from './demos/DeletingItems'
  * 27.HandlingSelections 平面列表增加响应事件
  * 28.HandlingSwipes 水平方向刷卡手势
  * 29.DeletingItems 刷卡手势后点击删除操作
+ * 30.PullToRefresh 下拉刷新
  */
 export default App
