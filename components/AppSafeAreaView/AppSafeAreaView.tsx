@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
 function AppSafeAreaView(props: any) {
   return (
-    <SafeAreaView {...props} style={styles.container}>
+    <SafeAreaView {...props} style={[props.style, styles.container]}>
       {props.children}
     </SafeAreaView>
   )

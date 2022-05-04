@@ -7,7 +7,8 @@ const COLORS = {
   LIGHT_GRAY: '#f8f4f4',
   WHITE: '#fff',
   BLACK: '#000',
-  SILVER: '#C0C0C0'
+  SILVER: '#C0C0C0',
+  YELLOW: '#ffe66d'
 }
 
 export default COLORS
