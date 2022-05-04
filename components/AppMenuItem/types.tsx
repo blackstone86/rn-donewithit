@@ -8,5 +8,5 @@ export type AppMenuItemProps = {
   subTitle?: string
   style?: StyleProp<ViewStyle>
   onPress?: (e?: GestureResponderEvent) => void
-  ImageComponent?: ReactNode
+  IconComponent?: ReactNode
 }

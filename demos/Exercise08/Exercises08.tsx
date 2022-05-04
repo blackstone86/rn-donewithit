@@ -58,7 +58,7 @@ export default function App() {
               style={isLastItem && styles.lastMenuItem}
               title={title}
               // iconName={iconName}
-              ImageComponent={<AppIcon name={iconName} />}
+              IconComponent={<AppIcon name={iconName} />}
               iconBackgroundColor={iconBackgroundColor}
               onPress={() => {
                 handlePress(item)
