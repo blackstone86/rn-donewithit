@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  NativeSyntheticEvent,
-  StyleSheet,
-  Text,
-  TextInput,
-  TextInputChangeEventData
-} from 'react-native'
+import { StyleSheet, Text, TextInput } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import COLORS from '../config/colors'
 
