@@ -15,6 +15,7 @@ function AppMenuItem({
   iconName,
   iconBackgroundColor,
   title,
+  subTitle,
   style,
   onPress
 }: AppMenuItemProps) {
@@ -39,7 +40,14 @@ function AppMenuItem({
             color={COLORS.WHITE}
           />
         </View>
-        <AppText style={styles.menuTitle}>{title}</AppText>
+        <View style={styles.infoBox}>
+          <AppText style={styles.menuTitle}>{title}</AppText>
+          {subTitle && (
+            <AppText style={[styles.menuTitle, styles.menuSubTitle]}>
+              {subTitle}
+            </AppText>
+          )}
+        </View>
       </View>
     </TouchableHighlight>
   )
@@ -61,9 +69,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: CONSTS.PADDING / 2
   },
+  infoBox: {
+    flexDirection: 'column'
+  },
   menuTitle: {
     fontSize: CONSTS.FONT_SIZE,
     textTransform: 'capitalize'
+  },
+  menuSubTitle: {
+    color: COLORS.GRAY,
+    marginTop: 5
   }
 })
 
