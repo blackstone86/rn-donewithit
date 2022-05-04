@@ -5,9 +5,9 @@ import CONSTS from './consts'
 import AppText from '../AppText'
 import { AppCardProps } from './types'
 
-function AppCard({ title, subTitle, image }: AppCardProps) {
+function AppCard({ title, subTitle, image, style }: AppCardProps) {
   return (
-    <View style={styles.container}>
+    <View style={[style, styles.container]}>
       <Image style={styles.image} source={image} />
       <View style={styles.infoBox}>
         <AppText style={[styles.text, styles.title]}>{title}</AppText>
