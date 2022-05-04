@@ -5,9 +5,9 @@ import { AppAvatarBoxProps } from './types'
 import CONSTS from './consts'
 import COLORS from '../../config/colors'
 
-function AppAvatarBox({ title, image, subTitle }: AppAvatarBoxProps) {
+function AppAvatarBox({ title, image, subTitle, style }: AppAvatarBoxProps) {
   return (
-    <View style={styles.container}>
+    <View style={[style, styles.container]}>
       <Image style={styles.avatar} source={image} />
       <View style={styles.infoBox}>
         <AppText style={styles.text}>{title}</AppText>
@@ -40,4 +40,5 @@ const styles = StyleSheet.create({
     marginTop: CONSTS.SUBTITLE_MARGIN_TOP
   }
 })
+
 export default AppAvatarBox
