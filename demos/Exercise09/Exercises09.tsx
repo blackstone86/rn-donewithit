@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { GestureResponderEvent, StyleSheet } from 'react-native'
 import React, { useCallback, useMemo } from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
@@ -43,7 +43,7 @@ export default function App() {
               title={title}
               subTitle={subTitle}
               image={image}
-              onPress={(e) => {
+              onPress={(e?: GestureResponderEvent) => {
                 handlePress(item)
               }}
             />
