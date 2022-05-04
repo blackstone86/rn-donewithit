@@ -5,11 +5,11 @@ import {
   GestureResponderEvent,
   TouchableHighlight
 } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppText from '../AppText/AppText'
 import { AppMenuItemProps } from './types'
+import AppIcon from '../AppIcon'
 
 function AppMenuItem({
   iconName,
@@ -33,7 +33,7 @@ function AppMenuItem({
         <View
           style={[styles.menuIcon, { backgroundColor: iconBackgroundColor }]}
         >
-          <MaterialCommunityIcons
+          <AppIcon
             name={iconName}
             size={CONSTS.ICON_SIZE}
             color={COLORS.WHITE}

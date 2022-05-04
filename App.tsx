@@ -27,8 +27,8 @@
 // import App from './demos/HandlingSelections'
 // import App from './demos/HandlingSwipes'
 // import App from './demos/DeletingItems'
-// import App from './demos/Exercise08'
-import App from './demos/Exercise09'
+import App from './demos/Exercise08'
+// import App from './demos/Exercise09'
 
 /**
  * notice
