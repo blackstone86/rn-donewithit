@@ -27,7 +27,7 @@
 // import App from './demos/HandlingSelections'
 // import App from './demos/HandlingSwipes'
 // import App from './demos/DeletingItems'
-import App from './demos/PullToRefresh'
+import App from './demos/Exercise08'
 
 /**
  * notice
@@ -61,5 +61,6 @@ import App from './demos/PullToRefresh'
  * 28.HandlingSwipes 水平方向刷卡手势
  * 29.DeletingItems 刷卡手势后点击删除操作
  * 30.PullToRefresh 下拉刷新
+ * 31.Exercises08 "我的"页面
  */
 export default App
