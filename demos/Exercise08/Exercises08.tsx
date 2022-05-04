@@ -7,6 +7,7 @@ import AppAvatarBox from '../../components/AppAvatarBox'
 import AppFlatList from '../../components/AppFlatList'
 import AppMenuItem from '../../components/AppMenuItem'
 import { menuType } from './types'
+import AppIcon from '../../components/AppIcon'
 const avatarImage = require('../../assets/materials/mosh.jpg')
 
 export default function App() {
@@ -56,7 +57,8 @@ export default function App() {
             <AppMenuItem
               style={isLastItem && styles.lastMenuItem}
               title={title}
-              iconName={iconName}
+              // iconName={iconName}
+              ImageComponent={<AppIcon name={iconName} />}
               iconBackgroundColor={iconBackgroundColor}
               onPress={() => {
                 handlePress(item)

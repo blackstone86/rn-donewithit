@@ -17,7 +17,8 @@ function AppMenuItem({
   title,
   subTitle,
   style,
-  onPress
+  onPress,
+  ImageComponent
 }: AppMenuItemProps) {
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     typeof onPress === 'function' && onPress(e)
@@ -34,11 +35,13 @@ function AppMenuItem({
         <View
           style={[styles.menuIcon, { backgroundColor: iconBackgroundColor }]}
         >
-          <AppIcon
-            name={iconName}
-            size={CONSTS.ICON_SIZE}
-            color={COLORS.WHITE}
-          />
+          {ImageComponent || (
+            <AppIcon
+              name={iconName}
+              size={CONSTS.ICON_SIZE}
+              color={COLORS.WHITE}
+            />
+          )}
         </View>
         <View style={styles.infoBox}>
           <AppText style={styles.menuTitle}>{title}</AppText>
