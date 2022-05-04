@@ -1,33 +1,47 @@
-import React from 'react'
-import { View, StyleSheet, StyleProp, ViewStyle } from 'react-native'
+import React, { useCallback } from 'react'
+import {
+  View,
+  StyleSheet,
+  GestureResponderEvent,
+  TouchableHighlight
+} from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppText from '../AppText/AppText'
+import { AppMenuItemProps } from './types'
 
-type AppMenuItemProps = {
-  iconName: any
-  iconBackgroundColor: string
-  title: string
-  style?: StyleProp<ViewStyle>
-}
 function AppMenuItem({
   iconName,
   iconBackgroundColor,
   title,
-  style
+  style,
+  onPress
 }: AppMenuItemProps) {
+  const handlePress = useCallback((e?: GestureResponderEvent) => {
+    typeof onPress === 'function' && onPress(e)
+  }, [])
   return (
-    <View style={[style, styles.menu]}>
-      <View style={[styles.menuIcon, { backgroundColor: iconBackgroundColor }]}>
-        <MaterialCommunityIcons
-          name={iconName}
-          size={CONSTS.ICON_SIZE}
-          color={COLORS.WHITE}
-        />
+    <TouchableHighlight
+      underlayColor={COLORS.LIGHT_GRAY}
+      activeOpacity={0.85}
+      onPress={(e?: GestureResponderEvent) => {
+        handlePress(e)
+      }}
+    >
+      <View style={[style, styles.menu]}>
+        <View
+          style={[styles.menuIcon, { backgroundColor: iconBackgroundColor }]}
+        >
+          <MaterialCommunityIcons
+            name={iconName}
+            size={CONSTS.ICON_SIZE}
+            color={COLORS.WHITE}
+          />
+        </View>
+        <AppText style={styles.menuTitle}>{title}</AppText>
       </View>
-      <AppText style={styles.menuTitle}>{title}</AppText>
-    </View>
+    </TouchableHighlight>
   )
 }
 

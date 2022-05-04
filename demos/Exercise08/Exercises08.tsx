@@ -1,19 +1,14 @@
-import { View, StyleSheet } from 'react-native'
-import React, { useMemo } from 'react'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { StyleSheet } from 'react-native'
+import React, { useCallback, useMemo } from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
 import AppFlatList from '../../components/AppFlatList'
-import AppText from '../../components/AppText'
+import AppMenuItem from '../../components/AppMenuItem'
+import { menuType } from './types'
 const avatarImage = require('../../assets/materials/mosh.jpg')
 
-type menuType = {
-  iconName: any
-  iconBackgroundColor: string
-  title: string
-}
 export default function App() {
   const { name, email, image, menus } = useMemo(
     () => ({
@@ -24,23 +19,25 @@ export default function App() {
         {
           iconName: 'format-list-bulleted',
           iconBackgroundColor: COLORS.PRIMARY,
-          title: 'My Listings'
+          title: 'my listings'
         },
         {
           iconName: 'email',
           iconBackgroundColor: COLORS.SECONDARY,
-          title: 'My Messages'
+          title: 'my messages'
         },
         {
           iconName: 'logout',
           iconBackgroundColor: COLORS.YELLOW,
-          title: 'Log out'
+          title: 'log out'
         }
       ]
     }),
     []
   )
-
+  const handlePress = useCallback((item: menuType) => {
+    console.log(item)
+  }, [])
   return (
     <AppSafeAreaView style={styles.container}>
       <AppAvatarBox
@@ -52,31 +49,19 @@ export default function App() {
       <AppFlatList
         data={menus}
         keyExtractor={(item) => item.title}
-        renderItem={({ item, index, separators }) => {
+        renderItem={({ item, index }) => {
           const { iconName, iconBackgroundColor, title }: menuType = item
+          const isLastItem = index === menus.length - 1
           return (
-            <View
-              style={[
-                styles.menu,
-                {
-                  marginTop: index === menus.length - 1 ? 20 : 0
-                }
-              ]}
-            >
-              <View
-                style={[
-                  styles.menuIcon,
-                  { backgroundColor: iconBackgroundColor }
-                ]}
-              >
-                <MaterialCommunityIcons
-                  name={iconName}
-                  size={25}
-                  color={COLORS.WHITE}
-                />
-              </View>
-              <AppText style={styles.menuTitle}>{title}</AppText>
-            </View>
+            <AppMenuItem
+              style={isLastItem && styles.lastMenuItem}
+              title={title}
+              iconName={iconName}
+              iconBackgroundColor={iconBackgroundColor}
+              onPress={() => {
+                handlePress(item)
+              }}
+            />
           )
         }}
       />
@@ -94,22 +79,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 40
   },
-  menu: {
-    padding: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: COLORS.WHITE
-  },
-  menuIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    overflow: 'hidden',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 10
-  },
-  menuTitle: {
-    fontSize: 18
+  lastMenuItem: {
+    marginTop: CONSTS.PADDING
   }
 })
