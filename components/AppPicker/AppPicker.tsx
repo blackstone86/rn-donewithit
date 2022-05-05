@@ -7,7 +7,6 @@ import {
   Button
 } from 'react-native'
 import AppIcon from '../AppIcon'
-import AppSafeAreaView from '../AppSafeAreaView'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import styles from './styles'
@@ -15,6 +14,7 @@ import styles from './styles'
 function AppPicker({
   style,
   placeholder = CONSTS.PLACEHOLDER,
+  options,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
@@ -24,6 +24,7 @@ function AppPicker({
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     setOpen(!open)
   }, [])
+  console.log(options)
   return (
     <>
       <TouchableWithoutFeedback onPress={handlePress}>

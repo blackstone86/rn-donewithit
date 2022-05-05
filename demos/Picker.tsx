@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppPicker from '../components/AppPicker'
@@ -16,12 +16,30 @@ import AppTextInput from '../components/AppTextInput'
  */
 
 export default function App() {
+  const categorys = useMemo(
+    () => [
+      {
+        label: 'Furniture',
+        value: 1
+      },
+      {
+        label: 'Clothing',
+        value: 2
+      },
+      {
+        label: 'Cameras',
+        value: 3
+      }
+    ],
+    []
+  )
   return (
     <AppSafeAreaView>
       <AppPicker
         style={styles.formItem}
         iconName="apps"
         placeholder="Category"
+        options={categorys}
       />
       <AppTextInput
         style={styles.formItem}
