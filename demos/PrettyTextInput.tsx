@@ -24,7 +24,7 @@ export default function App() {
     useMemo(
       () => ({
         placeholder: 'First Name',
-        keyboardType: 'email-address',
+        keyboardType: 'numeric',
         iconName: 'email',
         secureTextEntry: true
       }),
