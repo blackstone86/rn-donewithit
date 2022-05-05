@@ -21,18 +21,26 @@ function AppPicker({
   optionValue = CONSTS.OPTION_VALUE,
   optionLabel = CONSTS.OPTION_LABEL,
   onChange,
+  selectedItem,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
   iconSize = CONSTS.ICON_SIZE
 }: any) {
-  const [open, setOpen] = useState<boolean>(false)
-  const [value, setValue] = useState<any>()
-  const [label, setLabel] = useState<string>(placeholder)
-
+  const findOptionLabelByValue = useCallback((options: any[], value: any) => {
+    const index = options.findIndex((item: any) => {
+      return item[optionValue] === selectedItem
+    })
+    return index !== -1 ? options[index][optionLabel] : ''
+  }, [])
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     setOpen(!open)
   }, [])
+  const [open, setOpen] = useState<boolean>(false)
+  const [value, setValue] = useState<any>(selectedItem)
+  const [label, setLabel] = useState<string>(
+    findOptionLabelByValue(options, value) || placeholder
+  )
   const handleFlatListItemPress = useCallback((item) => {
     const val = item[optionValue]
     const label = item[optionLabel]
@@ -77,6 +85,7 @@ function AppPicker({
           renderItem={({ item }) => {
             return (
               <AppPickerItem
+                selected={value === item[optionValue]}
                 label={item[optionLabel]}
                 onPress={() => {
                   handleFlatListItemPress(item)

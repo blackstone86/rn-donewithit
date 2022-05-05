@@ -5,16 +5,19 @@ import styles from './styles'
 
 type AppPickerItemProps = {
   label: string
-  onPress: (e?: GestureResponderEvent) => void
+  selected?: boolean
+  onPress?: (e?: GestureResponderEvent) => void
 }
 
-function AppPickerItem({ label, onPress }: AppPickerItemProps) {
+function AppPickerItem({ label, onPress, selected }: AppPickerItemProps) {
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     typeof onPress === 'function' && onPress(e)
   }, [])
   return (
     <TouchableOpacity onPress={handlePress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={[styles.text, selected && styles.selected]}>
+        {label}
+      </AppText>
     </TouchableOpacity>
   )
 }

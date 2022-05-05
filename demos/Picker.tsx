@@ -49,6 +49,7 @@ export default function App() {
         iconName="apps"
         placeholder="Category"
         options={categorys}
+        selectedItem={1}
         onChange={handlePickerChange}
       />
       <AppTextInput
