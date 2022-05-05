@@ -9,34 +9,34 @@ import {
 import AppIcon from '../AppIcon'
 import CONSTS from './consts'
 
-type AppTextInputProps = {
-  placeholder?: string
-  keyboardType?: KeyboardTypeOptions
-  iconName?: string
-  iconColor?: string
-  iconSize?: number
-  maxLength?: number
-  secureTextEntry?: boolean
-  onChangeText?: (text: string) => void
-}
+// type AppTextInputProps = {
+//   placeholder?: string
+//   keyboardType?: KeyboardTypeOptions
+//   iconName?: string
+//   iconColor?: string
+//   iconSize?: number
+//   maxLength?: number
+//   secureTextEntry?: boolean
+//   onChangeText?: (text: string) => void
+// }
 
 function AppTextInput({
-  placeholder = CONSTS.PLACEHOLDER,
+  // Container
+  style,
+  textInputStyle,
+  // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
   iconSize = CONSTS.ICON_SIZE,
+  // InputText
+  placeholder = CONSTS.PLACEHOLDER,
   keyboardType = CONSTS.KEYBOARD_TYPE,
   maxLength = CONSTS.MAX_LENGTH,
-  secureTextEntry = CONSTS.SECURE_TEXT_ENTRY,
-  onChangeText
-}: AppTextInputProps) {
-  const [value, setValue] = useState('')
-  const handleChangeText = useCallback((text: string) => {
-    typeof onChangeText === 'function' && onChangeText(text)
-  }, [])
-
+  clearButtonMode = CONSTS.CLEAR_BUTTON_MODE,
+  ...otherProps
+}: any) {
   return (
-    <View style={styles.container}>
+    <View style={[style, styles.container]}>
       <AppIcon
         name={iconName}
         color={iconColor}
@@ -44,18 +44,12 @@ function AppTextInput({
         style={styles.icon}
       />
       <TextInput
-        style={styles.textInput}
-        secureTextEntry={secureTextEntry} // secureTextEntry={true}
         placeholder={placeholder}
-        clearButtonMode="always"
+        clearButtonMode={clearButtonMode}
         maxLength={maxLength}
         keyboardType={keyboardType}
-        value={value}
-        multiline={false}
-        onChangeText={(text) => {
-          setValue(text)
-          handleChangeText(text)
-        }}
+        style={[styles.textInput, textInputStyle]}
+        {...otherProps}
       />
     </View>
   )
