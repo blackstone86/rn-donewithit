@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import AppFlatList from '../AppFlatList'
 import AppIcon from '../AppIcon'
+import AppPickerItem from '../AppPickerItem'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import styles from './styles'
@@ -73,16 +74,15 @@ function AppPicker({
         <AppFlatList
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
-          renderItem={({ item, index, separators }) => {
+          renderItem={({ item }) => {
             return (
-              <AppText
-                style={styles.flatListItem}
+              <AppPickerItem
                 onPress={() => {
                   handleFlatListItemPress(item)
                 }}
               >
                 {item[optionLabel]}
-              </AppText>
+              </AppPickerItem>
             )
           }}
         />
