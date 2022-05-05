@@ -12,6 +12,7 @@ type constsType = {
   BACKGROUND_COLOR: string
   MAX_LENGTH: number
   SECURE_TEXT_ENTRY: boolean
+  TEXT_INPUT_FONT_SIZE: number
 }
 const CONSTS: constsType = {
   PLACEHOLDER: 'Write something here...',
@@ -23,7 +24,8 @@ const CONSTS: constsType = {
   PADDING: 10,
   BACKGROUND_COLOR: '#fbf6f8',
   MAX_LENGTH: 50,
-  SECURE_TEXT_ENTRY: false
+  SECURE_TEXT_ENTRY: false,
+  TEXT_INPUT_FONT_SIZE: 18
 }
 
 export default CONSTS

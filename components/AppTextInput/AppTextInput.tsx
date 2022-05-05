@@ -1,5 +1,11 @@
 import React, { useCallback, useState } from 'react'
-import { TextInput, StyleSheet, View, KeyboardTypeOptions } from 'react-native'
+import {
+  TextInput,
+  StyleSheet,
+  View,
+  KeyboardTypeOptions,
+  Platform
+} from 'react-native'
 import AppIcon from '../AppIcon'
 import CONSTS from './consts'
 
@@ -38,6 +44,7 @@ function AppTextInput({
         style={styles.icon}
       />
       <TextInput
+        style={styles.textInput}
         secureTextEntry={secureTextEntry} // secureTextEntry={true}
         placeholder={placeholder}
         clearButtonMode="always"
@@ -66,6 +73,17 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: CONSTS.PADDING
+  },
+  textInput: {
+    ...Platform.select({
+      android: {
+        fontFamily: 'Roboto'
+      },
+      ios: {
+        fontFamily: 'Courier'
+      }
+    }),
+    fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
   }
 })
 
