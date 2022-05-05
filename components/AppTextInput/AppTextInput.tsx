@@ -1,14 +1,8 @@
-import React, { useCallback, useState } from 'react'
-import {
-  TextInput,
-  StyleSheet,
-  View,
-  KeyboardTypeOptions,
-  Platform
-} from 'react-native'
-import COLORS from '../../config/colors'
+import React from 'react'
+import { TextInput, View } from 'react-native'
 import AppIcon from '../AppIcon'
 import CONSTS from './consts'
+import styles from './styles'
 
 // type AppTextInputProps = {
 //   placeholder?: string
@@ -55,32 +49,5 @@ function AppTextInput({
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: CONSTS.BACKGROUND_COLOR,
-    borderRadius: CONSTS.BORDER_RADIUS,
-    padding: CONSTS.PADDING,
-    overflow: 'hidden',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  },
-  icon: {
-    marginRight: CONSTS.PADDING
-  },
-  textInput: {
-    ...Platform.select({
-      android: {
-        fontFamily: 'Roboto'
-      },
-      ios: {
-        fontFamily: 'Courier'
-      }
-    }),
-    color: COLORS.BLACK,
-    fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
-  }
-})
 
 export default AppTextInput
