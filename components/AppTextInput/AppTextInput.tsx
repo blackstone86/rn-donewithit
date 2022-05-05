@@ -6,6 +6,7 @@ import {
   KeyboardTypeOptions,
   Platform
 } from 'react-native'
+import COLORS from '../../config/colors'
 import AppIcon from '../AppIcon'
 import CONSTS from './consts'
 
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Courier'
       }
     }),
+    color: COLORS.BLACK,
     fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
   }
 })
