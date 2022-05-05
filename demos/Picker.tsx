@@ -57,8 +57,8 @@ export default function App() {
         placeholder="Email"
         onChangeText={handleTextInputChange}
       />
-      <Text style={styles.formItem}>email: {email}</Text>
-      <Text style={styles.formItem}>category: {category}</Text>
+      <Text style={[styles.formItem, styles.result]}>email: {email}</Text>
+      <Text style={[styles.formItem, styles.result]}>category: {category}</Text>
     </AppSafeAreaView>
   )
 }
@@ -66,5 +66,8 @@ export default function App() {
 const styles = StyleSheet.create({
   formItem: {
     margin: 20
+  },
+  result: {
+    fontSize: 20
   }
 })

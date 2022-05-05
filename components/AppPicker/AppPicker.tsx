@@ -77,12 +77,11 @@ function AppPicker({
           renderItem={({ item }) => {
             return (
               <AppPickerItem
+                label={item[optionLabel]}
                 onPress={() => {
                   handleFlatListItemPress(item)
                 }}
-              >
-                {item[optionLabel]}
-              </AppPickerItem>
+              />
             )
           }}
         />
