@@ -6,7 +6,7 @@ import AppTextInput from '../components/AppTextInput'
 
 export default function App() {
   const handlePress = useCallback((e: GestureResponderEvent) => {
-    // console.log('111')
+    console.log('111')
   }, [])
 
   return (

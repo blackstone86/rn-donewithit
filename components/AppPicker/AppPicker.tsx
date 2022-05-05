@@ -1,5 +1,9 @@
 import React, { useCallback } from 'react'
-import { View, GestureResponderEvent, TouchableOpacity } from 'react-native'
+import {
+  View,
+  GestureResponderEvent,
+  TouchableWithoutFeedback
+} from 'react-native'
 import AppIcon from '../AppIcon'
 import AppText from '../AppText'
 import CONSTS from './consts'
@@ -18,7 +22,7 @@ function AppPicker({
     typeof onPress === 'function' && onPress(e)
   }, [])
   return (
-    <TouchableOpacity activeOpacity={0.68} onPress={handlePress}>
+    <TouchableWithoutFeedback onPress={handlePress}>
       <View style={[style, styles.container]}>
         <AppIcon
           name={iconName}
@@ -29,7 +33,7 @@ function AppPicker({
         <AppText style={styles.placeholder}>{placeholder}</AppText>
         <AppIcon name="chevron-down" color={iconColor} size={iconSize} />
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   )
 }
 
