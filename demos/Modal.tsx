@@ -1,21 +1,16 @@
-import React, { useCallback } from 'react'
-import { GestureResponderEvent, StyleSheet, Text } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppPicker from '../components/AppPicker'
 import AppTextInput from '../components/AppTextInput'
 
 export default function App() {
-  const handlePress = useCallback((e: GestureResponderEvent) => {
-    console.log('111')
-  }, [])
-
   return (
     <AppSafeAreaView>
       <AppPicker
         style={styles.formItem}
         iconName="apps"
         placeholder="Category"
-        onPress={handlePress}
       />
       <AppTextInput
         style={styles.formItem}
