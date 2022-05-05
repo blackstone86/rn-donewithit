@@ -34,7 +34,7 @@ export default function App() {
     []
   )
   const [email, setEmail] = useState<string>('')
-  const [category, setCategory] = useState<number>()
+  const [category, setCategory] = useState<number>(2)
   const handleTextInputChange = useCallback((value) => {
     setEmail(value)
   }, [])
@@ -49,7 +49,7 @@ export default function App() {
         iconName="apps"
         placeholder="Category"
         options={categorys}
-        selectedItem={1}
+        selectedItem={category}
         onChange={handlePickerChange}
       />
       <AppTextInput
