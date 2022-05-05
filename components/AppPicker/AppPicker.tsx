@@ -12,6 +12,7 @@ import CONSTS from './consts'
 import styles from './styles'
 
 function AppPicker({
+  icon = CONSTS.HAS_ICON,
   style,
   placeholder = CONSTS.PLACEHOLDER,
   options,
@@ -29,12 +30,14 @@ function AppPicker({
     <>
       <TouchableWithoutFeedback onPress={handlePress}>
         <View style={[style, styles.container]}>
-          <AppIcon
-            name={iconName}
-            color={iconColor}
-            size={iconSize}
-            style={styles.icon}
-          />
+          {icon && (
+            <AppIcon
+              name={iconName}
+              color={iconColor}
+              size={iconSize}
+              style={styles.icon}
+            />
+          )}
           <AppText style={styles.placeholder}>{placeholder}</AppText>
           <AppIcon name="chevron-down" color={iconColor} size={iconSize} />
         </View>

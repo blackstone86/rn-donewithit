@@ -8,7 +8,8 @@ const CONSTS = {
   BORDER_RADIUS: 20,
   PADDING: 10,
   BACKGROUND_COLOR: '#fbf6f8',
-  TEXT_INPUT_FONT_SIZE: 18
+  TEXT_INPUT_FONT_SIZE: 18,
+  HAS_ICON: true
 }
 
 export default CONSTS
