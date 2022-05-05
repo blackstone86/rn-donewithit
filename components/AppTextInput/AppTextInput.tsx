@@ -17,6 +17,7 @@ import styles from './styles'
 
 function AppTextInput({
   // Container
+  icon = CONSTS.HAS_ICON,
   style,
   textInputStyle,
   // AppIcon
@@ -32,12 +33,14 @@ function AppTextInput({
 }: any) {
   return (
     <View style={[style, styles.container]}>
-      <AppIcon
-        name={iconName}
-        color={iconColor}
-        size={iconSize}
-        style={styles.icon}
-      />
+      {icon && (
+        <AppIcon
+          name={iconName}
+          color={iconColor}
+          size={iconSize}
+          style={styles.icon}
+        />
+      )}
       <TextInput
         placeholder={placeholder}
         clearButtonMode={clearButtonMode}
