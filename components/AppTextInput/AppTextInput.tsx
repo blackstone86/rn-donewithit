@@ -10,6 +10,7 @@ type AppTextInputProps = {
   iconColor?: string
   iconSize?: number
   maxLength?: number
+  secureTextEntry?: boolean
   onChangeText?: (text: string) => void
 }
 
@@ -20,6 +21,7 @@ function AppTextInput({
   iconSize = CONSTS.ICON_SIZE,
   keyboardType = CONSTS.KEYBOARD_TYPE,
   maxLength = CONSTS.MAX_LENGTH,
+  secureTextEntry = CONSTS.SECURE_TEXT_ENTRY,
   onChangeText
 }: AppTextInputProps) {
   const [value, setValue] = useState('')
@@ -36,12 +38,13 @@ function AppTextInput({
         style={styles.icon}
       />
       <TextInput
-        secureTextEntry // secureTextEntry={true}
+        secureTextEntry={secureTextEntry} // secureTextEntry={true}
         placeholder={placeholder}
         clearButtonMode="always"
         maxLength={maxLength}
         keyboardType={keyboardType}
         value={value}
+        multiline={false}
         onChangeText={(text) => {
           setValue(text)
           handleChangeText(text)
