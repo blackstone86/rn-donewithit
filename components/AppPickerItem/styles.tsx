@@ -3,8 +3,8 @@ import CONSTS from './consts'
 
 const styles = StyleSheet.create({
   text: {
-    textAlign: 'center',
     lineHeight: 50,
+    paddingHorizontal: 20,
     fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
   }
 })
