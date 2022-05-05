@@ -2,10 +2,10 @@ import React from 'react'
 import { Text } from 'react-native'
 import styles from './styles'
 
-function AppText(props: any) {
+function AppText({ style, children, ...otherProps }: any) {
   return (
-    <Text style={styles.text} {...props}>
-      {props.children}
+    <Text style={[styles.text, style]} {...otherProps}>
+      {children}
     </Text>
   )
 }
