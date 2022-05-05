@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
       }
     }),
     color: COLORS.BLACK,
-    fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
+    fontSize: CONSTS.TEXT_INPUT_FONT_SIZE,
+    flex: 1
   }
 })
 
