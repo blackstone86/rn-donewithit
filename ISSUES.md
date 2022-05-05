@@ -12,3 +12,6 @@
 
 ## fontWeight does not Reasonable
 - android Roboto of font, '500' ~ '900' has no effect, but set 'bold' is correct.
+
+## TextInput 'secureTextEntry' attributie does not work in some cases.
+- android keybordType 'email-address' make TextInput 'secureTextEntry' attribute does not work
