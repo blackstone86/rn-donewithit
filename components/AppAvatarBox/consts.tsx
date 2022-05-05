@@ -1,0 +1,8 @@
+const CONSTS = {
+  FONT_SIZE: 18,
+  PADDING_HORIZONTAL: 20,
+  AVATAR_SIZE: 80,
+  SUBTITLE_MARGIN_TOP: 5
+}
+
+export default CONSTS
