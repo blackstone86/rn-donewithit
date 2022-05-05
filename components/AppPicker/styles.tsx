@@ -25,9 +25,14 @@ const styles = StyleSheet.create({
       }
     })
   },
-  placeholder: {
+  label: {
     fontSize: CONSTS.TEXT_INPUT_FONT_SIZE,
     flex: 1
+  },
+  flatListItem: {
+    textAlign: 'center',
+    lineHeight: 50,
+    fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
   }
 })
 

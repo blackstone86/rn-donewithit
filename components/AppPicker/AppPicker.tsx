@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
   View,
   GestureResponderEvent,
@@ -6,6 +6,7 @@ import {
   Modal,
   Button
 } from 'react-native'
+import AppFlatList from '../AppFlatList'
 import AppIcon from '../AppIcon'
 import AppText from '../AppText'
 import CONSTS from './consts'
@@ -15,17 +16,30 @@ function AppPicker({
   icon = CONSTS.HAS_ICON,
   style,
   placeholder = CONSTS.PLACEHOLDER,
-  options,
+  options = CONSTS.OPTIONS,
+  optionValue = CONSTS.OPTION_VALUE,
+  optionLabel = CONSTS.OPTION_LABEL,
+  onChange,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
   iconSize = CONSTS.ICON_SIZE
 }: any) {
   const [open, setOpen] = useState<boolean>(false)
+  const [value, setValue] = useState<any>()
+  const [label, setLabel] = useState<string>(placeholder)
+
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     setOpen(!open)
   }, [])
-  console.log(options)
+  const handleFlatListItemPress = useCallback((item) => {
+    const val = item[optionValue]
+    const label = item[optionLabel]
+    setValue(val)
+    setLabel(label)
+    setOpen(false)
+    typeof onChange === 'function' && onChange(val)
+  }, [])
   return (
     <>
       <TouchableWithoutFeedback onPress={handlePress}>
@@ -38,13 +52,13 @@ function AppPicker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.placeholder}>{placeholder}</AppText>
+          <AppText style={styles.label}>{label}</AppText>
           <AppIcon name="chevron-down" color={iconColor} size={iconSize} />
         </View>
       </TouchableWithoutFeedback>
       <Modal
         visible={open}
-        transparent={true}
+        // transparent={true}
         animationType="slide"
         onRequestClose={() => {
           setOpen(!open)
@@ -56,6 +70,22 @@ function AppPicker({
             setOpen(!open)
           }}
         ></Button>
+        <AppFlatList
+          data={options}
+          keyExtractor={(item) => item[optionValue].toString()}
+          renderItem={({ item, index, separators }) => {
+            return (
+              <AppText
+                style={styles.flatListItem}
+                onPress={() => {
+                  handleFlatListItemPress(item)
+                }}
+              >
+                {item[optionLabel]}
+              </AppText>
+            )
+          }}
+        />
       </Modal>
     </>
   )

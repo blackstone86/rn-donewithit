@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppPicker from '../components/AppPicker'
@@ -33,6 +33,15 @@ export default function App() {
     ],
     []
   )
+  const [email, setEmail] = useState<string>('')
+  const [category, setCategory] = useState<number>()
+  const handleTextInputChange = useCallback((value) => {
+    setEmail(value)
+  }, [])
+  const handlePickerChange = useCallback((value) => {
+    setCategory(value)
+  }, [])
+
   return (
     <AppSafeAreaView>
       <AppPicker
@@ -40,13 +49,16 @@ export default function App() {
         iconName="apps"
         placeholder="Category"
         options={categorys}
+        onChange={handlePickerChange}
       />
       <AppTextInput
         style={styles.formItem}
         iconName="email"
         placeholder="Email"
+        onChangeText={handleTextInputChange}
       />
-      <Text style={styles.formItem}>picker</Text>
+      <Text style={styles.formItem}>email: {email}</Text>
+      <Text style={styles.formItem}>category: {category}</Text>
     </AppSafeAreaView>
   )
 }

@@ -14,11 +14,14 @@ function FlatListItemSeparator() {
   return <View style={styles.separator} />
 }
 
-function AppFlatList(props: FlatListProps<any>) {
+function AppFlatList({
+  ItemSeparatorComponent,
+  ...otherProps
+}: FlatListProps<any>) {
   return (
     <FlatList
-      {...props}
       ItemSeparatorComponent={FlatListItemSeparator}
+      {...otherProps}
     ></FlatList>
   )
 }

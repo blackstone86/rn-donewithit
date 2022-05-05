@@ -9,7 +9,10 @@ const CONSTS = {
   PADDING: 10,
   BACKGROUND_COLOR: '#fbf6f8',
   TEXT_INPUT_FONT_SIZE: 18,
-  HAS_ICON: true
+  HAS_ICON: true,
+  OPTIONS: [],
+  OPTION_VALUE: 'value',
+  OPTION_LABEL: 'label'
 }
 
 export default CONSTS
