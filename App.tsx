@@ -1,7 +1,8 @@
 // import App from './demos/TextInput'
 // import App from './demos/PrettyTextInput'
 // import App from './demos/Switch'
-import App from './demos/Picker'
+// import App from './demos/Picker'
+import App from './demos/Modal'
 
 /**
  * notice
@@ -9,5 +10,6 @@ import App from './demos/Picker'
  * 02.PrettyTextInput 封装文本输入框
  * 03.Switch 开关组件
  * 04.Picker 选项类似下拉组件、日期选择
+ * 05.Modal 模态框
  */
 export default App
