@@ -3,7 +3,8 @@
 // import App from './demos/Switch'
 // import App from './demos/Modal'
 // import App from './demos/Picker'
-import App from './demos/Exercise01'
+// import App from './demos/Exercise01'
+import App from './demos/FormikForm'
 
 /**
  * notice

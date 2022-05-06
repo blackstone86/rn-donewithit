@@ -1,3 +1,4 @@
+import { FormEvent } from 'react'
 import { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native'
 
 export type AppButtonProps = {
@@ -7,7 +8,8 @@ export type AppButtonProps = {
   backgroundColor?: string
   borderRadius?: number
   style?: StyleProp<ViewStyle>
-  onPress?: (e?: GestureResponderEvent) => void
+  // onPress?: (e?: GestureResponderEvent) => void
+  onPress?: (e?: any) => void // fix for FormEvent<HTMLFormElement> eventType.
 }
 
 export type useStylesProps = {
