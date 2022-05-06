@@ -1,5 +1,5 @@
-import { StyleSheet, Image } from 'react-native'
-import React from 'react'
+import { StyleSheet, Image, Button } from 'react-native'
+import React, { useState } from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
@@ -8,6 +8,8 @@ import AppButton from '../../components/AppButton'
 const logoImage = require('../../assets/materials/logo-red.png')
 
 export default function App() {
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
   return (
     <AppSafeAreaView style={styles.container}>
       <Image style={styles.logo} source={logoImage} />
@@ -16,6 +18,9 @@ export default function App() {
         iconName="email"
         placeholder="Email"
         keyboardType="email-address"
+        onChangeText={(text: string) => {
+          setEmail(text)
+        }}
       />
       <AppTextInput
         style={styles.formItem}
@@ -23,8 +28,17 @@ export default function App() {
         placeholder="Password"
         keyboardType="default"
         secureTextEntry
+        onChangeText={(text: string) => {
+          setPassword(text)
+        }}
       />
-      <AppButton style={styles.loginButton} title="login" />
+      <AppButton
+        style={styles.loginButton}
+        title="login"
+        onPress={() => {
+          console.log(email, password)
+        }}
+      />
     </AppSafeAreaView>
   )
 }
