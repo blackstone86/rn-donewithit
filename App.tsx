@@ -6,7 +6,8 @@
 // import App from './demos/Exercise01'
 // import App from './demos/FormikForm'
 // import App from './demos/ValidateByYup'
-import App from './demos/ErrorMsg'
+// import App from './demos/ErrorMsg'
+import App from './demos/FormField'
 
 /**
  * notice
@@ -19,5 +20,6 @@ import App from './demos/ErrorMsg'
  * 07.FormikForm 使用Formik组件
  * 08.ValidateByYup 使用Yup校验表单
  * 09.ErrorMsg 出错组件
+ * 10.FormField 封装表单项组件
  */
 export default App
