@@ -30,16 +30,19 @@ export default function App() {
           console.log(values)
         }}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, setFieldTouched, errors, touched }) => (
           <>
             <AppTextInput
               iconName="email"
               placeholder="Email"
               keyboardType="email-address"
               textContentType="emailAddress" // ios only
+              onBlur={() => {
+                setFieldTouched('email')
+              }}
               onChangeText={handleChange('email')}
             />
-            <AppErrorMessage errorMessage={errors.email} />
+            <AppErrorMessage errorMessage={touched.email && errors.email} />
             <AppTextInput
               iconName="lock"
               placeholder="Password"
@@ -47,9 +50,14 @@ export default function App() {
               textContentType="password" // ios only
               secureTextEntry
               maxLength={10}
+              onBlur={() => {
+                setFieldTouched('password')
+              }}
               onChangeText={handleChange('password')}
             />
-            <AppErrorMessage errorMessage={errors.password} />
+            <AppErrorMessage
+              errorMessage={touched.password && errors.password}
+            />
             <AppButton
               style={styles.loginButton}
               title="login"
