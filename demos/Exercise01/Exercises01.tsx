@@ -18,6 +18,7 @@ export default function App() {
         iconName="email"
         placeholder="Email"
         keyboardType="email-address"
+        textContentType="emailAddress" // ios only
         onChangeText={(text: string) => {
           setEmail(text)
         }}
@@ -27,6 +28,7 @@ export default function App() {
         iconName="lock"
         placeholder="Password"
         keyboardType="default"
+        textContentType="password" // ios only
         secureTextEntry
         onChangeText={(text: string) => {
           setPassword(text)
