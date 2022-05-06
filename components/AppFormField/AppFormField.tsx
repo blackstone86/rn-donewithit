@@ -1,17 +1,10 @@
 import React from 'react'
 import AppErrorMessage from '../AppErrorMessage'
 import AppTextInput from '../AppTextInput'
-import { FormikValues, FormikProps } from 'formik'
 import AppButton from '../AppButton'
 import styles from './styles'
 import CONSTS from './consts'
-
-type AppFormFieldProps = {
-  name?: string | undefined
-  formikProps: FormikProps<FormikValues>
-  type?: 'textInput' | 'submit' | undefined
-  fieldProps?: object | undefined
-}
+import { AppFormFieldProps } from './types'
 
 function AppFormField({
   name = '',

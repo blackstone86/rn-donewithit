@@ -6,7 +6,7 @@ import { FormikValues, FormikProps } from 'formik'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
 import AppFormField from '../components/AppFormField'
-
+import { Field } from '../components/AppFormField/types'
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
   PADDING: 10,
@@ -18,6 +18,38 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(8).label('Password')
 })
+
+const fields: Field[] = [
+  {
+    name: 'email',
+    type: 'textInput',
+    fieldProps: {
+      iconName: 'email',
+      placeholder: 'Email',
+      keyboardType: 'email-address',
+      textContentType: 'emailAddress' // ios only
+    }
+  },
+  {
+    name: 'password',
+    type: 'textInput',
+    fieldProps: {
+      iconName: 'lock',
+      placeholder: 'Password',
+      keyboardType: 'default',
+      textContentType: 'password', // ios only
+      secureTextEntry: true,
+      maxLength: 10
+    }
+  },
+  {
+    type: 'submit',
+    fieldProps: {
+      title: 'login'
+    }
+  }
+]
+
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
@@ -32,38 +64,15 @@ export default function App() {
         {(props: FormikProps<FormikValues>) => {
           return (
             <>
-              <AppFormField
-                name="email"
-                type="textInput"
-                formikProps={props}
-                fieldProps={{
-                  iconName: 'email',
-                  placeholder: 'Email',
-                  keyboardType: 'email-address',
-                  textContentType: 'emailAddress' // ios only
-                }}
-              />
-              <AppFormField
-                name="password"
-                type="textInput"
-                formikProps={props}
-                fieldProps={{
-                  iconName: 'lock',
-                  placeholder: 'Password',
-                  keyboardType: 'default',
-                  textContentType: 'password', // ios only
-                  secureTextEntry: true,
-                  maxLength: 10
-                }}
-              />
-              <AppFormField
-                name="password"
-                type="submit"
-                formikProps={props}
-                fieldProps={{
-                  title: 'login'
-                }}
-              />
+              {fields.map(({ name, type, fieldProps }: Field, index) => (
+                <AppFormField
+                  key={index}
+                  name={name}
+                  type={type}
+                  formikProps={props}
+                  fieldProps={fieldProps}
+                />
+              ))}
             </>
           )
         }}
