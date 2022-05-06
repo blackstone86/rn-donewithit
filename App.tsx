@@ -4,7 +4,8 @@
 // import App from './demos/Modal'
 // import App from './demos/Picker'
 // import App from './demos/Exercise01'
-import App from './demos/FormikForm'
+// import App from './demos/FormikForm'
+import App from './demos/ValidateByYup'
 
 /**
  * notice
@@ -14,5 +15,7 @@ import App from './demos/FormikForm'
  * 04.Modal 模态框
  * 05.Picker 选项类似下拉组件、日期选择
  * 06.Exercise01 登录表单
+ * 07.FormikForm 使用Formik组件
+ * 08.ValidateByYup 使用Yup校验表单
  */
 export default App

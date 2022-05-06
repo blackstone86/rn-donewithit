@@ -5,13 +5,21 @@ import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
+import * as Yup from 'yup'
+import AppText from '../components/AppText'
 const logoImage = require('../assets/materials/logo-red.png')
 
 const CONSTS = {
   PADDING: 10,
-  MARGIN: 20,
-  LOGO_SIZE: 100
+  ERROR_HEIGHT: 30,
+  LOGO_SIZE: 100,
+  LOGO_MARGIN_TOP: 120
 }
+
+const ValidateSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string().min(8, 'Too Short!').required('Required')
+})
 
 export default function App() {
   return (
@@ -19,29 +27,31 @@ export default function App() {
       <Image style={styles.logo} source={logoImage} />
       <Formik
         initialValues={{ email: '', password: '' }}
+        validationSchema={ValidateSchema}
         onSubmit={(values) => {
           console.log(values)
         }}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, errors }) => (
           <>
             <AppTextInput
-              style={styles.formItem}
               iconName="email"
               placeholder="Email"
               keyboardType="email-address"
               textContentType="emailAddress" // ios only
               onChangeText={handleChange('email')}
             />
+            <AppText style={styles.error}>{errors.email}</AppText>
             <AppTextInput
-              style={styles.formItem}
               iconName="lock"
               placeholder="Password"
               keyboardType="default"
               textContentType="password" // ios only
               secureTextEntry
+              maxLength={10}
               onChangeText={handleChange('password')}
             />
+            <AppText style={styles.error}>{errors.password}</AppText>
             <AppButton
               style={styles.loginButton}
               title="login"
@@ -62,15 +72,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: CONSTS.PADDING
   },
   logo: {
-    marginTop: 80,
-    marginBottom: CONSTS.MARGIN * 2,
+    marginTop: CONSTS.LOGO_MARGIN_TOP,
+    marginBottom: CONSTS.LOGO_MARGIN_TOP / 2,
     width: CONSTS.LOGO_SIZE,
     height: CONSTS.LOGO_SIZE
   },
-  formItem: {
-    marginBottom: CONSTS.MARGIN
-  },
   loginButton: {
+    width: '100%'
+  },
+  error: {
+    color: COLORS.PRIMARY,
+    fontSize: 18,
+    height: CONSTS.ERROR_HEIGHT,
+    lineHeight: CONSTS.ERROR_HEIGHT,
     width: '100%'
   }
 })
