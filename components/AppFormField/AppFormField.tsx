@@ -5,15 +5,16 @@ import AppButton from '../AppButton'
 import styles from './styles'
 import CONSTS from './consts'
 import { AppFormFieldProps } from './types'
+import { useFormikContext, FormikProps, FormikValues } from 'formik'
 
-function AppFormField({
-  name = '',
-  type,
-  formikProps,
-  fieldProps
-}: AppFormFieldProps) {
-  const { handleChange, setFieldTouched, handleSubmit, errors, touched } =
-    formikProps
+function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
+  const {
+    handleChange,
+    setFieldTouched,
+    handleSubmit,
+    errors,
+    touched
+  }: FormikProps<FormikValues> = useFormikContext()
 
   switch (type) {
     case 'textInput':

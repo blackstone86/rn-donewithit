@@ -1,11 +1,5 @@
-import { FormikValues, FormikProps } from 'formik'
-
-export type Field = {
+export type AppFormFieldProps = {
   name?: string | undefined
   type?: 'textInput' | 'submit' | undefined
   fieldProps?: object | undefined
-}
-
-export type AppFormFieldProps = Field & {
-  formikProps: FormikProps<FormikValues>
 }

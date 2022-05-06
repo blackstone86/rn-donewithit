@@ -2,11 +2,10 @@ import { StyleSheet, Image } from 'react-native'
 import React from 'react'
 import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
-import { FormikValues, FormikProps } from 'formik'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
 import AppFormField from '../components/AppFormField'
-import { Field } from '../components/AppFormField/types'
+import { AppFormFieldProps as Field } from '../components/AppFormField/types'
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
   PADDING: 10,
@@ -61,7 +60,7 @@ export default function App() {
           console.log(values)
         }}
       >
-        {(props: FormikProps<FormikValues>) => {
+        {() => {
           return (
             <>
               {fields.map(({ name, type, fieldProps }: Field, index) => (
@@ -69,7 +68,6 @@ export default function App() {
                   key={index}
                   name={name}
                   type={type}
-                  formikProps={props}
                   fieldProps={fieldProps}
                 />
               ))}
