@@ -5,29 +5,27 @@ import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
-import * as Yup from 'yup'
 import AppText from '../components/AppText'
-const logoImage = require('../assets/materials/logo-red.png')
+import Yup from '../utils/yup'
 
+const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
   PADDING: 10,
   ERROR_HEIGHT: 30,
   LOGO_SIZE: 100,
   LOGO_MARGIN_TOP: 120
 }
-
-const ValidateSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(8, 'Too Short!').required('Required')
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label('Email'),
+  password: Yup.string().required().min(8).label('Password')
 })
-
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
       <Image style={styles.logo} source={logoImage} />
       <Formik
         initialValues={{ email: '', password: '' }}
-        validationSchema={ValidateSchema}
+        validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
         }}
