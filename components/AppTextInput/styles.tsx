@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: CONSTS.BACKGROUND_COLOR,
     borderRadius: CONSTS.BORDER_RADIUS,
     padding: CONSTS.PADDING,
+    height: CONSTS.HEIGHT,
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'flex-start',
