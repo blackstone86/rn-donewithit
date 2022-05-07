@@ -2,14 +2,17 @@ import React, { useMemo } from 'react'
 import { Formik } from 'formik'
 import AppFormField from '../AppFormField'
 import { Field } from '../AppFormField/types'
+import { StyleProp, View, ViewStyle } from 'react-native'
+import styles from './styles'
 
 type AppFormProps = {
   fields: Field[]
   validationSchema?: any
   onSubmit: (values: object) => void
+  style?: StyleProp<ViewStyle>
 }
 
-function AppForm({ fields, validationSchema, onSubmit }: AppFormProps) {
+function AppForm({ fields, validationSchema, onSubmit, style }: AppFormProps) {
   const initialValues = useMemo(() => {
     const ret: any = {}
     fields.forEach(({ name, defaultValue }: Field) => {
@@ -19,26 +22,28 @@ function AppForm({ fields, validationSchema, onSubmit }: AppFormProps) {
   }, [])
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {() => {
-        return (
-          <>
-            {fields.map(({ name, type, fieldProps }: Field, index) => (
-              <AppFormField
-                key={index}
-                name={name}
-                type={type}
-                fieldProps={fieldProps}
-              />
-            ))}
-          </>
-        )
-      }}
-    </Formik>
+    <View style={[styles.container, style]}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {() => {
+          return (
+            <>
+              {fields.map(({ name, type, fieldProps }: Field, index) => (
+                <AppFormField
+                  key={index}
+                  name={name}
+                  type={type}
+                  fieldProps={fieldProps}
+                />
+              ))}
+            </>
+          )
+        }}
+      </Formik>
+    </View>
   )
 }
 

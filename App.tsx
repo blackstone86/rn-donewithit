@@ -8,7 +8,9 @@
 // import App from './demos/ValidateByYup'
 // import App from './demos/ErrorMsg'
 // import App from './demos/FormField'
-import App from './demos/Form'
+// import App from './demos/Form'
+import App from './demos/Exercise01'
+// import App from './demos/Exercise02'
 
 /**
  * notice
@@ -23,5 +25,7 @@ import App from './demos/Form'
  * 09.ErrorMsg 出错组件
  * 10.FormField 封装表单项组件
  * 11.Form 表单组件
+ * 12.Exercise01 注册页
+ * 13.Exercise02 清单编辑页
  */
 export default App
