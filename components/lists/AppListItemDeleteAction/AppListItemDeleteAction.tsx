@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { StyleSheet } from 'react-native'
 import { View } from 'react-native'
-import COLORS from '../../config/colors'
+import COLORS from '../../../config/colors'
 import CONSTS from './consts'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'

@@ -5,11 +5,11 @@ import {
   GestureResponderEvent,
   TouchableHighlight
 } from 'react-native'
-import COLORS from '../../config/colors'
+import COLORS from '../../../config/colors'
 import CONSTS from './consts'
-import AppText from '../AppText/AppText'
+import AppText from '../../AppText/AppText'
 import { AppMenuItemProps } from './types'
-import AppIcon from '../AppIcon'
+import AppIcon from '../../AppIcon'
 
 function AppMenuItem({
   iconName,

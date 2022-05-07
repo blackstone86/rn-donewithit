@@ -6,7 +6,7 @@ import {
   Modal,
   Button
 } from 'react-native'
-import AppFlatList from '../AppFlatList'
+import AppFlatList from '../lists/AppFlatList'
 import AppIcon from '../AppIcon'
 import AppPickerItem from '../AppPickerItem'
 import AppText from '../AppText'

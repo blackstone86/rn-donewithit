@@ -7,9 +7,9 @@ import {
   TouchableHighlight,
   Animated
 } from 'react-native'
-import AppText from '../AppText'
+import AppText from '../../AppText'
 import CONSTS from './consts'
-import COLORS from '../../config/colors'
+import COLORS from '../../../config/colors'
 import { AppListItemProps } from './types'
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler'
 function AppListItem(props: AppListItemProps) {
