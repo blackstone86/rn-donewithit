@@ -13,7 +13,8 @@
 // import App from './demos/Exercise02'
 // import App from './demos/Exercise03'
 // import App from './demos/FlatList'
-import App from './demos/HandlingSwipes'
+// import App from './demos/HandlingSwipes'
+import App from './demos/DeletingItems'
 
 /**
  * notice
@@ -31,6 +32,8 @@ import App from './demos/HandlingSwipes'
  * 12.Exercise01 注册页
  * 13.Exercise02 清单编辑页
  * 14.Exercise03 "我的"页面，测试列表类组件梳理
- * 15.FlatList 列表，测试列表类组件梳理
+ * 15.FlatList 列表
+ * 16.HandlingSwipes 刷卡手势
+ * 17.DeletingItems 删除列表项
  */
 export default App

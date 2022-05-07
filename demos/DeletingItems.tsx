@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import {
   Animated,
   GestureResponderEvent,
@@ -8,9 +8,10 @@ import {
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import {
   AppFlatList,
-  AppListItem,
-  AppListItemDeleteAction
+  AppListItemDeleteAction,
+  AppListItem
 } from '../components/lists'
+import produce from 'immer'
 
 type Message = {
   id: number
@@ -31,6 +32,12 @@ const messages: Message[] = [
     title: 'T2',
     description: 'D2',
     image: require('../assets/materials/mosh.jpg')
+  },
+  {
+    id: 3,
+    title: 'T3',
+    description: 'D3',
+    image: require('../assets/materials/mosh.jpg')
   }
 ]
 
@@ -40,21 +47,41 @@ const styles = StyleSheet.create({
   }
 })
 
-const handlePress = (e?: GestureResponderEvent, data?: Message) => {}
-
-// const handleRenderRightActions = (
-//   progressAnimatedValue: Animated.AnimatedInterpolation,
-//   dragAnimatedValue: Animated.AnimatedInterpolation
-// ): ReactNode => {
-//   return <AppListItemDeleteAction />
-// }
-
 export default function App() {
+  let [msgs, setMsgs] = useState<Message[]>(messages)
+  const handlePress = useCallback(
+    (e?: GestureResponderEvent, data?: Message) => {},
+    []
+  )
+  const handleRenderRightActions = useCallback(
+    (
+      progress: Animated.AnimatedInterpolation,
+      dragX: Animated.AnimatedInterpolation,
+      item: Message
+    ): ReactNode => {
+      return (
+        <AppListItemDeleteAction
+          onDelete={() => {
+            handleDelete(item.id)
+          }}
+        />
+      )
+    },
+    []
+  )
+  const handleDelete = useCallback((id: number) => {
+    const deletedMsgs: Message[] = produce(msgs, (draft) => {
+      const index = draft.findIndex((msg: Message) => msg.id === id)
+      if (index !== -1) draft.splice(index, 1)
+    })
+    msgs = deletedMsgs // 解决获取 msgs 参数不准问题
+    setMsgs(deletedMsgs)
+  }, [])
   return (
     <AppSafeAreaView>
       <AppFlatList
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
+        data={msgs}
+        keyExtractor={(msg) => msg.id.toString()}
         renderItem={({ item, index, separators }) => {
           const { title, description, image }: Message = item
           return (
@@ -70,7 +97,7 @@ export default function App() {
                 progress: Animated.AnimatedInterpolation,
                 dragX: Animated.AnimatedInterpolation
               ) => {
-                return <AppListItemDeleteAction />
+                return handleRenderRightActions(progress, dragX, item)
               }}
             />
           )
