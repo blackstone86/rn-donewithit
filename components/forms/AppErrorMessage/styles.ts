@@ -1,5 +1,5 @@
 import CONSTS from './consts'
-import COLORS from '../../config/colors'
+import COLORS from '../../../config/colors'
 import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   text: {

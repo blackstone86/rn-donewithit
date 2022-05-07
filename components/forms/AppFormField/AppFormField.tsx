@@ -1,9 +1,9 @@
 import React from 'react'
-import AppErrorMessage from '../../AppErrorMessage'
+import AppErrorMessage from '../AppErrorMessage'
 import AppTextInput from '../AppTextInput'
 import { AppFormFieldProps } from './types'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
-import AppSubmitButton from '../../AppSubmitButton'
+import AppSubmitButton from '../AppSubmitButton'
 
 function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
   const {

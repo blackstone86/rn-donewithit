@@ -1,9 +1,9 @@
 import React from 'react'
-import AppButton from '../AppButton'
+import AppButton from '../../AppButton'
 import CONSTS from './consts'
 import styles from './styles'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
-import { AppButtonProps } from '../AppButton/types'
+import { AppButtonProps } from '../../AppButton/types'
 
 function AppSubmitButton({
   style,

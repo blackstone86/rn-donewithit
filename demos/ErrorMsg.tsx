@@ -6,7 +6,7 @@ import AppTextInput from '../components/forms/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
-import AppErrorMessage from '../components/AppErrorMessage'
+import AppErrorMessage from '../components/forms/AppErrorMessage'
 
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
