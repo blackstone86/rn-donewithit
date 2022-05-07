@@ -3,7 +3,7 @@ import React from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import { AppForm, Field } from '../../components/forms'
+import { AppForm as Form, Field } from '../../components/forms'
 import Yup from '../../utils/yup'
 const fields: Field[] = [
   {
@@ -59,7 +59,10 @@ const fields: Field[] = [
       icon: false,
       placeholder: 'Description',
       keyboardType: 'default',
-      textContentType: 'none'
+      textContentType: 'none',
+      multiline: true,
+      numberOfLines: 3,
+      maxLength: 255
     }
   },
   {
@@ -85,7 +88,7 @@ const validationSchema = Yup.object().shape({
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
-      <AppForm
+      <Form
         fields={fields}
         validationSchema={validationSchema}
         onSubmit={(values) => {
