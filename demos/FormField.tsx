@@ -4,8 +4,8 @@ import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
-import AppFormField from '../components/AppFormField'
-import { AppFormFieldProps as Field } from '../components/AppFormField/types'
+import AppFormField from '../components/forms/AppFormField'
+import { AppFormFieldProps as Field } from '../components/forms/AppFormField/types'
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
   PADDING: 10,

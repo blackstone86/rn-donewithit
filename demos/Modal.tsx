@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppPicker from '../components/AppPicker'
-import AppTextInput from '../components/AppTextInput'
+import AppTextInput from '../components/forms/AppTextInput'
 
 export default function App() {
   return (

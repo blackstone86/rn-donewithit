@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { KeyboardTypeOptions, StyleSheet } from 'react-native'
 import AppSafeAreaView from '../components/AppSafeAreaView'
-import AppTextInput from '../components/AppTextInput'
+import AppTextInput from '../components/forms/AppTextInput'
 import AppText from '../components/AppText'
 
 type dataType = {

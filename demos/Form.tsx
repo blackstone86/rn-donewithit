@@ -3,8 +3,8 @@ import React from 'react'
 import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import Yup from '../utils/yup'
-import { Field } from '../components/AppFormField/types'
-import AppForm from '../components/AppForm'
+import { Field } from '../components/forms/AppFormField/types'
+import AppForm from '../components/forms/AppForm'
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
   PADDING: 10,
