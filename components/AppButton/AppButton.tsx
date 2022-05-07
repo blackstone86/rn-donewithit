@@ -8,9 +8,10 @@ import {
 import AppText from '../AppText'
 import useStyles from './useStyles'
 import { AppButtonProps } from './types'
+import CONSTS from './consts'
 
 function AppButton({
-  title,
+  title = CONSTS.BUTTON_TITLE,
   fontSize,
   height,
   backgroundColor,

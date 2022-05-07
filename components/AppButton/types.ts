@@ -1,8 +1,7 @@
-import { FormEvent } from 'react'
-import { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native'
+import { StyleProp, ViewStyle } from 'react-native'
 
 export type AppButtonProps = {
-  title: string
+  title?: string
   fontSize?: number
   height?: number
   backgroundColor?: string

@@ -1,17 +1,14 @@
 import React from 'react'
 import AppErrorMessage from '../AppErrorMessage'
 import AppTextInput from '../AppTextInput'
-import AppButton from '../AppButton'
-import styles from './styles'
-import CONSTS from './consts'
 import { AppFormFieldProps } from './types'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
+import AppSubmitButton from '../AppSubmitButton'
 
 function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
   const {
     handleChange,
     setFieldTouched,
-    handleSubmit,
     errors,
     touched
   }: FormikProps<FormikValues> = useFormikContext()
@@ -31,14 +28,7 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
         </>
       )
     case 'submit':
-      return (
-        <AppButton
-          style={styles.submitButton}
-          title={CONSTS.SUBMIT_BUTTON_TITLE}
-          onPress={handleSubmit}
-          {...fieldProps}
-        />
-      )
+      return <AppSubmitButton {...fieldProps} />
     default:
       return null
   }
