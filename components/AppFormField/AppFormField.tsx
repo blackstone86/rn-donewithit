@@ -10,7 +10,8 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
     handleChange,
     setFieldTouched,
     errors,
-    touched
+    touched,
+    values
   }: FormikProps<FormikValues> = useFormikContext()
 
   switch (type) {
@@ -22,6 +23,7 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
               setFieldTouched(name)
             }}
             onChangeText={handleChange(name)}
+            value={values[name]}
             {...fieldProps}
           />
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />

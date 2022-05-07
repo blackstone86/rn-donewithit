@@ -1,5 +1,9 @@
 export type AppFormFieldProps = {
-  name?: string | undefined
-  type?: 'textInput' | 'submit' | undefined
-  fieldProps?: object | undefined
+  name?: string
+  type?: 'textInput' | 'submit'
+  fieldProps?: object
+}
+
+export type Field = AppFormFieldProps & {
+  defaultValue?: any
 }

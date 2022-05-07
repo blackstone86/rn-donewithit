@@ -3,7 +3,7 @@ import React from 'react'
 import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import Yup from '../utils/yup'
-import { AppFormFieldProps as Field } from '../components/AppFormField/types'
+import { Field } from '../components/AppFormField/types'
 import AppForm from '../components/AppForm'
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {
@@ -16,6 +16,7 @@ const fields: Field[] = [
   {
     name: 'email',
     type: 'textInput',
+    defaultValue: 'asianking86@qq.com',
     fieldProps: {
       iconName: 'email',
       placeholder: 'Email',
@@ -24,8 +25,20 @@ const fields: Field[] = [
     }
   },
   {
+    name: 'name',
+    type: 'textInput',
+    defaultValue: 'Junwen Huang',
+    fieldProps: {
+      iconName: 'account',
+      placeholder: 'Name',
+      keyboardType: 'name-phone-pad',
+      textContentType: 'name' // ios only
+    }
+  },
+  {
     name: 'password',
     type: 'textInput',
+    defaultValue: '12345678',
     fieldProps: {
       iconName: 'lock',
       placeholder: 'Password',
@@ -44,13 +57,20 @@ const fields: Field[] = [
 ]
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
+  name: Yup.string().required().label('Name'),
   password: Yup.string().required().min(8).label('Password')
 })
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
       <Image style={styles.logo} source={logoImage} />
-      <AppForm fields={fields} validationSchema={validationSchema} />
+      <AppForm
+        fields={fields}
+        validationSchema={validationSchema}
+        onSubmit={(values) => {
+          console.log(values)
+        }}
+      />
     </AppSafeAreaView>
   )
 }
