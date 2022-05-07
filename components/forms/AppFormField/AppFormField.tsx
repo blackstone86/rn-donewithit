@@ -10,6 +10,7 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
   const {
     handleChange,
     setFieldTouched,
+    setFieldValue,
     errors,
     touched,
     values
@@ -33,7 +34,9 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
         <>
           <AppPicker
             onModalClose={() => setFieldTouched(name)}
-            // onChange={handleChange(name)}
+            onChange={(value: any) => {
+              setFieldValue(name, value)
+            }}
             selectedItem={values[name]}
             {...fieldProps}
           />
