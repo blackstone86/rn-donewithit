@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 50,
     fontSize: CONSTS.TEXT_INPUT_FONT_SIZE
+  },
+  button: {
+    margin: CONSTS.PADDING
   }
 })
 

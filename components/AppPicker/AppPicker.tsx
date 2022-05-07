@@ -1,14 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import {
   View,
   GestureResponderEvent,
   TouchableWithoutFeedback,
-  Modal,
-  Button
+  Modal
 } from 'react-native'
 import AppFlatList from '../lists/AppFlatList'
 import AppIcon from '../AppIcon'
 import AppPickerItem from '../AppPickerItem'
+import AppButton from '../AppButton'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import styles from './styles'
@@ -81,13 +81,6 @@ function AppPicker({
           setOpen(!open)
         }}
       >
-        <Button
-          title="Close"
-          onPress={() => {
-            setOpen(false)
-            handleModalClose()
-          }}
-        ></Button>
         <AppFlatList
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
@@ -103,6 +96,14 @@ function AppPicker({
             )
           }}
         />
+        <AppButton
+          title="close"
+          style={styles.button}
+          onPress={() => {
+            setOpen(false)
+            handleModalClose()
+          }}
+        ></AppButton>
       </Modal>
     </>
   )
