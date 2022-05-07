@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Formik } from 'formik'
 import AppFormField from '../AppFormField'
-import { AppFormFieldProps as Field } from '../AppFormField/types'
+import { Field } from '../AppFormField/types'
 
 type AppFormProps = {
   fields: Field[]
@@ -27,16 +27,14 @@ function AppForm({ fields, validationSchema, onSubmit }: AppFormProps) {
       {() => {
         return (
           <>
-            {fields.map(
-              ({ name, type, fieldProps, defaultValue }: Field, index) => (
-                <AppFormField
-                  key={index}
-                  name={name}
-                  type={type}
-                  fieldProps={fieldProps}
-                />
-              )
-            )}
+            {fields.map(({ name, type, fieldProps }: Field, index) => (
+              <AppFormField
+                key={index}
+                name={name}
+                type={type}
+                fieldProps={fieldProps}
+              />
+            ))}
           </>
         )
       }}
