@@ -2,7 +2,7 @@ import { StyleSheet, Image } from 'react-native'
 import React from 'react'
 import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
-import AppTextInput from '../components/forms/AppTextInput'
+import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
 const logoImage = require('../assets/materials/logo-red.png')

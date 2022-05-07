@@ -1,6 +1,6 @@
 import React from 'react'
 import AppErrorMessage from '../AppErrorMessage'
-import AppTextInput from '../AppTextInput'
+import AppTextInput from '../../AppTextInput'
 import { AppFormFieldProps } from './types'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
 import AppSubmitButton from '../AppSubmitButton'

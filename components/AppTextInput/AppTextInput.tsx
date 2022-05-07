@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextInput, View } from 'react-native'
-import AppIcon from '../../AppIcon'
+import AppIcon from '../AppIcon'
 import CONSTS from './consts'
 import styles from './styles'
 

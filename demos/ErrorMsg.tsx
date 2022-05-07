@@ -2,11 +2,11 @@ import { StyleSheet, Image } from 'react-native'
 import React from 'react'
 import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
-import AppTextInput from '../components/forms/AppTextInput'
+import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
-import AppErrorMessage from '../components/forms/AppErrorMessage'
+import { AppErrorMessage } from '../components/forms'
 
 const logoImage = require('../assets/materials/logo-red.png')
 const CONSTS = {

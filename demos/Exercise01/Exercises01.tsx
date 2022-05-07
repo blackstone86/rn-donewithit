@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import AppTextInput from '../../components/forms/AppTextInput'
+import AppTextInput from '../../components/AppTextInput'
 import AppButton from '../../components/AppButton'
 const logoImage = require('../../assets/materials/logo-red.png')
 
