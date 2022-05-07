@@ -31,10 +31,24 @@ const fields: Field[] = [
   {
     name: 'category',
     type: 'picker',
-    defaultValue: '',
+    defaultValue: 0,
     fieldProps: {
       icon: false,
-      placeholder: 'Category'
+      placeholder: 'Category',
+      options: [
+        {
+          label: 'Furniture',
+          value: 1
+        },
+        {
+          label: 'Clothing',
+          value: 2
+        },
+        {
+          label: 'Cameras',
+          value: 3
+        }
+      ]
     }
   },
   {
@@ -57,8 +71,16 @@ const fields: Field[] = [
 ]
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().label('Title'),
-  price: Yup.number().required().label('Price'),
-  description: Yup.string().required().min(8).label('Description')
+  price: Yup.number()
+    .required()
+    .min(1)
+    .max(10 * 1e3)
+    .label('Price'),
+  category: Yup.number()
+    .required()
+    .min(1, 'Category is a required field')
+    .label('Category'),
+  description: Yup.string().label('Description')
 })
 export default function App() {
   return (

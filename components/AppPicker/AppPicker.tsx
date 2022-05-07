@@ -21,6 +21,7 @@ function AppPicker({
   optionValue = CONSTS.OPTION_VALUE,
   optionLabel = CONSTS.OPTION_LABEL,
   onChange,
+  onModalClose,
   selectedItem,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
@@ -47,8 +48,13 @@ function AppPicker({
     setValue(val)
     setLabel(label)
     setOpen(false)
+    handleModalClose()
     typeof onChange === 'function' && onChange(val)
   }, [])
+  const handleModalClose = useCallback(() => {
+    typeof onModalClose === 'function' && onModalClose()
+  }, [])
+
   return (
     <>
       <TouchableWithoutFeedback onPress={handlePress}>
@@ -76,7 +82,8 @@ function AppPicker({
         <Button
           title="Close"
           onPress={() => {
-            setOpen(!open)
+            setOpen(false)
+            handleModalClose()
           }}
         ></Button>
         <AppFlatList

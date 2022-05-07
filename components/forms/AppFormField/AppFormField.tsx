@@ -20,9 +20,7 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
       return (
         <>
           <AppTextInput
-            onBlur={() => {
-              setFieldTouched(name)
-            }}
+            onBlur={() => setFieldTouched(name)}
             onChangeText={handleChange(name)}
             value={values[name]}
             {...fieldProps}
@@ -34,10 +32,9 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
       return (
         <>
           <AppPicker
-            onChange={() => {
-              setFieldTouched(name)
-              handleChange(name)
-            }}
+            onModalClose={() => setFieldTouched(name)}
+            // onChange={handleChange(name)}
+            selectedItem={values[name]}
             {...fieldProps}
           />
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />
