@@ -30,6 +30,9 @@ const styles = StyleSheet.create({
     fontSize: CONSTS.TEXT_INPUT_FONT_SIZE,
     flex: 1
   },
+  placeholder: {
+    color: COLORS.SILVER
+  },
   flatListItem: {
     textAlign: 'center',
     lineHeight: 50,

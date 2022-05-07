@@ -54,7 +54,7 @@ function AppPicker({
   const handleModalClose = useCallback(() => {
     typeof onModalClose === 'function' && onModalClose()
   }, [])
-
+  const isPlaceholder = label === placeholder
   return (
     <>
       <TouchableWithoutFeedback onPress={handlePress}>
@@ -67,7 +67,9 @@ function AppPicker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.label}>{label}</AppText>
+          <AppText style={[styles.label, isPlaceholder && styles.placeholder]}>
+            {label}
+          </AppText>
           <AppIcon name="chevron-down" color={iconColor} size={iconSize} />
         </View>
       </TouchableWithoutFeedback>
