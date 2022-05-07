@@ -7,8 +7,7 @@ import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
 import { AppErrorMessage } from '../components/forms'
-
-const logoImage = require('../assets/materials/logo-red.png')
+import { LOGO_RED } from '../config/images'
 const CONSTS = {
   PADDING: 10,
   ERROR_HEIGHT: 30,
@@ -22,7 +21,7 @@ const validationSchema = Yup.object().shape({
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={logoImage} />
+      <Image style={styles.logo} source={LOGO_RED} />
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}

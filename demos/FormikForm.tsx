@@ -5,7 +5,7 @@ import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
-const logoImage = require('../assets/materials/logo-red.png')
+import { LOGO_RED } from '../config/images'
 
 const CONSTS = {
   PADDING: 10,
@@ -16,7 +16,7 @@ const CONSTS = {
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={logoImage} />
+      <Image style={styles.logo} source={LOGO_RED} />
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values) => {

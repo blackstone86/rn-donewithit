@@ -4,7 +4,7 @@ import COLORS from '../config/colors'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import Yup from '../utils/yup'
 import { AppForm, Field } from '../components/forms'
-const logoImage = require('../assets/materials/logo-red.png')
+import { LOGO_RED } from '../config/images'
 const CONSTS = {
   PADDING: 10,
   ERROR_HEIGHT: 30,
@@ -62,7 +62,7 @@ const validationSchema = Yup.object().shape({
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={logoImage} />
+      <Image style={styles.logo} source={LOGO_RED} />
       <AppForm
         fields={fields}
         validationSchema={validationSchema}

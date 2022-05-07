@@ -5,14 +5,14 @@ import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppTextInput from '../../components/AppTextInput'
 import AppButton from '../../components/AppButton'
-const logoImage = require('../../assets/materials/logo-red.png')
+import { LOGO_RED } from '../../config/images'
 
 export default function App() {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   return (
     <AppSafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={logoImage} />
+      <Image style={styles.logo} source={LOGO_RED} />
       <AppTextInput
         style={styles.formItem}
         iconName="email"

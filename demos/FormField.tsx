@@ -5,7 +5,7 @@ import AppSafeAreaView from '../components/AppSafeAreaView'
 import { Formik } from 'formik'
 import Yup from '../utils/yup'
 import { AppFormField, Field } from '../components/forms'
-const logoImage = require('../assets/materials/logo-red.png')
+import { LOGO_RED } from '../config/images'
 const CONSTS = {
   PADDING: 10,
   ERROR_HEIGHT: 30,
@@ -51,7 +51,7 @@ const fields: Field[] = [
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={logoImage} />
+      <Image style={styles.logo} source={LOGO_RED} />
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
