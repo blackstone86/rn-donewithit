@@ -1,3 +1,3 @@
-import Exercises01 from './Exercises01'
+import Exercises02 from './Exercises02'
 
-export default Exercises01
+export default Exercises02

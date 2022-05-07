@@ -9,8 +9,8 @@
 // import App from './demos/ErrorMsg'
 // import App from './demos/FormField'
 // import App from './demos/Form'
-import App from './demos/Exercise01'
-// import App from './demos/Exercise02'
+// import App from './demos/Exercise01'
+import App from './demos/Exercise02'
 
 /**
  * notice
