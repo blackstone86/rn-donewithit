@@ -29,6 +29,15 @@ const fields: Field[] = [
     }
   },
   {
+    name: 'category',
+    type: 'picker',
+    defaultValue: '',
+    fieldProps: {
+      icon: false,
+      placeholder: 'Category'
+    }
+  },
+  {
     name: 'description',
     type: 'textInput',
     defaultValue: '',

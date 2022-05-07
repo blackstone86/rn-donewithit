@@ -1,6 +1,6 @@
 export type AppFormFieldProps = {
   name?: string
-  type?: 'textInput' | 'submit'
+  type?: 'textInput' | 'picker' | 'submit'
   fieldProps?: object
 }
 

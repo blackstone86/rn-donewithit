@@ -4,6 +4,7 @@ import AppTextInput from '../../AppTextInput'
 import { AppFormFieldProps } from './types'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
 import AppSubmitButton from '../AppSubmitButton'
+import AppPicker from '../../AppPicker'
 
 function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
   const {
@@ -24,6 +25,19 @@ function AppFormField({ name = '', type, fieldProps }: AppFormFieldProps) {
             }}
             onChangeText={handleChange(name)}
             value={values[name]}
+            {...fieldProps}
+          />
+          <AppErrorMessage errorMessage={touched[name] && errors[name]} />
+        </>
+      )
+    case 'picker':
+      return (
+        <>
+          <AppPicker
+            onChange={() => {
+              setFieldTouched(name)
+              handleChange(name)
+            }}
             {...fieldProps}
           />
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />

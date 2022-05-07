@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: CONSTS.HEIGHT
   },
   icon: {
     marginRight: CONSTS.PADDING
