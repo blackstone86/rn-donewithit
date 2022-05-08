@@ -11,7 +11,7 @@ const CONSTS = {
   TEXT_INPUT_FONT_SIZE: 18
 }
 
-function PickerItem({
+function AppCategoryPickerItem({
   label,
   selected,
   onPress
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default PickerItem
+export default AppCategoryPickerItem

@@ -4,7 +4,7 @@ import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field } from '../../components/forms'
-import PickerItem from './PickerItem'
+import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 const fields: Field[] = [
   {
@@ -52,7 +52,7 @@ const fields: Field[] = [
           value: 3
         }
       ],
-      PickerItemComponent: PickerItem
+      PickerItemComponent: AppCategoryPickerItem
     }
   },
   {
