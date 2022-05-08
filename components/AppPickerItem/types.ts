@@ -4,4 +4,5 @@ export type AppPickerItemProps = {
   label: string
   selected?: boolean
   onPress?: (e?: GestureResponderEvent) => void
+  data?: any
 }

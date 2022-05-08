@@ -83,6 +83,7 @@ function AppPicker({
         }}
       >
         <AppFlatList
+          numColumns={3}
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
           renderItem={({ item }) => {
@@ -93,6 +94,7 @@ function AppPicker({
                 onPress={() => {
                   handleFlatListItemPress(item)
                 }}
+                data={item}
               />
             )
           }}

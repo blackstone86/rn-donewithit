@@ -34,7 +34,7 @@ const fields: Field[] = [
     name: 'category',
     type: 'picker',
     defaultValue: 0,
-    width: 120,
+    width: 180,
     fieldProps: {
       icon: false,
       placeholder: 'Category',
@@ -59,7 +59,7 @@ const fields: Field[] = [
         },
         {
           label: 'Games',
-          iconName: 'cards-playing',
+          iconName: 'cards-playing-outline',
           iconBackgroundColor: 'limegreen',
           value: 4
         },
@@ -83,13 +83,13 @@ const fields: Field[] = [
         },
         {
           label: 'Books',
-          iconName: 'book-open-blank-variant',
+          iconName: 'book-open-variant',
           iconBackgroundColor: 'mediumorchid',
           value: 8
         },
         {
           label: 'Other',
-          iconName: 'application-outline',
+          iconName: 'application',
           iconBackgroundColor: 'lightslategrey',
           value: 9
         }
