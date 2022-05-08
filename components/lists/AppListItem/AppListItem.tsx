@@ -11,6 +11,8 @@ import COLORS from '../../../config/colors'
 import styles from './styles'
 import { AppListItemProps } from './types'
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler'
+import AppIcon from '../../AppIcon'
+import CONSTS from './consts'
 function AppListItem(props: AppListItemProps) {
   const { title, subTitle, image, style, onPress, renderRightActions } = props
 
@@ -42,7 +44,7 @@ function AppListItem(props: AppListItemProps) {
         >
           <View style={[style, styles.listItem]}>
             <Image style={styles.avatar} source={image} />
-            <View>
+            <View style={styles.infoBox}>
               <AppText style={styles.title}>{title}</AppText>
               {subTitle && (
                 <AppText style={[styles.title, styles.subTitle]}>
@@ -50,6 +52,11 @@ function AppListItem(props: AppListItemProps) {
                 </AppText>
               )}
             </View>
+            <AppIcon
+              name="chevron-right"
+              size={CONSTS.ICON_SIZE}
+              color={COLORS.GRAY}
+            />
           </View>
         </TouchableHighlight>
       </Swipeable>
