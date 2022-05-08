@@ -21,6 +21,7 @@ const fields: Field[] = [
     name: 'price',
     type: 'textInput',
     defaultValue: '',
+    width: 120,
     fieldProps: {
       icon: false,
       placeholder: 'Price',
@@ -32,6 +33,7 @@ const fields: Field[] = [
     name: 'category',
     type: 'picker',
     defaultValue: 0,
+    width: 120,
     fieldProps: {
       icon: false,
       placeholder: 'Category',

@@ -10,13 +10,13 @@
 // import App from './demos/FormField'
 // import App from './demos/Form'
 // import App from './demos/Exercise01'
-// import App from './demos/Exercise02'
+import App from './demos/Exercise02'
 // import App from './demos/Exercise03'
 // import App from './demos/FlatList'
 // import App from './demos/HandlingSwipes'
 // import App from './demos/DeletingItems'
 // import App from './demos/Exercise04'
-import App from './demos/PullToRefresh'
+// import App from './demos/PullToRefresh'
 
 /**
  * notice

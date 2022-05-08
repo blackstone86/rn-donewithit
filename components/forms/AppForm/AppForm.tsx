@@ -31,11 +31,12 @@ function AppForm({ fields, validationSchema, onSubmit, style }: AppFormProps) {
         {() => {
           return (
             <>
-              {fields.map(({ name, type, fieldProps }: Field, index) => (
+              {fields.map(({ name, type, fieldProps, width }: Field, index) => (
                 <AppFormField
                   key={index}
                   name={name}
                   type={type}
+                  width={width}
                   fieldProps={fieldProps}
                 />
               ))}
