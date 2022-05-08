@@ -12,7 +12,8 @@ import {
   AppListItem
 } from '../components/lists'
 import produce from 'immer'
-import { LONG_TEXT } from '../config/texts'
+// import { LONG_TEXT } from '../config/texts'
+import { MOSH } from '../config/images'
 
 type Message = {
   id: number
@@ -24,22 +25,23 @@ type Message = {
 const messages: Message[] = [
   {
     id: 1,
-    title: LONG_TEXT,
-    description: LONG_TEXT,
-    image: require('../assets/materials/mosh.jpg')
+    title: 'Mosh Hamedani',
+    description: 'Hey! Is this item still available?',
+    image: MOSH
   },
   {
     id: 2,
-    title: 'T2',
-    description: 'D2',
-    image: require('../assets/materials/mosh.jpg')
-  },
-  {
-    id: 3,
-    title: 'T3',
-    description: 'D3',
-    image: require('../assets/materials/mosh.jpg')
+    title: 'Mosh Hamedani',
+    description:
+      "I'm intrested in this item. When will you be able to post it?",
+    image: MOSH
   }
+  // {
+  //   id: 3,
+  //   title: 'T3',
+  //   description: 'D3',
+  //   image: MOSH
+  // }
 ]
 
 const styles = StyleSheet.create({

@@ -7,14 +7,14 @@ import AppAvatarBox from '../../components/AppAvatarBox'
 import { AppFlatList, AppMenuItem } from '../../components/lists'
 import { menuType } from './types'
 import AppIcon from '../../components/AppIcon'
-const avatarImage = require('../../assets/materials/mosh.jpg')
+import { MOSH } from '../../config/images'
 
 export default function App() {
   const { name, email, image, menus } = useMemo(
     () => ({
       name: 'Mosh Hamedani',
       email: 'programmingwithmosh@gmail.com',
-      image: avatarImage,
+      image: MOSH,
       menus: [
         {
           iconName: 'format-list-bulleted',

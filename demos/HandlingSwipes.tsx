@@ -11,7 +11,7 @@ import {
   AppListItem,
   AppListItemDeleteAction
 } from '../components/lists'
-
+import { MOSH } from '../config/images'
 type Message = {
   id: number
   title: string
@@ -24,13 +24,13 @@ const messages: Message[] = [
     id: 1,
     title: 'T1',
     description: 'D1',
-    image: require('../assets/materials/mosh.jpg')
+    image: MOSH
   },
   {
     id: 2,
     title: 'T2',
     description: 'D2',
-    image: require('../assets/materials/mosh.jpg')
+    image: MOSH
   }
 ]
 

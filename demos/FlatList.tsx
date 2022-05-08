@@ -3,19 +3,19 @@ import { FlatList } from 'react-native'
 import React from 'react'
 import { AppListItem } from '../components/lists'
 import AppSafeAreaView from '../components/AppSafeAreaView'
-
+import { MOSH } from '../config/images'
 const messages = [
   {
     id: 1,
     title: 'T1',
     description: 'D1',
-    image: require('../assets/materials/mosh.jpg')
+    image: MOSH
   },
   {
     id: 2,
     title: 'T2',
     description: 'D2',
-    image: require('../assets/materials/mosh.jpg')
+    image: MOSH
   }
 ]
 

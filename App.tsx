@@ -14,8 +14,8 @@
 // import App from './demos/Exercise03'
 // import App from './demos/FlatList'
 // import App from './demos/HandlingSwipes'
-// import App from './demos/DeletingItems'
-import App from './demos/Exercise04'
+import App from './demos/DeletingItems'
+// import App from './demos/Exercise04'
 
 /**
  * notice
