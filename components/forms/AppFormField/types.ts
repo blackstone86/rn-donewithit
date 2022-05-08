@@ -2,7 +2,7 @@ export type AppFormFieldProps = {
   name?: string
   type?: 'textInput' | 'picker' | 'submit'
   fieldProps?: object
-  width?: number
+  width?: number | string
 }
 
 export type Field = AppFormFieldProps & {
