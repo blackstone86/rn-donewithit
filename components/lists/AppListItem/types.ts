@@ -9,6 +9,8 @@ import {
 export type AppListItemProps = {
   title: string
   subTitle?: string
+  titleMaxLines?: number
+  subTitleMaxLines?: number
   image: ImageSourcePropType
   style?: StyleProp<ViewStyle>
   onPress?: (e?: GestureResponderEvent) => void

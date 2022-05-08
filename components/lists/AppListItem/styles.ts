@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
+  avatarWrap: {
+    height: '100%'
+  },
   avatar: {
     width: CONSTS.AVATAR_SIZE,
     height: CONSTS.AVATAR_SIZE,
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: COLORS.GRAY,
-    lineHeight: CONSTS.TOTAL_LINE_HEIGHT
+    marginTop: CONSTS.PADDING
   }
 })
 

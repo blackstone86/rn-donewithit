@@ -12,6 +12,7 @@ import {
   AppListItem
 } from '../components/lists'
 import produce from 'immer'
+import { LONG_TEXT } from '../config/texts'
 
 type Message = {
   id: number
@@ -23,8 +24,8 @@ type Message = {
 const messages: Message[] = [
   {
     id: 1,
-    title: 'T1',
-    description: 'D1',
+    title: LONG_TEXT,
+    description: LONG_TEXT,
     image: require('../assets/materials/mosh.jpg')
   },
   {
@@ -90,6 +91,8 @@ export default function App() {
               title={title}
               subTitle={description}
               image={image}
+              titleMaxLines={1}
+              subTitleMaxLines={5}
               onPress={(e) => {
                 handlePress(e, item)
               }}
