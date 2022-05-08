@@ -41,15 +41,57 @@ const fields: Field[] = [
       options: [
         {
           label: 'Furniture',
+          iconName: 'lamp',
+          iconBackgroundColor: COLORS.PRIMARY,
           value: 1
         },
         {
-          label: 'Clothing',
+          label: 'Cars',
+          iconName: 'car',
+          iconBackgroundColor: 'orange',
           value: 2
         },
         {
           label: 'Cameras',
+          iconName: 'camera',
+          iconBackgroundColor: 'gold',
           value: 3
+        },
+        {
+          label: 'Games',
+          iconName: 'cards-playing',
+          iconBackgroundColor: 'limegreen',
+          value: 4
+        },
+        {
+          label: 'Clothing',
+          iconName: 'shoe-heel',
+          iconBackgroundColor: 'mediumturquoise',
+          value: 5
+        },
+        {
+          label: 'Sports',
+          iconName: 'basketball',
+          iconBackgroundColor: 'cornflowerblue',
+          value: 6
+        },
+        {
+          label: 'Movies & Music',
+          iconName: 'headphones',
+          iconBackgroundColor: 'royalblue',
+          value: 7
+        },
+        {
+          label: 'Books',
+          iconName: 'book-open-blank-variant',
+          iconBackgroundColor: 'mediumorchid',
+          value: 8
+        },
+        {
+          label: 'Other',
+          iconName: 'application-outline',
+          iconBackgroundColor: 'lightslategrey',
+          value: 9
         }
       ],
       PickerItemComponent: AppCategoryPickerItem
