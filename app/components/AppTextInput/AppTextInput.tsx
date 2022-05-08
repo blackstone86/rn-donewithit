@@ -1,5 +1,6 @@
 import React from 'react'
 import { TextInput, View } from 'react-native'
+import COLORS from '../../config/colors'
 import AppIcon from '../AppIcon'
 import CONSTS from './consts'
 import styles from './styles'
@@ -47,6 +48,7 @@ function AppTextInput({
         maxLength={maxLength}
         keyboardType={keyboardType}
         style={[styles.textInput, textInputStyle]}
+        placeholderTextColor={COLORS.SILVER}
         {...otherProps}
       />
     </View>

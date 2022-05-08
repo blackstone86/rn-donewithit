@@ -1,14 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import {
   View,
   GestureResponderEvent,
   TouchableWithoutFeedback,
-  Modal,
-  Button
+  Modal
 } from 'react-native'
-import AppFlatList from '../AppFlatList'
+import AppFlatList from '../lists/AppFlatList'
 import AppIcon from '../AppIcon'
 import AppPickerItem from '../AppPickerItem'
+import AppButton from '../AppButton'
 import AppText from '../AppText'
 import CONSTS from './consts'
 import styles from './styles'
@@ -21,7 +21,11 @@ function AppPicker({
   optionValue = CONSTS.OPTION_VALUE,
   optionLabel = CONSTS.OPTION_LABEL,
   onChange,
+  onModalClose,
   selectedItem,
+  PickerItemComponent = AppPickerItem,
+  numColumns = CONSTS.NUM_COLUMNS,
+  hasItemSeparator = CONSTS.HAS_ITEM_SEPARATOR,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
@@ -47,8 +51,13 @@ function AppPicker({
     setValue(val)
     setLabel(label)
     setOpen(false)
+    handleModalClose()
     typeof onChange === 'function' && onChange(val)
   }, [])
+  const handleModalClose = useCallback(() => {
+    typeof onModalClose === 'function' && onModalClose()
+  }, [])
+  const isPlaceholder = label === placeholder
   return (
     <>
       <TouchableWithoutFeedback onPress={handlePress}>
@@ -61,7 +70,9 @@ function AppPicker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.label}>{label}</AppText>
+          <AppText style={[styles.label, isPlaceholder && styles.placeholder]}>
+            {label}
+          </AppText>
           <AppIcon name="chevron-down" color={iconColor} size={iconSize} />
         </View>
       </TouchableWithoutFeedback>
@@ -73,27 +84,32 @@ function AppPicker({
           setOpen(!open)
         }}
       >
-        <Button
-          title="Close"
-          onPress={() => {
-            setOpen(!open)
-          }}
-        ></Button>
         <AppFlatList
+          numColumns={numColumns}
+          hasItemSeparator={hasItemSeparator}
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
           renderItem={({ item }) => {
             return (
-              <AppPickerItem
+              <PickerItemComponent
                 selected={value === item[optionValue]}
                 label={item[optionLabel]}
                 onPress={() => {
                   handleFlatListItemPress(item)
                 }}
+                data={item}
               />
             )
           }}
         />
+        <AppButton
+          title="close"
+          style={styles.button}
+          onPress={() => {
+            setOpen(false)
+            handleModalClose()
+          }}
+        ></AppButton>
       </Modal>
     </>
   )

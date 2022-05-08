@@ -1,8 +1,0 @@
-const CONSTS = {
-  SUBTITLE_FONT_SIZE: 18,
-  MARGIN_RIGHT: 10,
-  AVATAR_SIZE: 80,
-  TOTAL_LINE_HEIGHT: 30
-}
-
-export default CONSTS
