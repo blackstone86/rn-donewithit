@@ -6,12 +6,20 @@ import {
   GestureResponderEvent,
   TouchableHighlight
 } from 'react-native'
-import COLORS from '../../config/colors'
+import COLORS from '../../../config/colors'
 import CONSTS from './consts'
-import AppText from '../AppText'
+import AppText from '../../AppText'
 import { AppCardProps } from './types'
 
-function AppCard({ title, subTitle, image, style, onPress }: AppCardProps) {
+function AppCard({
+  title,
+  subTitle,
+  image,
+  style,
+  onPress,
+  titleMaxLines = CONSTS.TITLE_MAX_LINES,
+  subTitleMaxLines = CONSTS.SUBTITLE_MAX_LINES
+}: AppCardProps) {
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     typeof onPress === 'function' && onPress(e)
   }, [])
@@ -24,9 +32,19 @@ function AppCard({ title, subTitle, image, style, onPress }: AppCardProps) {
       <View style={[style, styles.container]}>
         <Image style={styles.image} source={image} />
         <View style={styles.infoBox}>
-          <AppText style={[styles.text, styles.title]}>{title}</AppText>
+          <AppText
+            style={[styles.text, styles.title]}
+            numberOfLines={titleMaxLines}
+          >
+            {title}
+          </AppText>
           {subTitle && (
-            <AppText style={[styles.text, styles.subTitle]}>{subTitle}</AppText>
+            <AppText
+              style={[styles.text, styles.subTitle]}
+              numberOfLines={subTitleMaxLines}
+            >
+              {subTitle}
+            </AppText>
           )}
         </View>
       </View>

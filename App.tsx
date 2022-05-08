@@ -14,7 +14,8 @@
 // import App from './demos/Exercise03'
 // import App from './demos/FlatList'
 // import App from './demos/HandlingSwipes'
-import App from './demos/DeletingItems'
+// import App from './demos/DeletingItems'
+import App from './demos/Exercise04'
 
 /**
  * notice
@@ -35,5 +36,6 @@ import App from './demos/DeletingItems'
  * 15.FlatList 列表
  * 16.HandlingSwipes 刷卡手势
  * 17.DeletingItems 删除列表项
+ * 18.Exercise04 卡片列表页，增加最大行数限制
  */
 export default App
