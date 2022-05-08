@@ -25,6 +25,7 @@ function AppPicker({
   selectedItem,
   PickerItemComponent = AppPickerItem,
   numColumns = CONSTS.NUM_COLUMNS,
+  hasItemSeparator = CONSTS.HAS_ITEM_SEPARATOR,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
@@ -85,6 +86,7 @@ function AppPicker({
       >
         <AppFlatList
           numColumns={numColumns}
+          hasItemSeparator={hasItemSeparator}
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
           renderItem={({ item }) => {

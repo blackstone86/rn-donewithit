@@ -1,18 +1,23 @@
 import React from 'react'
-import { FlatList, View, FlatListProps } from 'react-native'
+import { FlatList, View } from 'react-native'
 import styles from './styles'
+import CONSTS from './consts'
+import { AppFlatListProps } from './types'
 
-function FlatListItemSeparator() {
-  return <View style={styles.separator} />
+function FlatListItemSeparator(hasItemSeparator: boolean) {
+  return hasItemSeparator ? <View style={styles.separator} /> : null
 }
 
 function AppFlatList({
   ItemSeparatorComponent,
+  hasItemSeparator = CONSTS.HAS_ITEM_SEPARATOR,
   ...otherProps
-}: FlatListProps<any>) {
+}: AppFlatListProps) {
   return (
     <FlatList
-      ItemSeparatorComponent={FlatListItemSeparator}
+      ItemSeparatorComponent={() => {
+        return FlatListItemSeparator(hasItemSeparator)
+      }}
       {...otherProps}
     ></FlatList>
   )

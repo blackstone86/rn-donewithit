@@ -14,7 +14,8 @@ const CONSTS = {
   OPTION_VALUE: 'value',
   OPTION_LABEL: 'label',
   HEIGHT: 50,
-  NUM_COLUMNS: 1
+  NUM_COLUMNS: 1,
+  HAS_ITEM_SEPARATOR: true
 }
 
 export default CONSTS
