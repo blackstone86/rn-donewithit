@@ -94,6 +94,7 @@ const fields: Field[] = [
           value: 9
         }
       ],
+      numColumns: 3,
       PickerItemComponent: AppCategoryPickerItem
     }
   },

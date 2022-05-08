@@ -24,6 +24,7 @@ function AppPicker({
   onModalClose,
   selectedItem,
   PickerItemComponent = AppPickerItem,
+  numColumns = CONSTS.NUM_COLUMNS,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
@@ -83,7 +84,7 @@ function AppPicker({
         }}
       >
         <AppFlatList
-          numColumns={3}
+          numColumns={numColumns}
           data={options}
           keyExtractor={(item) => item[optionValue].toString()}
           renderItem={({ item }) => {

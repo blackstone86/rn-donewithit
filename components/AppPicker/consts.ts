@@ -13,7 +13,8 @@ const CONSTS = {
   OPTIONS: [],
   OPTION_VALUE: 'value',
   OPTION_LABEL: 'label',
-  HEIGHT: 50
+  HEIGHT: 50,
+  NUM_COLUMNS: 1
 }
 
 export default CONSTS
