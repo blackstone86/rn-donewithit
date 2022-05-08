@@ -4,6 +4,7 @@ import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field } from '../../components/forms'
+import PickerItem from './PickerItem'
 import Yup from '../../utils/yup'
 const fields: Field[] = [
   {
@@ -50,7 +51,8 @@ const fields: Field[] = [
           label: 'Cameras',
           value: 3
         }
-      ]
+      ],
+      PickerItemComponent: PickerItem
     }
   },
   {
@@ -87,6 +89,7 @@ const validationSchema = Yup.object().shape({
     .label('Category'),
   description: Yup.string().label('Description')
 })
+
 export default function App() {
   return (
     <AppSafeAreaView style={styles.container}>

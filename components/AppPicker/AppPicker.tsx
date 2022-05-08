@@ -23,6 +23,7 @@ function AppPicker({
   onChange,
   onModalClose,
   selectedItem,
+  PickerItemComponent = AppPickerItem,
   // AppIcon
   iconName = CONSTS.ICON_NAME,
   iconColor = CONSTS.ICON_COLOR,
@@ -86,7 +87,7 @@ function AppPicker({
           keyExtractor={(item) => item[optionValue].toString()}
           renderItem={({ item }) => {
             return (
-              <AppPickerItem
+              <PickerItemComponent
                 selected={value === item[optionValue]}
                 label={item[optionLabel]}
                 onPress={() => {

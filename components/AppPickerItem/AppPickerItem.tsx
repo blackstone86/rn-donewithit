@@ -2,12 +2,7 @@ import React, { useCallback } from 'react'
 import { GestureResponderEvent, TouchableOpacity } from 'react-native'
 import AppText from '../AppText'
 import styles from './styles'
-
-type AppPickerItemProps = {
-  label: string
-  selected?: boolean
-  onPress?: (e?: GestureResponderEvent) => void
-}
+import { AppPickerItemProps } from './types'
 
 function AppPickerItem({ label, onPress, selected }: AppPickerItemProps) {
   const handlePress = useCallback((e?: GestureResponderEvent) => {
