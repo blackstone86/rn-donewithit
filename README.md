@@ -19,7 +19,13 @@ It create by expo-cli, and use different branches to introduce foundation compon
 
 ## Prerequisites
 
-install [yarn 3+](https://yarnpkg.com/)
+Install [node 16.15.0](https://nodejs.org/en/)
+
+```bash
+$ nvm install 16.15.0
+```
+
+Install [yarn 3+](https://yarnpkg.com/)
 
 ```bash
 $ npm i -g yarn
