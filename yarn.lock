@@ -3539,6 +3539,7 @@ __metadata:
     expo: ~44.0.0
     expo-constants: ~13.0.1
     expo-image-picker: ~12.0.1
+    expo-media-library: ~14.0.0
     expo-splash-screen: ~0.14.1
     expo-status-bar: ~1.2.0
     formik: ^2.2.9
@@ -3825,6 +3826,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: a3dfdd33af649a2278e0dd30c9fc9da20d87d671b39b92e0061f0abc5e378a18d764b1f192c79d018f47bb67704fc43aac28101093f1dade477c51efab09629c
+  languageName: node
+  linkType: hard
+
+"expo-media-library@npm:~14.0.0":
+  version: 14.0.1
+  resolution: "expo-media-library@npm:14.0.1"
+  dependencies:
+    "@expo/config-plugins": ^4.0.2
+  peerDependencies:
+    expo: "*"
+  checksum: 2f5a164f32eecf966d30f81172f910575a1c4959edf8559d892cf317ca3b2f4a0c4a94b6cd7f37bf6005bd859a807eef3534f94de4c9bb55f9b47657f9fbdc58
   languageName: node
   linkType: hard
 

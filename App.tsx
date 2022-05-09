@@ -8,12 +8,12 @@ import React from 'react'
 // import ListingDetailsScreen from './app/screens/ListingDetailsScreen'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
-import ImagePicker from './app/demos/ImagePicker'
+import ImagePickerScreen from './app/demos/ImagePickerScreen'
 
 /**
  * notice
- * 01.ImagePicker 图片选择器，涉及用户授权
+ * 01.ImagePickerScreen 图片选择器，涉及用户授权
  */
 export default function App() {
-  return <ImagePicker />
+  return <ImagePickerScreen />
 }
