@@ -3538,6 +3538,7 @@ __metadata:
     "@types/react-native": ~0.64.12
     expo: ~44.0.0
     expo-constants: ~13.0.1
+    expo-image-picker: ~12.0.1
     expo-splash-screen: ~0.14.1
     expo-status-bar: ~1.2.0
     formik: ^2.2.9
@@ -3803,6 +3804,18 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 77086d4a042bb804a06d8918408e79e4d8f9dd9f91ccb894820239697c663eeafd9f2b6119f6393c502d763aed3ae089e403a7d365e8d65ee7b6522697b4a79c
+  languageName: node
+  linkType: hard
+
+"expo-image-picker@npm:~12.0.1":
+  version: 12.0.2
+  resolution: "expo-image-picker@npm:12.0.2"
+  dependencies:
+    "@expo/config-plugins": ^4.0.2
+    uuid: 7.0.2
+  peerDependencies:
+    expo: "*"
+  checksum: 7939be4971316327b49b3c9c807ba11aba3c5ffa0520b693223bea144c5165f2208eef2803e6cf18922b0c4866c53671d9cf45516ca16e79537e2232b719364b
   languageName: node
   linkType: hard
 
@@ -8158,6 +8171,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
+  languageName: node
+  linkType: hard
+
+"uuid@npm:7.0.2":
+  version: 7.0.2
+  resolution: "uuid@npm:7.0.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: f80af114b67e1f66020c70897be9ba889b1996fbfde8fc46eb7405e95d3448908a793bab36d16d11a082a16ca7e1d27ab5203e505dd3c1bab7efbb647bd94823
   languageName: node
   linkType: hard
 
