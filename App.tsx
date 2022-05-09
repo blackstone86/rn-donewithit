@@ -1,10 +1,7 @@
 import React from 'react'
-import ViewImageScreen from './app/screens/ViewImageScreen'
-import WelcomeScreen from './app/screens/WelcomeScreen'
+import AccountScreen from './app/screens/AccountScreen'
+import ListingEditScreen from './app/screens/ListingEditScreen'
 
 export default function App() {
-  return (
-    // <ViewImageScreen />
-    <WelcomeScreen />
-  )
+  return <ListingEditScreen />
 }

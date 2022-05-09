@@ -6,6 +6,9 @@ package-lock.json
 *.mobileprovision
 *.orig.*
 
+# yarn
+.yarn/
+
 # macOS
 .DS_Store
 

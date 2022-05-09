@@ -17,6 +17,17 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - api-Platform
 - Forms
 
+## Prerequisites
+
+install [yarn 3+](https://yarnpkg.com/)
+
+```bash
+$ npm i -g yarn
+$ yarn set version berry
+$ yarn -v
+3.2.0 -------------> this is my yarn version
+```
+
 ## How to use
 
 Step01, install Mobile Application Developer Tools
@@ -37,7 +48,7 @@ emulator-5554   device  -------------> this is my virtual device
 Step04, install [expo-cli](https://docs.expo.dev/get-started/installation/) globally.
 
 ```bash
-$ npm i -g expo-cli
+$ yarn dlx expo-cli
 ```
 
 > this repo created by below command line, then choose managed workflow's blank (TypeScript) same as blank but with TypeScript configuration
@@ -62,7 +73,7 @@ $ git clone https://github.com/blackstone86/rn-donewithit.git
 Step08, Install the dependencies.
 
 ```bash
-$ npm install
+$ yarn
 ```
 
 > Some command-line options you should know.
@@ -77,7 +88,7 @@ $ npm install
 Step09, start the project.
 
 ```bash
-$ npm run start
+$ yarn start
 ```
 
 Step10, deploy app to the virtual device and your android phone. please confirm the phone and pc connect to the same wifi network, and keep the phone connect to pc with the debug mode.
@@ -94,6 +105,17 @@ Step11, publish application to Expo Go app for Development
 - click `publish project` button to finish publish.
 
 now, you will find your published app in your Profile in `Expo Go app`.
+
+## FAQ
+
+- Some dependencies are incompatible with the installed expo package version
+
+```bash
+# install the correct versions of these packages
+$ expo doctor --fix-dependencies
+# or install individual packages
+$ expo install [package-name ...]
+```
 
 ## Recommend vscode plugins
 
