@@ -1,0 +1,8 @@
+const CONSTS = {
+  PADDING: 10,
+  ERROR_HEIGHT: 30,
+  LOGO_SIZE: 100,
+  LOGO_MARGIN_TOP: 120
+}
+
+export default CONSTS

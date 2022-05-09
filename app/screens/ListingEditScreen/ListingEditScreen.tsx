@@ -134,7 +134,7 @@ const validationSchema = Yup.object().shape({
   description: Yup.string().label('Description')
 })
 
-export default function App() {
+export default function ListingEditScreen() {
   return (
     <AppSafeAreaView style={styles.container}>
       <Form

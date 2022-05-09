@@ -8,7 +8,7 @@ import { cardType } from './types'
 import { JACKET, COUCH } from '../../config/images'
 import { LONG_TEXT } from '../../config/texts'
 
-export default function App() {
+export default function ListingsScreen() {
   const { cards } = useMemo(
     () => ({
       cards: [
