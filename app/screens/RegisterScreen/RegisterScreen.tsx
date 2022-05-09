@@ -52,7 +52,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(8).label('Password')
 })
-export default function App() {
+export default function RegisterScreen() {
   return (
     <AppSafeAreaView style={styles.container}>
       <AppForm
