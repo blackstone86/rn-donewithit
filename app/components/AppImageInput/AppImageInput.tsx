@@ -1,36 +1,27 @@
 import React, { useEffect, useReducer } from 'react'
-import { View, Image, TouchableOpacity } from 'react-native'
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import AppIcon from '../AppIcon'
 import * as ImagePicker from 'expo-image-picker'
 import { requestMediaPermissions } from './askPermissions'
-import { AppImageInputProps, StateType, ActionType, ActionKind } from './types'
+import { AppImageInputProps, ActionKind } from './types'
+import { reducer } from './reducers'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import styles from './styles'
 
-function reducer(state: StateType, action: ActionType): StateType {
-  const { values } = state
-  const { type, payload } = action
-  switch (type) {
-    case ActionKind.ADD:
-      const uri = payload
-      const idx = values.findIndex((value: string) => {
-        return value === uri
-      })
-      const isExist = idx !== -1
-      if (!isExist) return { values: [...values, uri] }
-      return state
-    case ActionKind.REMOVE:
-      const index = payload
-      values.splice(index, 1)
-      return { values: [...values] }
-  }
-}
-
 function AppImageInput({
   onChange,
-  max = CONSTS.MAX_PHOTOS
+  max = CONSTS.MAX_PHOTOS,
+  addButtonBackgroundColor = COLORS.INPUT_BACKGROUND_COLOR,
+  addButtonIconName = CONSTS.ADD_BUTTON_ICON_NAME,
+  addButtonIconColor = CONSTS.ADD_BUTTON_ICON_COLOR,
+  addButtonIconSize = CONSTS.ADD_BUTTON_ICON_SIZE
 }: AppImageInputProps) {
+  const customStyles = StyleSheet.create({
+    addButton: {
+      backgroundColor: addButtonBackgroundColor
+    }
+  })
   const [state, dispatch] = useReducer(reducer, {
     values: []
   })
@@ -75,11 +66,11 @@ function AppImageInput({
       })}
       {state.values.length < max && (
         <TouchableOpacity activeOpacity={0.85} onPress={handleAddButtonPress}>
-          <View style={[styles.box, styles.addButton]}>
+          <View style={[styles.box, styles.addButton, customStyles.addButton]}>
             <AppIcon
-              color={COLORS.GRAY}
-              size={CONSTS.ICON_SIZE}
-              name={CONSTS.ADD_BUTTON_ICON_NAME}
+              color={addButtonIconColor}
+              size={addButtonIconSize}
+              name={addButtonIconName}
             />
           </View>
         </TouchableOpacity>

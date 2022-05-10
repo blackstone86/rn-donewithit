@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
   },
   image: {},
   addButton: {
-    backgroundColor: COLORS.INPUT_BACKGROUND_COLOR,
     justifyContent: 'center',
     alignItems: 'center'
   }
