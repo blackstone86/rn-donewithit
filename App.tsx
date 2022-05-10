@@ -9,11 +9,13 @@ import React from 'react'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
 import ImagePickerScreen from './app/demos/ImagePickerScreen'
+import AccessingLibrary from './app/demos/AccessingLibrary'
 
 /**
  * notice
  * 01.ImagePickerScreen 图片选择器，涉及用户授权
+ * 02.AccessingLibrary 访问图片库
  */
 export default function App() {
-  return <ImagePickerScreen />
+  return <AccessingLibrary />
 }
