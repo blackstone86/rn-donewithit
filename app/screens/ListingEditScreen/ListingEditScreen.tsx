@@ -7,12 +7,14 @@ import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 const fields: Field[] = [
-  // {
-  //   name: '',
-  //   type: 'imageInput',
-  //   defaultValue: [],
-  //   fieldProps: {}
-  // },
+  {
+    name: 'photos',
+    type: TypeKind.IMAGE_INPUT,
+    defaultValue: [],
+    fieldProps: {
+      max: 3
+    }
+  },
   {
     name: 'title',
     type: TypeKind.TEXT_INPUT,

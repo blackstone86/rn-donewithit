@@ -6,6 +6,7 @@ import { useFormikContext, FormikProps, FormikValues } from 'formik'
 import AppSubmitButton from '../AppSubmitButton'
 import AppPicker from '../../AppPicker'
 import { StyleSheet } from 'react-native'
+import AppImageInput from '../../AppImageInput'
 
 function AppFormField({
   name = '',
@@ -48,6 +49,18 @@ function AppFormField({
             }}
             selectedItem={values[name]}
             style={styles.field}
+            {...fieldProps}
+          />
+          <AppErrorMessage errorMessage={touched[name] && errors[name]} />
+        </>
+      )
+    case TypeKind.IMAGE_INPUT:
+      return (
+        <>
+          <AppImageInput
+            onChange={(value?: string[]) => {
+              setFieldValue(name, value)
+            }}
             {...fieldProps}
           />
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />
