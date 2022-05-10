@@ -1,5 +1,5 @@
 import AppFormField from './AppFormField'
-import { Field } from './types'
+import { Field, TypeKind } from './types'
 
 export default AppFormField
-export { Field }
+export { Field, TypeKind }

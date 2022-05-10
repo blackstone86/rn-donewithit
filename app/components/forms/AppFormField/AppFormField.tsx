@@ -1,7 +1,7 @@
 import React from 'react'
 import AppErrorMessage from '../AppErrorMessage'
 import AppTextInput from '../../AppTextInput'
-import { AppFormFieldProps } from './types'
+import { AppFormFieldProps, TypeKind } from './types'
 import { useFormikContext, FormikProps, FormikValues } from 'formik'
 import AppSubmitButton from '../AppSubmitButton'
 import AppPicker from '../../AppPicker'
@@ -25,7 +25,7 @@ function AppFormField({
     field: { width }
   })
   switch (type) {
-    case 'textInput':
+    case TypeKind.TEXT_INPUT:
       return (
         <>
           <AppTextInput
@@ -38,7 +38,7 @@ function AppFormField({
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />
         </>
       )
-    case 'picker':
+    case TypeKind.PICKER:
       return (
         <>
           <AppPicker
@@ -53,7 +53,7 @@ function AppFormField({
           <AppErrorMessage errorMessage={touched[name] && errors[name]} />
         </>
       )
-    case 'submit':
+    case TypeKind.SUBMIT:
       return <AppSubmitButton style={styles.field} {...fieldProps} />
     default:
       return null

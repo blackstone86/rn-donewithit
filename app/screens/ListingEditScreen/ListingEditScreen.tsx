@@ -3,13 +3,19 @@ import React from 'react'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import { AppForm as Form, Field } from '../../components/forms'
+import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 const fields: Field[] = [
+  // {
+  //   name: '',
+  //   type: 'imageInput',
+  //   defaultValue: [],
+  //   fieldProps: {}
+  // },
   {
     name: 'title',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     fieldProps: {
       icon: false,
@@ -20,7 +26,7 @@ const fields: Field[] = [
   },
   {
     name: 'price',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     width: 120,
     fieldProps: {
@@ -32,7 +38,7 @@ const fields: Field[] = [
   },
   {
     name: 'category',
-    type: 'picker',
+    type: TypeKind.PICKER,
     defaultValue: 0,
     width: 180,
     fieldProps: {
@@ -101,7 +107,7 @@ const fields: Field[] = [
   },
   {
     name: 'description',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     fieldProps: {
       icon: false,
@@ -114,7 +120,7 @@ const fields: Field[] = [
     }
   },
   {
-    type: 'submit',
+    type: TypeKind.SUBMIT,
     fieldProps: {
       title: 'post'
     }
