@@ -11,7 +11,7 @@ const requestMediaPermissions = async () => {
 }
 
 function ImagePickerScreen(props: ImagePickerScreenProps) {
-  const [selectResult, setSelectResult] = useState<any>({})
+  const [imgUri, setImgUri] = useState<string>('')
   useEffect(() => {
     requestMediaPermissions()
   }, [])
@@ -34,12 +34,12 @@ function ImagePickerScreen(props: ImagePickerScreenProps) {
           }
         - Image组件 source 类型 https://reactnative.dev/docs/image#imagesource
        */
-      console.log(result)
-      setSelectResult(result)
+      if (!result.cancelled) setImgUri(result.uri)
     } catch (error) {
       console.log('Error reading an image', error)
     }
   }, [])
+  const touched = !!imgUri
   return (
     <AppSafeAreaView>
       <View style={styles.container}>
@@ -48,11 +48,11 @@ function ImagePickerScreen(props: ImagePickerScreenProps) {
           title="Select Image"
           onPress={handlePress}
         />
-        {!selectResult.cancelled && (
+        {touched && (
           <Image
             style={styles.image}
             resizeMode="contain"
-            source={{ uri: selectResult.uri }}
+            source={{ uri: imgUri }}
           />
         )}
       </View>
