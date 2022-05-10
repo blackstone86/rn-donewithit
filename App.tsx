@@ -8,14 +8,16 @@ import React from 'react'
 // import ListingDetailsScreen from './app/screens/ListingDetailsScreen'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
-import ImagePickerScreen from './app/demos/ImagePickerScreen'
-import AccessingLibrary from './app/demos/AccessingLibrary'
+// import ImagePickerScreen from './app/demos/ImagePickerScreen'
+// import AccessingLibrary from './app/demos/AccessingLibrary'
+import ImageInputScreen from './app/demos/ImageInputScreen'
 
 /**
  * notice
  * 01.ImagePickerScreen 图片选择器，涉及用户授权
  * 02.AccessingLibrary 访问图片库
+ * 03.ImageInputScreen 图片选择
  */
 export default function App() {
-  return <AccessingLibrary />
+  return <ImageInputScreen />
 }
