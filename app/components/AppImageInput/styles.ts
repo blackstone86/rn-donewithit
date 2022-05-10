@@ -1,6 +1,5 @@
-import { Platform, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import CONSTS from './consts'
-import COLORS from '../../config/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +11,7 @@ const styles = StyleSheet.create({
     height: CONSTS.BOX_SIZE,
     borderRadius: CONSTS.BORDER_RADIUS,
     marginRight: CONSTS.PADDING,
-    marginBottom: CONSTS.PADDING
+    marginTop: CONSTS.PADDING
   },
   image: {},
   addButton: {

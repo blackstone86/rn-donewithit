@@ -1,5 +1,6 @@
 export type AppImageInputProps = {
   onChange?: (values?: string[]) => void
+  onAddButtonPress?: () => void
   max?: number
   addButtonBackgroundColor?: string
   addButtonIconName?: string

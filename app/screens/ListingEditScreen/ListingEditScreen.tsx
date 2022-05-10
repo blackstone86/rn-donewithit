@@ -12,7 +12,7 @@ const fields: Field[] = [
     type: TypeKind.IMAGE_INPUT,
     defaultValue: [],
     fieldProps: {
-      max: 3
+      max: 5
     }
   },
   {
@@ -129,6 +129,7 @@ const fields: Field[] = [
   }
 ]
 const validationSchema = Yup.object().shape({
+  photos: Yup.array().required().min(2).label('Photos'),
   title: Yup.string().required().label('Title'),
   price: Yup.number()
     .required()

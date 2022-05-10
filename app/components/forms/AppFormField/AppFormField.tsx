@@ -58,6 +58,7 @@ function AppFormField({
       return (
         <>
           <AppImageInput
+            onAddButtonPress={() => setFieldTouched(name)}
             onChange={(value?: string[]) => {
               setFieldValue(name, value)
             }}

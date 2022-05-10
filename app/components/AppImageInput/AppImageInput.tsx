@@ -11,6 +11,7 @@ import styles from './styles'
 
 function AppImageInput({
   onChange,
+  onAddButtonPress,
   max = CONSTS.MAX_PHOTOS,
   addButtonBackgroundColor = COLORS.INPUT_BACKGROUND_COLOR,
   addButtonIconName = CONSTS.ADD_BUTTON_ICON_NAME,
@@ -33,6 +34,7 @@ function AppImageInput({
   }, [state.values])
   const handleAddButtonPress = async () => {
     try {
+      typeof onAddButtonPress === 'function' && onAddButtonPress()
       const result = await ImagePicker.launchImageLibraryAsync()
       if (!result.cancelled) {
         dispatch({ type: ActionKind.ADD, payload: result.uri })
