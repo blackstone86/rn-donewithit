@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Image, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 import AppIcon from '../AppIcon'
 import * as ImagePicker from 'expo-image-picker'
 import { requestMediaPermissions } from './askPermissions'
@@ -44,7 +44,16 @@ function AppImageInput({
     }
   }
   const handleImagePress = (index: number) => {
-    dispatch({ type: ActionKind.REMOVE, payload: index })
+    Alert.alert('Delete', 'Are you sure you want to delete this image?', [
+      {
+        text: 'No',
+        style: 'cancel' // ios
+      },
+      {
+        text: 'Yes',
+        onPress: () => dispatch({ type: ActionKind.REMOVE, payload: index })
+      }
+    ])
   }
   return (
     <View style={styles.container}>
