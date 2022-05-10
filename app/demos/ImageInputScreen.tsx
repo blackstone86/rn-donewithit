@@ -11,7 +11,7 @@ function ImageInputScreen(props: ImagePickerScreenProps) {
 
   return (
     <AppSafeAreaView>
-      <AppImageInput onChange={handleChange} />
+      <AppImageInput onChange={handleChange} max={3} />
     </AppSafeAreaView>
   )
 }
