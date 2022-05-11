@@ -37,14 +37,17 @@ function AppPicker({
     })
     return index !== -1 ? options[index][optionLabel] : ''
   }, [])
-  const handlePress = useCallback((e?: GestureResponderEvent) => {
-    setOpen(!open)
-  }, [])
   const [open, setOpen] = useState<boolean>(false)
   const [value, setValue] = useState<any>(selectedItem)
   const [label, setLabel] = useState<string>(
     findOptionLabelByValue(options, value) || placeholder
   )
+  const handlePress = useCallback((e?: GestureResponderEvent) => {
+    setOpen(!open)
+  }, [])
+  const handleModalClose = useCallback(() => {
+    typeof onModalClose === 'function' && onModalClose()
+  }, [])
   const handleFlatListItemPress = useCallback((item) => {
     const val = item[optionValue]
     const label = item[optionLabel]
@@ -53,9 +56,6 @@ function AppPicker({
     setOpen(false)
     handleModalClose()
     typeof onChange === 'function' && onChange(val)
-  }, [])
-  const handleModalClose = useCallback(() => {
-    typeof onModalClose === 'function' && onModalClose()
   }, [])
   const isPlaceholder = label === placeholder
   return (
@@ -109,7 +109,7 @@ function AppPicker({
             setOpen(false)
             handleModalClose()
           }}
-        ></AppButton>
+        />
       </Modal>
     </>
   )

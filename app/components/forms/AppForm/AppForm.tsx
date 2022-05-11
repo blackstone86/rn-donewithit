@@ -33,7 +33,7 @@ function AppForm({ fields, validationSchema, onSubmit, style }: AppFormProps) {
             <>
               {fields.map(({ name, type, fieldProps, width }: Field, index) => (
                 <AppFormField
-                  key={index}
+                  key={name}
                   name={name}
                   type={type}
                   width={width}

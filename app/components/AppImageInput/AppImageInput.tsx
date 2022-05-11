@@ -64,7 +64,7 @@ function AppImageInput({
       {state.values.map((value: string, index: number) => {
         return (
           <TouchableOpacity
-            key={index}
+            key={value}
             activeOpacity={0.85}
             onPress={() => {
               handleImagePress(index)
