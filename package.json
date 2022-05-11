@@ -11,7 +11,14 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "commit": "git-cz",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@react-native-community/hooks": "^2.8.1",
@@ -34,7 +41,16 @@
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "latest",
     "git-cz": "^4.8.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "typescript": "~4.3.5"
   },
