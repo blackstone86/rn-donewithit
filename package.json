@@ -11,8 +11,10 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "commit": "git-cz",
-    "format": "prettier --write .",
-    "precommit": "lint-staged"
+    "format": "prettier --write ."
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
