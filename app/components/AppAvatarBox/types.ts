@@ -5,5 +5,4 @@ export type AppAvatarBoxProps = {
   image: ImageSourcePropType
   subTitle?: string
   style?: StyleProp<ViewStyle>
-  a?: string
 }
