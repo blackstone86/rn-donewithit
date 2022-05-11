@@ -10,7 +10,10 @@ const fields: Field[] = [
   {
     name: 'photos',
     type: TypeKind.IMAGE_INPUT,
-    defaultValue: [],
+    defaultValue: [
+      // 'file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540junwenhuang%252FDoneWithIt/ImagePicker/6e1ff66e-cc9f-4697-b2f1-a43f3fe0b5fa.jpg',
+      // 'file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540junwenhuang%252FDoneWithIt/ImagePicker/b23b1ea3-53cb-413a-8228-47b9f256dae2.jpg'
+    ],
     fieldProps: {
       max: 5
     }

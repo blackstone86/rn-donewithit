@@ -12,6 +12,7 @@ import styles from './styles'
 function AppImageInput({
   onChange,
   onAddButtonPress,
+  imgageUris = CONSTS.IMAGE_URIS,
   max = CONSTS.MAX_PHOTOS,
   addButtonBackgroundColor = COLORS.INPUT_BACKGROUND_COLOR,
   addButtonIconName = CONSTS.ADD_BUTTON_ICON_NAME,
@@ -24,7 +25,7 @@ function AppImageInput({
     }
   })
   const [state, dispatch] = useReducer(reducer, {
-    values: []
+    values: imgageUris
   })
   useEffect(() => {
     requestMediaPermissions()
@@ -35,7 +36,10 @@ function AppImageInput({
   const handleAddButtonPress = async () => {
     try {
       typeof onAddButtonPress === 'function' && onAddButtonPress()
-      const result = await ImagePicker.launchImageLibraryAsync()
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images, // default value
+        quality: 0.5
+      })
       if (!result.cancelled) {
         dispatch({ type: ActionKind.ADD, payload: result.uri })
       }
