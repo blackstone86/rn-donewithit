@@ -11,12 +11,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "commit": "git-cz",
-    "format": "prettier --write ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "format": "prettier --write .",
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx}": [
