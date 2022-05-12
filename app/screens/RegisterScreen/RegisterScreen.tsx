@@ -1,14 +1,13 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
-import COLORS from '../../config/colors'
-import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import { AppForm, Field } from '../../components/forms'
+import { AppForm, Field, TypeKind } from '../../components/forms'
 import Yup from '../../utils/yup'
+import styles from './styles'
+
 const fields: Field[] = [
   {
     name: 'name',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     fieldProps: {
       iconName: 'account',
@@ -19,7 +18,7 @@ const fields: Field[] = [
   },
   {
     name: 'email',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     fieldProps: {
       iconName: 'email',
@@ -30,7 +29,7 @@ const fields: Field[] = [
   },
   {
     name: 'password',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '',
     fieldProps: {
       iconName: 'lock',
@@ -41,7 +40,7 @@ const fields: Field[] = [
     }
   },
   {
-    type: 'submit',
+    type: TypeKind.SUBMIT,
     fieldProps: {
       title: 'register'
     }
@@ -66,15 +65,3 @@ export default function RegisterScreen() {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.WHITE,
-    flexDirection: 'column',
-    alignItems: 'center',
-    paddingHorizontal: CONSTS.PADDING
-  },
-  form: {
-    marginTop: 30
-  }
-})

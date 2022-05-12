@@ -2,14 +2,14 @@ import { Image } from 'react-native'
 import React from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import Yup from '../../utils/yup'
-import { AppForm, Field } from '../../components/forms'
+import { AppForm, Field, TypeKind } from '../../components/forms'
 import { LOGO_RED } from '../../config/images'
 import styles from './styles'
 
 const fields: Field[] = [
   {
     name: 'email',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: 'asianking86@qq.com',
     fieldProps: {
       iconName: 'email',
@@ -20,7 +20,7 @@ const fields: Field[] = [
   },
   {
     name: 'name',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: 'Junwen Huang',
     fieldProps: {
       iconName: 'account',
@@ -31,7 +31,7 @@ const fields: Field[] = [
   },
   {
     name: 'password',
-    type: 'textInput',
+    type: TypeKind.TEXT_INPUT,
     defaultValue: '12345678',
     fieldProps: {
       iconName: 'lock',
@@ -43,7 +43,7 @@ const fields: Field[] = [
     }
   },
   {
-    type: 'submit',
+    type: TypeKind.SUBMIT,
     fieldProps: {
       title: 'login'
     }

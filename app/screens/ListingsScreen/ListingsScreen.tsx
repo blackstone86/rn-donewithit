@@ -1,12 +1,11 @@
 import { GestureResponderEvent, StyleSheet } from 'react-native'
 import React, { useCallback, useMemo } from 'react'
-import COLORS from '../../config/colors'
-import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
 import { cardType } from './types'
 import { JACKET, COUCH } from '../../config/images'
 import { LONG_TEXT } from '../../config/texts'
+import styles from './styles'
 
 export default function ListingsScreen() {
   const { cards } = useMemo(
@@ -52,14 +51,3 @@ export default function ListingsScreen() {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.BACKGROUND_COLOR,
-    paddingBottom: CONSTS.PADDING
-  },
-  card: {
-    marginHorizontal: CONSTS.PADDING,
-    marginTop: CONSTS.PADDING
-  }
-})

@@ -20,15 +20,18 @@
     "no-shadow": 0,
     "no-case-declarations": 0,
     "no-console": 0,
+    "prefer-const": 0,
     "react/jsx-props-no-spreading": 0,
     "react/require-default-props": 0,
+    "react/no-unescaped-entities": 0,
+    "react/no-array-index-key": 0,
     "react/jsx-filename-extension": [
       1,
       {
         "extensions": [".ts", ".tsx"]
       }
     ],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": 0
   },
   "plugins": ["prettier"]
 }

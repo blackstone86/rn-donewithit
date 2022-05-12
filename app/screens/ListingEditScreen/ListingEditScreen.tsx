@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
 import COLORS from '../../config/colors'
-import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
+import styles from './styles'
+
 const fields: Field[] = [
   {
     name: 'photos',
@@ -160,15 +160,3 @@ export default function ListingEditScreen() {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.WHITE,
-    flexDirection: 'column',
-    alignItems: 'center',
-    paddingHorizontal: CONSTS.PADDING
-  },
-  form: {
-    marginTop: 30
-  }
-})

@@ -50,6 +50,14 @@ export default function MessagesScreen() {
     (e?: GestureResponderEvent, data?: Message) => {},
     []
   )
+  const handleDelete = useCallback((id: number) => {
+    const deletedMsgs: Message[] = produce(msgs, (draft) => {
+      const index = draft.findIndex((msg: Message) => msg.id === id)
+      if (index !== -1) draft.splice(index, 1)
+    })
+    msgs = deletedMsgs // 解决获取 msgs 参数不准问题
+    setMsgs(deletedMsgs)
+  }, [])
   const handleRenderRightActions = useCallback(
     (
       progress: Animated.AnimatedInterpolation,
@@ -66,15 +74,6 @@ export default function MessagesScreen() {
     },
     []
   )
-  const handleDelete = useCallback((id: number) => {
-    const deletedMsgs: Message[] = produce(msgs, (draft) => {
-      const index = draft.findIndex((msg: Message) => msg.id === id)
-      if (index !== -1) draft.splice(index, 1)
-    })
-    msgs = deletedMsgs // 解决获取 msgs 参数不准问题
-    setMsgs(deletedMsgs)
-  }, [])
-
   const handleRefresh = useCallback(() => {
     const updatedMsgs = [
       {

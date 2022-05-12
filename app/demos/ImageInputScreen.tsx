@@ -4,6 +4,10 @@ import AppImageInput from '../components/AppImageInput'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 type ImagePickerScreenProps = {}
 
+const styles = StyleSheet.create({
+  container: {}
+})
+
 function ImageInputScreen(props: ImagePickerScreenProps) {
   const handleChange = useCallback((values?: string[]) => {
     console.log(values)
@@ -15,9 +19,5 @@ function ImageInputScreen(props: ImagePickerScreenProps) {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {}
-})
 
 export default ImageInputScreen

@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
 import React, { useCallback, useMemo } from 'react'
 import COLORS from '../../config/colors'
-import CONSTS from './consts'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
 import { AppFlatList, AppMenuItem } from '../../components/lists'
 import { menuType } from './types'
 import AppIcon from '../../components/AppIcon'
 import { MOSH } from '../../config/images'
+import styles from './styles'
 
 export default function AccountScreen() {
   const { name, email, image, menus } = useMemo(
@@ -69,18 +69,3 @@ export default function AccountScreen() {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.BACKGROUND_COLOR
-  },
-  avatarBox: {
-    backgroundColor: COLORS.WHITE,
-    paddingVertical: CONSTS.PADDING,
-    marginTop: 30,
-    marginBottom: 40
-  },
-  lastMenuItem: {
-    marginTop: CONSTS.PADDING
-  }
-})

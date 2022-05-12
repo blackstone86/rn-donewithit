@@ -5,6 +5,23 @@ import AppButton from '../components/AppButton'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 type ImagePickerScreenProps = {}
 
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    paddingHorizontal: 10
+  },
+  button: {
+    marginTop: 100,
+    marginBottom: 20,
+    marginHorizontal: 10,
+    width: '100%'
+  },
+  image: {
+    width: 200,
+    height: 200
+  }
+})
+
 const requestMediaPermissions = async () => {
   const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync()
   if (!granted) alert('You Need to enable permission to access the library!')
@@ -59,22 +76,5 @@ function ImagePickerScreen(props: ImagePickerScreenProps) {
     </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    paddingHorizontal: 10
-  },
-  button: {
-    marginTop: 100,
-    marginBottom: 20,
-    marginHorizontal: 10,
-    width: '100%'
-  },
-  image: {
-    width: 200,
-    height: 200
-  }
-})
 
 export default ImagePickerScreen

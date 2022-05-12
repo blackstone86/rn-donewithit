@@ -2,14 +2,15 @@ import { Image, View } from 'react-native'
 import React, { useMemo } from 'react'
 import AppText from '../../components/AppText'
 import styles from './styles'
+import { JACKET, MOSH } from '../../config/images'
 
 export default function ListingDetailsScreen() {
   const { title, subTitle, image, avatarImage, name, listings } = useMemo(
     () => ({
       title: 'Red jacket for sale',
       subTitle: '$100',
-      image: require('../../assets/materials/jacket.jpg'),
-      avatarImage: require('../../assets/materials/mosh.jpg'),
+      image: JACKET,
+      avatarImage: MOSH,
       name: 'Mosh Hamedani',
       listings: 5
     }),

@@ -4,6 +4,10 @@ import * as ImagePicker from 'expo-image-picker'
 import * as MediaLibrary from 'expo-media-library'
 type ImagePickerScreenProps = {}
 
+const styles = StyleSheet.create({
+  container: {}
+})
+
 /**
 1.不做任何许可选择，每次刷新应用或重新进入都会问用户
 2.做了选择的，则不会重复问用户，如果做了否的选择，要重新进入问用户，需要整个expo go客户端关闭
@@ -31,11 +35,7 @@ function ImagePickerScreen(props: ImagePickerScreenProps) {
     requestMediaPermissions()
   }, [])
   console.log(status)
-  return <View style={styles.container}></View>
+  return <View style={styles.container} />
 }
-
-const styles = StyleSheet.create({
-  container: {}
-})
 
 export default ImagePickerScreen
