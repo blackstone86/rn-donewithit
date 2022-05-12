@@ -1,5 +1,12 @@
-import React, { useEffect, useReducer } from 'react'
-import { View, Image, TouchableOpacity, StyleSheet, Alert } from 'react-native'
+import React, { useEffect, useReducer, useRef } from 'react'
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  ScrollView
+} from 'react-native'
 import AppIcon from '../AppIcon'
 import * as ImagePicker from 'expo-image-picker'
 import { requestMediaPermissions } from './askPermissions'
@@ -19,11 +26,7 @@ function AppImageInput({
   addButtonIconColor = CONSTS.ADD_BUTTON_ICON_COLOR,
   addButtonIconSize = CONSTS.ADD_BUTTON_ICON_SIZE
 }: AppImageInputProps) {
-  const customStyles = StyleSheet.create({
-    addButton: {
-      backgroundColor: addButtonBackgroundColor
-    }
-  })
+  const scrollView: any = useRef()
   const [state, dispatch] = useReducer(reducer, {
     values: imgageUris
   })
@@ -59,38 +62,55 @@ function AppImageInput({
       }
     ])
   }
+  const handleContentSizeChange = () => {
+    scrollView?.current?.scrollToEnd()
+  }
+  const customStyles = StyleSheet.create({
+    addButton: {
+      backgroundColor: addButtonBackgroundColor
+    }
+  })
+
   return (
-    <View style={styles.container}>
-      {state.values.map((value: string, index: number) => {
-        return (
-          <TouchableOpacity
-            key={value}
-            activeOpacity={0.85}
-            onPress={() => {
-              handleImagePress(index)
-            }}
-          >
-            <Image
-              style={[styles.box, styles.image]}
-              source={{
-                uri: value
+    <ScrollView
+      horizontal
+      ref={scrollView}
+      onContentSizeChange={handleContentSizeChange}
+    >
+      <View style={styles.container}>
+        {state.values.map((value: string, index: number) => {
+          return (
+            <TouchableOpacity
+              key={value}
+              activeOpacity={0.85}
+              onPress={() => {
+                handleImagePress(index)
               }}
-            />
+            >
+              <Image
+                style={[styles.box, styles.image]}
+                source={{
+                  uri: value
+                }}
+              />
+            </TouchableOpacity>
+          )
+        })}
+        {state.values.length < max && (
+          <TouchableOpacity activeOpacity={0.85} onPress={handleAddButtonPress}>
+            <View
+              style={[styles.box, styles.addButton, customStyles.addButton]}
+            >
+              <AppIcon
+                color={addButtonIconColor}
+                size={addButtonIconSize}
+                name={addButtonIconName}
+              />
+            </View>
           </TouchableOpacity>
-        )
-      })}
-      {state.values.length < max && (
-        <TouchableOpacity activeOpacity={0.85} onPress={handleAddButtonPress}>
-          <View style={[styles.box, styles.addButton, customStyles.addButton]}>
-            <AppIcon
-              color={addButtonIconColor}
-              size={addButtonIconSize}
-              name={addButtonIconName}
-            />
-          </View>
-        </TouchableOpacity>
-      )}
-    </View>
+        )}
+      </View>
+    </ScrollView>
   )
 }
 
