@@ -3991,6 +3991,7 @@ __metadata:
     expo: ~44.0.0
     expo-constants: ~13.0.1
     expo-image-picker: ~12.0.1
+    expo-location: ~14.0.1
     expo-media-library: ~14.0.0
     expo-splash-screen: ~0.14.1
     expo-status-bar: ~1.2.0
@@ -4649,6 +4650,18 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: a3dfdd33af649a2278e0dd30c9fc9da20d87d671b39b92e0061f0abc5e378a18d764b1f192c79d018f47bb67704fc43aac28101093f1dade477c51efab09629c
+  languageName: node
+  linkType: hard
+
+"expo-location@npm:~14.0.1":
+  version: 14.0.2
+  resolution: "expo-location@npm:14.0.2"
+  dependencies:
+    "@expo/config-plugins": ^4.0.2
+    unimodules-task-manager-interface: ~7.1.0
+  peerDependencies:
+    expo: "*"
+  checksum: 5ccf533f83f304a28547989218265dd2db1d0c7673fe34c3c8aad90452b5c5eaaec5e0d473b99f1fd5e78ed5176d9314e636c52d9ffd1dbbf6a650f1e72a55b2
   languageName: node
   linkType: hard
 
@@ -9793,6 +9806,13 @@ __metadata:
   version: 2.0.0
   resolution: "unicode-property-aliases-ecmascript@npm:2.0.0"
   checksum: dda4d39128cbbede2ac60fbb85493d979ec65913b8a486bf7cb7a375a2346fa48cbf9dc6f1ae23376e7e8e684c2b411434891e151e865a661b40a85407db51d0
+  languageName: node
+  linkType: hard
+
+"unimodules-task-manager-interface@npm:~7.1.0":
+  version: 7.1.2
+  resolution: "unimodules-task-manager-interface@npm:7.1.2"
+  checksum: 66add2a50dc46da7bdff8d0841c02df17b43098ded5d22ffffbc385a9852748e7b78a2dbd146195a3d9739d6b5812fe0a4fd79000177f7305cfdc8164e04b978
   languageName: node
   linkType: hard
 

@@ -15,3 +15,15 @@
 
 ## TextInput 'secureTextEntry' attributie does not work in some cases.
 - android keybordType 'email-address' make TextInput 'secureTextEntry' attribute does not work
+
+## Location.getCurrentPositionAsync dose not work in xiaomi 11 Ultra
+
+```
+// Android Emulator worked, xiaomi 11 Ultra does not work!
+import * as Location from 'expo-location'
+let {
+  coords: { latitude, longitude }
+} = await Location.getCurrentPositionAsync({
+  accuracy: Location.Accuracy.Highest
+})
+```

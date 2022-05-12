@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
+import * as Location from 'expo-location'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
@@ -132,7 +133,7 @@ const fields: Field[] = [
   }
 ]
 const validationSchema = Yup.object().shape({
-  photos: Yup.array().required().min(2).label('Photos'),
+  photos: Yup.array().min(2).label('Photos'),
   title: Yup.string().required().label('Title'),
   price: Yup.number()
     .required()
@@ -147,13 +148,33 @@ const validationSchema = Yup.object().shape({
 })
 
 export default function ListingEditScreen() {
+  const [location, setLocation] = useState<any>()
+  useEffect(() => {
+    ;(async () => {
+      const { granted } = await Location.requestForegroundPermissionsAsync()
+      if (!granted) return
+      let {
+        coords: { latitude, longitude }
+      } = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.Highest // 模拟器可以，小米11 Ultra失败
+      })
+      setLocation({ latitude, longitude })
+    })()
+  }, [])
+
   return (
     <AppSafeAreaView style={styles.container}>
       <Form
         fields={fields}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log(values)
+          /**
+            Object {
+              "latitude": 37.4219983,
+              "longitude": -122.084,
+            }
+           */
+          console.log(location)
         }}
         style={styles.form}
       />
