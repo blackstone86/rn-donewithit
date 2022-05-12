@@ -17,6 +17,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - api-Platform
 - Forms
 - Device-Features
+- Navigation
 
 ## Prerequisites
 
