@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import COLORS from '../../config/colors'
-import * as Location from 'expo-location'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 import styles from './styles'
+import useLocation from '../../hooks/useLocation'
 
 const fields: Field[] = [
   {
@@ -148,22 +148,7 @@ const validationSchema = Yup.object().shape({
 })
 
 export default function ListingEditScreen() {
-  const [location, setLocation] = useState<any>()
-  useEffect(() => {
-    ;(async () => {
-      const { granted } = await Location.requestForegroundPermissionsAsync()
-      if (!granted) return
-      // let {
-      //   coords: { latitude, longitude }
-      // } = await Location.getCurrentPositionAsync({
-      //   accuracy: Location.Accuracy.Highest // 模拟器可以，小米11 Ultra失败
-      // })
-      let pos = await Location.getLastKnownPositionAsync()
-      let { latitude = 37.4219983, longitude = -122.084 } = pos?.coords || {}
-      setLocation({ latitude, longitude })
-    })()
-  }, [])
-
+  const location = useLocation()
   return (
     <AppSafeAreaView style={styles.container}>
       <Form
