@@ -15,7 +15,7 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{ts,tsx}": [
       "eslint --fix"
     ]
   },
