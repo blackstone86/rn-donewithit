@@ -153,11 +153,13 @@ export default function ListingEditScreen() {
     ;(async () => {
       const { granted } = await Location.requestForegroundPermissionsAsync()
       if (!granted) return
-      let {
-        coords: { latitude, longitude }
-      } = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.Highest // 模拟器可以，小米11 Ultra失败
-      })
+      // let {
+      //   coords: { latitude, longitude }
+      // } = await Location.getCurrentPositionAsync({
+      //   accuracy: Location.Accuracy.Highest // 模拟器可以，小米11 Ultra失败
+      // })
+      let pos = await Location.getLastKnownPositionAsync()
+      let { latitude = 37.4219983, longitude = -122.084 } = pos?.coords || {}
       setLocation({ latitude, longitude })
     })()
   }, [])
