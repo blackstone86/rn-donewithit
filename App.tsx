@@ -9,12 +9,14 @@ import React from 'react'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
 
-import NativeStackScreen from './app/demos/NativeStackScreen'
+// import NativeStackScreen from './app/demos/NativeStackScreen'
+import NativeStackParameters from './app/demos/NativeStackParameters'
 
 /**
  * notice
  * 01.NativeStackScreen 堆栈式导航组件
+ * 02.NativeStackParameters 堆栈式导航传参
  */
 export default function App() {
-  return <NativeStackScreen />
+  return <NativeStackParameters />
 }
