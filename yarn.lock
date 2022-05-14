@@ -2695,6 +2695,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "@types/jest@npm:27.5.1"
+  dependencies:
+    jest-matcher-utils: ^27.0.0
+    pretty-format: ^27.0.0
+  checksum: be20e39f7aaf17179109c0060d0a0489cec2034d4e2e28a631284c7ecd13c5ae52f62697a33a0e89b03b6cfe54e9d5e8c2bd387ab2bd90d6071d68c63b86d1e3
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -2750,6 +2760,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: fa216f247b2afd5b23ba640dd63b593be7288a70a85dcd2788fe5f6a7e2b1ca4efc84f083f219e4b2cdaf203780f699a0ab0e2a6dd6c60bc2de43c26705a4b00
+  languageName: node
+  linkType: hard
+
+"@types/react-test-renderer@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "@types/react-test-renderer@npm:18.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 6afc938a1d7618d88ab8793e251f0bd5981bf3f08c1b600f74df3f8800b92589ea534dc6dcb7c8d683893fcc740bf8d7843a42bf2dae59785cfe88f004bd7b0b
   languageName: node
   linkType: hard
 
@@ -4661,6 +4680,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff-sequences@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "diff-sequences@npm:27.5.1"
+  checksum: a00db5554c9da7da225db2d2638d85f8e41124eccbd56cbaefb3b276dcbb1c1c2ad851c32defe2055a54a4806f030656cbf6638105fd6ce97bb87b90b32a33ca
+  languageName: node
+  linkType: hard
+
 "dir-glob@npm:^3.0.1":
   version: 3.0.1
   resolution: "dir-glob@npm:3.0.1"
@@ -4705,8 +4731,10 @@ __metadata:
     "@react-native-community/hooks": ^2.8.1
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
+    "@types/jest": ^27.5.1
     "@types/react": ~17.0.21
     "@types/react-native": ~0.64.12
+    "@types/react-test-renderer": ^18.0.0
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": ^5.23.0
     eslint: ^8.15.0
@@ -7165,6 +7193,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "jest-diff@npm:27.5.1"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^27.5.1
+    jest-get-type: ^27.5.1
+    pretty-format: ^27.5.1
+  checksum: 8be27c1e1ee57b2bb2bef9c0b233c19621b4c43d53a3c26e2c00a4e805eb4ea11fe1694a06a9fb0e80ffdcfdc0d2b1cb0b85920b3f5c892327ecd1e7bd96b865
+  languageName: node
+  linkType: hard
+
 "jest-docblock@npm:^26.0.0":
   version: 26.0.0
   resolution: "jest-docblock@npm:26.0.0"
@@ -7242,6 +7282,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-get-type@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "jest-get-type@npm:27.5.1"
+  checksum: 63064ab70195c21007d897c1157bf88ff94a790824a10f8c890392e7d17eda9c3900513cb291ca1c8d5722cad79169764e9a1279f7c8a9c4cd6e9109ff04bbc0
+  languageName: node
+  linkType: hard
+
 "jest-haste-map@npm:^26.5.2, jest-haste-map@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-haste-map@npm:26.6.2"
@@ -7312,6 +7359,18 @@ __metadata:
     jest-get-type: ^26.3.0
     pretty-format: ^26.6.2
   checksum: 74d2165c1ac7fe98fe27cd2b5407499478e6b2fe99dd54e26d8ee5c9f5f913bdd7bdc07c7221b9b04df0c15e9be0e866ff3455b03e38cc66c480d9996d6d5405
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^27.0.0":
+  version: 27.5.1
+  resolution: "jest-matcher-utils@npm:27.5.1"
+  dependencies:
+    chalk: ^4.0.0
+    jest-diff: ^27.5.1
+    jest-get-type: ^27.5.1
+    pretty-format: ^27.5.1
+  checksum: bb2135fc48889ff3fe73888f6cc7168ddab9de28b51b3148f820c89fdfd2effdcad005f18be67d0b9be80eda208ad47290f62f03d0a33f848db2dd0273c8217a
   languageName: node
   linkType: hard
 
@@ -9721,7 +9780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.0, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:

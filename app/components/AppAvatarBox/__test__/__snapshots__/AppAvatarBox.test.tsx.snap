@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppAvatarBox renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "marginBottom": 40,
+        "marginTop": 30,
+        "paddingVertical": 20,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "borderRadius": 40,
+        "height": 80,
+        "marginRight": 10,
+        "width": 80,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Object {
+            "fontSize": 18,
+          },
+        ]
+      }
+    >
+      Junwen Huang
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "fontSize": 18,
+            },
+            Object {
+              "color": "#6e6969",
+              "marginTop": 5,
+            },
+          ],
+        ]
+      }
+    >
+      jimvinhuang@gmail.com
+    </Text>
+  </View>
+</View>
+`;

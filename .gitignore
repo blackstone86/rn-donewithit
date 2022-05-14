@@ -5,6 +5,7 @@ package-lock.json
 *.key
 *.mobileprovision
 *.orig.*
+coverage/
 
 # yarn
 .yarn/
