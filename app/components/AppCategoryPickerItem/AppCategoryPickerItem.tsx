@@ -40,7 +40,7 @@ function AppCategoryPickerItem({
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
       <View style={[styles.iconWrap, customStyles.iconWrap]}>
-        {/* <AppIcon name={iconName} size={iconSize} color={iconColor} /> */}
+        <AppIcon name={iconName} size={iconSize} color={iconColor} />
       </View>
       <AppText style={[styles.text, selected && styles.selected]}>
         {label}

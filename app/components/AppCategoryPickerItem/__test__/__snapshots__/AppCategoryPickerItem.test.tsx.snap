@@ -37,7 +37,9 @@ exports[`AppCategoryPickerItem renders correctly 1`] = `
         },
       ]
     }
-  />
+  >
+    <Text />
+  </View>
   <Text
     style={
       Array [

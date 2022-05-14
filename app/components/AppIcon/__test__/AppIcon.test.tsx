@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import AppCategoryPickerItem from '../index'
+import AppIcon from '../index'
 import COLORS from '../../../config/colors'
 
 jest.mock(
@@ -11,19 +11,14 @@ jest.mock(
 )
 
 const props = {
-  selected: true,
-  label: 'Furniture',
-  data: {
-    label: 'Furniture',
-    iconName: 'lamp',
-    iconBackgroundColor: COLORS.PRIMARY,
-    value: 1
-  }
+  name: 'camera',
+  size: 20,
+  color: COLORS.GRAY
 }
 
-describe('AppCategoryPickerItem', () => {
+describe('AppIcon', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<AppCategoryPickerItem {...props} />).toJSON()
+    const tree = renderer.create(<AppIcon {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
