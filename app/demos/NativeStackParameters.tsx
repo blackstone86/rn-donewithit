@@ -78,8 +78,20 @@ function TweetDetails({ navigation, route: { params } }: any) {
 function Navigator() {
   return (
     <Stack.Navigator initialRouteName={SCREEN.Tweets}>
-      <Stack.Screen name={SCREEN.Tweets} component={Tweets} />
-      <Stack.Screen name={SCREEN.TweetDetails} component={TweetDetails} />
+      <Stack.Screen
+        name={SCREEN.Tweets}
+        component={Tweets}
+        options={() => ({
+          title: 'home'
+        })}
+      />
+      <Stack.Screen
+        name={SCREEN.TweetDetails}
+        component={TweetDetails}
+        options={({ params }: any) => ({
+          title: `detail${params?.id}`
+        })}
+      />
     </Stack.Navigator>
   )
 }
