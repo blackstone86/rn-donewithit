@@ -19,7 +19,7 @@ function AppFlatList({
         return FlatListItemSeparator(hasItemSeparator)
       }}
       {...otherProps}
-    ></FlatList>
+    />
   )
 }
 

@@ -1,25 +1,11 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
-import Constants from 'expo-constants'
+import { SafeAreaView } from 'react-native'
+import styles from './styles'
 
-/**
- * Constants.statusBarHeight
- * sdk_gphone64_x86_64: 24
- * M2102K1C: 39
- * IOS device: 44
- */
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-    flex: 1
-  }
-})
-
-function AppSafeAreaView(props: any) {
+function AppSafeAreaView({ style, children, ...rest }: any) {
   return (
-    <SafeAreaView {...props} style={[props.style, styles.container]}>
-      {props.children}
+    <SafeAreaView style={[style, styles.container]} {...rest}>
+      {children}
     </SafeAreaView>
   )
 }

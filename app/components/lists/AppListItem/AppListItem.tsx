@@ -35,6 +35,7 @@ function AppListItem({
       if (typeof renderRightActions === 'function') {
         return renderRightActions(progressAnimatedValue, dragAnimatedValue)
       }
+      return null
     },
     []
   )
