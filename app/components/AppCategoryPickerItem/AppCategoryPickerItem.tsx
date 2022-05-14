@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback } from 'react'
+import React, { ReactDOM, ReactNode, useCallback } from 'react'
 import {
   GestureResponderEvent,
   TouchableOpacity,
@@ -16,7 +16,7 @@ function AppCategoryPickerItem({
   selected,
   onPress,
   data
-}: AppPickerItemProps): ReactNode {
+}: AppPickerItemProps): JSX.Element {
   const {
     iconName = CONSTS.ICON_NAME,
     iconColor = COLORS.WHITE,
@@ -40,7 +40,7 @@ function AppCategoryPickerItem({
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
       <View style={[styles.iconWrap, customStyles.iconWrap]}>
-        <AppIcon name={iconName} size={iconSize} color={iconColor} />
+        {/* <AppIcon name={iconName} size={iconSize} color={iconColor} /> */}
       </View>
       <AppText style={[styles.text, selected && styles.selected]}>
         {label}

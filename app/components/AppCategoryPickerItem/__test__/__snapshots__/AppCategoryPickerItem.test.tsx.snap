@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCategoryPickerItem renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "tomato",
+          "borderRadius": 40,
+          "height": 80,
+          "justifyContent": "center",
+          "width": 80,
+        },
+        Object {
+          "backgroundColor": "tomato",
+        },
+      ]
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Courier",
+          "fontSize": 13,
+        },
+        Array [
+          Object {
+            "fontSize": 18,
+            "marginTop": 6,
+            "textAlign": "center",
+            "width": 80,
+          },
+          Object {
+            "color": "tomato",
+          },
+        ],
+      ]
+    }
+  >
+    Furniture
+  </Text>
+</View>
+`;
