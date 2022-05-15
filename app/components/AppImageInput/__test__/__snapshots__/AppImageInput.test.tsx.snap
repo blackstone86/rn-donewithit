@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppImageInput renders correctly 1`] = `
+<RCTScrollView
+  horizontal={true}
+  onContentSizeChange={[Function]}
+>
+  <View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderRadius": 20,
+                "height": 100,
+                "marginRight": 10,
+                "marginTop": 10,
+                "width": 100,
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "backgroundColor": "#f9f2f2",
+              },
+            ]
+          }
+        >
+          <Text />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

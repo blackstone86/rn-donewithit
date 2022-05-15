@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppPickerItem renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Courier",
+          "fontSize": 13,
+        },
+        Array [
+          Object {
+            "fontSize": 18,
+            "lineHeight": 50,
+            "paddingHorizontal": 20,
+          },
+          Object {
+            "color": "tomato",
+          },
+        ],
+      ]
+    }
+  >
+    Furniture
+  </Text>
+</View>
+`;
