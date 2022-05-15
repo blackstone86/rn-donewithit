@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppErrorMessage renders correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Courier",
+        "fontSize": 13,
+      },
+      Array [
+        Object {
+          "color": "tomato",
+          "fontSize": 18,
+          "height": 30,
+          "lineHeight": 30,
+          "width": "100%",
+        },
+        Object {
+          "color": "red",
+          "fontSize": 16,
+        },
+      ],
+    ]
+  }
+>
+  Error: test error message
+</Text>
+`;
