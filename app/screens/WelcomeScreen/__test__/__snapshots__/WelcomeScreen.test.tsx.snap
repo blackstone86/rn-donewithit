@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeScreen renders correctly 1`] = `
+Array [
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      blurRadius={6}
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>,
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "paddingBottom": 30,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "justifyContent": "flex-start",
+            "marginTop": 80,
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "Courier",
+                "fontSize": 13,
+              },
+              Object {
+                "fontSize": 22,
+                "fontWeight": "bold",
+                "marginTop": 20,
+              },
+            ]
+          }
+        >
+          Sell What You Don't Need
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "marginHorizontal": 20,
+              "marginTop": 20,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "tomato",
+              "borderRadius": 25,
+              "height": 50,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Courier",
+                  "fontSize": 13,
+                },
+                Object {
+                  "color": "#fff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                },
+              ]
+            }
+          >
+            login
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "marginHorizontal": 20,
+              "marginTop": 20,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "turquoise",
+              "borderRadius": 25,
+              "height": 50,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontFamily": "Courier",
+                  "fontSize": 13,
+                },
+                Object {
+                  "color": "#fff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                },
+              ]
+            }
+          >
+            register
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;

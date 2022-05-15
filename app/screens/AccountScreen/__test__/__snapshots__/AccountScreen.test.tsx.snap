@@ -1,0 +1,388 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountScreen renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#f8f4f4",
+      },
+      Object {
+        "flex": 1,
+        "paddingTop": 20,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#fff",
+          "marginBottom": 40,
+          "marginTop": 30,
+          "paddingVertical": 20,
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+        },
+      ]
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "borderRadius": 40,
+          "height": 80,
+          "marginRight": 10,
+          "width": 80,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexShrink": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Object {
+              "fontSize": 18,
+            },
+          ]
+        }
+      >
+        Mosh Hamedani
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Array [
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "color": "#6e6969",
+                "marginTop": 5,
+              },
+            ],
+          ]
+        }
+      >
+        programmingwithmosh@gmail.com
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "iconBackgroundColor": "tomato",
+          "iconName": "format-list-bulleted",
+          "title": "my listings",
+        },
+        Object {
+          "iconBackgroundColor": "turquoise",
+          "iconName": "email",
+          "title": "my messages",
+        },
+        Object {
+          "iconBackgroundColor": "#ffe66d",
+          "iconName": "logout",
+          "title": "log out",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        >
+          <View
+            style={
+              Array [
+                false,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "flexDirection": "row",
+                  "padding": 20,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 10,
+                    "overflow": "hidden",
+                    "width": 40,
+                  },
+                  Object {
+                    "backgroundColor": "tomato",
+                  },
+                ]
+              }
+            >
+              <Text />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Courier",
+                      "fontSize": 13,
+                    },
+                    Object {
+                      "fontSize": 18,
+                      "textTransform": "capitalize",
+                    },
+                  ]
+                }
+              >
+                my listings
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#f8f4f4",
+              "height": 1,
+              "width": "100%",
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        >
+          <View
+            style={
+              Array [
+                false,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "flexDirection": "row",
+                  "padding": 20,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 10,
+                    "overflow": "hidden",
+                    "width": 40,
+                  },
+                  Object {
+                    "backgroundColor": "turquoise",
+                  },
+                ]
+              }
+            >
+              <Text />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Courier",
+                      "fontSize": 13,
+                    },
+                    Object {
+                      "fontSize": 18,
+                      "textTransform": "capitalize",
+                    },
+                  ]
+                }
+              >
+                my messages
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#f8f4f4",
+              "height": 1,
+              "width": "100%",
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "marginTop": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "flexDirection": "row",
+                  "padding": 20,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 10,
+                    "overflow": "hidden",
+                    "width": 40,
+                  },
+                  Object {
+                    "backgroundColor": "#ffe66d",
+                  },
+                ]
+              }
+            >
+              <Text />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "Courier",
+                      "fontSize": 13,
+                    },
+                    Object {
+                      "fontSize": 18,
+                      "textTransform": "capitalize",
+                    },
+                  ]
+                }
+              >
+                log out
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingDetailsScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f8f4f4",
+      "flex": 1,
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 300,
+        "width": "100%",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "fontWeight": "bold",
+              "lineHeight": 40,
+            },
+            Object {
+              "fontSize": 25,
+            },
+          ],
+        ]
+      }
+    >
+      Red jacket for sale
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "fontWeight": "bold",
+              "lineHeight": 40,
+            },
+            Object {
+              "color": "turquoise",
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      $100
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "row",
+        "marginTop": 36,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "borderRadius": 40,
+          "height": 80,
+          "marginRight": 10,
+          "width": 80,
+        }
+      }
+    />
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Object {
+              "fontSize": 18,
+            },
+          ]
+        }
+      >
+        Mosh Hamedani
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Array [
+              Object {
+                "fontSize": 18,
+              },
+              Object {
+                "color": "#6e6969",
+                "lineHeight": 30,
+              },
+            ],
+          ]
+        }
+      >
+        5 Listings
+      </Text>
+    </View>
+  </View>
+</View>
+`;

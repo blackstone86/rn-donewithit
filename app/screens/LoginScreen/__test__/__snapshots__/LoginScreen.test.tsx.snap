@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flexDirection": "column",
+        "paddingHorizontal": 10,
+      },
+      Object {
+        "flex": 1,
+        "paddingTop": 20,
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 100,
+        "marginBottom": 60,
+        "marginTop": 120,
+        "width": 100,
+      }
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "width": undefined,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#f9f2f2",
+            "borderRadius": 25,
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "flex-start",
+            "overflow": "hidden",
+            "padding": 10,
+          },
+        ]
+      }
+    >
+      <Text />
+      <TextInput
+        allowFontScaling={true}
+        clearButtonMode="always"
+        keyboardType="email-address"
+        maxLength={50}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="Email"
+        placeholderTextColor="#C0C0C0"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontFamily": "Courier",
+              "fontSize": 18,
+            },
+            undefined,
+          ]
+        }
+        textContentType="emailAddress"
+        underlineColorAndroid="transparent"
+        value="asianking86@qq.com"
+      />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "color": "tomato",
+              "fontSize": 18,
+              "height": 30,
+              "lineHeight": 30,
+              "width": "100%",
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "width": undefined,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#f9f2f2",
+            "borderRadius": 25,
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "flex-start",
+            "overflow": "hidden",
+            "padding": 10,
+          },
+        ]
+      }
+    >
+      <Text />
+      <TextInput
+        allowFontScaling={true}
+        clearButtonMode="always"
+        keyboardType="name-phone-pad"
+        maxLength={50}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="Name"
+        placeholderTextColor="#C0C0C0"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontFamily": "Courier",
+              "fontSize": 18,
+            },
+            undefined,
+          ]
+        }
+        textContentType="name"
+        underlineColorAndroid="transparent"
+        value="Junwen Huang"
+      />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "color": "tomato",
+              "fontSize": 18,
+              "height": 30,
+              "lineHeight": 30,
+              "width": "100%",
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "width": undefined,
+          },
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#f9f2f2",
+            "borderRadius": 25,
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "flex-start",
+            "overflow": "hidden",
+            "padding": 10,
+          },
+        ]
+      }
+    >
+      <Text />
+      <TextInput
+        allowFontScaling={true}
+        clearButtonMode="always"
+        keyboardType="default"
+        maxLength={10}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="#C0C0C0"
+        rejectResponderTermination={true}
+        secureTextEntry={true}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontFamily": "Courier",
+              "fontSize": 18,
+            },
+            undefined,
+          ]
+        }
+        textContentType="password"
+        underlineColorAndroid="transparent"
+        value="12345678"
+      />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "Courier",
+            "fontSize": 13,
+          },
+          Array [
+            Object {
+              "color": "tomato",
+              "fontSize": 18,
+              "height": 30,
+              "lineHeight": 30,
+              "width": "100%",
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {},
+          Array [
+            Object {
+              "width": "100%",
+            },
+            Object {
+              "width": undefined,
+            },
+          ],
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "tomato",
+            "borderRadius": 25,
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "Courier",
+                "fontSize": 13,
+              },
+              Object {
+                "color": "#fff",
+                "fontSize": 18,
+                "fontWeight": "bold",
+                "textTransform": "uppercase",
+              },
+            ]
+          }
+        >
+          login
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
