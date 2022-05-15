@@ -114,6 +114,12 @@ Step11, publish application to Expo Go app for Development
 
 now, you will find your published app in your Profile in `Expo Go app`.
 
+## Testing with Jest (Unit Tests & Snapshot Tests)
+
+```bash
+yarn test
+```
+
 ## FAQ
 
 - Some dependencies are incompatible with the installed expo package version
