@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppTextInput renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "width": 180,
+      },
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#f9f2f2",
+        "borderRadius": 25,
+        "flexDirection": "row",
+        "height": 50,
+        "justifyContent": "flex-start",
+        "overflow": "hidden",
+        "padding": 10,
+      },
+    ]
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    clearButtonMode="always"
+    keyboardType="numeric"
+    maxLength={50}
+    placeholder="Price"
+    placeholderTextColor="#C0C0C0"
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "flex": 1,
+          "fontFamily": "Courier",
+          "fontSize": 18,
+        },
+        undefined,
+      ]
+    }
+    textContentType="none"
+    underlineColorAndroid="transparent"
+    value="999"
+  />
+</View>
+`;

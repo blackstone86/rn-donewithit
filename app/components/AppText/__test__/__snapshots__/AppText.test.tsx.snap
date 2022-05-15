@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppText renders correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Courier",
+        "fontSize": 13,
+      },
+      Object {
+        "color": "red",
+        "fontSize": 16,
+      },
+    ]
+  }
+>
+  Hello world
+</Text>
+`;
