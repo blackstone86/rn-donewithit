@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCard renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "marginHorizontal": 10,
+          "marginTop": 20,
+        },
+        Object {
+          "backgroundColor": "#fff",
+          "borderRadius": 10,
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "height": 200,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 15,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Array [
+              Object {
+                "fontSize": 18,
+                "fontWeight": "bold",
+                "lineHeight": 32,
+              },
+              Object {
+                "color": "#000",
+              },
+            ],
+          ]
+        }
+      >
+        Couch in great condition
+      </Text>
+      <Text
+        numberOfLines={3}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Array [
+              Object {
+                "fontSize": 18,
+                "fontWeight": "bold",
+                "lineHeight": 32,
+              },
+              Object {
+                "color": "turquoise",
+              },
+            ],
+          ]
+        }
+      >
+        $1000
+      </Text>
+    </View>
+  </View>
+</View>
+`;

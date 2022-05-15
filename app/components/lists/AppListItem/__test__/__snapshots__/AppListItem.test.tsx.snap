@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppListItem renders correctly 1`] = `
+<View>
+  <View
+    collapsable={false}
+    forwardedRef={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onLayout={[Function]}
+    style={
+      Object {
+        "overflow": "hidden",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "bottom": 0,
+          "flexDirection": "row-reverse",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateX": -10000,
+            },
+          ],
+        }
+      }
+    >
+      <RNGestureHandlerButton
+        collapsable={false}
+        exclusive={true}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+      >
+        <View
+          accessible={true}
+          style={Object {}}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ff5252",
+                "height": "100%",
+                "justifyContent": "center",
+                "width": 80,
+              }
+            }
+          >
+            <Text />
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <View
+        onLayout={[Function]}
+      />
+    </View>
+    <View
+      collapsable={false}
+      forwardedRef={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      pointerEvents="auto"
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "translateX": -0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 20,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "borderRadius": 40,
+                  "height": 80,
+                  "marginRight": 10,
+                  "width": 80,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "height": "100%",
+              }
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Courier",
+                    "fontSize": 13,
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              Mosh Hamedani
+            </Text>
+            <Text
+              numberOfLines={3}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "Courier",
+                    "fontSize": 13,
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Object {
+                      "color": "#6e6969",
+                      "marginTop": 5,
+                    },
+                  ],
+                ]
+              }
+            >
+              Hey! Is this item still available?
+            </Text>
+          </View>
+          <Text />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

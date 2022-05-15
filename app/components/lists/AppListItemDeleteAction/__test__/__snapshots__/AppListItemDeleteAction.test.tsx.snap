@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppListItemDeleteAction renders correctly 1`] = `
+<RNGestureHandlerButton
+  collapsable={false}
+  exclusive={true}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  rippleColor={0}
+>
+  <View
+    accessible={true}
+    style={Object {}}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ff5252",
+          "height": "100%",
+          "justifyContent": "center",
+          "width": 80,
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+</RNGestureHandlerButton>
+`;

@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppMenuItem renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    style={
+      Array [
+        undefined,
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flexDirection": "row",
+          "padding": 20,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 20,
+            "height": 40,
+            "justifyContent": "center",
+            "marginRight": 10,
+            "overflow": "hidden",
+            "width": 40,
+          },
+          Object {
+            "backgroundColor": "tomato",
+          },
+        ]
+      }
+    >
+      <Text />
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "Courier",
+              "fontSize": 13,
+            },
+            Object {
+              "fontSize": 18,
+              "textTransform": "capitalize",
+            },
+          ]
+        }
+      >
+        my listings
+      </Text>
+    </View>
+  </View>
+</View>
+`;
