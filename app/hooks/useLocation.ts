@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import * as Location from 'expo-location'
+import logger from '../utils/logger'
 
 type LocationType = {
   latitude: number
@@ -26,6 +27,7 @@ const useLocation = (): LocationType => {
       setLocation({ latitude, longitude })
     } catch (error) {
       console.log('Error reading a location', error)
+      logger.log(error)
     }
   }
   useEffect(() => {

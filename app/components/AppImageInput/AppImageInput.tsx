@@ -15,6 +15,7 @@ import { reducer } from './reducers'
 import COLORS from '../../config/colors'
 import CONSTS from './consts'
 import styles from './styles'
+import logger from '../../utils/logger'
 
 function AppImageInput({
   onChange,
@@ -48,6 +49,7 @@ function AppImageInput({
       }
     } catch (error) {
       console.log('Error reading an image', error)
+      logger.log(error)
     }
   }
   const handleImagePress = (index: number) => {
