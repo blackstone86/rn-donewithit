@@ -23,7 +23,7 @@
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.junwenhuang.DoneWithIt"
+      "versionCode": 1
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
