@@ -13,7 +13,8 @@
     "commit": "git-cz",
     "format": "prettier --write .",
     "test": "jest",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "optimize": "npx expo-optimize"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -64,6 +65,7 @@
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "react-test-renderer": "17",
+    "sharp-cli": "^1.15.0",
     "typescript": "~4.3.5"
   },
   "resolutions": {

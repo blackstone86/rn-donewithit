@@ -54,11 +54,10 @@ List of devices attached
 emulator-5554   device  -------------> this is my virtual device
 ```
 
-Step04, install [expo-cli](https://docs.expo.dev/get-started/installation/) and [sharp-cli](https://github.com/vseventer/sharp-cli) globally.
+Step04, install [expo-cli](https://docs.expo.dev/get-started/installation/) globally.
 
 ```bash
 $ yarn dlx expo-cli
-$ yarn dlx sharp-cli // used by 'npx expo-optimize' command line.
 ```
 
 > this repo created by below command line, then choose managed workflow's blank (TypeScript) same as blank but with TypeScript configuration
