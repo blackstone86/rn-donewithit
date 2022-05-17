@@ -4,7 +4,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 
 ## Releases
 
-- https://exp.host/@junwenhuang/DoneWithIt/index.exp?release-channel=staging&sdkVersion=44.0.0
+- https://expo.dev/@junwenhuang/DoneWithIt?release-channel=staging
 
 ## Branches
 
