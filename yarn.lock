@@ -2650,6 +2650,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/netinfo@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "@react-native-community/netinfo@npm:8.3.0"
+  peerDependencies:
+    react-native: ">=0.59"
+  checksum: 4b57c44d45c896e500d1ba11b88e1cab5d78723f53eb24b4c21a643cb38a5e1d35fe84c19dfad7a5e967117de1b78125d854d0363b1134c7ce71c9c2bc1a17d0
+  languageName: node
+  linkType: hard
+
 "@react-native/assets@npm:1.0.0":
   version: 1.0.0
   resolution: "@react-native/assets@npm:1.0.0"
@@ -5193,6 +5202,7 @@ __metadata:
     "@babel/core": ^7.12.9
     "@bugsnag/expo": ^44.0.0
     "@react-native-community/hooks": ^2.8.1
+    "@react-native-community/netinfo": ^8.3.0
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
     "@types/jest": ^27.5.1
@@ -5211,6 +5221,8 @@ __metadata:
     eslint-plugin-react: latest
     expo: ~44.0.0
     expo-constants: ~13.0.1
+    expo-crypto: ~10.1.1
+    expo-device: ~4.1.0
     expo-image-picker: ~12.0.1
     expo-location: ~14.0.1
     expo-media-library: ~14.0.0
@@ -5902,6 +5914,26 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 594a0ccc80cef5e11bae6b2e32e3249ce323e2613232eaa4381966c6aa050192a265dd3498ba1bcb3a81e0a292f2216b2ea23b49807cced51f4b333419e855d9
+  languageName: node
+  linkType: hard
+
+"expo-crypto@npm:~10.1.1":
+  version: 10.1.2
+  resolution: "expo-crypto@npm:10.1.2"
+  peerDependencies:
+    expo: "*"
+  checksum: 118e36be769676fb0cc24f080dd64a0d25255714d5e6f92fbd6dd56d64568ab4b87f913a40f1a79a52dbb6f90260cf5858ea62aa8bf28ba7f684f53acddd23aa
+  languageName: node
+  linkType: hard
+
+"expo-device@npm:~4.1.0":
+  version: 4.1.1
+  resolution: "expo-device@npm:4.1.1"
+  dependencies:
+    ua-parser-js: ^0.7.19
+  peerDependencies:
+    expo: "*"
+  checksum: d6d9deeea3d6ccc6923535774068de18c31f918538dc5a2eb12f4145308818f7ac1c2680974c199458d45df86a659bf426d3ed4f1d8cab1bc1e717883ad6236d
   languageName: node
   linkType: hard
 
@@ -12935,7 +12967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:^0.7.30":
+"ua-parser-js@npm:^0.7.19, ua-parser-js@npm:^0.7.30":
   version: 0.7.31
   resolution: "ua-parser-js@npm:0.7.31"
   checksum: e2f8324a83d1715601576af85b2b6c03890699aaa7272950fc77ea925c70c5e4f75060ae147dc92124e49f7f0e3d6dd2b0a91e7f40d267e92df8894be967ba8b

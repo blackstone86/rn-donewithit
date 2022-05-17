@@ -1,5 +1,6 @@
-import Bugsnag from '@bugsnag/expo'
 import React from 'react'
+import logger from './app/utils/logger'
+
 // import AccountScreen from './app/screens/AccountScreen'
 // import ListingEditScreen from './app/screens/ListingEditScreen'
 // import RegisterScreen from './app/screens/RegisterScreen'
@@ -13,7 +14,8 @@ import React from 'react'
 // import NativeStackScreen from './app/demos/NativeStackScreen'
 import NativeStackParameters from './app/demos/NativeStackParameters'
 
-Bugsnag.start()
+logger.start()
+logger.log(new Error('Testing Error message to bugsnag'))
 
 /**
  * notice

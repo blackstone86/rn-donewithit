@@ -28,6 +28,8 @@
     "@react-navigation/native-stack": "^6.6.2",
     "expo": "~44.0.0",
     "expo-constants": "~13.0.1",
+    "expo-crypto": "~10.1.1",
+    "expo-device": "~4.1.0",
     "expo-image-picker": "~12.0.1",
     "expo-location": "~14.0.1",
     "expo-media-library": "~14.0.0",
@@ -49,6 +51,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@bugsnag/expo": "^44.0.0",
+    "@react-native-community/netinfo": "^8.3.0",
     "@types/jest": "^27.5.1",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
