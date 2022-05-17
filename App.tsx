@@ -1,5 +1,6 @@
 import React from 'react'
 import logger from './app/utils/logger'
+import getCurrentSettings from './app/config/settings'
 
 // import AccountScreen from './app/screens/AccountScreen'
 // import ListingEditScreen from './app/screens/ListingEditScreen'
@@ -15,6 +16,8 @@ import logger from './app/utils/logger'
 import NativeStackParameters from './app/demos/NativeStackParameters'
 
 logger.start()
+const settings = getCurrentSettings()
+console.log(settings)
 // logger.log(new Error('Testing Error message to bugsnag'))
 
 /**
