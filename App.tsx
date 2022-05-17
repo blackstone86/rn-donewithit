@@ -15,7 +15,7 @@ import logger from './app/utils/logger'
 import NativeStackParameters from './app/demos/NativeStackParameters'
 
 logger.start()
-logger.log(new Error('Testing Error message to bugsnag'))
+// logger.log(new Error('Testing Error message to bugsnag'))
 
 /**
  * notice
