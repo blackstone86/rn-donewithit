@@ -45,6 +45,19 @@
       ]
     ],
     "description": "A marketplace for selling the stuff you don't need anymore.",
-    "githubUrl": "https://github.com/blackstone86/rn-donewithit.git"
+    "githubUrl": "https://github.com/blackstone86/rn-donewithit.git",
+    "extra": {
+      "bugsnag": {
+        "apiKey": "ea440c476e5db6c78df57dc89b7f7e92"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }

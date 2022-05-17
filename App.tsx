@@ -1,3 +1,4 @@
+import Bugsnag from '@bugsnag/expo'
 import React from 'react'
 // import AccountScreen from './app/screens/AccountScreen'
 // import ListingEditScreen from './app/screens/ListingEditScreen'
@@ -11,6 +12,8 @@ import React from 'react'
 
 // import NativeStackScreen from './app/demos/NativeStackScreen'
 import NativeStackParameters from './app/demos/NativeStackParameters'
+
+Bugsnag.start()
 
 /**
  * notice

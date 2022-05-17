@@ -14,7 +14,8 @@
     "format": "prettier --write .",
     "test": "jest",
     "postinstall": "husky install",
-    "optimize": "npx expo-optimize"
+    "optimize": "npx expo-optimize",
+    "bugsnag:init": "node ./node_modules/bugsnag-expo-cli/cli.js init"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -47,12 +48,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@bugsnag/expo": "^44.0.0",
     "@types/jest": "^27.5.1",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.23.0",
+    "bugsnag-expo-cli": "^44.0.1",
     "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
