@@ -15,7 +15,9 @@
     "test": "jest",
     "postinstall": "husky install",
     "optimize": "npx expo-optimize",
-    "bugsnag:init": "node ./node_modules/bugsnag-expo-cli/cli.js init"
+    "bugsnag:init": "node ./node_modules/bugsnag-expo-cli/cli.js init",
+    "publish:staging": "expo publish --release-channel staging",
+    "publish:prod": "expo publish --release-channel prod"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

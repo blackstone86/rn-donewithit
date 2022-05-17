@@ -2,6 +2,10 @@ This repo is an app build from react native and published to expo go application
 
 It create by expo-cli, and use different branches to introduce foundation components and how to visit with your phone or virtual device. you can use `Expo Go app` open url `exp://exp.host/@junwenhuang/DoneWithIt?release-channel=default`.
 
+## Releases
+
+- https://exp.host/@junwenhuang/DoneWithIt/index.exp?release-channel=staging&sdkVersion=44.0.0
+
 ## Branches
 
 - fc-Text

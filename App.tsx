@@ -9,11 +9,11 @@ import getCurrentSettings from './app/config/settings'
 // import MessagesScreen from './app/screens/MessagesScreen'
 // import LoginScreen from './app/screens/LoginScreen'
 // import ListingDetailsScreen from './app/screens/ListingDetailsScreen'
-// import WelcomeScreen from './app/screens/WelcomeScreen'
+import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
 
 // import NativeStackScreen from './app/demos/NativeStackScreen'
-import NativeStackParameters from './app/demos/NativeStackParameters'
+// import NativeStackParameters from './app/demos/NativeStackParameters'
 
 logger.start()
 const settings = getCurrentSettings()
@@ -26,5 +26,5 @@ console.log(settings)
  * 02.NativeStackParameters 堆栈式导航传参
  */
 export default function App() {
-  return <NativeStackParameters />
+  return <WelcomeScreen />
 }
