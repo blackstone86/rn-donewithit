@@ -18,6 +18,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - Forms
 - Device-Features
 - Navigation
+- Distribution
 
 ## Prerequisites
 
@@ -149,6 +150,8 @@ $ expo install [package-name ...]
 - [React Native Docs](https://reactnative.dev/docs/)
 - [Expo Docs](https://docs.expo.dev/get-started/installation/)
 - [System Fonts On IOS And Android](https://github.com/react-native-training/react-native-fonts)
+- [Android Icon Design GuideLine](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
+- [IOS Icon Design GuideLine](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
 
 ## License
 
