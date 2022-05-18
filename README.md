@@ -137,6 +137,17 @@ $ expo doctor --fix-dependencies
 $ expo install [package-name ...]
 ```
 
+- Run `yarn build:android` occurs error
+
+make sure you have Loged in to `EAS`, if you don't, run the command below as you see fit:
+
+```bash
+eas login
+// Enter your Email or username eg: jimvinhuang@gmail.com
+// Enter Password eg: **********
+Logged in --------> success loged
+```
+
 ## Recommend vscode plugins
 
 - React Native Tools

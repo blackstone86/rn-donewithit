@@ -9,6 +9,8 @@ coverage/
 
 # yarn
 .yarn/
+yarn/cache/
+yarn/install-state.gz
 
 # macOS
 .DS_Store
