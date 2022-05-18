@@ -2,6 +2,12 @@ This repo is an app build from react native and published to expo go application
 
 It create by expo-cli, and use different branches to introduce foundation components and how to visit with your phone or virtual device. you can use `Expo Go app` open url `exp://exp.host/@junwenhuang/DoneWithIt?release-channel=default`.
 
+## Android Play Store build
+
+| Build ID                             | Full name               | Build type | Project ID                           | Project ID                                                                                     |
+| ------------------------------------ | ----------------------- | ---------- | ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| b4671f79-e3d9-498e-8a46-bdc86c0a9470 | @junwenhuang/DoneWithIt | EAS        | 68ecd187-f0ff-4c48-811f-909921749af8 | [download](https://expo.dev/artifacts/eas/oh4wqLnKNzp6Yw3rvMtKeb.aab) [expires: June 18, 2022] |
+
 ## Releases
 
 - https://expo.dev/@junwenhuang/DoneWithIt?release-channel=staging
