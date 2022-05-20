@@ -75,7 +75,7 @@ function TweetDetails({ navigation, route: { params } }: any) {
   )
 }
 
-function Navigator() {
+function StackNavigator() {
   return (
     <Stack.Navigator initialRouteName={SCREEN.Tweets}>
       <Stack.Screen
@@ -102,7 +102,7 @@ function NativeStackScreen() {
   return (
     <AppSafeAreaView>
       <NavigationContainer>
-        <Navigator />
+        <StackNavigator />
       </NavigationContainer>
     </AppSafeAreaView>
   )

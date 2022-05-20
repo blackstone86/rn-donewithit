@@ -94,7 +94,7 @@ const navigatorScreenOptions: BottomTabNavigationOptions = {
   // headerShown: false
 }
 
-function Navigator() {
+function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName={SCREEN.Tweets}
@@ -128,7 +128,7 @@ function NativeStackScreen() {
   return (
     <AppSafeAreaView>
       <NavigationContainer>
-        <Navigator />
+        <TabNavigator />
       </NavigationContainer>
     </AppSafeAreaView>
   )

@@ -91,7 +91,7 @@ function TweetInfos({ navigation }: any) {
   )
 }
 
-function Navigator() {
+function StackNavigator() {
   return (
     <Stack.Navigator initialRouteName={SCREEN.Tweets}>
       <Stack.Screen name={SCREEN.Tweets} component={Tweets} />
@@ -105,7 +105,7 @@ function NativeStackScreen() {
   return (
     <AppSafeAreaView>
       <NavigationContainer>
-        <Navigator />
+        <StackNavigator />
       </NavigationContainer>
     </AppSafeAreaView>
   )
