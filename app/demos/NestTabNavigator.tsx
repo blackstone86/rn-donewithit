@@ -7,10 +7,12 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator
 } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AppButton from '../components/AppButton'
 import { StyleProp, ViewStyle, StyleSheet } from 'react-native'
 import COLORS from '../config/colors'
 const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
 const styles = StyleSheet.create({
   button: {
     marginHorizontal: 10,
@@ -31,7 +33,8 @@ type LinkType = {
 }
 enum SCREEN {
   Tweets = 'Tweets',
-  TweetDetails = 'TweetDetails'
+  TweetDetails = 'TweetDetails',
+  Account = 'Account'
 }
 function Link({
   title = 'Click',
@@ -78,6 +81,13 @@ function TweetDetails({ navigation, route: { params } }: any) {
     </AppSafeAreaView>
   )
 }
+function Account() {
+  return (
+    <AppSafeAreaView>
+      <AppText style={styles.text}>{SCREEN.Account}</AppText>
+    </AppSafeAreaView>
+  )
+}
 function TabBarIcon(iconName: string, { color, size }: any): ReactNode {
   // color base on tabBarActiveTintColor/tabBarInactiveTintColor
   return <AppIcon name={iconName} color={color} size={size} />
@@ -99,6 +109,14 @@ const navigatorScreenOptions: BottomTabNavigationOptions = {
   tabBarInactiveBackgroundColor: COLORS.LIGHT_GRAY
 }
 
+function StackNavigator() {
+  return (
+    <Stack.Navigator initialRouteName={SCREEN.Tweets}>
+      <Stack.Screen name={SCREEN.Tweets} component={Tweets} />
+      <Stack.Screen name={SCREEN.TweetDetails} component={TweetDetails} />
+    </Stack.Navigator>
+  )
+}
 function TabNavigator() {
   return (
     <Tab.Navigator
@@ -107,7 +125,7 @@ function TabNavigator() {
     >
       <Tab.Screen
         name={SCREEN.Tweets}
-        component={Tweets}
+        component={StackNavigator}
         options={() => ({
           tabBarLabel: SCREEN.Tweets,
           tabBarIcon: (props): ReactNode => {
@@ -116,12 +134,12 @@ function TabNavigator() {
         })}
       />
       <Tab.Screen
-        name={SCREEN.TweetDetails}
-        component={TweetDetails}
-        options={({ route: { params } }: any) => ({
-          tabBarLabel: SCREEN.TweetDetails,
+        name={SCREEN.Account}
+        component={Account}
+        options={() => ({
+          tabBarLabel: SCREEN.Account,
           tabBarIcon: (props): ReactNode => {
-            return TabBarIcon('cards-outline', props)
+            return TabBarIcon('account', props)
           }
         })}
       />

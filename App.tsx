@@ -13,7 +13,8 @@ import logger from './app/utils/logger'
 // import NativeStackScreen from './app/demos/NativeStackScreen'
 // import NativeStackParameters from './app/demos/NativeStackParameters'
 // import NativeStackCustomHeaders from './app/demos/NativeStackCustomHeaders'
-import TabNavigator from './app/demos/TabNavigator'
+// import TabNavigator from './app/demos/TabNavigator'
+import NestTabNavigator from './app/demos/NestTabNavigator'
 
 logger.start()
 // const settings = getCurrentSettings()
@@ -26,7 +27,8 @@ logger.start()
  * 02.NativeStackParameters 堆栈式导航传参
  * 03.NativeStackCustomHeaders 自定义页头样式
  * 04.TabNavigator 底部导航栏
+ * 05.TabNavigator 嵌套底部导航栏
  */
 export default function App() {
-  return <TabNavigator />
+  return <NestTabNavigator />
 }
