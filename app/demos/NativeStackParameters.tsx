@@ -88,7 +88,9 @@ function Navigator() {
       <Stack.Screen
         name={SCREEN.TweetDetails}
         component={TweetDetails}
-        options={({ params }: any) => ({
+        // https://reactnavigation.org/docs/navigation-prop
+        // https://reactnavigation.org/docs/route-prop
+        options={({ route: { params } }: any) => ({
           title: `detail${params?.id}`
         })}
       />
