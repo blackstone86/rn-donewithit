@@ -1,7 +1,6 @@
 import React from 'react'
 import logger from './app/utils/logger'
-import getCurrentSettings from './app/config/settings'
-
+// import getCurrentSettings from './app/config/settings'
 // import AccountScreen from './app/screens/AccountScreen'
 // import ListingEditScreen from './app/screens/ListingEditScreen'
 // import RegisterScreen from './app/screens/RegisterScreen'
@@ -11,9 +10,9 @@ import getCurrentSettings from './app/config/settings'
 // import ListingDetailsScreen from './app/screens/ListingDetailsScreen'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
 // import ViewImageScreen from './app/screens/ViewImageScreen'
-
 // import NativeStackScreen from './app/demos/NativeStackScreen'
-import NativeStackParameters from './app/demos/NativeStackParameters'
+// import NativeStackParameters from './app/demos/NativeStackParameters'
+import NativeStackCustomHeaders from './app/demos/NativeStackCustomHeaders'
 
 logger.start()
 // const settings = getCurrentSettings()
@@ -24,7 +23,8 @@ logger.start()
  * notice
  * 01.NativeStackScreen 堆栈式导航组件
  * 02.NativeStackParameters 堆栈式导航传参
+ * 03.NativeStackCustomHeaders 自定义页头样式
  */
 export default function App() {
-  return <NativeStackParameters />
+  return <NativeStackCustomHeaders />
 }
