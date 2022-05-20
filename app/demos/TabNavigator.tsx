@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import AppSafeAreaView from '../components/AppSafeAreaView'
 import AppText from '../components/AppText'
+import AppIcon from '../components/AppIcon'
 import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions
-} from '@react-navigation/native-stack'
+  BottomTabNavigationOptions,
+  createBottomTabNavigator
+} from '@react-navigation/bottom-tabs'
 import AppButton from '../components/AppButton'
 import { StyleProp, ViewStyle, StyleSheet } from 'react-native'
 import COLORS from '../config/colors'
-
-const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator()
 const styles = StyleSheet.create({
   button: {
     marginHorizontal: 10,
@@ -78,8 +78,10 @@ function TweetDetails({ navigation, route: { params } }: any) {
     </AppSafeAreaView>
   )
 }
-
-const navigatorScreenOptions: NativeStackNavigationOptions = {
+function TabBarIcon({ color, size }: any, iconName: string): ReactNode {
+  return <AppIcon name={iconName} color={color} size={size} />
+}
+const navigatorScreenOptions: BottomTabNavigationOptions = {
   headerStyle: {
     backgroundColor: COLORS.PRIMARY
   },
@@ -87,34 +89,38 @@ const navigatorScreenOptions: NativeStackNavigationOptions = {
   headerTitleStyle: {
     fontWeight: 'bold'
   },
-  headerTitleAlign: 'center'
+  headerTitleAlign: 'center',
+  tabBarActiveTintColor: COLORS.PRIMARY
   // headerShown: false
 }
 
 function Navigator() {
   return (
-    <Stack.Navigator
+    <Tab.Navigator
       initialRouteName={SCREEN.Tweets}
       screenOptions={navigatorScreenOptions}
     >
-      <Stack.Screen
+      <Tab.Screen
         name={SCREEN.Tweets}
         component={Tweets}
-        // https://reactnavigation.org/docs/native-stack-navigator/#headershown
         options={() => ({
-          title: 'home'
+          tabBarLabel: SCREEN.Tweets,
+          tabBarIcon: (props): ReactNode => {
+            return TabBarIcon(props, 'home')
+          }
         })}
       />
-      <Stack.Screen
+      <Tab.Screen
         name={SCREEN.TweetDetails}
         component={TweetDetails}
-        // https://reactnavigation.org/docs/navigation-prop
-        // https://reactnavigation.org/docs/route-prop
         options={({ route: { params } }: any) => ({
-          title: `detail${params?.id}`
+          tabBarLabel: `detail${params?.id}`,
+          tabBarIcon: (props): ReactNode => {
+            return TabBarIcon(props, 'cards-outline')
+          }
         })}
       />
-    </Stack.Navigator>
+    </Tab.Navigator>
   )
 }
 
