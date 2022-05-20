@@ -174,6 +174,9 @@ Logged in --------> success loged
 - [System Fonts On IOS And Android](https://github.com/react-native-training/react-native-fonts)
 - [Android Icon Design GuideLine](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
 - [IOS Icon Design GuideLine](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
+- [Distributing To The Google Play Store](https://docs.expo.io/distribution/uploading-apps/)
+- [Fastlane](https://fastlane.tools/)
+- [How To Use Fastlane To Deploy Expo Apps](https://blog.expo.io/automating-standalone-expo-app-builds-and-deployments-with-fastlane-exp-and-exptool-9b2f5ad0a2cd)
 
 ## License
 

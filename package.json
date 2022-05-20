@@ -18,7 +18,8 @@
     "bugsnag:init": "node ./node_modules/bugsnag-expo-cli/cli.js init",
     "publish:staging": "expo publish --release-channel staging",
     "publish:prod": "expo publish --release-channel prod",
-    "build:android": "eas build -p android"
+    "build:android": "eas build -p android",
+    "upload:android": "eas submit -p android --latest"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
