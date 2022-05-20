@@ -32,6 +32,7 @@ type LinkType = {
   params?: any
 }
 enum SCREEN {
+  Feed = 'Feed',
   Tweets = 'Tweets',
   TweetDetails = 'TweetDetails',
   Account = 'Account'
@@ -108,8 +109,7 @@ const navigatorScreenOptions: BottomTabNavigationOptions = {
   tabBarInactiveTintColor: COLORS.BLACK,
   tabBarInactiveBackgroundColor: COLORS.LIGHT_GRAY
 }
-
-function StackNavigator() {
+function FeedNavigator() {
   return (
     <Stack.Navigator initialRouteName={SCREEN.Tweets}>
       <Stack.Screen name={SCREEN.Tweets} component={Tweets} />
@@ -120,14 +120,14 @@ function StackNavigator() {
 function TabNavigator() {
   return (
     <Tab.Navigator
-      initialRouteName={SCREEN.Tweets}
+      initialRouteName={SCREEN.Feed}
       screenOptions={navigatorScreenOptions}
     >
       <Tab.Screen
-        name={SCREEN.Tweets}
-        component={StackNavigator}
+        name={SCREEN.Feed}
+        component={FeedNavigator}
         options={() => ({
-          tabBarLabel: SCREEN.Tweets,
+          tabBarLabel: SCREEN.Feed,
           tabBarIcon: (props): ReactNode => {
             return TabBarIcon('home', props)
           }
