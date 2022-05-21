@@ -4,6 +4,7 @@ import WelcomeScreen from '../screens/WelcomeScreen'
 import LoginScreen from '../screens/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen'
 import MainNavigator from './MainNavigator'
+import ScreenType from './screenTypes'
 const Stack = createNativeStackNavigator()
 
 export default function WelcomeScreenNavigator() {
@@ -13,10 +14,10 @@ export default function WelcomeScreenNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-      <Stack.Screen name="Main" component={MainNavigator} />
+      <Stack.Screen name={ScreenType.WELCOME} component={WelcomeScreen} />
+      <Stack.Screen name={ScreenType.LOGIN} component={LoginScreen} />
+      <Stack.Screen name={ScreenType.REGISTER} component={RegisterScreen} />
+      <Stack.Screen name={ScreenType.MAIN} component={MainNavigator} />
     </Stack.Navigator>
   )
 }

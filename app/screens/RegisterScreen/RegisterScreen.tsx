@@ -4,6 +4,7 @@ import { AppForm, Field, TypeKind } from '../../components/forms'
 import Yup from '../../utils/yup'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
+import ScreenType from '../../navigators/screenTypes'
 
 const fields: Field[] = [
   {
@@ -61,7 +62,7 @@ export default function RegisterScreen() {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
-          navigation.navigate('Main' as never)
+          navigation.navigate(ScreenType.MAIN as never)
         }}
         style={styles.form}
       />

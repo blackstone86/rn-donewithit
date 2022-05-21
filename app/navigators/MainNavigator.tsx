@@ -1,32 +1,14 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AppIcon from '../components/AppIcon'
-import ListingsScreen from '../screens/ListingsScreen'
-import ListingDetailsScreen from '../screens/ListingDetailsScreen'
 import ListingEditScreen from '../screens/ListingEditScreen'
 import AccountScreen from '../screens/AccountScreen'
 import AppTabBarButton from '../components/AppTabBarButton'
 import COLORS from '../config/colors'
 import { useNavigation } from '@react-navigation/native'
+import ScreenType from '../navigators/screenTypes'
+import FeedNavigator from './FeedNavigator'
 const Tab = createBottomTabNavigator()
-const Stack = createNativeStackNavigator()
-
-function FeedNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: true
-      }}
-    >
-      <Stack.Screen name="ListingsScreen" component={ListingsScreen} />
-      <Stack.Screen
-        name="ListingDetailsScreen"
-        component={ListingDetailsScreen}
-      />
-    </Stack.Navigator>
-  )
-}
 
 export default function MainNavigator() {
   const navigation = useNavigation()
@@ -39,7 +21,7 @@ export default function MainNavigator() {
       }}
     >
       <Tab.Screen
-        name="Feed"
+        name={ScreenType.FEED}
         component={FeedNavigator}
         options={{
           tabBarIcon: ({ color, size }) => {
@@ -48,14 +30,14 @@ export default function MainNavigator() {
         }}
       />
       <Tab.Screen
-        name="Post"
+        name={ScreenType.POST}
         component={ListingEditScreen}
         options={{
           tabBarButton: () => {
             return (
               <AppTabBarButton
                 onPress={() => {
-                  navigation.navigate('Post' as never)
+                  navigation.navigate(ScreenType.POST as never)
                 }}
               />
             )
@@ -63,7 +45,7 @@ export default function MainNavigator() {
         }}
       />
       <Tab.Screen
-        name="Account"
+        name={ScreenType.ACCOUNT}
         component={AccountScreen}
         options={{
           tabBarIcon: ({ color, size }) => {

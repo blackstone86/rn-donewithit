@@ -7,6 +7,7 @@ import { BACKGROUND, LOGO_RED } from '../../config/images'
 import CONSTS from './consts'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
+import ScreenType from '../../navigators/screenTypes'
 
 export default function WelcomeScreen() {
   const navigation = useNavigation()
@@ -27,7 +28,7 @@ export default function WelcomeScreen() {
             style={styles.button}
             title="login"
             onPress={() => {
-              navigation.navigate('LoginScreen' as never)
+              navigation.navigate(ScreenType.LOGIN as never)
             }}
           />
           <AppButton
@@ -35,7 +36,7 @@ export default function WelcomeScreen() {
             title="register"
             backgroundColor={COLORS.SECONDARY}
             onPress={() => {
-              navigation.navigate('RegisterScreen' as never)
+              navigation.navigate(ScreenType.REGISTER as never)
             }}
           />
         </View>
