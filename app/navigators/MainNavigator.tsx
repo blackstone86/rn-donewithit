@@ -6,7 +6,10 @@ import ListingsScreen from '../screens/ListingsScreen'
 import ListingDetailsScreen from '../screens/ListingDetailsScreen'
 import ListingEditScreen from '../screens/ListingEditScreen'
 import AccountScreen from '../screens/AccountScreen'
+import AppTabBarButton from '../components/AppTabBarButton'
 import COLORS from '../config/colors'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -33,6 +36,7 @@ function FeedNavigator() {
 }
 
 export default function MainNavigator() {
+  const navigation = useNavigation()
   return (
     <Tab.Navigator
       screenOptions={{
@@ -54,8 +58,14 @@ export default function MainNavigator() {
         name="Post"
         component={ListingEditScreen}
         options={{
-          tabBarIcon: (props) => {
-            return TabBarIcon('post', props)
+          tabBarButton: () => {
+            return (
+              <AppTabBarButton
+                onPress={() => {
+                  navigation.navigate('Post' as never)
+                }}
+              />
+            )
           }
         }}
       />

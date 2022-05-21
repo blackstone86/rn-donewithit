@@ -28,6 +28,7 @@
     "react/require-default-props": 0,
     "react/no-unescaped-entities": 0,
     "react/no-array-index-key": 0,
+    "react/no-unstable-nested-components": 0,
     "react/jsx-filename-extension": [
       1,
       {
