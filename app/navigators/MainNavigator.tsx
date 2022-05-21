@@ -8,16 +8,9 @@ import ListingEditScreen from '../screens/ListingEditScreen'
 import AccountScreen from '../screens/AccountScreen'
 import AppTabBarButton from '../components/AppTabBarButton'
 import COLORS from '../config/colors'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
-
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
-
-function TabBarIcon(iconName: string, { color, size }: any) {
-  // color base on tabBarActiveTintColor/tabBarInactiveTintColor
-  return <AppIcon name={iconName} color={color} size={size} />
-}
 
 function FeedNavigator() {
   return (
@@ -49,8 +42,8 @@ export default function MainNavigator() {
         name="Feed"
         component={FeedNavigator}
         options={{
-          tabBarIcon: (props) => {
-            return TabBarIcon('home', props)
+          tabBarIcon: ({ color, size }) => {
+            return <AppIcon name="home" color={color} size={size} />
           }
         }}
       />
@@ -73,8 +66,8 @@ export default function MainNavigator() {
         name="Account"
         component={AccountScreen}
         options={{
-          tabBarIcon: (props) => {
-            return TabBarIcon('account', props)
+          tabBarIcon: ({ color, size }) => {
+            return <AppIcon name="account" color={color} size={size} />
           }
         }}
       />
