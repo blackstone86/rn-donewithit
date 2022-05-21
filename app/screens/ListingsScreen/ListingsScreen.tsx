@@ -6,8 +6,10 @@ import { cardType } from './types'
 import { JACKET, COUCH } from '../../config/images'
 import { LONG_TEXT } from '../../config/texts'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 export default function ListingsScreen() {
+  const navigation = useNavigation()
   const { cards } = useMemo(
     () => ({
       cards: [
@@ -26,7 +28,7 @@ export default function ListingsScreen() {
     []
   )
   const handlePress = useCallback((item: cardType) => {
-    console.log(item)
+    navigation.navigate('ListingDetailsScreen' as never)
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>

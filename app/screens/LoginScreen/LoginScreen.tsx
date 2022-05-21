@@ -65,7 +65,7 @@ export default function LoginScreen() {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
-          navigation.navigate('MainScreen' as never)
+          navigation.navigate('Main' as never)
         }}
       />
     </AppSafeAreaView>

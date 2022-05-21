@@ -1,18 +1,38 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AppIcon from '../components/AppIcon'
 import ListingsScreen from '../screens/ListingsScreen'
+import ListingDetailsScreen from '../screens/ListingDetailsScreen'
 import ListingEditScreen from '../screens/ListingEditScreen'
 import AccountScreen from '../screens/AccountScreen'
 import COLORS from '../config/colors'
+
 const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
 
 function TabBarIcon(iconName: string, { color, size }: any) {
   // color base on tabBarActiveTintColor/tabBarInactiveTintColor
   return <AppIcon name={iconName} color={color} size={size} />
 }
 
-export default function MainScreenNavigator() {
+function FeedNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true
+      }}
+    >
+      <Stack.Screen name="ListingsScreen" component={ListingsScreen} />
+      <Stack.Screen
+        name="ListingDetailsScreen"
+        component={ListingDetailsScreen}
+      />
+    </Stack.Navigator>
+  )
+}
+
+export default function MainNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -23,7 +43,7 @@ export default function MainScreenNavigator() {
     >
       <Tab.Screen
         name="Feed"
-        component={ListingsScreen}
+        component={FeedNavigator}
         options={{
           tabBarIcon: (props) => {
             return TabBarIcon('home', props)
