@@ -15,11 +15,13 @@ export default function ListingsScreen() {
     () => ({
       cards: [
         {
+          id: 1,
           title: LONG_TEXT,
-          subTitle: LONG_TEXT,
+          subTitle: '$180',
           image: JACKET
         },
         {
+          id: 2,
           title: 'Couch in great condition',
           subTitle: '$1000',
           image: COUCH
@@ -28,14 +30,17 @@ export default function ListingsScreen() {
     }),
     []
   )
-  const handlePress = useCallback((item: cardType) => {
-    navigation.navigate(ScreenType.LISTING_DETAILS as never)
+  const handlePress = useCallback(({ id }: cardType) => {
+    const params = {
+      id
+    }
+    navigation.navigate(ScreenType.LISTING_DETAILS as never, params as never)
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
       <List
         data={cards}
-        keyExtractor={(item) => item.title}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           const { title, subTitle, image }: cardType = item
           return (

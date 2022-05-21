@@ -4,7 +4,12 @@ import AppText from '../../components/AppText'
 import styles from './styles'
 import { JACKET, MOSH } from '../../config/images'
 
-export default function ListingDetailsScreen() {
+export default function ListingDetailsScreen({
+  route: {
+    params: { id }
+  }
+}: any) {
+  console.log(id)
   const { title, subTitle, image, avatarImage, name, listings } = useMemo(
     () => ({
       title: 'Red jacket for sale',
