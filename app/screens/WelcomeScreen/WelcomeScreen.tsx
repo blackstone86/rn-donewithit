@@ -6,8 +6,10 @@ import COLORS from '../../config/colors'
 import { BACKGROUND, LOGO_RED } from '../../config/images'
 import CONSTS from './consts'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
-export default function App() {
+export default function WelcomeScreen() {
+  const navigation = useNavigation()
   return (
     <>
       <ImageBackground
@@ -24,13 +26,17 @@ export default function App() {
           <AppButton
             style={styles.button}
             title="login"
-            onPress={() => console.log('tapped login button')}
+            onPress={() => {
+              navigation.navigate('LoginScreen' as never)
+            }}
           />
           <AppButton
             style={styles.button}
             title="register"
             backgroundColor={COLORS.SECONDARY}
-            onPress={() => console.log('tapped register button')}
+            onPress={() => {
+              navigation.navigate('RegisterScreen' as never)
+            }}
           />
         </View>
       </View>

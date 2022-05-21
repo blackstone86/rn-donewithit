@@ -4,6 +4,7 @@ import AppSafeAreaView from '../../components/AppSafeAreaView'
 import Yup from '../../utils/yup'
 import { AppForm, Field, TypeKind } from '../../components/forms'
 import { LOGO_RED } from '../../config/images'
+import { useNavigation } from '@react-navigation/native'
 import styles from './styles'
 
 const fields: Field[] = [
@@ -55,6 +56,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function LoginScreen() {
+  const navigation = useNavigation()
   return (
     <AppSafeAreaView style={styles.container}>
       <Image style={styles.logo} source={LOGO_RED} />
@@ -63,6 +65,7 @@ export default function LoginScreen() {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
+          navigation.navigate('MainScreen' as never)
         }}
       />
     </AppSafeAreaView>

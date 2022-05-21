@@ -3,6 +3,7 @@ import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm, Field, TypeKind } from '../../components/forms'
 import Yup from '../../utils/yup'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 const fields: Field[] = [
   {
@@ -52,6 +53,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function RegisterScreen() {
+  const navigation = useNavigation()
   return (
     <AppSafeAreaView style={styles.container}>
       <AppForm
@@ -59,6 +61,7 @@ export default function RegisterScreen() {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
+          navigation.navigate('MainScreen' as never)
         }}
         style={styles.form}
       />
