@@ -1,40 +1,15 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AppIcon from '../components/AppIcon'
 import ListingsScreen from '../screens/ListingsScreen'
+import ListingEditScreen from '../screens/ListingEditScreen'
 import AccountScreen from '../screens/AccountScreen'
 import COLORS from '../config/colors'
-const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
 function TabBarIcon(iconName: string, { color, size }: any) {
   // color base on tabBarActiveTintColor/tabBarInactiveTintColor
   return <AppIcon name={iconName} color={color} size={size} />
-}
-
-function FeedNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      <Stack.Screen name="ListingsScreen" component={ListingsScreen} />
-    </Stack.Navigator>
-  )
-}
-
-function AccountNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      <Stack.Screen name="AccountScreen" component={AccountScreen} />
-    </Stack.Navigator>
-  )
 }
 
 export default function MainScreenNavigator() {
@@ -48,7 +23,7 @@ export default function MainScreenNavigator() {
     >
       <Tab.Screen
         name="Feed"
-        component={FeedNavigator}
+        component={ListingsScreen}
         options={{
           tabBarIcon: (props) => {
             return TabBarIcon('home', props)
@@ -56,8 +31,17 @@ export default function MainScreenNavigator() {
         }}
       />
       <Tab.Screen
+        name="Post"
+        component={ListingEditScreen}
+        options={{
+          tabBarIcon: (props) => {
+            return TabBarIcon('post', props)
+          }
+        }}
+      />
+      <Tab.Screen
         name="Account"
-        component={AccountNavigator}
+        component={AccountScreen}
         options={{
           tabBarIcon: (props) => {
             return TabBarIcon('account', props)
