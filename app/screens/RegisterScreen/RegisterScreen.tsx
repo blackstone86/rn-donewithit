@@ -3,8 +3,8 @@ import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm, Field, TypeKind } from '../../components/forms'
 import Yup from '../../utils/yup'
 import styles from './styles'
-import { useNavigation } from '@react-navigation/native'
 import ScreenType from '../../navigators/screenTypes'
+import { useNavigation } from '@react-navigation/native'
 
 const fields: Field[] = [
   {
