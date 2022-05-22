@@ -30,10 +30,8 @@ export default function ListingsScreen() {
     }),
     []
   )
-  const handlePress = useCallback(({ id }: cardType) => {
-    const params = {
-      id
-    }
+  const handlePress = useCallback((item: cardType) => {
+    const params = item
     navigation.navigate(ScreenType.LISTING_DETAILS as never, params as never)
   }, [])
   return (
