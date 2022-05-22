@@ -6,7 +6,7 @@ export default {
   colors: {
     ...DefaultTheme.colors,
     primary: COLORS.PRIMARY, // set tint various elements, eg: Tab.Navigator->screenOptions->tabBarActiveTintColor
-    background: COLORS.WHITE, // screen background color
+    background: COLORS.BACKGROUND_COLOR, // screen background color
     card: COLORS.WHITE, // header background color
     text: COLORS.PRIMARY // header text color
   }

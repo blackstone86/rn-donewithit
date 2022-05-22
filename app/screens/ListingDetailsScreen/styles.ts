@@ -5,6 +5,7 @@ import CONSTS from './consts'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingBottom: CONSTS.CONTAINER_PADDING_BOTTOM,
     backgroundColor: COLORS.BACKGROUND_COLOR
   },
   image: {
