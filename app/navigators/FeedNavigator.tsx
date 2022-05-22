@@ -9,7 +9,7 @@ export default function FeedNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true
+        headerShown: false
       }}
     >
       <Stack.Screen name={ScreenType.LISTINGS} component={ListingsScreen} />

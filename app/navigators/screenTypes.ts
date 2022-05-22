@@ -6,7 +6,7 @@ enum ScreenType {
   LISTING_DETAILS = 'ListingDetailsScreen',
   POST = 'ListingEditScreen',
   ACCOUNT = 'AccountScreen',
-  MAIN = 'MainNavigator',
+  APP = 'AppNavigator',
   FEED = 'FeedNavigator'
 }
 

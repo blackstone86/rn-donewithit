@@ -1,23 +1,58 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import WelcomeScreen from '../screens/WelcomeScreen'
-import LoginScreen from '../screens/LoginScreen'
-import RegisterScreen from '../screens/RegisterScreen'
-import MainNavigator from './MainNavigator'
-import ScreenType from './screenTypes'
-const Stack = createNativeStackNavigator()
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import AppIcon from '../components/AppIcon'
+import ListingEditScreen from '../screens/ListingEditScreen'
+import AccountScreen from '../screens/AccountScreen'
+import AppTabBarButton from '../components/AppTabBarButton'
+import COLORS from '../config/colors'
+import { useNavigation } from '@react-navigation/native'
+import ScreenType from '../navigators/screenTypes'
+import FeedNavigator from './FeedNavigator'
+const Tab = createBottomTabNavigator()
 
-export default function WelcomeScreenNavigator() {
+export default function AppNavigator() {
+  const navigation = useNavigation()
   return (
-    <Stack.Navigator
+    <Tab.Navigator
       screenOptions={{
+        // tabBarActiveTintColor: COLORS.PRIMARY,
+        tabBarInactiveTintColor: COLORS.GRAY,
         headerShown: false
       }}
     >
-      <Stack.Screen name={ScreenType.WELCOME} component={WelcomeScreen} />
-      <Stack.Screen name={ScreenType.LOGIN} component={LoginScreen} />
-      <Stack.Screen name={ScreenType.REGISTER} component={RegisterScreen} />
-      <Stack.Screen name={ScreenType.MAIN} component={MainNavigator} />
-    </Stack.Navigator>
+      <Tab.Screen
+        name={ScreenType.FEED}
+        component={FeedNavigator}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return <AppIcon name="home" color={color} size={size} />
+          }
+        }}
+      />
+      <Tab.Screen
+        name={ScreenType.POST}
+        component={ListingEditScreen}
+        options={{
+          tabBarButton: () => {
+            return (
+              <AppTabBarButton
+                onPress={() => {
+                  navigation.navigate(ScreenType.POST as never)
+                }}
+              />
+            )
+          }
+        }}
+      />
+      <Tab.Screen
+        name={ScreenType.ACCOUNT}
+        component={AccountScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return <AppIcon name="account" color={color} size={size} />
+          }
+        }}
+      />
+    </Tab.Navigator>
   )
 }

@@ -62,7 +62,7 @@ export default function RegisterScreen() {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log(values)
-          navigation.navigate(ScreenType.MAIN as never)
+          navigation.navigate(ScreenType.APP as never)
         }}
         style={styles.form}
       />
