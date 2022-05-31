@@ -6,11 +6,9 @@ import COLORS from '../../config/colors'
 import { BACKGROUND, LOGO_RED } from '../../config/images'
 import CONSTS from './consts'
 import styles from './styles'
-import { useNavigation } from '@react-navigation/native'
 import ScreenType from '../../navigators/screenTypes'
 
-export default function WelcomeScreen() {
-  const navigation = useNavigation()
+export default function WelcomeScreen({ navigation }: any) {
   return (
     <>
       <ImageBackground
