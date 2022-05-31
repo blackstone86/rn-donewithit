@@ -2,16 +2,15 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AppIcon from '../components/AppIcon'
 import ListingEditScreen from '../screens/ListingEditScreen'
-import AccountScreen from '../screens/AccountScreen'
 import AppTabBarButton from '../components/AppTabBarButton'
 import COLORS from '../config/colors'
-import { useNavigation } from '@react-navigation/native'
 import ScreenType from '../navigators/screenTypes'
 import FeedNavigator from './FeedNavigator'
+import MyNavigator from '../navigators/MyNavigator'
+
 const Tab = createBottomTabNavigator()
 
 export default function AppNavigator() {
-  const navigation = useNavigation()
   return (
     <Tab.Navigator
       screenOptions={{
@@ -32,7 +31,7 @@ export default function AppNavigator() {
       <Tab.Screen
         name={ScreenType.POST}
         component={ListingEditScreen}
-        options={{
+        options={({ navigation }) => ({
           tabBarButton: () => {
             return (
               <AppTabBarButton
@@ -42,11 +41,11 @@ export default function AppNavigator() {
               />
             )
           }
-        }}
+        })}
       />
       <Tab.Screen
-        name={ScreenType.ACCOUNT}
-        component={AccountScreen}
+        name={ScreenType.MY}
+        component={MyNavigator}
         options={{
           tabBarIcon: ({ color, size }) => {
             return <AppIcon name="account" color={color} size={size} />

@@ -6,10 +6,11 @@ import AppAvatarBox from '../../components/AppAvatarBox'
 import { AppFlatList, AppMenuItem } from '../../components/lists'
 import { menuType } from './types'
 import AppIcon from '../../components/AppIcon'
+import ScreenType from '../../navigators/screenTypes'
 import { MOSH } from '../../config/images'
 import styles from './styles'
 
-export default function AccountScreen() {
+export default function AccountScreen({ navigation }: any) {
   const { name, email, image, menus } = useMemo(
     () => ({
       name: 'Mosh Hamedani',
@@ -19,24 +20,27 @@ export default function AccountScreen() {
         {
           iconName: 'format-list-bulleted',
           iconBackgroundColor: COLORS.PRIMARY,
-          title: 'my listings'
+          title: 'my listings',
+          targetScreen: ScreenType.LISTINGS
         },
         {
           iconName: 'email',
           iconBackgroundColor: COLORS.SECONDARY,
-          title: 'my messages'
+          title: 'my messages',
+          targetScreen: ScreenType.MESSAGES
         },
         {
           iconName: 'logout',
           iconBackgroundColor: COLORS.YELLOW,
-          title: 'log out'
+          title: 'log out',
+          targetScreen: ScreenType.AUTH
         }
       ]
     }),
     []
   )
-  const handlePress = useCallback((item: menuType) => {
-    console.log(item)
+  const handlePress = useCallback(({ targetScreen }: menuType) => {
+    navigation.navigate(targetScreen as never)
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>

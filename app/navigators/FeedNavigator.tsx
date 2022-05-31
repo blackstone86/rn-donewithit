@@ -9,7 +9,9 @@ export default function FeedNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false
+        headerShown: false,
+        // Android there's not a slide from bottom animation When set `presentation` to `modal`.
+        presentation: 'modal'
       }}
     >
       <Stack.Screen name={ScreenType.LISTINGS} component={ListingsScreen} />
