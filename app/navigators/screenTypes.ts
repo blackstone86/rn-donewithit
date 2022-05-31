@@ -1,13 +1,13 @@
 enum ScreenType {
-  WELCOME = 'WelcomeScreen',
-  LOGIN = 'LoginScreen',
-  REGISTER = 'RegisterScreen',
-  LISTINGS = 'ListingsScreen',
-  LISTING_DETAILS = 'ListingDetailsScreen',
-  POST = 'ListingEditScreen',
-  ACCOUNT = 'AccountScreen',
-  APP = 'AppNavigator',
-  FEED = 'FeedNavigator'
+  WELCOME = 'Welcome', // Screen
+  LOGIN = 'Login', // Screen
+  REGISTER = 'Register', // Screen
+  LISTINGS = 'Listings', // Screen
+  LISTING_DETAILS = 'ListingDetails', // Screen
+  POST = 'ListingEdit', // Screen
+  ACCOUNT = 'Account', // Screen
+  APP = 'App', // Navigator
+  FEED = 'Feed' // Navigator
 }
 
 export default ScreenType
