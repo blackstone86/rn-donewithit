@@ -4,5 +4,6 @@ export type cardType = {
   id: number
   title: string
   subTitle: string
-  image: ImageSourcePropType
+  image?: ImageSourcePropType
+  imageUrl?: string
 }

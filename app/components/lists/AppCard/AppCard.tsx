@@ -3,7 +3,8 @@ import {
   View,
   Image,
   GestureResponderEvent,
-  TouchableHighlight
+  TouchableHighlight,
+  ImageSourcePropType
 } from 'react-native'
 import COLORS from '../../../config/colors'
 import CONSTS from './consts'
@@ -15,6 +16,7 @@ function AppCard({
   title,
   subTitle,
   image,
+  imageUrl,
   style,
   onPress,
   titleMaxLines = CONSTS.TITLE_MAX_LINES,
@@ -30,7 +32,7 @@ function AppCard({
       onPress={handlePress}
     >
       <View style={[style, styles.container]}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{ uri: imageUrl } || image} />
         <View style={styles.infoBox}>
           <AppText
             style={[styles.text, styles.title]}

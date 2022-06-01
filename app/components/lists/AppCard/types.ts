@@ -7,7 +7,8 @@ import {
 
 export type AppCardProps = {
   title: string
-  image: ImageSourcePropType
+  image?: ImageSourcePropType
+  imageUrl?: string
   subTitle?: string
   titleMaxLines?: number
   subTitleMaxLines?: number

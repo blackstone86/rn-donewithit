@@ -15,9 +15,7 @@ export default function ListingsScreen({ navigation }: any) {
       return {
         ...item,
         subTitle: `$${item.price}`,
-        image: {
-          uri: item.images[0].url
-        }
+        imageUrl: item.images[0].url
       }
     })
     setCards(cards)
@@ -35,13 +33,13 @@ export default function ListingsScreen({ navigation }: any) {
         data={cards}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
-          const { title, subTitle, image }: cardType = item
+          const { title, subTitle, imageUrl }: cardType = item
           return (
             <Card
               style={styles.card}
               title={title}
               subTitle={subTitle}
-              image={image}
+              imageUrl={imageUrl}
               onPress={(e?: GestureResponderEvent) => {
                 handlePress(item)
               }}
