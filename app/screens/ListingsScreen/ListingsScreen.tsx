@@ -1,33 +1,30 @@
-import { GestureResponderEvent, StyleSheet } from 'react-native'
-import React, { useCallback, useMemo } from 'react'
+import { GestureResponderEvent } from 'react-native'
+import React, { useCallback, useEffect, useState } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
 import { cardType } from './types'
-import { JACKET, COUCH } from '../../config/images'
-import { LONG_TEXT } from '../../config/texts'
+import api from '../../api/listings'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
 
 export default function ListingsScreen({ navigation }: any) {
-  const { cards } = useMemo(
-    () => ({
-      cards: [
-        {
-          id: 1,
-          title: LONG_TEXT,
-          subTitle: '$180',
-          image: JACKET
-        },
-        {
-          id: 2,
-          title: 'Couch in great condition',
-          subTitle: '$1000',
-          image: COUCH
+  const [cards, setCards] = useState([])
+  const setData = async () => {
+    const res: any = await api.getListings()
+    const cards = res.data.map((item: any) => {
+      return {
+        ...item,
+        subTitle: `$${item.price}`,
+        image: {
+          uri: item.images[0].url
         }
-      ]
-    }),
-    []
-  )
+      }
+    })
+    setCards(cards)
+  }
+  useEffect(() => {
+    setData()
+  }, [])
   const handlePress = useCallback((item: cardType) => {
     const params = item
     navigation.navigate(ScreenType.LISTING_DETAILS as never, params as never)
