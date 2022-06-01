@@ -28,6 +28,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - Forms
 - Device-Features
 - Navigation
+- Networking
 - Distribution
 
 ## Prerequisites
