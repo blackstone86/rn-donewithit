@@ -65,11 +65,13 @@ List of devices attached
 emulator-5554   device  -------------> this is my virtual device
 ```
 
-Step04, install [expo-cli](https://docs.expo.dev/get-started/installation/), [eas-cli](https://github.com/expo/eas-cli) globally.
+Step04, install [expo-cli](https://docs.expo.dev/get-started/installation/), [eas-cli](https://github.com/expo/eas-cli), [electron](https://www.npmjs.com/package/electron), [react-devtools](https://www.npmjs.com/package/react-devtools) globally.
 
 ```bash
 $ yarn dlx expo-cli
 $ yarn dlx eas-cli
+$ yarn dlx electron
+$ yarn dlx react-devtools ----> for React Native Debugger
 ```
 
 > this repo created by below command line, then choose managed workflow's blank (TypeScript) same as blank but with TypeScript configuration
