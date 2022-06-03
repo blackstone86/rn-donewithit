@@ -1,4 +1,4 @@
-import { GestureResponderEvent, View } from 'react-native'
+import { ActivityIndicator, GestureResponderEvent, View } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
@@ -8,14 +8,20 @@ import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
 import AppText from '../../components/AppText'
 import AppButton from '../../components/AppButton'
+import COLORS from '../../config/colors'
 
 export default function ListingsScreen({ navigation }: any) {
   const [cards, setCards] = useState<any[]>([])
   const [error, setError] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const setData = async () => {
+    setLoading(true)
     const res: any = await api.getListings()
+    setLoading(false)
+
     // NETWORK_ERROR 中断后台服务
     if (!res.ok) return setError(true)
+
     setError(false)
     const cards = res.data.map((item: any) => {
       return {
@@ -35,7 +41,12 @@ export default function ListingsScreen({ navigation }: any) {
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
-      {error ? (
+      {loading && (
+        <View style={styles.infoBox}>
+          <ActivityIndicator size="large" color={COLORS.PRIMARY} />
+        </View>
+      )}
+      {error && (
         <View style={styles.infoBox}>
           <AppText style={styles.text}>Couldn't retrieve the listings</AppText>
           <AppButton
@@ -44,7 +55,8 @@ export default function ListingsScreen({ navigation }: any) {
             onPress={setData}
           />
         </View>
-      ) : (
+      )}
+      {!loading && !error && (
         <List
           data={cards}
           keyExtractor={(item) => item.id.toString()}
