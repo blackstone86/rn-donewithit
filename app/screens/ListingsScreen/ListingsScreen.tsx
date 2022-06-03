@@ -1,4 +1,4 @@
-import { ActivityIndicator, GestureResponderEvent, View } from 'react-native'
+import { GestureResponderEvent, View } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
@@ -8,7 +8,7 @@ import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
 import AppText from '../../components/AppText'
 import AppButton from '../../components/AppButton'
-import COLORS from '../../config/colors'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
 
 export default function ListingsScreen({ navigation }: any) {
   const [cards, setCards] = useState<any[]>([])
@@ -41,7 +41,10 @@ export default function ListingsScreen({ navigation }: any) {
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
-      {loading && <ActivityIndicator size="large" color={COLORS.PRIMARY} />}
+      {loading && (
+        // <ActivityIndicator size="large" color={COLORS.PRIMARY} />
+        <AppActivityIndicator visible />
+      )}
       {error && (
         <View style={styles.infoBox}>
           <AppText style={styles.text}>Couldn't retrieve the listings</AppText>
