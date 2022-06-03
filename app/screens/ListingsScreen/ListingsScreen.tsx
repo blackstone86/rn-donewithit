@@ -41,11 +41,7 @@ export default function ListingsScreen({ navigation }: any) {
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
-      {loading && (
-        <View style={styles.infoBox}>
-          <ActivityIndicator size="large" color={COLORS.PRIMARY} />
-        </View>
-      )}
+      {loading && <ActivityIndicator size="large" color={COLORS.PRIMARY} />}
       {error && (
         <View style={styles.infoBox}>
           <AppText style={styles.text}>Couldn't retrieve the listings</AppText>
