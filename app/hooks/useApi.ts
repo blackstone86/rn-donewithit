@@ -9,7 +9,7 @@ const useApi = (
   const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
 
-  const feedData = async () => {
+  const request = async () => {
     setLoading(true)
     const res: any = await apiFun()
     setLoading(false)
@@ -22,10 +22,10 @@ const useApi = (
     setData(data)
   }
   useEffect(() => {
-    feedData()
+    request()
   }, [])
 
-  return [data, error, loading]
+  return [request, data, error, loading]
 }
 
 export default useApi
