@@ -12,7 +12,7 @@ import AppActivityIndicator from '../../components/AppActivityIndicator'
 import useApi from '../../hooks/useApi'
 
 export default function ListingsScreen({ navigation }: any) {
-  const [request, cards, error, loading] = useApi(api.getListings, (data) => {
+  const [cards, error, loading, request] = useApi(api.getListings, (data) => {
     return data.map((item: any) => {
       return {
         ...item,

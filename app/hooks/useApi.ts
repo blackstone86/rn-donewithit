@@ -25,7 +25,7 @@ const useApi = (
     request()
   }, [])
 
-  return [request, data, error, loading]
+  return [data, error, loading, request]
 }
 
 export default useApi
