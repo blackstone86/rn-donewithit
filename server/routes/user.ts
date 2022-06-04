@@ -1,9 +1,9 @@
-const express = require('express')
-const router = express.Router()
+import express from 'express'
+import usersStore from '../store/users'
+import listingsStore from '../store/listings'
+import auth from '../middleware/auth'
 
-const usersStore = require('../store/users')
-const listingsStore = require('../store/listings')
-const auth = require('../middleware/auth')
+const router = express.Router()
 
 router.get('/:id', auth, (req, res) => {
   const userId = Number(req.params.id)

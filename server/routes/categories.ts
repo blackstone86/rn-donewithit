@@ -1,5 +1,6 @@
 import express from 'express'
 import categoriesStore from '../store/categories'
+
 const router = express.Router()
 
 router.get('/', (req, res) => {

@@ -1,11 +1,11 @@
-const express = require('express')
+import express from 'express'
+import listingsStore from '../store/listings'
+import auth from '../middleware/auth'
+import listingMapper from '../mappers/listings'
+
 const router = express.Router()
 
-const listingsStore = require('../store/listings')
-const auth = require('../middleware/auth')
-const listingMapper = require('../mappers/listings')
-
-router.get('/listings', auth, (req, res) => {
+router.get('/listings', auth, (req: any, res) => {
   const listings = listingsStore.filterListings(
     (listing) => listing.userId === req.user.userId
   )

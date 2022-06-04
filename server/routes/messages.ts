@@ -1,21 +1,21 @@
-const express = require('express')
-const router = express.Router()
-const Joi = require('joi')
-const { Expo } = require('expo-server-sdk')
+import express from 'express'
+import Joi from 'joi'
+import { Expo } from 'expo-server-sdk'
+import usersStore from '../store/users'
+import listingsStore from '../store/listings'
+import messagesStore from '../store/messages'
+import sendPushNotification from '../utilities/pushNotifications'
+import auth from '../middleware/auth'
+import validateWith from '../middleware/validation'
 
-const usersStore = require('../store/users')
-const listingsStore = require('../store/listings')
-const messagesStore = require('../store/messages')
-const sendPushNotification = require('../utilities/pushNotifications')
-const auth = require('../middleware/auth')
-const validateWith = require('../middleware/validation')
+const router = express.Router()
 
 const schema = {
   listingId: Joi.number().required(),
   message: Joi.string().required()
 }
 
-router.get('/', auth, (req, res) => {
+router.get('/', auth, (req: any, res) => {
   const messages = messagesStore.getMessagesForUser(req.user.userId)
 
   const mapUser = (userId) => {
@@ -41,7 +41,7 @@ router.post('/', [auth, validateWith(schema)], async (req, res) => {
   const listing = listingsStore.getListing(listingId)
   if (!listing) return res.status(400).send({ error: 'Invalid listingId.' })
 
-  const targetUser = usersStore.getUserById(Number(listing.userId))
+  const targetUser: any = usersStore.getUserById(Number(listing.userId))
   if (!targetUser) return res.status(400).send({ error: 'Invalid userId.' })
 
   messagesStore.add({

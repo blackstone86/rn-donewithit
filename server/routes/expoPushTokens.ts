@@ -1,16 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const Joi = require('joi')
+import express from 'express'
+import Joi from 'joi'
+import usersStore from '../store/users'
+import auth from '../middleware/auth'
+import validateWith from '../middleware/validation'
 
-const usersStore = require('../store/users')
-const auth = require('../middleware/auth')
-const validateWith = require('../middleware/validation')
+const router = express.Router()
 
 router.post(
   '/',
   [auth, validateWith({ token: Joi.string().required() })],
   (req, res) => {
-    const user = usersStore.getUserById(req.user.userId)
+    const user: any = usersStore.getUserById(req.user.userId)
     if (!user) return res.status(400).send({ error: 'Invalid user.' })
 
     user.expoPushToken = req.body.token

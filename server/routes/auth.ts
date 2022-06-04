@@ -3,6 +3,7 @@ import Joi from 'joi'
 import jwt from 'jsonwebtoken'
 import usersStore from '../store/users'
 import validateWith from '../middleware/validation'
+
 const router = express.Router()
 
 const schema = {

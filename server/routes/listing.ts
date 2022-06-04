@@ -1,9 +1,9 @@
-const express = require('express')
-const router = express.Router()
+import express from 'express'
+import store from '../store/listings'
+import auth from '../middleware/auth'
+import listingMapper from '../mappers/listings'
 
-const store = require('../store/listings')
-const auth = require('../middleware/auth')
-const listingMapper = require('../mappers/listings')
+const router = express.Router()
 
 router.get('/:id', auth, (req, res) => {
   const listing = store.getListing(Number(req.params.id))

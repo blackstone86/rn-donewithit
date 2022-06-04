@@ -9,6 +9,7 @@ import imageResize from '../middleware/imageResize'
 import delay from '../middleware/delay'
 import listingMapper from '../mappers/listings'
 import config from 'config'
+
 const router = express.Router()
 
 const upload = multer({
