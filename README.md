@@ -122,6 +122,16 @@ $ yarn
 $ yarn start
 ```
 
+> You should replace real local IP in `development.json`
+
+```bash
+// server/config/development.json
+{
+  "assetsBaseUrl": "http://{yourIP}:9000/assets/",
+  "port": 9000
+}
+```
+
 Step11, deploy app to the virtual device and your android phone. please confirm the phone and pc connect to the same wifi network, and keep the phone connect to pc with the debug mode.
 
 - open Expo Developer tools on http://localhost:19002
