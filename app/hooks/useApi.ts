@@ -1,13 +1,17 @@
+import { ApiResponse } from 'apisauce'
 import { useEffect, useState } from 'react'
 
-const useApi = (api: any, transformer = (data: any) => data) => {
+const useApi = (
+  apiFun: () => Promise<ApiResponse<any, any>>,
+  transformer = (data: any) => data
+) => {
   const [data, setData] = useState<any>()
   const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
 
   const feedData = async () => {
     setLoading(true)
-    const res: any = await api()
+    const res: any = await apiFun()
     setLoading(false)
 
     // NETWORK_ERROR 中断后台服务
