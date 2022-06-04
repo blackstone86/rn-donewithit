@@ -1,0 +1,32 @@
+{
+  "name": "done-with-it-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --watch **/*.ts index.ts"
+  },
+  "engines": {
+    "node": "16.15.x"
+  },
+  "keywords": [],
+  "author": "Mosh Hamedani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.1",
+    "expo-server-sdk": "^3.5.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "sharp": "^0.25.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/helmet": "^4.0.0",
+    "nodemon": "^2.0.2"
+  }
+}
