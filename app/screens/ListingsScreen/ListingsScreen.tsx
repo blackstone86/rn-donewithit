@@ -12,7 +12,12 @@ import AppActivityIndicator from '../../components/AppActivityIndicator'
 import useApi from '../../hooks/useApi'
 
 export default function ListingsScreen({ navigation }: any) {
-  const [cards, error, loading, request] = useApi(api.getListings, (data) => {
+  const {
+    data: cards,
+    error,
+    loading,
+    request: setData
+  } = useApi(api.getListings, (data) => {
     return data.map((item: any) => {
       return {
         ...item,
@@ -21,6 +26,9 @@ export default function ListingsScreen({ navigation }: any) {
       }
     })
   })
+  useEffect(() => {
+    setData()
+  }, [])
   const handlePress = useCallback((item: cardType) => {
     const params = item
     navigation.navigate(ScreenType.LISTING_DETAILS as never, params as never)
@@ -37,7 +45,7 @@ export default function ListingsScreen({ navigation }: any) {
           <AppButton
             style={styles.retryButton}
             title="Retry"
-            onPress={request}
+            onPress={setData}
           />
         </View>
       )}
