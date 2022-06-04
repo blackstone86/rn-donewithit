@@ -114,13 +114,21 @@ Step09, start the project.
 $ yarn start
 ```
 
-Step10, deploy app to the virtual device and your android phone. please confirm the phone and pc connect to the same wifi network, and keep the phone connect to pc with the debug mode.
+Step10, start the local server. Run the following commands in a new teminal.
+
+```bash
+$ cd server
+$ yarn
+$ yarn start
+```
+
+Step11, deploy app to the virtual device and your android phone. please confirm the phone and pc connect to the same wifi network, and keep the phone connect to pc with the debug mode.
 
 - open Expo Developer tools on http://localhost:19002
 - select `Run on Android device/emulator` menu - android
 - select `Run on iOS simulator` menu - ios
 
-Step11, publish application to Expo Go app for Development
+Step12, publish application to Expo Go app for Development
 
 - open Expo Developer tools on http://localhost:19002
 - select `publish and republish project...` menu
