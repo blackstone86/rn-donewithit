@@ -6,10 +6,10 @@ import validateWith from '../middleware/validation'
 
 const router = express.Router()
 
-const schema = {
+const schema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required().min(5)
-}
+})
 
 router.post('/', validateWith(schema), (req, res) => {
   const { email, password } = req.body

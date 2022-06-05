@@ -10,10 +10,10 @@ import validateWith from '../middleware/validation'
 
 const router = express.Router()
 
-const schema = {
+const schema = Joi.object({
   listingId: Joi.number().required(),
   message: Joi.string().required()
-}
+})
 
 router.get('/', auth, (req: any, res) => {
   const messages = messagesStore.getMessagesForUser(req.user.userId)
