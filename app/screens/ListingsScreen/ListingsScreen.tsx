@@ -37,7 +37,7 @@ export default function ListingsScreen({ navigation }: any) {
     <AppSafeAreaView style={styles.container}>
       {loading && (
         // <ActivityIndicator size="large" color={COLORS.PRIMARY} />
-        <AppActivityIndicator visible />
+        <AppActivityIndicator visible loop />
       )}
       {error && (
         <View style={styles.infoBox}>

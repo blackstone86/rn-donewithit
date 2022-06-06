@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
   },
   form: {
     marginTop: 30
+  },
+  modalBox: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
