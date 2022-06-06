@@ -51,7 +51,7 @@ router.post(
     // if the request is invalid, we'll end up with one or more image files
     // stored in the uploads folder. We'll need to clean up this folder
     // using a separate process.
-    // auth,
+    // auth, // 暂时屏蔽鉴权认证
     upload.array('images', config.get('maxImageCount')),
     validateWith(schema),
     validateCategoryId,
