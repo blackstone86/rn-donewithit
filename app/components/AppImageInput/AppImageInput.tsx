@@ -37,6 +37,9 @@ function AppImageInput({
   useEffect(() => {
     typeof onChange === 'function' && onChange(state.values)
   }, [state.values])
+  useEffect(() => {
+    dispatch({ type: ActionKind.UPDATE, payload: imgageUris })
+  }, [imgageUris])
   const handleAddButtonPress = async () => {
     try {
       typeof onAddButtonPress === 'function' && onAddButtonPress()

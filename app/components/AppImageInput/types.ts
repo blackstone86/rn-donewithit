@@ -15,7 +15,8 @@ export type StateType = {
 
 export enum ActionKind {
   ADD = 'ADD',
-  REMOVE = 'REMOVE'
+  REMOVE = 'REMOVE',
+  UPDATE = 'UPDATE'
 }
 
 export type ActionType = {

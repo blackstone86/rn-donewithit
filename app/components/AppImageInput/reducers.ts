@@ -16,6 +16,8 @@ export function reducer(state: StateType, action: ActionType): StateType {
       const index = payload
       values.splice(index, 1)
       return { values: [...values] }
+    case ActionKind.UPDATE:
+      return { values: payload }
     default:
       return state
   }
