@@ -22,7 +22,7 @@ export default function ListingsScreen({ navigation }: any) {
       return {
         ...item,
         subTitle: `$${item.price}`,
-        imageUrl: item.images[0].url
+        imageUrl: item.images[0]?.url
       }
     })
   })
