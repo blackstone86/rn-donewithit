@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { Formik } from 'formik'
 import AppFormField from '../AppFormField'
 import { Field } from '../AppFormField/types'
@@ -8,7 +8,7 @@ import styles from './styles'
 type AppFormProps = {
   fields: Field[]
   validationSchema?: any
-  onSubmit: (values: object) => void
+  onSubmit: (values: object) => any
   style?: StyleProp<ViewStyle>
 }
 
@@ -26,7 +26,12 @@ function AppForm({ fields, validationSchema, onSubmit, style }: AppFormProps) {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={(values, actions) => {
+          onSubmit(values)?.then(() => {
+            actions.setSubmitting(false)
+            actions.resetForm()
+          })
+        }}
       >
         {() => {
           return (
