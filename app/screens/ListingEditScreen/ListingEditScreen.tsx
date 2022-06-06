@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
@@ -6,6 +6,12 @@ import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 import styles from './styles'
 import useLocation from '../../hooks/useLocation'
+import api from '../../api/listings'
+import { Modal, View } from 'react-native'
+import * as Progress from 'react-native-progress'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
+import { DONE } from '../../config/animations'
+import ScreenType from '../../navigators/screenTypes'
 
 const fields: Field[] = [
   {
@@ -147,24 +153,69 @@ const validationSchema = Yup.object().shape({
   description: Yup.string().label('Description')
 })
 
-export default function ListingEditScreen() {
+export default function ListingEditScreen({ navigation }: any) {
+  /**
+    Object {
+      "latitude": 37.4219983,
+      "longitude": -122.084,
+    }
+  */
   const location = useLocation()
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [loaded, setLoaded] = useState<boolean>(false)
+  const [progress, setProgress] = useState<number>(0)
+
   return (
     <AppSafeAreaView style={styles.container}>
       <Form
         fields={fields}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          /**
-            Object {
-              "latitude": 37.4219983,
-              "longitude": -122.084,
-            }
-           */
-          console.log(location)
-        }}
         style={styles.form}
+        onSubmit={(listing: any) => {
+          if (location) {
+            listing.location = location
+          }
+          return new Promise<void>((resolve, reject) => {
+            setModalVisible(true)
+            api
+              .addListing(listing, (curProgress) => {
+                setProgress(curProgress)
+                if (curProgress === 1) {
+                  setLoaded(true)
+                }
+              })
+              .then((res) => {
+                if (res.ok) {
+                  setTimeout(() => {
+                    setProgress(0)
+                    setModalVisible(false)
+                    navigation.navigate(ScreenType.LISTINGS as never)
+                    resolve()
+                  }, 1500)
+                }
+              })
+          })
+        }}
       />
+      <Modal
+        animationType="fade"
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible)
+        }}
+      >
+        <View style={styles.modalBox}>
+          {loaded ? (
+            <AppActivityIndicator visible size="large" source={DONE} />
+          ) : (
+            <Progress.Bar
+              color={COLORS.PRIMARY}
+              progress={progress}
+              width={200}
+            />
+          )}
+        </View>
+      </Modal>
     </AppSafeAreaView>
   )
 }
