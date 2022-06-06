@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
@@ -6,14 +6,14 @@ import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 import styles from './styles'
 import useLocation from '../../hooks/useLocation'
-import api from '../../api/listings'
+import { listingsApi, categoriesApi } from '../../api'
 import { Modal, View } from 'react-native'
 import * as Progress from 'react-native-progress'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import { DONE } from '../../config/animations'
 import ScreenType from '../../navigators/screenTypes'
 
-const fields: Field[] = [
+const defaultFields: Field[] = [
   {
     name: 'photos',
     type: TypeKind.IMAGE_INPUT,
@@ -56,62 +56,7 @@ const fields: Field[] = [
     fieldProps: {
       icon: false,
       placeholder: 'Category',
-      options: [
-        {
-          label: 'Furniture',
-          iconName: 'lamp',
-          iconBackgroundColor: COLORS.PRIMARY,
-          value: 1
-        },
-        {
-          label: 'Cars',
-          iconName: 'car',
-          iconBackgroundColor: 'orange',
-          value: 2
-        },
-        {
-          label: 'Cameras',
-          iconName: 'camera',
-          iconBackgroundColor: 'gold',
-          value: 3
-        },
-        {
-          label: 'Games',
-          iconName: 'cards-playing-outline',
-          iconBackgroundColor: 'limegreen',
-          value: 4
-        },
-        {
-          label: 'Clothing',
-          iconName: 'shoe-heel',
-          iconBackgroundColor: 'mediumturquoise',
-          value: 5
-        },
-        {
-          label: 'Sports',
-          iconName: 'basketball',
-          iconBackgroundColor: 'cornflowerblue',
-          value: 6
-        },
-        {
-          label: 'Movies & Music',
-          iconName: 'headphones',
-          iconBackgroundColor: 'royalblue',
-          value: 7
-        },
-        {
-          label: 'Books',
-          iconName: 'book-open-variant',
-          iconBackgroundColor: 'mediumorchid',
-          value: 8
-        },
-        {
-          label: 'Other',
-          iconName: 'application',
-          iconBackgroundColor: 'lightslategrey',
-          value: 9
-        }
-      ],
+      options: [],
       numColumns: 3,
       hasItemSeparator: false,
       PickerItemComponent: AppCategoryPickerItem
@@ -164,7 +109,29 @@ export default function ListingEditScreen({ navigation }: any) {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [loaded, setLoaded] = useState<boolean>(false)
   const [progress, setProgress] = useState<number>(0)
-
+  const [fields, setFields] = useState<any[]>([])
+  useEffect(() => {
+    categoriesApi.getCategories().then((res: any) => {
+      if (res.ok) {
+        const options =
+          res.data?.map((option: any) => {
+            const { backgroundColor, icon, id, name } = option
+            return {
+              ...option,
+              label: name,
+              iconName: icon,
+              iconBackgroundColor: backgroundColor,
+              value: id
+            }
+          }) || []
+        const categoryField: any = defaultFields.filter(({ name }: Field) => {
+          return name === 'category'
+        })[0]
+        if (categoryField) categoryField.fieldProps.options = options
+        setFields(defaultFields)
+      }
+    })
+  }, [])
   return (
     <AppSafeAreaView style={styles.container}>
       <Form
@@ -177,7 +144,7 @@ export default function ListingEditScreen({ navigation }: any) {
           }
           return new Promise<void>((resolve, reject) => {
             setModalVisible(true)
-            api
+            listingsApi
               .addListing(listing, (curProgress) => {
                 setProgress(curProgress)
                 if (curProgress === 1) {
