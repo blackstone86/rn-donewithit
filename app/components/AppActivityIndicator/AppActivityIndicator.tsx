@@ -7,7 +7,7 @@ import styles from './styles'
 function AppActivityIndicator({
   visible = false,
   autoPlay = true,
-  loop = true,
+  loop = false,
   source = LOADING,
   size = 'small', // 'small' or 'large'
   ...rest
