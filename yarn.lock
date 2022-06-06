@@ -2939,6 +2939,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mime@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/mime@npm:2.0.3"
+  checksum: 1f4f144423e149f300438f7cdca9b308d7a18a944e63f5ddf262558208a22a64c8e79b6973d602d86928e19052b3256b492429951b34d037242bb1bdfddae388
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 17.0.32
   resolution: "@types/node@npm:17.0.32"
@@ -5249,6 +5256,7 @@ __metadata:
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
     "@types/jest": ^27.5.1
+    "@types/mime": ^2.0.3
     "@types/react": ~17.0.21
     "@types/react-native": ~0.64.12
     "@types/react-test-renderer": ^18.0.0
@@ -5281,6 +5289,7 @@ __metadata:
     jest-expo: ^45.0.1
     lint-staged: ^12.4.1
     lottie-react-native: 5.0.1
+    mime: ^3.0.0
     prettier: ^2.6.2
     react: 17.0.1
     react-dom: 17.0.1
@@ -9612,6 +9621,15 @@ __metadata:
   bin:
     mime: cli.js
   checksum: 1497ba7b9f6960694268a557eae24b743fd2923da46ec392b042469f4b901721ba0adcf8b0d3c2677839d0e243b209d76e5edcbd09cfdeffa2dfb6bb4df4b862
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
   languageName: node
   linkType: hard
 

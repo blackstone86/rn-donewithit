@@ -10,6 +10,7 @@ coverage/
 # yarn
 .yarn/
 server/.yarn/
+server/public/assets/
 yarn/cache/
 yarn/install-state.gz
 
