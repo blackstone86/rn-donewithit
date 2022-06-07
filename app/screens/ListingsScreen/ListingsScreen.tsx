@@ -6,10 +6,9 @@ import { cardType } from './types'
 import { listingsApi } from '../../api'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
-import AppText from '../../components/AppText'
-import AppButton from '../../components/AppButton'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import useApi from '../../hooks/useApi'
+import AppRetryView from '../../components/AppRetryView'
 
 export default function ListingsScreen({ navigation }: any) {
   const {
@@ -35,19 +34,12 @@ export default function ListingsScreen({ navigation }: any) {
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
-      {loading && (
-        // <ActivityIndicator size="large" color={COLORS.PRIMARY} />
-        <AppActivityIndicator visible loop />
-      )}
+      {loading && <AppActivityIndicator visible loop />}
       {error && (
-        <View style={styles.infoBox}>
-          <AppText style={styles.text}>Couldn't retrieve the listings</AppText>
-          <AppButton
-            style={styles.retryButton}
-            title="Retry"
-            onPress={setData}
-          />
-        </View>
+        <AppRetryView
+          title="Couldn't retrieve the listings"
+          handleRetry={setData}
+        />
       )}
       {!loading && !error && (
         <List
