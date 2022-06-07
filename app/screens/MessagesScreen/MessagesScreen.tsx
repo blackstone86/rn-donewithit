@@ -14,6 +14,8 @@ import {
 import { JIM } from '../../config/images'
 import useApi from '../../hooks/useApi'
 import { messagesApi } from '../../api'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
+import AppRetryView from '../../components/AppRetryView'
 
 type Message = {
   id: number
@@ -97,32 +99,41 @@ function MessagesScreen() {
 
   return (
     <AppSafeAreaView>
-      <AppFlatList
-        data={msgs}
-        keyExtractor={(msg) => msg.id.toString()}
-        renderItem={({ item, index, separators }) => {
-          const { title, description, image }: Message = item
-          return (
-            <AppListItem
-              style={styles.item}
-              title={title}
-              subTitle={description}
-              image={image}
-              onPress={(e) => {
-                handlePress(e, item)
-              }}
-              renderRightActions={(
-                progress: Animated.AnimatedInterpolation,
-                dragX: Animated.AnimatedInterpolation
-              ) => {
-                return handleRenderRightActions(progress, dragX, item)
-              }}
-            />
-          )
-        }}
-        refreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
+      {loading && <AppActivityIndicator visible loop />}
+      {error && (
+        <AppRetryView
+          title="Couldn't retrieve the messages"
+          handleRetry={setData}
+        />
+      )}
+      {!loading && !error && (
+        <AppFlatList
+          data={msgs}
+          keyExtractor={(msg) => msg.id.toString()}
+          renderItem={({ item, index, separators }) => {
+            const { title, description, image }: Message = item
+            return (
+              <AppListItem
+                style={styles.item}
+                title={title}
+                subTitle={description}
+                image={image}
+                onPress={(e) => {
+                  handlePress(e, item)
+                }}
+                renderRightActions={(
+                  progress: Animated.AnimatedInterpolation,
+                  dragX: Animated.AnimatedInterpolation
+                ) => {
+                  return handleRenderRightActions(progress, dragX, item)
+                }}
+              />
+            )
+          }}
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
+        />
+      )}
     </AppSafeAreaView>
   )
 }
