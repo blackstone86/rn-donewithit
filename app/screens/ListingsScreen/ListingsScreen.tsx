@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
 import { cardType } from './types'
-import api from '../../api/listings'
+import { listingsApi } from '../../api'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
 import AppText from '../../components/AppText'
@@ -17,7 +17,7 @@ export default function ListingsScreen({ navigation }: any) {
     error,
     loading,
     request: setData
-  } = useApi(api.getListings, (data) => {
+  } = useApi(listingsApi.getListings, (data) => {
     return data.map((item: any) => {
       return {
         ...item,
