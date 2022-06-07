@@ -14,5 +14,6 @@ const COUCH = require('../assets/materials/couch.jpg')
 const JACKET = require('../assets/materials/jacket.jpg')
 const LOGO_RED = require('../assets/materials/logo-red.png')
 const MOSH = require('../assets/materials/mosh.jpg')
+const JIM = require('../assets/materials/jim.jpg')
 
-export { BACKGROUND, CHAIR, COUCH, JACKET, LOGO_RED, MOSH }
+export { BACKGROUND, CHAIR, COUCH, JACKET, LOGO_RED, JIM, MOSH }
