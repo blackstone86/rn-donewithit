@@ -1,10 +1,9 @@
 import client from './client'
 
-const messages = '/messages' // 获取消息列表
+const messages = '/messages'
 
-const getMessages = () => {
-  return client.get(messages)
-}
+// 获取消息列表
+const getMessages = () => client.get(messages)
 
 export default {
   getMessages

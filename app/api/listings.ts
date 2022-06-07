@@ -2,12 +2,11 @@ import client from './client'
 import mime from 'mime'
 
 const listing = '/listing'
-const user = '/user'
-const users = '/users' // 获取用户
+const users = '/users'
 const auth = '/auth'
 const my = '/my'
 const expoPushTokens = '/expoPushTokens'
-const listings = '/listings' // 获取商品清单
+const listings = '/listings'
 
 // 获取清单列表
 const getListings = () => client.get(listings)
