@@ -11,7 +11,7 @@ import {
   AppListItem,
   AppListItemDeleteAction
 } from '../../components/lists'
-import { JIM } from '../../config/images'
+import { MOSH } from '../../config/images'
 import useApi from '../../hooks/useApi'
 import { messagesApi } from '../../api'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
@@ -52,7 +52,7 @@ function MessagesScreen() {
         ...message,
         title: name,
         description: content,
-        image: JIM
+        image: MOSH
       }
     })
   })
