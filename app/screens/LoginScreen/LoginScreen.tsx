@@ -6,12 +6,15 @@ import { AppForm, Field, TypeKind } from '../../components/forms'
 import { LOGO_RED } from '../../config/images'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
+import { authApi } from '../../api'
+import useApi from '../../hooks/useApi'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
 
 const fields: Field[] = [
   {
     name: 'email',
     type: TypeKind.TEXT_INPUT,
-    defaultValue: 'asianking86@qq.com',
+    defaultValue: 'jimvinhuang@gmail.com',
     fieldProps: {
       iconName: 'email',
       placeholder: 'Email',
@@ -19,17 +22,17 @@ const fields: Field[] = [
       textContentType: 'emailAddress' // ios only
     }
   },
-  {
-    name: 'name',
-    type: TypeKind.TEXT_INPUT,
-    defaultValue: 'Junwen Huang',
-    fieldProps: {
-      iconName: 'account',
-      placeholder: 'Name',
-      keyboardType: 'name-phone-pad',
-      textContentType: 'name' // ios only
-    }
-  },
+  // {
+  //   name: 'name',
+  //   type: TypeKind.TEXT_INPUT,
+  //   defaultValue: 'Junwen Huang',
+  //   fieldProps: {
+  //     iconName: 'account',
+  //     placeholder: 'Name',
+  //     keyboardType: 'name-phone-pad',
+  //     textContentType: 'name' // ios only
+  //   }
+  // },
   {
     name: 'password',
     type: TypeKind.TEXT_INPUT,
@@ -52,19 +55,30 @@ const fields: Field[] = [
 ]
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
-  name: Yup.string().required().label('Name'),
+  // name: Yup.string().required().label('Name'),
   password: Yup.string().required().min(8).label('Password')
 })
 export default function LoginScreen({ navigation }: any) {
+  const { loading, requestWithCb: login } = useApi(authApi.login)
+
   return (
     <AppSafeAreaView style={styles.container}>
+      {loading && <AppActivityIndicator visible loop />}
       <Image style={styles.logo} source={LOGO_RED} />
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log(values)
-          navigation.navigate(ScreenType.APP as never)
+          return new Promise<void>((reslove, reject) => {
+            login(values).then((res: any) => {
+              if (res.ok) {
+                const token = res.data
+                console.log(token)
+                navigation.navigate(ScreenType.APP as never)
+                reslove()
+              }
+            })
+          })
         }}
       />
     </AppSafeAreaView>
