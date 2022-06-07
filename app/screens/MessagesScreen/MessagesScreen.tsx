@@ -1,4 +1,10 @@
-import React, { ReactNode, useCallback, useMemo, useState } from 'react'
+import React, {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import {
   Animated,
   GestureResponderEvent,
@@ -12,7 +18,9 @@ import {
   AppListItemDeleteAction
 } from '../../components/lists'
 import produce from 'immer'
-import { MOSH } from '../../config/images'
+import { JIM } from '../../config/images'
+import useApi from '../../hooks/useApi'
+import { messagesApi } from '../../api'
 
 type Message = {
   id: number
@@ -21,42 +29,58 @@ type Message = {
   image: ImageSourcePropType
 }
 
-const messages: Message[] = [
-  {
-    id: 1,
-    title: 'Mosh Hamedani',
-    description: 'Hey! Is this item still available?',
-    image: MOSH
-  },
-  {
-    id: 2,
-    title: 'Mosh Hamedani',
-    description:
-      "I'm intrested in this item. When will you be able to post it?",
-    image: MOSH
-  }
-]
-
 const styles = StyleSheet.create({
   item: {
     padding: 20
   }
 })
 
-export default function MessagesScreen() {
-  let [msgs, setMsgs] = useState<Message[]>(messages)
+function MessagesScreen() {
+  const setStaticData = useCallback((data: any) => {
+    MessagesScreen.prototype.data = data
+  }, [])
+  const getStaticData = useCallback(() => {
+    return MessagesScreen.prototype.data
+  }, [])
+  const {
+    data,
+    error,
+    loading,
+    request: setData
+  }: any = useApi(messagesApi.getMessages, (data) => {
+    return data.map((message: any) => {
+      const {
+        content,
+        fromUser: { name }
+      } = message
+      return {
+        ...message,
+        title: name,
+        description: content,
+        image: JIM
+      }
+    })
+  })
+  const [msgs, setMsgs] = useState<Message[]>([])
+  useEffect(() => {
+    setData()
+  }, [])
+  useEffect(() => {
+    setStaticData(data)
+    setMsgs(data)
+  }, [data])
   const [refreshing, setRefreshing] = useState<boolean>(false)
   const handlePress = useCallback(
     (e?: GestureResponderEvent, data?: Message) => {},
     []
   )
   const handleDelete = useCallback((id: number) => {
-    const deletedMsgs: Message[] = produce(msgs, (draft) => {
-      const index = draft.findIndex((msg: Message) => msg.id === id)
-      if (index !== -1) draft.splice(index, 1)
+    const data = getStaticData()
+    const deletedData = data.filter((msg: Message) => {
+      return msg.id !== id
     })
-    msgs = deletedMsgs // 解决获取 msgs 参数不准问题
-    setMsgs(deletedMsgs)
+    setStaticData(deletedData)
+    setMsgs(deletedData)
   }, [])
   const handleRenderRightActions = useCallback(
     (
@@ -75,17 +99,7 @@ export default function MessagesScreen() {
     []
   )
   const handleRefresh = useCallback(() => {
-    const updatedMsgs = [
-      {
-        id: 3,
-        title: 'Mosh Hamedani',
-        description:
-          'My friend is intrested in this item. When will you be able to post it?',
-        image: MOSH
-      }
-    ]
-    msgs = updatedMsgs
-    setMsgs(msgs)
+    setData()
   }, [])
 
   return (
@@ -119,3 +133,7 @@ export default function MessagesScreen() {
     </AppSafeAreaView>
   )
 }
+
+MessagesScreen.prototype.data = []
+
+export default MessagesScreen
