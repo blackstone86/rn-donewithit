@@ -3,7 +3,6 @@ import mime from 'mime'
 
 const listing = '/listing'
 const users = '/users'
-const auth = '/auth'
 const my = '/my'
 const expoPushTokens = '/expoPushTokens'
 const listings = '/listings'
