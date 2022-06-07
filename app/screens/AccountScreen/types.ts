@@ -6,3 +6,10 @@ export type menuType = {
   title: string
   targetScreen: ScreenType
 }
+
+export type infoType = {
+  name: string
+  email: string
+  image: any
+  menus: menuType[]
+}

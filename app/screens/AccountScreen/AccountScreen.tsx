@@ -1,75 +1,106 @@
-import { StyleSheet } from 'react-native'
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
 import { AppFlatList, AppMenuItem } from '../../components/lists'
-import { menuType } from './types'
+import { menuType, infoType } from './types'
 import AppIcon from '../../components/AppIcon'
 import ScreenType from '../../navigators/screenTypes'
-import { MOSH } from '../../config/images'
+import { JIM } from '../../config/images'
+import useApi from '../../hooks/useApi'
+import { userApi } from '../../api'
 import styles from './styles'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
+import AppRetryView from '../../components/AppRetryView'
+
+const defaultMenus = [
+  {
+    iconName: 'format-list-bulleted',
+    iconBackgroundColor: COLORS.PRIMARY,
+    title: 'my listings',
+    targetScreen: ScreenType.LISTINGS
+  },
+  {
+    iconName: 'email',
+    iconBackgroundColor: COLORS.SECONDARY,
+    title: 'my messages',
+    targetScreen: ScreenType.MESSAGES
+  },
+  {
+    iconName: 'logout',
+    iconBackgroundColor: COLORS.YELLOW,
+    title: 'log out',
+    targetScreen: ScreenType.AUTH
+  }
+]
+
+const defaultInfo: infoType = {
+  name: '',
+  email: '',
+  image: JIM,
+  menus: defaultMenus
+}
 
 export default function AccountScreen({ navigation }: any) {
-  const { name, email, image, menus } = useMemo(
-    () => ({
-      name: 'Mosh Hamedani',
-      email: 'programmingwithmosh@gmail.com',
-      image: MOSH,
-      menus: [
-        {
-          iconName: 'format-list-bulleted',
-          iconBackgroundColor: COLORS.PRIMARY,
-          title: 'my listings',
-          targetScreen: ScreenType.LISTINGS
-        },
-        {
-          iconName: 'email',
-          iconBackgroundColor: COLORS.SECONDARY,
-          title: 'my messages',
-          targetScreen: ScreenType.MESSAGES
-        },
-        {
-          iconName: 'logout',
-          iconBackgroundColor: COLORS.YELLOW,
-          title: 'log out',
-          targetScreen: ScreenType.AUTH
-        }
-      ]
-    }),
-    []
-  )
+  const {
+    data,
+    error,
+    loading,
+    request: setData
+  } = useApi(userApi.getUserDetail, (data: any) => ({
+    ...defaultInfo,
+    ...data
+  }))
+  const [info, setInfo] = useState<infoType>(defaultInfo)
+  useEffect(() => {
+    const userId = 1
+    setData(userId)
+  }, [])
+  useEffect(() => {
+    if (data) setInfo(data)
+  }, [data])
   const handlePress = useCallback(({ targetScreen }: menuType) => {
     navigation.navigate(targetScreen as never)
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
-      <AppAvatarBox
-        style={styles.avatarBox}
-        title={name}
-        subTitle={email}
-        image={image}
-      />
-      <AppFlatList
-        data={menus}
-        keyExtractor={(item) => item.title}
-        renderItem={({ item, index }) => {
-          const { iconName, iconBackgroundColor, title }: menuType = item
-          const isLastItem = index === menus.length - 1
-          return (
-            <AppMenuItem
-              style={isLastItem && styles.lastMenuItem}
-              title={title}
-              // iconName={iconName}
-              IconComponent={<AppIcon name={iconName} />}
-              iconBackgroundColor={iconBackgroundColor}
-              onPress={() => {
-                handlePress(item)
-              }}
-            />
-          )
-        }}
-      />
+      {loading && <AppActivityIndicator visible loop />}
+      {error && (
+        <AppRetryView
+          title="Couldn't retrieve the account information"
+          handleRetry={setData}
+        />
+      )}
+      {!loading && !error && (
+        <>
+          <AppAvatarBox
+            style={styles.avatarBox}
+            title={info.name}
+            subTitle={info.email}
+            image={info.image}
+          />
+          <AppFlatList
+            data={info.menus}
+            keyExtractor={(item) => item.title}
+            renderItem={({ item, index }) => {
+              const { iconName, iconBackgroundColor, title }: menuType = item
+              const isLastItem = index === info.menus.length - 1
+              return (
+                <AppMenuItem
+                  style={isLastItem && styles.lastMenuItem}
+                  title={title}
+                  // iconName={iconName}
+                  IconComponent={<AppIcon name={iconName} />}
+                  iconBackgroundColor={iconBackgroundColor}
+                  onPress={() => {
+                    handlePress(item)
+                  }}
+                />
+              )
+            }}
+          />
+        </>
+      )}
     </AppSafeAreaView>
   )
 }
