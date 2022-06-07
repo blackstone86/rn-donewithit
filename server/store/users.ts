@@ -3,13 +3,13 @@ const users = [
     id: 1,
     name: 'Jim',
     email: 'jimvinhuang@gmail.com',
-    password: '12345'
+    password: '12345678'
   },
   {
     id: 2,
     name: 'John',
     email: 'john@domain.com',
-    password: '12345'
+    password: '12345678'
   }
 ]
 
