@@ -1,7 +1,6 @@
 import client from './client'
 import mime from 'mime'
 
-const listing = '/listing'
 const users = '/users'
 const expoPushTokens = '/expoPushTokens'
 const listings = '/listings'
