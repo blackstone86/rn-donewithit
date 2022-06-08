@@ -10,6 +10,7 @@ import AppActivityIndicator from '../../components/AppActivityIndicator'
 import useApi from '../../hooks/useApi'
 import AppRetryView from '../../components/AppRetryView'
 import ScreenName from '../../navigators/screenNames'
+import { useFocusEffect } from '@react-navigation/native'
 
 export default function ListingsScreen({ navigation, route: { params } }: any) {
   const api = params?.from === ScreenName.ACCOUNT_SCREEN ? myApi : listingsApi
@@ -27,9 +28,11 @@ export default function ListingsScreen({ navigation, route: { params } }: any) {
       }
     })
   })
-  useEffect(() => {
-    setData()
-  }, [])
+  useFocusEffect(
+    useCallback(() => {
+      setData()
+    }, [])
+  )
   const handlePress = useCallback((item: cardType) => {
     const params = item
     navigation.navigate(ScreenType.LISTING_DETAILS as never, params as never)
