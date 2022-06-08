@@ -106,7 +106,8 @@ const listings = [
 
 const addListing = (listing) => {
   listing.id = listings.length + 1
-  listings.push(listing)
+  // listings.push(listing)
+  listings.unshift(listing) // 新数据放前面
 }
 
 const getListings = () => listings
