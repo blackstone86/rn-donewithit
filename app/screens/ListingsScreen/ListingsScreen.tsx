@@ -1,22 +1,24 @@
-import { GestureResponderEvent, View } from 'react-native'
-import React, { useCallback, useEffect, useState } from 'react'
+import { GestureResponderEvent } from 'react-native'
+import React, { useCallback, useEffect } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import { AppFlatList as List, AppCard as Card } from '../../components/lists'
 import { cardType } from './types'
-import { listingsApi } from '../../api'
+import { listingsApi, myApi } from '../../api'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import useApi from '../../hooks/useApi'
 import AppRetryView from '../../components/AppRetryView'
+import ScreenName from '../../navigators/screenNames'
 
-export default function ListingsScreen({ navigation }: any) {
+export default function ListingsScreen({ navigation, route: { params } }: any) {
+  const api = params?.from === ScreenName.ACCOUNT_SCREEN ? myApi : listingsApi
   const {
     data: cards,
     error,
     loading,
     request: setData
-  } = useApi(listingsApi.getListings, (data) => {
+  } = useApi(api.getListings, (data) => {
     return data.map((item: any) => {
       return {
         ...item,
