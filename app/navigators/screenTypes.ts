@@ -2,6 +2,7 @@ enum ScreenType {
   WELCOME = 'Welcome', // Screen
   LOGIN = 'Login', // Screen
   REGISTER = 'Register', // Screen
+  LISTING = 'Listing', // Screen
   LISTINGS = 'Listings', // Screen
   LISTING_DETAILS = 'ListingDetails', // Screen
   POST = 'ListingEdit', // Screen
