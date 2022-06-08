@@ -72,8 +72,6 @@ export default function LoginScreen({ navigation }: any) {
           return new Promise<void>((reslove, reject) => {
             login(values).then((res: any) => {
               if (res.ok) {
-                const token = res.data
-                console.log(token)
                 navigation.navigate(ScreenType.APP as never)
                 reslove()
               }
