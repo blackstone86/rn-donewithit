@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
@@ -12,13 +12,14 @@ import { userApi } from '../../api'
 import styles from './styles'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
+import ScreenName from '../../navigators/screenNames'
 
 const defaultMenus = [
   {
     iconName: 'format-list-bulleted',
     iconBackgroundColor: COLORS.PRIMARY,
     title: 'my listings',
-    targetScreen: ScreenType.LISTINGS
+    targetScreen: ScreenType.LISTING
   },
   {
     iconName: 'email',
@@ -60,7 +61,13 @@ export default function AccountScreen({ navigation }: any) {
     if (data) setInfo(data)
   }, [data])
   const handlePress = useCallback(({ targetScreen }: menuType) => {
-    navigation.navigate(targetScreen as never)
+    let params = null
+    if (targetScreen === ScreenType.LISTING) {
+      params = {
+        from: ScreenName.ACCOUNT_SCREEN
+      }
+    }
+    navigation.navigate(targetScreen as never, params)
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
