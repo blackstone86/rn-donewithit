@@ -1,4 +1,13 @@
 import { useState } from 'react'
+import client from '../api/client'
+
+const setAuthTokenHeader = ({ config: { url }, data: token, ok }: any) => {
+  if (ok && url === '/auth') {
+    client.setHeaders({
+      'x-auth-token': token
+    })
+  }
+}
 
 const useApi = (apiFun: any, transformer = (data: any) => data) => {
   const [data, setData] = useState<any>()
@@ -8,6 +17,7 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
   const request = async (...args: any) => {
     setLoading(true)
     const res: any = await apiFun(...args)
+    setAuthTokenHeader(res)
     setLoading(false)
 
     // NETWORK_ERROR 中断后台服务
@@ -22,6 +32,7 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
     return new Promise((resolve, reject) => {
       setLoading(true)
       apiFun(...args).then((res: any) => {
+        setAuthTokenHeader(res)
         setLoading(false)
         resolve(res)
         if (!res.ok) {
