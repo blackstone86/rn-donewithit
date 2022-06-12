@@ -4,6 +4,9 @@ import { AppForm, Field, TypeKind } from '../../components/forms'
 import Yup from '../../utils/yup'
 import styles from './styles'
 import ScreenType from '../../navigators/screenTypes'
+import useApi from '../../hooks/useApi'
+import { usersApi } from '../../api'
+import AppActivityIndicator from '../../components/AppActivityIndicator'
 
 const fields: Field[] = [
   {
@@ -53,14 +56,18 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function RegisterScreen({ navigation }: any) {
+  const { error, loading, requestWithCb: regist } = useApi(usersApi.addUser)
   return (
     <AppSafeAreaView style={styles.container}>
+      {loading && <AppActivityIndicator visible loop />}
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values)
-          navigation.navigate(ScreenType.APP as never)
+        onSubmit={async (values) => {
+          const res: any = await regist(values)
+          if (res.ok) {
+            navigation.navigate(ScreenType.LOGIN as never)
+          }
         }}
         style={styles.form}
       />
