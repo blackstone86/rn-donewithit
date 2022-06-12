@@ -7,6 +7,7 @@ import ScreenType from '../../navigators/screenTypes'
 import useApi from '../../hooks/useApi'
 import { usersApi } from '../../api'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
+import { Alert } from 'react-native'
 
 const fields: Field[] = [
   {
@@ -63,11 +64,31 @@ export default function RegisterScreen({ navigation }: any) {
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
-        onSubmit={async (values) => {
-          const res: any = await regist(values)
-          if (res.ok) {
-            navigation.navigate(ScreenType.LOGIN as never)
-          }
+        onSubmit={(values) => {
+          return new Promise<void>((resolve, reject) => {
+            regist(values).then((res: any) => {
+              if (res.ok) {
+                resolve()
+                navigation.navigate(ScreenType.LOGIN as never)
+              } else {
+                const errorMessage = res.data.error
+                const error = new Error(errorMessage)
+                reject(error)
+                Alert.alert(
+                  'Error Message',
+                  errorMessage,
+                  [
+                    {
+                      text: 'Close'
+                    }
+                  ],
+                  {
+                    cancelable: true
+                  }
+                )
+              }
+            })
+          })
         }}
         style={styles.form}
       />

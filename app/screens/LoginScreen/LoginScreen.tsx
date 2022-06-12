@@ -73,10 +73,11 @@ export default function LoginScreen({ navigation }: any) {
                 resolve()
               } else {
                 const errorMessage = res.data.error
-                reject(new Error(errorMessage))
+                const error = new Error(errorMessage)
+                reject(error)
                 Alert.alert(
                   'Error Message',
-                  'Invalid email or password.',
+                  errorMessage,
                   [
                     {
                       text: 'Close'
