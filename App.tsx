@@ -1,4 +1,6 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 import logger from './app/utils/logger'
 // import getCurrentSettings from './app/config/settings'
 // import AccountScreen from './app/screens/AccountScreen'
@@ -32,5 +34,9 @@ logger.start()
  * 06.Exercise01 串联各页面
  */
 export default function App() {
-  return <Exercise01 />
+  return (
+    <Provider store={store}>
+      <Exercise01 />
+    </Provider>
+  )
 }
