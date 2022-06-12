@@ -31,6 +31,7 @@
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
+    "@reduxjs/toolkit": "^1.8.2",
     "apisauce": "^2.1.5",
     "expo": "~44.0.0",
     "expo-constants": "~13.0.1",
@@ -57,6 +58,8 @@
     "react-native-screens": "~3.10.1",
     "react-native-svg": "12.1.1",
     "react-native-web": "0.17.1",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
