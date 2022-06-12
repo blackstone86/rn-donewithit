@@ -5,7 +5,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 ## Preview
 
 <p align="center">
-  <img alt="preview" src="https://github.com/blackstone86/rn-donewithit/blob/Networking/preview.gif?raw=true">
+  <img alt="preview" width="250" src="https://github.com/blackstone86/rn-donewithit/blob/Networking/preview.gif?raw=true">
 </p>
 
 ## Android Play Store build
