@@ -5,8 +5,10 @@ import auth from '../middleware/auth'
 
 const router = express.Router()
 
-router.get('/:id', auth, (req, res) => {
-  const userId = Number(req.params.id)
+router.get('/:id', auth, (req: any, res) => {
+  const { id } = req.params
+  // eslint-disable-next-line no-restricted-globals
+  const userId = isNaN(id) ? req.user.userId : Number(id)
   const user = usersStore.getUserById(userId)
   if (!user) return res.status(404).send()
 

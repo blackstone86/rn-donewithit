@@ -54,8 +54,7 @@ export default function AccountScreen({ navigation }: any) {
   }))
   const [info, setInfo] = useState<infoType>(defaultInfo)
   useEffect(() => {
-    const userId = 1
-    setData(userId)
+    setData() // 默认获取登录用户
   }, [])
   useEffect(() => {
     if (data) setInfo(data)
