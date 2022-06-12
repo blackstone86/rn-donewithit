@@ -1,5 +1,5 @@
-import { Image } from 'react-native'
-import React from 'react'
+import { Alert, Image } from 'react-native'
+import React, { useEffect } from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import Yup from '../../utils/yup'
 import { AppForm, Field, TypeKind } from '../../components/forms'
@@ -13,7 +13,7 @@ const fields: Field[] = [
   {
     name: 'email',
     type: TypeKind.TEXT_INPUT,
-    defaultValue: 'jimvinhuang@gmail.com',
+    // defaultValue: 'jimvinhuang@gmail.com',
     fieldProps: {
       iconName: 'email',
       placeholder: 'Email',
@@ -35,7 +35,7 @@ const fields: Field[] = [
   {
     name: 'password',
     type: TypeKind.TEXT_INPUT,
-    defaultValue: '12345678',
+    // defaultValue: '12345678',
     fieldProps: {
       iconName: 'lock',
       placeholder: 'Password',
@@ -58,8 +58,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function LoginScreen({ navigation }: any) {
-  const { loading, request: login } = useApi(authApi.login)
-
+  const { loading, requestWithCb: login } = useApi(authApi.login)
   return (
     <AppSafeAreaView style={styles.container}>
       {loading && <AppActivityIndicator visible loop />}
@@ -67,7 +66,30 @@ export default function LoginScreen({ navigation }: any) {
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
-        onSubmit={(values) => login(values)}
+        onSubmit={(values) => {
+          return new Promise<void>((resolve, reject) => {
+            login(values).then((res: any) => {
+              if (res.ok) {
+                resolve()
+              } else {
+                const errorMessage = res.data.error
+                reject(new Error(errorMessage))
+                Alert.alert(
+                  'Error Message',
+                  'Invalid email or password.',
+                  [
+                    {
+                      text: 'Close'
+                    }
+                  ],
+                  {
+                    cancelable: true
+                  }
+                )
+              }
+            })
+          })
+        }}
       />
     </AppSafeAreaView>
   )
