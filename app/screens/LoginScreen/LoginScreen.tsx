@@ -5,7 +5,6 @@ import Yup from '../../utils/yup'
 import { AppForm, Field, TypeKind } from '../../components/forms'
 import { LOGO_RED } from '../../config/images'
 import styles from './styles'
-import ScreenType from '../../navigators/screenTypes'
 import { authApi } from '../../api'
 import useApi from '../../hooks/useApi'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
@@ -59,7 +58,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function LoginScreen({ navigation }: any) {
-  const { loading, requestWithCb: login } = useApi(authApi.login)
+  const { loading, request: login } = useApi(authApi.login)
 
   return (
     <AppSafeAreaView style={styles.container}>
@@ -68,16 +67,7 @@ export default function LoginScreen({ navigation }: any) {
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          return new Promise<void>((reslove, reject) => {
-            login(values).then((res: any) => {
-              if (res.ok) {
-                navigation.navigate(ScreenType.APP as never)
-                reslove()
-              }
-            })
-          })
-        }}
+        onSubmit={(values) => login(values)}
       />
     </AppSafeAreaView>
   )
