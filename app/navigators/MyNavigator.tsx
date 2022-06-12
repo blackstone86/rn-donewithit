@@ -4,7 +4,6 @@ import AccountScreen from '../screens/AccountScreen'
 import ListingsScreen from '../screens/ListingsScreen'
 import MessagesScreen from '../screens/MessagesScreen'
 import ScreenType from '../navigators/screenTypes'
-import AuthNavigator from './AuthNavigator'
 const Stack = createNativeStackNavigator()
 
 export default function MyNavigator() {
@@ -17,7 +16,6 @@ export default function MyNavigator() {
       <Stack.Screen name={ScreenType.ACCOUNT} component={AccountScreen} />
       <Stack.Screen name={ScreenType.LISTING} component={ListingsScreen} />
       <Stack.Screen name={ScreenType.MESSAGES} component={MessagesScreen} />
-      {/* <Stack.Screen name={ScreenType.AUTH} component={AuthNavigator} /> */}
     </Stack.Navigator>
   )
 }
