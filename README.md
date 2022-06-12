@@ -31,6 +31,13 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - Networking
 - Distribution
 
+## Test Accounts
+
+| Email                 | Password |
+| --------------------- | -------- |
+| jimvinhuang@gmail.com | 12345678 |
+| john@domain.com       | 12345678 |
+
 ## Prerequisites
 
 Install [node 16.15.0](https://nodejs.org/en/)
