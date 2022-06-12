@@ -7,7 +7,7 @@ import { menuType, infoType } from './types'
 import AppIcon from '../../components/AppIcon'
 import ScreenType from '../../navigators/screenTypes'
 import { JIM } from '../../config/images'
-import useApi from '../../hooks/useApi'
+import useApi, { removeAuthTokenHeader } from '../../hooks/useApi'
 import { userApi } from '../../api'
 import styles from './styles'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
@@ -62,10 +62,17 @@ export default function AccountScreen({ navigation }: any) {
   }, [data])
   const handlePress = useCallback(({ targetScreen }: menuType) => {
     let params = null
-    if (targetScreen === ScreenType.LISTING) {
-      params = {
-        from: ScreenName.ACCOUNT_SCREEN
-      }
+    switch (targetScreen) {
+      case ScreenType.LISTING:
+        params = {
+          from: ScreenName.ACCOUNT_SCREEN
+        }
+        break
+      case ScreenType.AUTH:
+        removeAuthTokenHeader()
+        return // 改由 NavigationContainer 控制切换 ScreenType.AUTH
+      default:
+        break
     }
     navigation.navigate(targetScreen as never, params)
   }, [])
