@@ -9,18 +9,18 @@ import moment from 'moment'
  * 03.autoMatically remove expired data
  */
 
-const prefix = 'cache_'
-const expiredInMinutes = 5
+const PREFIX = 'cache_'
+const EXPIRED_IN_MINUTES = 5
 
 const isExpired = (item: any) => {
   const now = moment(Date.now())
   const storedTime = moment(item.timestamp)
-  return now.diff(storedTime, 'minutes') > expiredInMinutes
+  return now.diff(storedTime, 'minutes') > EXPIRED_IN_MINUTES
 }
 
 const store = async (key: string, value: any) => {
   try {
-    const rkey = prefix + key
+    const rkey = PREFIX + key
     const item = {
       value,
       timestamp: Date.now()
@@ -33,7 +33,7 @@ const store = async (key: string, value: any) => {
 
 const get = async (key: string) => {
   try {
-    const rkey = prefix + key
+    const rkey = PREFIX + key
     const value: any = await AsyncStorage.getItem(rkey)
     const item = JSON.parse(value)
 
