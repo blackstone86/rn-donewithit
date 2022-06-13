@@ -15,7 +15,7 @@ const me: Person = {
 
 const getPerson = async () => {
   try {
-    await cache.store('person', me)
+    // await cache.store('person', me)
     const person = cache.get('person')
     return person
   } catch (err) {
