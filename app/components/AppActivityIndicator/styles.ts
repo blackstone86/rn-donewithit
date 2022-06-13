@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: COLORS.BACKGROUND_COLOR, // COLORS.WHITE,
     zIndex: 1
   },
   smallSize: {

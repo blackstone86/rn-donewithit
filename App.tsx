@@ -3,9 +3,9 @@ import { Provider } from 'react-redux'
 import { store } from './app/store'
 import logger from './app/utils/logger'
 import Exercise01 from './app/demos/Exercise01'
-import NetinfoScreen from './app/demos/NetinfoScreen'
-import AsyncStorageScreen from './app/demos/AsyncStorageScreen'
-import CacheScreen from './app/demos/CacheScreen'
+// import NetinfoScreen from './app/demos/NetinfoScreen'
+// import AsyncStorageScreen from './app/demos/AsyncStorageScreen'
+// import CacheScreen from './app/demos/CacheScreen'
 
 logger.start()
 
@@ -31,11 +31,11 @@ logger.start()
  */
 export default function App() {
   return (
-    // <Provider store={store}>
-    //   <Exercise01 />
-    // </Provider>
+    <Provider store={store}>
+      <Exercise01 />
+    </Provider>
     // <NetinfoScreen />
     // <AsyncStorageScreen />
-    <CacheScreen />
+    // <CacheScreen />
   )
 }
