@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import AppText from '../components/AppText'
 import AppSafeAreaView from '../components/AppSafeAreaView'
+import logger from '../utils/logger'
 
 type Person = {
   id: number
@@ -12,10 +13,15 @@ const me: Person = {
 }
 
 const getPerson = async () => {
-  await AsyncStorage.setItem('person', JSON.stringify(me))
-  const jsonValue = await AsyncStorage.getItem('person')
-  const person = jsonValue ? JSON.parse(jsonValue) : null
-  return person
+  try {
+    await AsyncStorage.setItem('person', JSON.stringify(me))
+    const value = await AsyncStorage.getItem('person')
+    const person = value ? JSON.parse(value) : null
+    return person
+  } catch (err) {
+    logger.log(err)
+    return null
+  }
 }
 
 function AsyncStorageScreen(props: any) {
