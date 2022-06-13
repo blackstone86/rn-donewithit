@@ -12,6 +12,7 @@ import * as Progress from 'react-native-progress'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import { DONE } from '../../config/animations'
 import ScreenType from '../../navigators/screenTypes'
+import useApi from '../../hooks/useApi'
 
 const defaultFields: Field[] = [
   {
@@ -98,6 +99,19 @@ const validationSchema = Yup.object().shape({
   description: Yup.string().label('Description')
 })
 
+const transformCategories = (categories = []) => {
+  return categories.map((category: any) => {
+    const { backgroundColor, icon, id, name } = category
+    return {
+      ...category,
+      label: name,
+      iconName: icon,
+      iconBackgroundColor: backgroundColor,
+      value: id
+    }
+  })
+}
+
 export default function ListingEditScreen({ navigation }: any) {
   /**
     Object {
@@ -110,30 +124,26 @@ export default function ListingEditScreen({ navigation }: any) {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [progress, setProgress] = useState<number>(0)
   const [fields, setFields] = useState<any[]>([])
+  const { loading, requestWithCb: getCategories } = useApi(
+    categoriesApi.getCategories
+  )
+  const setCategories = async () => {
+    const res: any = await getCategories()
+    if (res.ok) {
+      const options = transformCategories(res.data)
+      const categoryField: any = defaultFields.filter(({ name }: Field) => {
+        return name === 'category'
+      })[0]
+      if (categoryField) categoryField.fieldProps.options = options
+      setFields(defaultFields)
+    }
+  }
   useEffect(() => {
-    categoriesApi.getCategories().then((res: any) => {
-      if (res.ok) {
-        const options =
-          res.data?.map((option: any) => {
-            const { backgroundColor, icon, id, name } = option
-            return {
-              ...option,
-              label: name,
-              iconName: icon,
-              iconBackgroundColor: backgroundColor,
-              value: id
-            }
-          }) || []
-        const categoryField: any = defaultFields.filter(({ name }: Field) => {
-          return name === 'category'
-        })[0]
-        if (categoryField) categoryField.fieldProps.options = options
-        setFields(defaultFields)
-      }
-    })
+    setCategories()
   }, [])
   return (
     <AppSafeAreaView style={styles.container}>
+      {loading && <AppActivityIndicator visible loop />}
       <Form
         fields={fields}
         validationSchema={validationSchema}
