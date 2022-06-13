@@ -26,7 +26,8 @@ apiClient.get = async (url, params, axiosConfig) => {
   return data
     ? {
         ok: true,
-        data
+        data,
+        config: res.config
       }
     : res
 }
