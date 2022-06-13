@@ -50,6 +50,7 @@
     "jest-expo": "^45.0.1",
     "lottie-react-native": "5.0.1",
     "mime": "^3.0.0",
+    "moment": "^2.29.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
