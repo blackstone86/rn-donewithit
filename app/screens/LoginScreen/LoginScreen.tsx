@@ -13,7 +13,7 @@ const fields: Field[] = [
   {
     name: 'email',
     type: TypeKind.TEXT_INPUT,
-    // defaultValue: 'jimvinhuang@gmail.com',
+    defaultValue: 'jimvinhuang@gmail.com',
     fieldProps: {
       iconName: 'email',
       placeholder: 'Email',
@@ -35,7 +35,7 @@ const fields: Field[] = [
   {
     name: 'password',
     type: TypeKind.TEXT_INPUT,
-    // defaultValue: '12345678',
+    defaultValue: '12345678',
     fieldProps: {
       iconName: 'lock',
       placeholder: 'Password',
