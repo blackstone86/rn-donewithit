@@ -56,3 +56,13 @@ nodeLinker: "node-modules"
   />
 </Stack.Navigator>
 ```
+
+## Text `zIndex` style can not work in android
+
+```tsx
+<NavigationContainer theme={navigationTheme}>
+   {/* AppNoticeText zIndex: 100, but does not show on the top of the screen */}
+  {!isConnected && <AppNoticeText>No Internet Connection</AppNoticeText>}
+  {LoggedIn ? <AppNavigator /> : <AuthNavigator />}
+</NavigationContainer>
+```
