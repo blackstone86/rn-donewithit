@@ -1807,7 +1807,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/config-plugins@npm:4.1.5":
+"@expo/config-plugins@npm:4.1.5, @expo/config-plugins@npm:^4.0.14":
   version: 4.1.5
   resolution: "@expo/config-plugins@npm:4.1.5"
   dependencies:
@@ -5403,6 +5403,7 @@ __metadata:
     expo: ~44.0.0
     expo-constants: ~13.0.1
     expo-crypto: ~10.1.1
+    expo-dev-client: ~0.8.5
     expo-device: ~4.1.0
     expo-image-picker: ~12.0.1
     expo-location: ~14.0.1
@@ -5424,6 +5425,7 @@ __metadata:
     react: 17.0.1
     react-dom: 17.0.1
     react-native: 0.64.3
+    react-native-fast-image: ^8.5.11
     react-native-gesture-handler: ~2.1.0
     react-native-progress: ^5.0.0
     react-native-safe-area-context: 3.3.2
@@ -6119,6 +6121,57 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 118e36be769676fb0cc24f080dd64a0d25255714d5e6f92fbd6dd56d64568ab4b87f913a40f1a79a52dbb6f90260cf5858ea62aa8bf28ba7f684f53acddd23aa
+  languageName: node
+  linkType: hard
+
+"expo-dev-client@npm:~0.8.5":
+  version: 0.8.6
+  resolution: "expo-dev-client@npm:0.8.6"
+  dependencies:
+    "@expo/config-plugins": ^4.0.14
+    expo-dev-launcher: 0.10.6
+    expo-dev-menu: 0.9.4
+    expo-dev-menu-interface: 0.5.3
+    expo-manifests: ~0.2.2
+    expo-updates-interface: ~0.5.0
+  peerDependencies:
+    expo: "*"
+  checksum: 00d3ba9f31a0fe0e7365787991ee787d89b94f486aea86bf79b61d5400b510b21f0662e95b598eb7cdc40074fecc44c7ca6067ebadd27d3dda066c097cd5b80a
+  languageName: node
+  linkType: hard
+
+"expo-dev-launcher@npm:0.10.6":
+  version: 0.10.6
+  resolution: "expo-dev-launcher@npm:0.10.6"
+  dependencies:
+    "@expo/config-plugins": ^4.0.14
+    expo-dev-menu: 0.9.4
+    resolve-from: ^5.0.0
+    semver: ^7.3.5
+  peerDependencies:
+    expo: "*"
+  checksum: c83dc0241903f63fd66de345489499da7bce0aef63c0cfdff46a1e143590a5c382367219f3d01272d2370725a3e32f6874385fdd24466c279b9cf10e1b310cbb
+  languageName: node
+  linkType: hard
+
+"expo-dev-menu-interface@npm:0.5.3":
+  version: 0.5.3
+  resolution: "expo-dev-menu-interface@npm:0.5.3"
+  peerDependencies:
+    expo: "*"
+  checksum: bff265e9bca7ecabb566a756de5b69e17c72eab32dcf0479d81ebc254429ead35b0af51978333cd4b2eb6a5079433b00febb99c74d3ce96dee03c12417b42b62
+  languageName: node
+  linkType: hard
+
+"expo-dev-menu@npm:0.9.4":
+  version: 0.9.4
+  resolution: "expo-dev-menu@npm:0.9.4"
+  dependencies:
+    "@expo/config-plugins": ^4.0.14
+    expo-dev-menu-interface: 0.5.3
+  peerDependencies:
+    expo: "*"
+  checksum: 4bfbbcb24e9c3684d46eb04237159ae83c23dd62cd15b9c333029926679299b1080e1f01586d0d1502ec63511aaa06067f32e860a03fab6e365d2f103840bbb2
   languageName: node
   linkType: hard
 
@@ -11250,6 +11303,16 @@ __metadata:
     jscodeshift: ^0.11.0
     nullthrows: ^1.1.1
   checksum: 545d1e416be5bd0bc27a9bc4d58719317577fbcb38f80082857142f4946ba336df3f5fa3e87137709691acd809ee46e1f52834648399cb50219a70f441d6e6a3
+  languageName: node
+  linkType: hard
+
+"react-native-fast-image@npm:^8.5.11":
+  version: 8.5.11
+  resolution: "react-native-fast-image@npm:8.5.11"
+  peerDependencies:
+    react: ^16.8.6 || ^17.0.0
+    react-native: ">=0.60.0"
+  checksum: 20629fd3c4889383d2bf76b13560f1a15f043dc136efffc731a06bc779908df9037012c9db31eedbce945bc6e0e625539d592c3cc0d147626b5daa2e48054ba3
   languageName: node
   linkType: hard
 
