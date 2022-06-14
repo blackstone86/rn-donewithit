@@ -17,6 +17,9 @@ logger.start()
  * 02.disable features
  * 03.cache data
  * 04.store user actions (involve modifying data)
+ *   - complexity solution
+ *     - realm
+ *     - Firebase
  *
  * 2.Caching
  * data is available across restarts but data is wiped out when uninstall the app.
