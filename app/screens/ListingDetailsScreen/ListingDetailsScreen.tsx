@@ -7,6 +7,7 @@ import useApi from '../../hooks/useApi'
 import { listingApi } from '../../api'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
+import AppImage from '../../components/AppImage'
 
 export default function ListingDetailsScreen({
   route: {
@@ -24,10 +25,12 @@ export default function ListingDetailsScreen({
     //   latitude: 37.78825,
     //   longitude: -122.4324
     // }
+    const image = data.images[0]
     return {
       ...data,
       subTitle: `$${data.price}`,
-      imageUrl: data.images[0].url,
+      imageUrl: image?.url,
+      thumbnailUrl: image?.thumbnailUrl,
       avatarImage: MOSH,
       name: 'Mosh Hamedani',
       listings: 5
@@ -36,8 +39,15 @@ export default function ListingDetailsScreen({
   useEffect(() => {
     setData(id)
   }, [])
-  const { title, subTitle, imageUrl, avatarImage, name, listings } =
-    listing || {}
+  const {
+    title,
+    subTitle,
+    imageUrl,
+    thumbnailUrl,
+    avatarImage,
+    name,
+    listings
+  } = listing || {}
 
   return (
     <>
@@ -51,7 +61,11 @@ export default function ListingDetailsScreen({
       {!loading && !error && (
         <ScrollView>
           <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: imageUrl }} />
+            <AppImage
+              style={styles.image}
+              imageUrl={imageUrl}
+              thumbnailUrl={thumbnailUrl}
+            />
             <View style={styles.infoBox}>
               <AppText style={[styles.text, styles.title]}>{title}</AppText>
               {subTitle && (
