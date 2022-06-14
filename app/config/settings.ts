@@ -1,6 +1,6 @@
 import * as Updates from 'expo-updates'
 
-enum EnvironmentType {
+export enum EnvironmentType {
   DEV = 'dev',
   STAGING = 'staging',
   PROD = 'prod'
