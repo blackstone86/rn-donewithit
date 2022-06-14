@@ -4951,6 +4951,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypto-js@npm:^3.1.9-1":
+  version: 3.3.0
+  resolution: "crypto-js@npm:3.3.0"
+  checksum: 193923143a4784b2f974366068d96fe8280168fd3fef2bfea9551a5c3e32096f5a8fa49ff4eeb5bd0b9716d325618d38cfbe6125e359a4ef488fbca93e600824
+  languageName: node
+  linkType: hard
+
 "crypto-random-string@npm:^1.0.0":
   version: 1.0.0
   resolution: "crypto-random-string@npm:1.0.0"
@@ -5401,6 +5408,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: latest
     expo: ~44.0.0
+    expo-blur: ~11.0.0
     expo-constants: ~13.0.1
     expo-crypto: ~10.1.1
     expo-device: ~4.1.0
@@ -5424,6 +5432,7 @@ __metadata:
     react: 17.0.1
     react-dom: 17.0.1
     react-native: 0.64.3
+    react-native-expo-image-cache: ^4.1.0
     react-native-gesture-handler: ~2.1.0
     react-native-progress: ^5.0.0
     react-native-safe-area-context: 3.3.2
@@ -6098,6 +6107,15 @@ __metadata:
     path-browserify: ^1.0.0
     url-parse: ^1.4.4
   checksum: d11dddbe6ad04d372c94e90c9841f6949215874455c5f968f36849d27867c440f86fe0f96fb479aac03cfeb79c4dcafacbeac619137b921c94399fe7de981267
+  languageName: node
+  linkType: hard
+
+"expo-blur@npm:~11.0.0":
+  version: 11.0.0
+  resolution: "expo-blur@npm:11.0.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 5330c62c63615d73ad62ab5a79d6a0b1b475e59e5e8f9507b8c74fc51798b39b79a789c08ffc7ea854d36f64259001f09def30166ddd76655d03186b27d92b75
   languageName: node
   linkType: hard
 
@@ -9169,7 +9187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -11250,6 +11268,21 @@ __metadata:
     jscodeshift: ^0.11.0
     nullthrows: ^1.1.1
   checksum: 545d1e416be5bd0bc27a9bc4d58719317577fbcb38f80082857142f4946ba336df3f5fa3e87137709691acd809ee46e1f52834648399cb50219a70f441d6e6a3
+  languageName: node
+  linkType: hard
+
+"react-native-expo-image-cache@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "react-native-expo-image-cache@npm:4.1.0"
+  dependencies:
+    crypto-js: ^3.1.9-1
+    lodash: ^4.17.4
+  peerDependencies:
+    expo-blur: "*"
+    expo-file-system: "*"
+    react: "*"
+    react-native: "*"
+  checksum: d16bf7b5f4134c4b8c56a169c56b58adcb1a517d8dc3359f86360b2292aab678548bc3cad0283012d45fc1d86df7569aa4e8379d8f199aacb134eb0bcb1e699e
   languageName: node
   linkType: hard
 
