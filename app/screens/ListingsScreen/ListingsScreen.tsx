@@ -21,10 +21,12 @@ export default function ListingsScreen({ navigation, route: { params } }: any) {
     request: setData
   } = useApi(api.getListings, (data) => {
     return data.map((item: any) => {
+      const image = item.images[0]
       return {
         ...item,
         subTitle: `$${item.price}`,
-        imageUrl: item.images[0]?.url
+        imageUrl: image?.url,
+        thumbnailUrl: image?.thumbnailUrl
       }
     })
   })
@@ -51,13 +53,14 @@ export default function ListingsScreen({ navigation, route: { params } }: any) {
           data={cards}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => {
-            const { title, subTitle, imageUrl }: cardType = item
+            const { title, subTitle, imageUrl, thumbnailUrl }: cardType = item
             return (
               <Card
                 style={styles.card}
                 title={title}
                 subTitle={subTitle}
                 imageUrl={imageUrl}
+                thumbnailUrl={thumbnailUrl}
                 onPress={(e?: GestureResponderEvent) => {
                   handlePress(item)
                 }}

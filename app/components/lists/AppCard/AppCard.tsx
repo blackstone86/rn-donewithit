@@ -1,11 +1,6 @@
 import React, { useCallback } from 'react'
-import {
-  View,
-  Image,
-  GestureResponderEvent,
-  TouchableHighlight,
-  ImageSourcePropType
-} from 'react-native'
+import { View, GestureResponderEvent, TouchableHighlight } from 'react-native'
+import AppImage from '../../AppImage'
 import COLORS from '../../../config/colors'
 import CONSTS from './consts'
 import AppText from '../../AppText'
@@ -17,6 +12,7 @@ function AppCard({
   subTitle,
   image,
   imageUrl,
+  thumbnailUrl,
   style,
   onPress,
   titleMaxLines = CONSTS.TITLE_MAX_LINES,
@@ -25,6 +21,7 @@ function AppCard({
   const handlePress = useCallback((e?: GestureResponderEvent) => {
     typeof onPress === 'function' && onPress(e)
   }, [])
+
   return (
     <TouchableHighlight
       underlayColor={COLORS.LIGHT_GRAY}
@@ -32,7 +29,12 @@ function AppCard({
       onPress={handlePress}
     >
       <View style={[style, styles.container]}>
-        <Image style={styles.image} source={{ uri: imageUrl } || image} />
+        <AppImage
+          style={styles.image}
+          imageUrl={imageUrl}
+          thumbnailUrl={thumbnailUrl}
+          image={image}
+        />
         <View style={styles.infoBox}>
           <AppText
             style={[styles.text, styles.title]}

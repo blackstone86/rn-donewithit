@@ -5,5 +5,6 @@ export type cardType = {
   title: string
   subTitle: string
   image?: ImageSourcePropType
-  imageUrl?: string
+  imageUrl: string
+  thumbnailUrl?: string
 }
