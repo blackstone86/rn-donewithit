@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts'
 // import { login, logout } from '../reducers/auth'
 import client from '../api/client'
 import jwtDecode from 'jwt-decode'
+import authStorage from '../utils/authStorage'
 
 const global = {
   setUser: (user: any) => null
@@ -14,6 +15,7 @@ const setAuthTokenHeader = ({ config: { url }, data: token, ok }: any) => {
     client.setHeaders({
       'x-auth-token': token
     })
+    authStorage.setToken(token)
 
     const user = jwtDecode(token)
     global.setUser(user)
@@ -25,6 +27,7 @@ export const removeAuthTokenHeader = () => {
   client.setHeaders({
     'x-auth-token': ''
   })
+  authStorage.setToken('')
 
   global.setUser(null)
   // store.dispatch(logout())
