@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
@@ -13,6 +13,7 @@ import styles from './styles'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
 import ScreenName from '../../navigators/screenNames'
+import { AuthContext } from '../../contexts'
 
 const defaultMenus = [
   {
@@ -43,22 +44,29 @@ const defaultInfo: infoType = {
 }
 
 export default function AccountScreen({ navigation }: any) {
-  const {
-    data,
-    error,
-    loading,
-    request: setData
-  } = useApi(userApi.getUserDetail, (data: any) => ({
+  // const {
+  //   data,
+  //   error,
+  //   loading,
+  //   request: setData
+  // } = useApi(userApi.getUserDetail, (data: any) => ({
+  //   ...defaultInfo,
+  //   ...data
+  // }))
+  // const [info, setInfo] = useState<infoType>(defaultInfo)
+  // useEffect(() => {
+  //   setData() // 默认获取登录用户
+  // }, [])
+  // useEffect(() => {
+  //   if (data) setInfo(data)
+  // }, [data])
+
+  const { user } = useContext(AuthContext)
+  const info: infoType = {
     ...defaultInfo,
-    ...data
-  }))
-  const [info, setInfo] = useState<infoType>(defaultInfo)
-  useEffect(() => {
-    setData() // 默认获取登录用户
-  }, [])
-  useEffect(() => {
-    if (data) setInfo(data)
-  }, [data])
+    ...user
+  }
+
   const handlePress = useCallback(({ targetScreen }: menuType) => {
     let params = null
     switch (targetScreen) {
@@ -75,9 +83,10 @@ export default function AccountScreen({ navigation }: any) {
     }
     navigation.navigate(targetScreen as never, params)
   }, [])
+
   return (
     <AppSafeAreaView style={styles.container}>
-      {loading && <AppActivityIndicator visible loop />}
+      {/* {loading && <AppActivityIndicator visible loop />}
       {error && (
         <AppRetryView
           title="Couldn't retrieve the account information"
@@ -85,35 +94,35 @@ export default function AccountScreen({ navigation }: any) {
         />
       )}
       {!loading && !error && (
-        <>
-          <AppAvatarBox
-            style={styles.avatarBox}
-            title={info.name}
-            subTitle={info.email}
-            image={info.image}
-          />
-          <AppFlatList
-            data={info.menus}
-            keyExtractor={(item) => item.title}
-            renderItem={({ item, index }) => {
-              const { iconName, iconBackgroundColor, title }: menuType = item
-              const isLastItem = index === info.menus.length - 1
-              return (
-                <AppMenuItem
-                  style={isLastItem && styles.lastMenuItem}
-                  title={title}
-                  // iconName={iconName}
-                  IconComponent={<AppIcon name={iconName} />}
-                  iconBackgroundColor={iconBackgroundColor}
-                  onPress={() => {
-                    handlePress(item)
-                  }}
-                />
-              )
-            }}
-          />
-        </>
-      )}
+        <> */}
+      <AppAvatarBox
+        style={styles.avatarBox}
+        title={info.name}
+        subTitle={info.email}
+        image={info.image}
+      />
+      <AppFlatList
+        data={info.menus}
+        keyExtractor={(item) => item.title}
+        renderItem={({ item, index }) => {
+          const { iconName, iconBackgroundColor, title }: menuType = item
+          const isLastItem = index === info.menus.length - 1
+          return (
+            <AppMenuItem
+              style={isLastItem && styles.lastMenuItem}
+              title={title}
+              // iconName={iconName}
+              IconComponent={<AppIcon name={iconName} />}
+              iconBackgroundColor={iconBackgroundColor}
+              onPress={() => {
+                handlePress(item)
+              }}
+            />
+          )
+        }}
+      />
+      {/* </> */}
+      {/* )} */}
     </AppSafeAreaView>
   )
 }
