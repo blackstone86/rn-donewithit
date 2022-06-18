@@ -1,8 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 // import { useSelector } from 'react-redux'
 // import { RootState } from '../../store'
-import React, { useContext, useState } from 'react'
-import { AuthContext } from '../../contexts'
+import React, { useState } from 'react'
 import AuthNavigator from '../../navigators/AuthNavigator'
 import AppNavigator from '../../navigators/AppNavigator'
 import navigationTheme from '../../navigators/navigationTheme'
@@ -11,10 +10,12 @@ import AppNoticeText from '../../components/AppNoticeText'
 import AppLoading from 'expo-app-loading'
 import authStorage from '../../utils/authStorage'
 import jwtDecode from 'jwt-decode'
+import useAuth from '../../hooks/useAuth'
 
 function Exercises01(props: any) {
   // const LoggedIn = useSelector((state: RootState) => state.auth.LoggedIn)
-  const { user, setUser } = useContext(AuthContext)
+  const { user, setUser } = useAuth()
+
   const [isReady, setIsReady] = useState<boolean>(false)
   const { isConnected } = useNetInfo()
 

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import AppAvatarBox from '../../components/AppAvatarBox'
@@ -13,7 +13,7 @@ import styles from './styles'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
 import ScreenName from '../../navigators/screenNames'
-import { AuthContext } from '../../contexts'
+import useAuth from '../../hooks/useAuth'
 
 const defaultMenus = [
   {
@@ -61,7 +61,7 @@ export default function AccountScreen({ navigation }: any) {
   //   if (data) setInfo(data)
   // }, [data])
 
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
   const info: infoType = {
     ...defaultInfo,
     ...user

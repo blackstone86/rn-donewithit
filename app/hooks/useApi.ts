@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import { AuthContext } from '../contexts'
+import { useState } from 'react'
+import useAuth from './useAuth'
 // import { store } from '../store'
 // import { login, logout } from '../reducers/auth'
 import client from '../api/client'
@@ -37,7 +37,7 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
   const [data, setData] = useState<any>()
   const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
-  const { setUser }: any = useContext(AuthContext)
+  const { setUser }: any = useAuth()
 
   global.setUser = setUser
 
