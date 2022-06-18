@@ -8,7 +8,6 @@ const authStorage = {
   async setToken(token: string) {
     try {
       const rkey = PREFIX + 'token'
-      console.log(token, 'settoken')
       await SecureStore.setItemAsync(rkey, token)
     } catch (err) {
       console.log('Error occurs when setting the token', err)
