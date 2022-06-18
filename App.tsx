@@ -1,6 +1,7 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { store } from './app/store'
+import React, { useState, useMemo } from 'react'
+import AuthContext from './app/contexts/auth'
+// import { Provider } from 'react-redux'
+// import { store } from './app/store'
 import logger from './app/utils/logger'
 import Exercise01 from './app/demos/Exercise01'
 // import NetinfoScreen from './app/demos/NetinfoScreen'
@@ -33,10 +34,16 @@ logger.start()
  * 3.Cache listings data with asyncStorage
  */
 export default function App() {
+  const [user, setUser] = useState(null)
+  const value = useMemo(() => ({ user, setUser }), [user])
+
   return (
-    <Provider store={store}>
+    <AuthContext.Provider value={value}>
       <Exercise01 />
-    </Provider>
+    </AuthContext.Provider>
+    // <Provider store={store}>
+    //   <Exercise01 />
+    // </Provider>
     // <NetinfoScreen />
     // <AsyncStorageScreen />
     // <CacheScreen />
