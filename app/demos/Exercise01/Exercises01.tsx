@@ -14,7 +14,7 @@ import useAuth from '../../hooks/useAuth'
 
 function Exercises01(props: any) {
   // const LoggedIn = useSelector((state: RootState) => state.auth.LoggedIn)
-  const { user, setUser } = useAuth()
+  const { user, setUser, setTokenHeader } = useAuth()
 
   const [isReady, setIsReady] = useState<boolean>(false)
   const { isConnected } = useNetInfo()
@@ -31,6 +31,7 @@ function Exercises01(props: any) {
     const token = await authStorage.getToken()
     if (!token) return
     if (token) {
+      setTokenHeader(token)
       setUser(jwtDecode(token))
     }
   }

@@ -26,11 +26,18 @@ const useAuth = () => {
     setUser(null)
   }
 
+  const setTokenHeader = (token: string) => {
+    client.setHeaders({
+      'x-auth-token': token
+    })
+  }
+
   return {
     user,
     setUser,
     login,
-    logout
+    logout,
+    setTokenHeader
   }
 }
 
