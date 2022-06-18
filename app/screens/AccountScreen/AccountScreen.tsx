@@ -7,7 +7,7 @@ import { menuType, infoType } from './types'
 import AppIcon from '../../components/AppIcon'
 import ScreenType from '../../navigators/screenTypes'
 import { JIM } from '../../config/images'
-import useApi, { removeAuthTokenHeader } from '../../hooks/useApi'
+import useApi from '../../hooks/useApi'
 import { userApi } from '../../api'
 import styles from './styles'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
@@ -61,7 +61,7 @@ export default function AccountScreen({ navigation }: any) {
   //   if (data) setInfo(data)
   // }, [data])
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const info: infoType = {
     ...defaultInfo,
     ...user
@@ -76,7 +76,7 @@ export default function AccountScreen({ navigation }: any) {
         }
         break
       case ScreenType.AUTH:
-        removeAuthTokenHeader()
+        logout()
         return // 改由 NavigationContainer 控制切换 ScreenType.AUTH
       default:
         break
