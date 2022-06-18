@@ -5416,6 +5416,7 @@ __metadata:
     expo-image-picker: ~12.0.1
     expo-location: ~14.0.1
     expo-media-library: ~14.0.0
+    expo-secure-store: ~11.1.0
     expo-splash-screen: ~0.14.1
     expo-status-bar: ~1.2.0
     expo-updates: ~0.11.7
@@ -6276,6 +6277,15 @@ __metadata:
     compare-versions: ^3.4.0
     invariant: ^2.2.4
   checksum: 0f8c72beccae62874f176c1376e11c9e35e7f50d3552e13d60205c079aafdbdedc018176278572a2cc433be3aa544cb1515c1dee3c4ac6a60405326333ce13a0
+  languageName: node
+  linkType: hard
+
+"expo-secure-store@npm:~11.1.0":
+  version: 11.1.1
+  resolution: "expo-secure-store@npm:11.1.1"
+  peerDependencies:
+    expo: "*"
+  checksum: 49e7442c40102d0b62eff4c829c875b2a1580bfe01e233ac0729da03b3418e830697b95e6d3978afcbbad747d3cbd2f80027fab6eecc2130b5eecbcb278d778d
   languageName: node
   linkType: hard
 
