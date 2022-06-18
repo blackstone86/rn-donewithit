@@ -2,44 +2,16 @@ import { useState } from 'react'
 import useAuth from './useAuth'
 // import { store } from '../store'
 // import { login, logout } from '../reducers/auth'
-import client from '../api/client'
-import jwtDecode from 'jwt-decode'
-import authStorage from '../utils/authStorage'
-
-const global = {
-  setUser: (user: any) => null
-}
-
-const setAuthTokenHeader = ({ config: { url }, data: token, ok }: any) => {
-  if (ok && url === '/auth') {
-    client.setHeaders({
-      'x-auth-token': token
-    })
-    authStorage.setToken(token)
-
-    const user = jwtDecode(token)
-    global.setUser(user)
-    // store.dispatch(login())
-  }
-}
-
-export const removeAuthTokenHeader = () => {
-  client.setHeaders({
-    'x-auth-token': ''
-  })
-  authStorage.setToken('')
-
-  global.setUser(null)
-  // store.dispatch(logout())
-}
 
 const useApi = (apiFun: any, transformer = (data: any) => data) => {
   const [data, setData] = useState<any>()
   const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
-  const { setUser }: any = useAuth()
+  const { login }: any = useAuth()
 
-  global.setUser = setUser
+  const isAuth = ({ config: { url } }: any) => {
+    return url === '/auth'
+  }
 
   const request = async (...args: any) => {
     setLoading(true)
@@ -52,7 +24,7 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
     setError(false)
     const data = transformer(res.data)
     setData(data)
-    setAuthTokenHeader(res)
+    if (isAuth(res)) login(res.data)
   }
 
   const requestWithCb = (...args: any) => {
@@ -69,7 +41,7 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
         setError(false)
         const data = transformer(res.data)
         setData(data)
-        setAuthTokenHeader(res)
+        if (isAuth(res)) login(res.data)
       })
     })
   }
