@@ -93,7 +93,6 @@ export default function RegisterScreen({ navigation }: any) {
         onSubmit={(values) => {
           handleSubmit(values) // 避免执行AppForm的回调，因为成功登录后组件销毁，此时执行AppForm回调清除表单数据，浪费资源且无意义
         }}
-        style={styles.form}
       />
     </AppSafeAreaView>
   )

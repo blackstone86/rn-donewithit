@@ -1,6 +1,6 @@
 const CONSTS = {
   PADDING: 10,
-  MARGIN: 15
+  PADDING_TOP: 15
 }
 
 export default CONSTS
