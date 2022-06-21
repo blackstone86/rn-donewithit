@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: COLORS.BACKGROUND_COLOR, // COLORS.WHITE,
-    zIndex: 1
+    zIndex: 1,
+    opacity: 0.8
   },
   smallSize: {
     width: CONSTS.SMALL_SIZE,
