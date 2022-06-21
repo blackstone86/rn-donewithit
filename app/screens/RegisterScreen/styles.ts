@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: CONSTS.PADDING
   },
   form: {
-    marginTop: 30
+    marginTop: CONSTS.MARGIN
   }
 })
 

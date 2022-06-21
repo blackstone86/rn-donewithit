@@ -1,13 +1,17 @@
 import React from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import { AppForm, Field, TypeKind } from '../../components/forms'
+import {
+  AppErrorMessage,
+  AppForm,
+  Field,
+  TypeKind
+} from '../../components/forms'
 import Yup from '../../utils/yup'
 import styles from './styles'
-import ScreenType from '../../navigators/screenTypes'
 import useApi from '../../hooks/useApi'
-import { usersApi } from '../../api'
+import { usersApi, authApi } from '../../api'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
-import { Alert } from 'react-native'
+import useAuth from '../../hooks/useAuth'
 
 const fields: Field[] = [
   {
@@ -56,39 +60,38 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(8).label('Password')
 })
+
 export default function RegisterScreen({ navigation }: any) {
-  const { error, loading, requestWithCb: regist } = useApi(usersApi.addUser)
+  const registApi = useApi(usersApi.regist)
+  const loginApi = useApi(authApi.login)
+  const Auth = useAuth()
+  const loading = registApi.loading || loginApi.loading
+  const error = registApi.data?.error || loginApi.data?.error
+
+  const handleSubmit = async (values: any) => {
+    const registResponse = await registApi.request(values)
+    if (!registResponse.ok) return
+
+    const user = registResponse.data
+    const loginResponse = await loginApi.request({
+      email: user.email,
+      password: user.password
+    })
+    if (!loginResponse.ok) return
+
+    const token = loginResponse.data
+    Auth.login(token)
+  }
+
   return (
     <AppSafeAreaView style={styles.container}>
       {loading && <AppActivityIndicator visible loop />}
+      <AppErrorMessage errorMessage={error} />
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          return new Promise<void>((resolve, reject) => {
-            regist(values).then((res: any) => {
-              if (res.ok) {
-                resolve()
-                navigation.navigate(ScreenType.LOGIN as never)
-              } else {
-                const errorMessage = res.data.error
-                const error = new Error(errorMessage)
-                reject(error)
-                Alert.alert(
-                  'Error Message',
-                  errorMessage,
-                  [
-                    {
-                      text: 'Close'
-                    }
-                  ],
-                  {
-                    cancelable: true
-                  }
-                )
-              }
-            })
-          })
+          handleSubmit(values) // 避免执行AppForm的回调，因为成功登录后组件销毁，此时执行AppForm回调清除表单数据，浪费资源且无意义
         }}
         style={styles.form}
       />
