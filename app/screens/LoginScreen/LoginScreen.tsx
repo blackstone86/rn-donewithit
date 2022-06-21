@@ -1,8 +1,13 @@
 import { Alert, Image } from 'react-native'
-import React, { useEffect } from 'react'
+import React from 'react'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
 import Yup from '../../utils/yup'
-import { AppForm, Field, TypeKind } from '../../components/forms'
+import {
+  AppErrorMessage,
+  AppForm,
+  Field,
+  TypeKind
+} from '../../components/forms'
 import { LOGO_RED } from '../../config/images'
 import styles from './styles'
 import { authApi } from '../../api'
@@ -58,38 +63,18 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(8).label('Password')
 })
 export default function LoginScreen({ navigation }: any) {
-  const { loading, requestWithCb: login } = useApi(authApi.login)
+  const { data, loading, request: login } = useApi(authApi.login)
+
   return (
     <AppSafeAreaView style={styles.container}>
       {loading && <AppActivityIndicator visible loop />}
       <Image style={styles.logo} source={LOGO_RED} />
+      <AppErrorMessage errorMessage={data?.error} />
       <AppForm
         fields={fields}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          return new Promise<void>((resolve, reject) => {
-            login(values).then((res: any) => {
-              if (res.ok) {
-                resolve()
-              } else {
-                const errorMessage = res.data.error
-                const error = new Error(errorMessage)
-                reject(error)
-                Alert.alert(
-                  'Error Message',
-                  errorMessage,
-                  [
-                    {
-                      text: 'Close'
-                    }
-                  ],
-                  {
-                    cancelable: true
-                  }
-                )
-              }
-            })
-          })
+          login(values)
         }}
       />
     </AppSafeAreaView>
