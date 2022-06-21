@@ -196,6 +196,7 @@ export default function ListingEditScreen({ navigation }: any) {
         onRequestClose={() => {
           setModalVisible(!modalVisible)
         }}
+        transparent
       >
         <View style={styles.modalBox}>
           {loaded ? (
