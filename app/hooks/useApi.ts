@@ -19,34 +19,20 @@ const useApi = (apiFun: any, transformer = (data: any) => data) => {
     setLoading(false)
 
     // NETWORK_ERROR 中断后台服务
-    if (!res.ok) return setError(true)
+    if (!res.ok) {
+      setData(res.data) // 输出出错信息
+      setError(true)
+    } else {
+      setError(false)
+      const data = transformer(res.data)
+      setData(data)
+      if (isAuth(res)) login(res.data)
+    }
 
-    setError(false)
-    const data = transformer(res.data)
-    setData(data)
-    if (isAuth(res)) login(res.data)
+    return res
   }
 
-  const requestWithCb = (...args: any) => {
-    return new Promise((resolve, reject) => {
-      setLoading(true)
-      apiFun(...args).then((res: any) => {
-        setLoading(false)
-        resolve(res)
-        if (!res.ok) {
-          // NETWORK_ERROR 中断后台服务
-          setError(true)
-          return
-        }
-        setError(false)
-        const data = transformer(res.data)
-        setData(data)
-        if (isAuth(res)) login(res.data)
-      })
-    })
-  }
-
-  return { data, error, loading, request, requestWithCb }
+  return { data, error, loading, request }
 }
 
 export default useApi
