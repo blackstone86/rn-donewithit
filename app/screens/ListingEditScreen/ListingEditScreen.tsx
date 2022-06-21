@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import COLORS from '../../config/colors'
 import AppSafeAreaView from '../../components/AppSafeAreaView'
-import { AppForm as Form, Field, TypeKind } from '../../components/forms'
+import {
+  AppErrorMessage,
+  AppForm as Form,
+  Field,
+  TypeKind
+} from '../../components/forms'
 import AppCategoryPickerItem from '../../components/AppCategoryPickerItem'
 import Yup from '../../utils/yup'
 import styles from './styles'
@@ -124,11 +129,11 @@ export default function ListingEditScreen({ navigation }: any) {
   const [loaded, setLoaded] = useState<boolean>(false)
   const [progress, setProgress] = useState<number>(0)
   const [fields, setFields] = useState<any[]>([])
-  const { loading, requestWithCb: getCategories } = useApi(
-    categoriesApi.getCategories
-  )
+  const getCategoriesApi = useApi(categoriesApi.getCategories)
+  const addListingApi = useApi(listingsApi.addListing)
+
   const setCategories = async () => {
-    const res: any = await getCategories()
+    const res: any = await getCategoriesApi.request()
     if (res.ok) {
       const options = transformCategories(res.data)
       const categoryField: any = defaultFields.filter(({ name }: Field) => {
@@ -138,41 +143,52 @@ export default function ListingEditScreen({ navigation }: any) {
       setFields(defaultFields)
     }
   }
+
+  const resetModal = () => {
+    setModalVisible(false)
+    setProgress(0)
+  }
+
+  const handleSubmit = async (listing: any) => {
+    if (location) {
+      listing.location = location
+    }
+
+    setModalVisible(true)
+    const addListingResponse = await addListingApi.request(
+      listing,
+      (curProgress: any) => {
+        setProgress(curProgress)
+      }
+    )
+
+    if (!addListingResponse.ok) {
+      resetModal()
+      return
+    }
+
+    setLoaded(true)
+    setTimeout(() => {
+      resetModal()
+      navigation.navigate(ScreenType.LISTINGS as never)
+    }, 1500)
+  }
+
   useEffect(() => {
     setCategories()
   }, [])
+
+  const loading = getCategoriesApi.loading || addListingApi.loading
+  const error = getCategoriesApi.data?.error || addListingApi.data?.error
+
   return (
     <AppSafeAreaView style={styles.container}>
       {loading && <AppActivityIndicator visible loop />}
+      <AppErrorMessage errorMessage={error} />
       <Form
         fields={fields}
         validationSchema={validationSchema}
-        style={styles.form}
-        onSubmit={(listing: any) => {
-          if (location) {
-            listing.location = location
-          }
-          return new Promise<void>((resolve, reject) => {
-            setModalVisible(true)
-            listingsApi
-              .addListing(listing, (curProgress) => {
-                setProgress(curProgress)
-                if (curProgress === 1) {
-                  setLoaded(true)
-                }
-              })
-              .then((res) => {
-                if (res.ok) {
-                  setTimeout(() => {
-                    setProgress(0)
-                    setModalVisible(false)
-                    navigation.navigate(ScreenType.LISTINGS as never)
-                    resolve()
-                  }, 1500)
-                }
-              })
-          })
-        }}
+        onSubmit={handleSubmit}
       />
       <Modal
         animationType="fade"

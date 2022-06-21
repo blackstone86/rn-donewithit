@@ -7,10 +7,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.WHITE,
     flexDirection: 'column',
     alignItems: 'center',
-    paddingHorizontal: CONSTS.PADDING
-  },
-  form: {
-    marginTop: 30
+    paddingHorizontal: CONSTS.PADDING,
+    paddingTop: CONSTS.PADDING_TOP
   },
   modalBox: {
     flex: 1,
