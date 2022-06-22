@@ -1,7 +1,6 @@
 import client from './client'
 import mime from 'mime'
 
-const expoPushTokens = '/expoPushTokens'
 const listings = '/listings'
 
 // 获取清单列表
