@@ -6,17 +6,15 @@ import validateWith from '../middleware/validation'
 
 const router = express.Router()
 
-router.post(
-  '/',
-  [auth, validateWith({ token: Joi.string().required() })],
-  (req, res) => {
-    const user: any = usersStore.getUserById(req.user.userId)
-    if (!user) return res.status(400).send({ error: 'Invalid user.' })
+const schema = Joi.object({ token: Joi.string().required() })
 
-    user.expoPushToken = req.body.token
-    console.log('User registered for notifications: ', user)
-    res.status(201).send()
-  }
-)
+router.post('/', [auth, validateWith(schema)], (req, res) => {
+  const user: any = usersStore.getUserById(req.user.userId)
+  if (!user) return res.status(400).send({ error: 'Invalid user.' })
+
+  user.expoPushToken = req.body.token
+  console.log('User registered for notifications: ', user)
+  res.status(201).send()
+})
 
 export default router
