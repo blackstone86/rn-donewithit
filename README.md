@@ -37,6 +37,7 @@ It create by expo-cli, and use different branches to introduce foundation compon
 - Networking
 - Distribution
 - Offline
+- Notifications
 
 ## Test Accounts
 
