@@ -3,8 +3,8 @@ import AuthContext from './app/contexts/auth'
 // import { Provider } from 'react-redux'
 // import { store } from './app/store'
 import logger from './app/utils/logger'
-// import Exercise01 from './app/demos/Exercise01'
-import Notifications from './app/demos/Notifications'
+import Exercise01 from './app/demos/Exercise01'
+// import Notifications from './app/demos/Notifications'
 
 logger.start()
 
@@ -21,9 +21,9 @@ export default function App() {
   const value = useMemo(() => ({ user, setUser }), [user])
 
   return (
-    // <AuthContext.Provider value={value}>
-    //   <Exercise01 />
-    // </AuthContext.Provider>
-    <Notifications />
+    <AuthContext.Provider value={value}>
+      <Exercise01 />
+    </AuthContext.Provider>
+    // <Notifications />
   )
 }
