@@ -213,6 +213,7 @@ Logged in --------> success loged
 - [Distributing To The Google Play Store](https://docs.expo.io/distribution/uploading-apps/)
 - [Fastlane](https://fastlane.tools/)
 - [How To Use Fastlane To Deploy Expo Apps](https://blog.expo.io/automating-standalone-expo-app-builds-and-deployments-with-fastlane-exp-and-exptool-9b2f5ad0a2cd)
+- [Expo Push Notifications Tool](https://expo.dev/notifications)
 
 ## License
 
