@@ -170,6 +170,13 @@ yarn test
 
 ## FAQ
 
+- How to fixed notifications not opening app on Android 12
+
+```bash
+# update Expo SDK to the latest version, 45.0.0
+expo upgrade
+```
+
 - Some dependencies are incompatible with the installed expo package version
 
 ```bash
