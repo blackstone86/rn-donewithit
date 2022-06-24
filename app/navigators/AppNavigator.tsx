@@ -10,6 +10,7 @@ import MyNavigator from '../navigators/MyNavigator'
 import * as Notifications from 'expo-notifications'
 import { expoPushTokensApi } from '../api'
 import useApi from '../hooks/useApi'
+import { Platform } from 'react-native'
 
 const Tab = createBottomTabNavigator()
 
@@ -20,11 +21,20 @@ const addPushToken = async (addPushTokensApi: any) => {
       alert('You need to enable permission to access notifications!')
     }
     const { data: pushToken } = await Notifications.getExpoPushTokenAsync()
+    console.log(pushToken) // for testing sending push notifications
     addPushTokensApi.request({ token: pushToken })
   } catch (err) {
     console.log('Error occurs when getting pushToken', err)
   }
 }
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false
+  })
+})
 
 export default function AppNavigator() {
   const addPushTokensApi = useApi(expoPushTokensApi.addPushTokens)
