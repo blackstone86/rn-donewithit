@@ -1,23 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native'
-// import { useSelector } from 'react-redux'
-// import { RootState } from '../../store'
 import React, { useCallback, useEffect, useState } from 'react'
+import { View } from 'react-native'
 import AuthNavigator from '../../navigators/AuthNavigator'
 import AppNavigator from '../../navigators/AppNavigator'
 import navigationTheme from '../../navigators/navigationTheme'
 import { useNetInfo } from '@react-native-community/netinfo'
 import AppNoticeText from '../../components/AppNoticeText'
-// import AppLoading from 'expo-app-loading'
 import * as SplashScreen from 'expo-splash-screen'
 import authStorage from '../../utils/authStorage'
 import jwtDecode from 'jwt-decode'
 import useAuth from '../../hooks/useAuth'
-import { View } from 'react-native'
+import styles from './styles'
 
-function Exercises01(props: any) {
-  // const LoggedIn = useSelector((state: RootState) => state.auth.LoggedIn)
+export default function AppScreen(props: any) {
   const { user, setUser, setTokenHeader } = useAuth()
-
   const [isReady, setIsReady] = useState<boolean>(false)
   const { isConnected } = useNetInfo()
 
@@ -29,17 +25,6 @@ function Exercises01(props: any) {
       setUser(jwtDecode(token))
     }
   }
-
-  // if (!isReady)
-  //   return (
-  //     <AppLoading
-  //       startAsync={restoreToken}
-  //       onFinish={() => setIsReady(true)}
-  //       onError={(err) => {
-  //         console.log(err)
-  //       }}
-  //     />
-  //   )
 
   useEffect(() => {
     async function prepare() {
@@ -71,7 +56,7 @@ function Exercises01(props: any) {
   const LoggedIn = !!user
 
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <NavigationContainer theme={navigationTheme}>
         {LoggedIn ? <AppNavigator /> : <AuthNavigator />}
         {!isConnected && <AppNoticeText>No Internet Connection</AppNoticeText>}
@@ -79,5 +64,3 @@ function Exercises01(props: any) {
     </View>
   )
 }
-
-export default Exercises01

@@ -4,7 +4,8 @@ import AuthContext from './app/contexts/auth'
 // import { store } from './app/store'
 import logger from './app/utils/logger'
 import './app/temporarySolutions/ignoreWarnings'
-import Exercise01 from './app/demos/Exercise01'
+import AppScreen from './app/screens/AppScreen'
+// import Exercise01 from './app/demos/Exercise01'
 // import Notifications from './app/demos/Notifications'
 
 logger.start()
@@ -23,7 +24,7 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={value}>
-      <Exercise01 />
+      <AppScreen />
     </AuthContext.Provider>
     // <Notifications />
   )
