@@ -4,7 +4,7 @@
   "description": "A marketplace for selling the stuff you don't need anymore.",
   "author": "Junwen Huang",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start --dev-client",
     "start:eject": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
