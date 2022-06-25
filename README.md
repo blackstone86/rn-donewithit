@@ -8,6 +8,14 @@ It create by expo-cli, and use different branches to introduce foundation compon
   <img alt="preview" width="250" src="https://github.com/blackstone86/rn-donewithit/blob/Networking/preview.gif?raw=true">
 </p>
 
+## Core Librarys
+
+| Library name | Version |
+| ------------ | ------- |
+| react        | 17.0.2  |
+| react-native | 0.68.2  |
+| Expo SDK     | 45      |
+
 ## Android Play Store build
 
 | Build ID                             | Full name               | Build type | Project ID                           | Project ID                                                                                     |
