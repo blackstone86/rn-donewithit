@@ -3,6 +3,7 @@ import AuthContext from './app/contexts/auth'
 // import { Provider } from 'react-redux'
 // import { store } from './app/store'
 import logger from './app/utils/logger'
+import './app/temporarySolutions/ignoreWarnings'
 import Exercise01 from './app/demos/Exercise01'
 // import Notifications from './app/demos/Notifications'
 
