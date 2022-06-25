@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261407788948",
+    "project_id": "rn-donewithit",
+    "storage_bucket": "rn-donewithit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261407788948:android:21efae95662f8a8fef4981",
+        "android_client_info": {
+          "package_name": "com.junwenhuang.DoneWithIt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261407788948-d70ppsc428pmlum69o7skhrog870ibqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKpmVtLiO3xmx6pdEwZo9mBJljK8_rPL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261407788948-d70ppsc428pmlum69o7skhrog870ibqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
