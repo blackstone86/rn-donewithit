@@ -10,7 +10,6 @@ import MyNavigator from '../navigators/MyNavigator'
 import * as Notifications from 'expo-notifications'
 import { expoPushTokensApi } from '../api'
 import useApi from '../hooks/useApi'
-import { Platform } from 'react-native'
 
 const Tab = createBottomTabNavigator()
 
@@ -47,6 +46,24 @@ export default function AppNavigator() {
 
   useEffect(() => {
     addPushToken(addPushTokensApi)
+
+    const subscription = Notifications.addNotificationReceivedListener(
+      (notification) => {
+        /**
+         * {
+         *   actionId: null,
+         *   data: Object {
+         *    _displayInForeground: true,
+         *   },
+         *   origin: "received", // "received" or "selected"
+         *   remote: true,
+         *   userText: null
+         * }
+         */
+        console.log(notification)
+      }
+    )
+    return () => subscription.remove()
   }, [])
 
   return (
