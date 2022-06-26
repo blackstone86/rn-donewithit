@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AppIcon from '../components/AppIcon'
-import ListingEditScreen from '../screens/ListingEditScreen'
 import AppTabBarButton from '../components/AppTabBarButton'
-import COLORS from '../config/colors'
-import ScreenType from '../navigators/screenTypes'
+import ListingEditScreen from '../screens/ListingEditScreen'
+import MyNavigator from './MyNavigator'
 import FeedNavigator from './FeedNavigator'
-import MyNavigator from '../navigators/MyNavigator'
+import ScreenType from './screenTypes'
+import navigate from './rootNavigation'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import * as Notifications from 'expo-notifications'
 import { expoPushTokensApi } from '../api'
 import useApi from '../hooks/useApi'
+import COLORS from '../config/colors'
 
 const Tab = createBottomTabNavigator()
 
@@ -60,6 +61,7 @@ export default function AppNavigator() {
          *   userText: null
          * }
          */
+        console.log(navigate)
         console.log(notification)
       }
     )
