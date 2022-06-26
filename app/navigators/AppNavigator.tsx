@@ -4,6 +4,7 @@ import AppTabBarButton from '../components/AppTabBarButton'
 import ListingEditScreen from '../screens/ListingEditScreen'
 import MyNavigator from './MyNavigator'
 import FeedNavigator from './FeedNavigator'
+import navigate from './rootNavigation'
 import ScreenType from './screenTypes'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import useNotification from '../hooks/useNotification'
@@ -12,7 +13,22 @@ import COLORS from '../config/colors'
 const Tab = createBottomTabNavigator()
 
 export default function AppNavigator() {
-  useNotification()
+  useNotification((notification: any) => {
+    /**
+     * notification
+     * {
+     *   actionId: null,
+     *   data: Object {
+     *    _displayInForeground: true,
+     *   },
+     *   origin: "received", // "received" or "selected"
+     *   remote: true,
+     *   userText: null
+     * }
+     */
+    console.log(navigate)
+    console.log(notification)
+  })
 
   return (
     <Tab.Navigator

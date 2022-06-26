@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import * as Notifications from 'expo-notifications'
 import useApi from './useApi'
 import { expoPushTokensApi } from '../api'
-import navigate from '../navigators/rootNavigation'
 
 const addPushToken = async (addPushTokensApi: any) => {
   try {
@@ -32,30 +31,19 @@ Notifications.setNotificationHandler({
   })
 })
 
-const useNotification = () => {
+const useNotification = (notificationReceivedListener?: any) => {
   const addPushTokensApi = useApi(expoPushTokensApi.addPushTokens)
 
   useEffect(() => {
     addPushToken(addPushTokensApi)
 
-    const subscription = Notifications.addNotificationReceivedListener(
-      (notification) => {
-        /**
-         * {
-         *   actionId: null,
-         *   data: Object {
-         *    _displayInForeground: true,
-         *   },
-         *   origin: "received", // "received" or "selected"
-         *   remote: true,
-         *   userText: null
-         * }
-         */
-        console.log(navigate)
-        console.log(notification)
-      }
-    )
-    return () => subscription.remove()
+    let subscription: any = null
+    if (notificationReceivedListener) {
+      subscription = Notifications.addNotificationReceivedListener(
+        notificationReceivedListener
+      )
+    }
+    return () => subscription?.remove()
   }, [])
 }
 
