@@ -16,9 +16,15 @@ const Tab = createBottomTabNavigator()
 
 const addPushToken = async (addPushTokensApi: any) => {
   try {
-    const { granted } = await Notifications.getPermissionsAsync()
-    if (!granted) {
-      alert('You need to enable permission to access notifications!')
+    const { status: existingStatus } = await Notifications.getPermissionsAsync()
+    let finalStatus = existingStatus
+    if (existingStatus !== 'granted') {
+      const { status } = await Notifications.requestPermissionsAsync() // request permission on foreground directly when app's notification access is not granted!
+      finalStatus = status
+    }
+    if (finalStatus !== 'granted') {
+      alert('Failed to get push token for push notification!')
+      return
     }
     const { data: pushToken } = await Notifications.getExpoPushTokenAsync()
     console.log(pushToken) // for testing sending push notifications
