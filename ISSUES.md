@@ -66,3 +66,36 @@ nodeLinker: "node-modules"
   {LoggedIn ? <AppNavigator /> : <AuthNavigator />}
 </NavigationContainer>
 ```
+
+## Some android real device can not receive notifications by `expo-notifications`, both `Managed workflow` and `Bare workflow` are can not work!
+
+Cannot receive notifications Devices:
+  - Xiaomi 11 Ultra
+    - Android 12
+    - MIUI 13.0.12稳定版
+    - supported by Google Play
+    - Expo SDK: 45
+    - expo-notifications version: 0.15.3
+    - expo go client version: 2.24.4
+  - MI 8
+    - Android 9
+    - MIUI 11.0.4稳定版
+    - supported by Google Play
+    - Expo SDK: 45
+    - expo-notifications version: 0.15.3
+    - expo go client version: 2.24.4
+
+In `Managed workflow` environment info:
+  - expo go client version: 2.24.4
+  -  run app by expo go client, use `expo start`, launch in device successfully
+
+In `Bare workflow` environment info:
+  - useing `FCM` [using-fcm](https://docs.expo.dev/push-notifications/using-fcm/)
+  - rebuild dev-client, use `expo run:android`, build successfully
+  - run app by dev-client, use `expo start --dev-client`, launch in device successfully
+
+> All above devices supported by Google Play ([supported_devices](https://storage.googleapis.com/play_public/supported_devices.html))
+
+Error Messages:
+  - `Error occurs when getting pushToken [Error: Fetching the token failed: java.util.concurrent.ExecutionException: java.io.IOException: MISSING_INSTANCEID_SERVICE]`
+
