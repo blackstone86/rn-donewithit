@@ -67,7 +67,7 @@ nodeLinker: "node-modules"
 </NavigationContainer>
 ```
 
-## Some android real device can not receive notifications by `expo-notifications`, both `Managed workflow` and `Bare workflow` are can not work!
+## Some android real devices can not receive notifications by `expo-notifications`, both `Managed workflow` and `Bare workflow` are can not work!
 
 Cannot receive notifications Devices:
   - Xiaomi 11 Ultra
