@@ -178,14 +178,18 @@ yarn test
 
 ## FAQ
 
-- How to fixed notifications not opening app on Android 12
+- Why xiaomi devices can't show local notifications?
+
+  - You should disable `Do Not Disturb Mode`
+
+- How to fixed notifications not opening app on Android 12?
 
 ```bash
 # update Expo SDK to the latest version, 45.0.0
 expo upgrade
 ```
 
-- Some dependencies are incompatible with the installed expo package version
+- How to fix some dependencies are incompatible with the installed expo package version?
 
 ```bash
 # install the correct versions of these packages
@@ -194,7 +198,7 @@ $ expo doctor --fix-dependencies
 $ expo install [package-name ...]
 ```
 
-- Run `yarn build:android` occurs error
+- How to fix running `yarn build:android` occurs error?
 
 make sure you have Loged in to `EAS`, if you don't, run the command below as you see fit:
 
