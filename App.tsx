@@ -7,7 +7,7 @@ import './app/temporarySolutions/ignoreWarnings'
 import AppScreen from './app/screens/AppScreen'
 // import Exercise01 from './app/demos/Exercise01'
 // import RemoteNotifications from './app/demos/RemoteNotifications'
-import LocalNotifications from './app/demos/LocalNotifications'
+// import LocalNotifications from './app/demos/LocalNotifications'
 
 logger.start()
 

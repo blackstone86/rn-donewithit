@@ -32,7 +32,9 @@ function LocalNotificationsScreen(props: any) {
     try {
       Notifications.scheduleNotificationAsync({
         content,
-        trigger: null
+        trigger: {
+          seconds: 1 // delay 1s to show notification
+        }
       })
     } catch (err) {
       console.log(err)
