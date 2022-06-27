@@ -6,7 +6,8 @@ import logger from './app/utils/logger'
 import './app/temporarySolutions/ignoreWarnings'
 import AppScreen from './app/screens/AppScreen'
 // import Exercise01 from './app/demos/Exercise01'
-// import Notifications from './app/demos/Notifications'
+// import RemoteNotifications from './app/demos/RemoteNotifications'
+import LocalNotifications from './app/demos/LocalNotifications'
 
 logger.start()
 
@@ -26,6 +27,7 @@ export default function App() {
     <AuthContext.Provider value={value}>
       <AppScreen />
     </AuthContext.Provider>
-    // <Notifications />
+    // <LocalNotifications />
+    // <RemoteNotifications />
   )
 }
