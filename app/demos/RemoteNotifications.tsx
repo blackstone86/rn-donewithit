@@ -25,7 +25,7 @@ const getPushToken = async () => {
   }
 }
 
-function NotificationsScreen(props: any) {
+function RemoteNotifications(props: any) {
   useEffect(() => {
     getPushToken()
   }, [])
@@ -39,4 +39,4 @@ function NotificationsScreen(props: any) {
   )
 }
 
-export default NotificationsScreen
+export default RemoteNotifications
