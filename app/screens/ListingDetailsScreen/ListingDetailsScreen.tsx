@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react'
-import { Image, ScrollView, View } from 'react-native'
+import {
+  Image,
+  Keyboard,
+  KeyboardAvoidingView,
+  ScrollView,
+  View
+} from 'react-native'
 import AppText from '../../components/AppText'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
 import AppImage from '../../components/AppImage'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import useApi from '../../hooks/useApi'
-import { listingApi, messagesApi } from '../../api'
 import { launchLocalNotification } from '../../hooks/useNotification'
-import { MOSH } from '../../config/images'
+import { listingApi, messagesApi } from '../../api'
 import Yup from '../../utils/yup'
+import { MOSH } from '../../config/images'
 import styles from './styles'
 
 const defaultFields: Field[] = [
@@ -71,7 +77,7 @@ export default function ListingDetailsScreen({
     const data = { listingId: id, ...formData }
     const res = await sendMessageApi.request(data)
     if (!res.ok) return false
-
+    Keyboard.dismiss()
     launchLocalNotification({ title: 'message sent successfully!' })
   }
 
@@ -97,37 +103,39 @@ export default function ListingDetailsScreen({
         />
       )}
       {!getListingApi.loading && !getListingApi.error && (
-        <ScrollView>
-          <View style={styles.container}>
-            <AppImage
-              style={styles.image}
-              imageUrl={imageUrl}
-              thumbnailUrl={thumbnailUrl}
-            />
-            <View style={styles.infoBox}>
-              <AppText style={[styles.text, styles.title]}>{title}</AppText>
-              {subTitle && (
-                <AppText style={[styles.text, styles.subTitle]}>
-                  {subTitle}
-                </AppText>
-              )}
-            </View>
-            <View style={styles.sellerBox}>
-              <Image style={styles.avatar} source={avatarImage} />
-              <View>
-                <AppText style={styles.sellerText}>{name}</AppText>
-                <AppText
-                  style={[styles.sellerText, styles.total]}
-                >{`${listings} Listings`}</AppText>
+        <ScrollView disableScrollViewPanResponder>
+          <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={0}>
+            <View style={styles.container}>
+              <AppImage
+                style={styles.image}
+                imageUrl={imageUrl}
+                thumbnailUrl={thumbnailUrl}
+              />
+              <View style={styles.infoBox}>
+                <AppText style={[styles.text, styles.title]}>{title}</AppText>
+                {subTitle && (
+                  <AppText style={[styles.text, styles.subTitle]}>
+                    {subTitle}
+                  </AppText>
+                )}
               </View>
+              <View style={styles.sellerBox}>
+                <Image style={styles.avatar} source={avatarImage} />
+                <View>
+                  <AppText style={styles.sellerText}>{name}</AppText>
+                  <AppText
+                    style={[styles.sellerText, styles.total]}
+                  >{`${listings} Listings`}</AppText>
+                </View>
+              </View>
+              <Form
+                style={styles.form}
+                fields={defaultFields}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              />
             </View>
-            <Form
-              style={styles.form}
-              fields={defaultFields}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            />
-          </View>
+          </KeyboardAvoidingView>
         </ScrollView>
       )}
     </>
