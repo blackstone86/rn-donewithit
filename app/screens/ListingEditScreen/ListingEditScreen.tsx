@@ -164,7 +164,7 @@ export default function ListingEditScreen({ navigation }: any) {
 
     if (!addListingResponse.ok) {
       resetModal()
-      return
+      return false // avoid resetForm when occurs error
     }
 
     setLoaded(true)
