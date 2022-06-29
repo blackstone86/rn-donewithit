@@ -1,25 +1,49 @@
-import { Image, ScrollView, View } from 'react-native'
 import React, { useEffect } from 'react'
+import { Image, ScrollView, View } from 'react-native'
 import AppText from '../../components/AppText'
-import styles from './styles'
-import { MOSH } from '../../config/images'
-import useApi from '../../hooks/useApi'
-import { listingApi } from '../../api'
 import AppActivityIndicator from '../../components/AppActivityIndicator'
 import AppRetryView from '../../components/AppRetryView'
 import AppImage from '../../components/AppImage'
+import { AppForm as Form, Field, TypeKind } from '../../components/forms'
+import useApi from '../../hooks/useApi'
+import { listingApi, messagesApi } from '../../api'
+import { MOSH } from '../../config/images'
+import Yup from '../../utils/yup'
+import styles from './styles'
+
+const defaultFields: Field[] = [
+  {
+    name: 'message',
+    type: TypeKind.TEXT_INPUT,
+    defaultValue: '',
+    fieldProps: {
+      icon: false,
+      placeholder: 'Message',
+      keyboardType: 'default',
+      textContentType: 'none',
+      multiline: true,
+      numberOfLines: 3,
+      maxLength: 255
+    }
+  },
+  {
+    type: TypeKind.SUBMIT,
+    fieldProps: {
+      title: 'contact seller'
+    }
+  }
+]
+
+const validationSchema = Yup.object().shape({
+  message: Yup.string().required().label('Description')
+})
 
 export default function ListingDetailsScreen({
   route: {
     params: { id }
   }
 }: any) {
-  const {
-    data: listing,
-    error,
-    loading,
-    request: setData
-  } = useApi(listingApi.getListing, (data: any) => {
+  const getListingApi = useApi(listingApi.getListing, (data: any) => {
     // userId: 2,
     // location: {
     //   latitude: 37.78825,
@@ -36,9 +60,21 @@ export default function ListingDetailsScreen({
       listings: 5
     }
   })
+  const sendMessageApi = useApi(messagesApi.sendMessage)
+
   useEffect(() => {
-    setData(id)
+    getListingApi.request(id)
   }, [])
+
+  const handleSubmit = async (formData: any) => {
+    const data = { listingId: id, ...formData }
+    const res = await sendMessageApi.request(data)
+    if (!res.ok) return false
+
+    console.log(res.ok)
+    // return false
+  }
+
   const {
     title,
     subTitle,
@@ -47,18 +83,20 @@ export default function ListingDetailsScreen({
     avatarImage,
     name,
     listings
-  } = listing || {}
+  } = getListingApi?.data || {}
+
+  const loading = getListingApi.loading || sendMessageApi.loading
 
   return (
     <>
       {loading && <AppActivityIndicator visible loop />}
-      {error && (
+      {getListingApi.error && (
         <AppRetryView
           title="Couldn't retrieve the listing"
-          handleRetry={setData}
+          handleRetry={getListingApi.request}
         />
       )}
-      {!loading && !error && (
+      {!getListingApi.loading && !getListingApi.error && (
         <ScrollView>
           <View style={styles.container}>
             <AppImage
@@ -83,6 +121,12 @@ export default function ListingDetailsScreen({
                 >{`${listings} Listings`}</AppText>
               </View>
             </View>
+            <Form
+              style={styles.form}
+              fields={defaultFields}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            />
           </View>
         </ScrollView>
       )}

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingBottom: CONSTS.CONTAINER_PADDING_BOTTOM,
-    backgroundColor: COLORS.BACKGROUND_COLOR
+    backgroundColor: COLORS.WHITE
   },
   image: {
     width: '100%',
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   sellerBox: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginTop: 36,
+    marginTop: 15,
     paddingHorizontal: CONSTS.PADDING_HORIZONTAL
   },
   avatar: {
@@ -45,6 +45,10 @@ const styles = StyleSheet.create({
   total: {
     color: COLORS.GRAY,
     lineHeight: CONSTS.TOTAL_LINE_HEIGHT
+  },
+  form: {
+    paddingHorizontal: CONSTS.PADDING_HORIZONTAL,
+    marginTop: CONSTS.PADDING_HORIZONTAL
   }
 })
 
