@@ -7,6 +7,7 @@ import AppImage from '../../components/AppImage'
 import { AppForm as Form, Field, TypeKind } from '../../components/forms'
 import useApi from '../../hooks/useApi'
 import { listingApi, messagesApi } from '../../api'
+import { launchLocalNotification } from '../../hooks/useNotification'
 import { MOSH } from '../../config/images'
 import Yup from '../../utils/yup'
 import styles from './styles'
@@ -71,8 +72,7 @@ export default function ListingDetailsScreen({
     const res = await sendMessageApi.request(data)
     if (!res.ok) return false
 
-    console.log(res.ok)
-    // return false
+    launchLocalNotification({ title: 'message sent successfully!' })
   }
 
   const {

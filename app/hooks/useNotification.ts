@@ -47,4 +47,22 @@ const useNotification = (notificationReceivedListener?: any) => {
   }, [])
 }
 
+type Content = {
+  title: string
+  body?: string
+}
+export const launchLocalNotification = (content: Content) => {
+  try {
+    Notifications.scheduleNotificationAsync({
+      content,
+      trigger: null
+      // trigger: {
+      //   seconds: 1 // delay 1s to show notification
+      // }
+    })
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export default useNotification
