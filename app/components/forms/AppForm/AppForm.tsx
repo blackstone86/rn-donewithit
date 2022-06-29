@@ -29,8 +29,8 @@ function AppForm({ fields, validationSchema, onSubmit, style }: AppFormProps) {
         validationSchema={validationSchema}
         onSubmit={(values, actions) => {
           onSubmit(values)
-            ?.then(() => {
-              actions.resetForm()
+            ?.then((ok = true) => {
+              if (ok) actions.resetForm()
             })
             ?.catch((error: any) => {
               if (error) logger.log(error)
