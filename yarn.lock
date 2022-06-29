@@ -5768,7 +5768,7 @@ __metadata:
     expo-image-picker: ~13.1.1
     expo-location: ~14.2.2
     expo-media-library: ~14.1.0
-    expo-notifications: ~0.15.3
+    expo-notifications: ~0.15.4
     expo-secure-store: ~11.2.0
     expo-splash-screen: ~0.15.1
     expo-status-bar: ~1.3.0
@@ -6693,9 +6693,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-notifications@npm:~0.15.3":
-  version: 0.15.3
-  resolution: "expo-notifications@npm:0.15.3"
+"expo-notifications@npm:~0.15.4":
+  version: 0.15.4
+  resolution: "expo-notifications@npm:0.15.4"
   dependencies:
     "@expo/config-plugins": ^4.0.14
     "@expo/image-utils": ^0.3.18
@@ -6709,7 +6709,7 @@ __metadata:
     uuid: ^3.4.0
   peerDependencies:
     expo: "*"
-  checksum: c66ed76b8d13730407ea6413ad7ac78f7cf7f8d98138ea4a3f89fc27efdbe00bdcb6285e153b76185d7c5f6d2027385b75ffdeb3e41a2724421e5e6c44ff7a05
+  checksum: 8c678afc1d63c5ef18659b56db2cfaca67e7b777f51b7de8f073ea5b34fe58820ea27b4816907573dcb971bbc05b6e3b96e8293f4ce216fa5fb41349626fe449
   languageName: node
   linkType: hard
 
